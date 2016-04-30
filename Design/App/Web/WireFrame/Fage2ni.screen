@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" x="40" y="32" width="823" height="713" text="Browser&#xA;http://Etbo5ly" measuredWidth="823" measuredHeight="713">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="2" x="50" y="84" width="783" measuredWidth="783" measuredHeight="628" src="assets/fag2nipng.png"/>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

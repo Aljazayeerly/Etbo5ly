@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="56" x="10" y="34" width="817" height="537" text="Browser&#xA;http://Etbo5ly" measuredWidth="817" measuredHeight="537">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:List" id="57" x="28" y="215" text="cooks&#xA;[x] Salma's Menu&#xA;[x] Menna's Menu&#xA;[x] Menna's Menu&#xA;" measuredWidth="122" measuredHeight="96" border="false" alpha="0">
+    <font size="13px" bold="true"/>
+    <items x="0" y="2" width="122" height="23" text="cooks"/>
+    <items x="0" y="25" width="122" height="23" text="[x] Salma's Menu"/>
+    <items x="0" y="48" width="122" height="23" text="[x] Menna's Menu"/>
+    <items x="0" y="71" width="122" height="23" text="[x] Menna's Menu"/>
+  </widgets>
+  <widgets xsi:type="model:List" id="58" x="31" y="338" text="Categories&#xA;[x] Chicken&#xA;[ ] Pasta&#xA;[ ] Sandwiches&#xA;" measuredWidth="102" measuredHeight="96" border="false" alpha="0">
+    <font size="13px" bold="true"/>
+    <items x="0" y="2" width="102" height="23" text="Categories"/>
+    <items x="0" y="25" width="102" height="23" text="[x] Chicken"/>
+    <items x="0" y="48" width="102" height="23" text="[ ] Pasta"/>
+    <items x="0" y="71" width="102" height="23" text="[ ] Sandwiches"/>
+  </widgets>
+  <widgets xsi:type="model:VLine" id="59" x="167" y="178" height="383" measuredWidth="6" measuredHeight="383"/>
+  <widgets xsi:type="model:Panel" id="60" x="178" y="202" width="527" measuredWidth="527" measuredHeight="100"/>
+  <widgets xsi:type="model:Image" id="61" x="190" y="220" width="56" height="64" measuredWidth="56" measuredHeight="64"/>
+  <widgets xsi:type="model:Label" id="62" x="274" y="210" text="chicken panne" measuredWidth="86" measuredHeight="23" foreground="#ff0000">
+    <font bold="true" underline="true"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="63" x="274" y="240" text="chicken panne serverd with rice " measuredWidth="175" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="64" x="274" y="226" text="salma's kitchen" measuredWidth="87" measuredHeight="23" foreground="#666666">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="65" x="274" y="266" text="35L.E" measuredWidth="35" measuredHeight="23" foreground="#ff0000">
+    <font bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Icon" id="66" x="663" y="262" measuredWidth="32" measuredHeight="32" icon="circled-plus (large)"/>
+  <widgets xsi:type="model:LinkBar" id="70" x="689" y="118" text="Login,Register" measuredWidth="97" measuredHeight="23">
+    <font/>
+    <items link="Login.screen" x="0" y="0" width="33" height="23" text="Login"/>
+    <items link="Register.screen" x="51" y="0" width="45" height="23" text="Register"/>
+  </widgets>
+  <widgets xsi:type="model:SearchField" id="71" x="290" y="118" width="177" text="Search" measuredWidth="177" measuredHeight="24">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:HSplitter" id="72" x="178" y="311" width="527" measuredWidth="527" measuredHeight="11"/>
+  <widgets xsi:type="model:Combo" id="73" x="28" y="464" width="136" text="choose a location" measuredWidth="136" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Icon" id="74" x="650" y="109" measuredWidth="32" measuredHeight="32" icon="shopping-cart (large)"/>
+  <widgets xsi:type="model:Combo" id="75" x="208" y="119" text="English" measuredWidth="65" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="76" x="34" y="99" height="62" measuredWidth="100" measuredHeight="62"/>
+  <widgets xsi:type="model:Panel" id="80" x="178" y="336" width="527" measuredWidth="527" measuredHeight="100"/>
+  <widgets xsi:type="model:Image" id="81" x="188" y="354" width="56" height="64" measuredWidth="56" measuredHeight="64"/>
+  <widgets xsi:type="model:Label" id="82" x="272" y="344" text="Grilled Chicken" measuredWidth="90" measuredHeight="23" foreground="#ff0000">
+    <font bold="true" underline="true"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="83" x="272" y="374" text="Grilled Chicken Served with pasta" measuredWidth="181" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="84" x="272" y="360" text="salma's kitchen" measuredWidth="87" measuredHeight="23" foreground="#666666">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="85" x="272" y="400" text="40L.E" measuredWidth="35" measuredHeight="23" foreground="#ff0000">
+    <font bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Icon" id="86" x="663" y="396" measuredWidth="32" measuredHeight="32" icon="circled-plus (large)"/>
+  <widgets xsi:type="model:Icon" id="87" x="675" y="348" width="10" measuredWidth="10" measuredHeight="16" icon="favorites (small)"/>
+  <widgets xsi:type="model:Icon" id="88" x="663" y="348" width="10" measuredWidth="10" measuredHeight="16" icon="favorites (small)"/>
+  <widgets xsi:type="model:Icon" id="110" x="642" y="214" measuredWidth="16" measuredHeight="16" icon="favorites (small)"/>
+  <widgets xsi:type="model:Icon" id="111" x="678" y="214" measuredWidth="16" measuredHeight="16" icon="favorites (small)"/>
+  <widgets xsi:type="model:Icon" id="112" x="663" y="214" measuredWidth="16" measuredHeight="16" icon="favorites (small)"/>
+  <widgets xsi:type="model:Note" id="113" x="178" y="450" width="113" height="151" text="1- more kitchen to kitchens and will view pop up contains all kitchens&#xD;&#xA;&#xD;&#xA;enable search by name" measuredWidth="113" measuredHeight="151">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Note" id="114" x="488" y="96" width="74" height="70" text="Note" measuredWidth="74" measuredHeight="70">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextArea" id="116" x="31" y="507" text="A *paragraph* of text&#xA;A _second_ row of text" measuredWidth="115" measuredHeight="38">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

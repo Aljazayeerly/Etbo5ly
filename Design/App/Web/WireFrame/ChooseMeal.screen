@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" x="24" y="40" width="849" height="529" text="Browser&#xA;http://Etbo5ly&#xA;" measuredWidth="849" measuredHeight="529">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="2" x="719" y="112" text="Login,Register" measuredWidth="97" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="33" height="23" text="Login"/>
+    <items x="51" y="0" width="45" height="23" text="Register"/>
+  </widgets>
+  <widgets xsi:type="model:SearchField" id="3" x="320" y="112" width="177" text="Search" measuredWidth="177" measuredHeight="24">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Combo" id="4" x="526" y="112" width="136" text="choose a location" measuredWidth="136" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Icon" id="5" x="680" y="103" measuredWidth="32" measuredHeight="32" icon="shopping-cart (large)"/>
+  <widgets xsi:type="model:Combo" id="6" x="224" y="112" text="English" measuredWidth="65" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="7" x="64" y="95" height="62" measuredWidth="100" measuredHeight="62"/>
+  <widgets xsi:type="model:Button" id="12" x="240" y="288" width="153" height="49" text="Fage2ni" measuredWidth="153" measuredHeight="49" link="Fage2ni.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="14" x="456" y="288" width="153" height="49" text="View All Kitchens" measuredWidth="153" measuredHeight="49" link="AllKitchens.screen">
+    <font/>
+  </widgets>
+  <hRuler>
+    <guides position="76"/>
+  </hRuler>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

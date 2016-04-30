@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" y="24" width="817" height="537" text="Browser&#xA;http://Etbo5ly" measuredWidth="817" measuredHeight="537">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:List" id="14" x="18" y="205" text="Kitchens&#xA;[x] Salma's Kitchen&#xA;[ ] Menna's Kitchen&#xA;[ ] Menna's Kitchen&#xA;" measuredWidth="133" measuredHeight="96" border="false" alpha="0">
+    <font size="13px" bold="true"/>
+    <items x="0" y="2" width="133" height="23" text="Kitchens"/>
+    <items x="0" y="25" width="133" height="23" text="[x] Salma's Kitchen"/>
+    <items x="0" y="48" width="133" height="23" text="[ ] Menna's Kitchen"/>
+    <items x="0" y="71" width="133" height="23" text="[ ] Menna's Kitchen"/>
+  </widgets>
+  <widgets xsi:type="model:List" id="15" x="31" y="328" text="Categories&#xA;[x] Chicken&#xA;[ ] Pasta&#xA;[ ] Sandwiches&#xA;" measuredWidth="102" measuredHeight="96" border="false" alpha="0">
+    <font size="13px" bold="true"/>
+    <items x="0" y="2" width="102" height="23" text="Categories"/>
+    <items x="0" y="25" width="102" height="23" text="[x] Chicken"/>
+    <items x="0" y="48" width="102" height="23" text="[ ] Pasta"/>
+    <items x="0" y="71" width="102" height="23" text="[ ] Sandwiches"/>
+  </widgets>
+  <widgets xsi:type="model:VLine" id="16" x="157" y="168" height="383" measuredWidth="6" measuredHeight="383"/>
+  <widgets xsi:type="model:Panel" id="18" x="168" y="192" width="319" measuredWidth="319" measuredHeight="100"/>
+  <widgets xsi:type="model:Image" id="19" x="180" y="210" width="56" height="64" measuredWidth="56" measuredHeight="64"/>
+  <widgets xsi:type="model:Label" id="20" x="264" y="200" text="chicken panne" measuredWidth="86" measuredHeight="23" foreground="#ff0000">
+    <font bold="true" underline="true"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="21" x="264" y="230" text="chicken panne serverd with rice " measuredWidth="175" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="22" x="264" y="216" text="salma's kitchen" measuredWidth="87" measuredHeight="23" foreground="#666666">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="23" x="264" y="256" text="35L.E" measuredWidth="35" measuredHeight="23" foreground="#ff0000">
+    <font bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Icon" id="25" x="441" y="251" measuredWidth="32" measuredHeight="32" icon="circled-plus (large)"/>
+  <widgets xsi:type="model:VLine" id="28" x="496" y="181" height="361" measuredWidth="6" measuredHeight="361"/>
+  <widgets xsi:type="model:Panel" id="29" x="495" y="181" width="316" height="361" measuredWidth="316" measuredHeight="361"/>
+  <widgets xsi:type="model:Label" id="30" x="606" y="194" text="Your Cart" measuredWidth="95" measuredHeight="36" foreground="#ff0000">
+    <font size="20px" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="32" x="679" y="108" text="Login,Register" measuredWidth="97" measuredHeight="23">
+    <font/>
+    <items link="Login.screen" x="0" y="0" width="33" height="23" text="Login"/>
+    <items x="51" y="0" width="45" height="23" text="Register"/>
+  </widgets>
+  <widgets xsi:type="model:SearchField" id="34" x="280" y="108" width="177" text="Search" measuredWidth="177" measuredHeight="24">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:HSplitter" id="35" x="168" y="301" width="319" measuredWidth="319" measuredHeight="11"/>
+  <widgets xsi:type="model:Combo" id="36" x="486" y="108" width="136" text="choose a location" measuredWidth="136" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Icon" id="37" x="640" y="99" measuredWidth="32" measuredHeight="32" icon="shopping-cart (large)"/>
+  <widgets xsi:type="model:Combo" id="40" x="184" y="108" text="English" measuredWidth="65" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="41" x="24" y="89" height="62" measuredWidth="100" measuredHeight="62"/>
+  <widgets xsi:type="model:Icon" id="44" x="392" y="204" measuredWidth="16" measuredHeight="16" icon="favorites (small)"/>
+  <widgets xsi:type="model:Icon" id="45" x="422" y="204" measuredWidth="16" measuredHeight="16" icon="favorites (small)"/>
+  <widgets xsi:type="model:Icon" id="46" x="407" y="204" measuredWidth="16" measuredHeight="16" icon="favorites (small)"/>
+  <widgets xsi:type="model:Panel" id="47" x="168" y="326" width="319" measuredWidth="319" measuredHeight="100"/>
+  <widgets xsi:type="model:Image" id="48" x="178" y="344" width="56" height="64" measuredWidth="56" measuredHeight="64"/>
+  <widgets xsi:type="model:Label" id="49" x="262" y="334" text="Grilled Chicken" measuredWidth="90" measuredHeight="23" foreground="#ff0000">
+    <font bold="true" underline="true"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="50" x="262" y="364" text="Grilled Chicken Served with pasta" measuredWidth="181" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="51" x="262" y="350" text="salma's kitchen" measuredWidth="87" measuredHeight="23" foreground="#666666">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="52" x="262" y="390" text="40L.E" measuredWidth="35" measuredHeight="23" foreground="#ff0000">
+    <font bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Icon" id="53" x="435" y="384" measuredWidth="32" measuredHeight="32" icon="circled-plus (large)"/>
+  <widgets xsi:type="model:Icon" id="54" x="420" y="338" measuredWidth="16" measuredHeight="16" icon="favorites (small)"/>
+  <widgets xsi:type="model:Icon" id="55" x="405" y="338" measuredWidth="16" measuredHeight="16" icon="favorites (small)"/>
+  <widgets xsi:type="model:Label" id="56" x="608" y="218" width="113" text="25 May 2016" measuredWidth="113" measuredHeight="25" foreground="#666666">
+    <font size="13px"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="57" x="512" y="228" text="Salma's Kitchen" measuredWidth="89" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Table" id="59" x="511" y="246" width="295" text="Quantity,Item Description,Price&#xA;[-] 1 ,chicken panne serverd with rice ,35L.E&#xA;[-] 2 ,Griiled Chicken with pasta ,40L.E&#xA;" measuredWidth="295" measuredHeight="69" alternative="#eeeeee">
+    <font bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Icon" id="60" x="542" y="273" measuredWidth="16" measuredHeight="16" icon="squared-plus (small)"/>
+  <widgets xsi:type="model:Icon" id="61" x="543" y="292" measuredWidth="16" measuredHeight="16" icon="squared-plus (small)"/>
+  <widgets xsi:type="model:Label" id="62" x="511" y="323" text="Menna's Kitchen" measuredWidth="94" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:HLine" id="63" x="511" y="320" width="296" measuredWidth="296" measuredHeight="6"/>
+  <widgets xsi:type="model:Table" id="64" x="511" y="345" width="295" text="Quantity,Item Description,Price&#xA;[-] 1 ,chicken panne serverd with rice ,35L.E&#xA;[-] 2 ,Griiled Chicken with pasta ,40L.E&#xA;" measuredWidth="295" measuredHeight="69" alternative="#eeeeee">
+    <font bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Icon" id="65" x="546" y="392" measuredWidth="16" measuredHeight="16" icon="squared-plus (small)"/>
+  <widgets xsi:type="model:Icon" id="66" x="546" y="370" measuredWidth="16" measuredHeight="16" icon="squared-plus (small)"/>
+  <widgets xsi:type="model:HLine" id="67" x="511" y="443" width="296" measuredWidth="296" measuredHeight="6"/>
+  <widgets xsi:type="model:Label" id="68" x="508" y="449" text="Sub-total" measuredWidth="55" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Icon" id="69" x="592" y="415" width="22" height="25" measuredWidth="22" measuredHeight="25" icon="edit (small)"/>
+  <widgets xsi:type="model:Label" id="70" x="621" y="415" text="Add comments" measuredWidth="99" measuredHeight="25" foreground="#ff0000">
+    <font size="13px" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="71" x="508" y="467" text="Delivery Charge" measuredWidth="89" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="72" x="744" y="449" width="62" text="150L.E" measuredWidth="62" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="73" x="746" y="467" text="15 L.E" measuredWidth="36" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="74" x="511" y="489" text="Total" measuredWidth="33" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="75" x="744" y="489" text="165L.E" measuredWidth="39" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="76" x="576" y="511" text="Order NOW" measuredWidth="82" measuredHeight="25" link="OrderProcess.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="77" x="688" y="511" text="Empty Cart" measuredWidth="79" measuredHeight="25">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

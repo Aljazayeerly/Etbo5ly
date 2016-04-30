@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" y="48" width="625" height="513" text="Browser&#xA;http://Etbo5ly" measuredWidth="625" measuredHeight="513">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="6" x="24" y="184" width="305" text="Your Neighbourhood Kitchens:" measuredWidth="305" measuredHeight="36">
+    <font size="20px" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="7" x="416" y="210" text="Choose a kitchen" measuredWidth="137" measuredHeight="31">
+    <font size="17px"/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="8" x="32" y="240" width="273" height="283" measuredWidth="273" measuredHeight="283" src="assets/map.png"/>
+  <widgets xsi:type="model:Image" id="9" x="136" y="264" width="32" height="44" measuredWidth="32" measuredHeight="44" src="assets/download.png"/>
+  <widgets xsi:type="model:Image" id="10" x="48" y="296" width="32" height="44" measuredWidth="32" measuredHeight="44" src="assets/download.png"/>
+  <widgets xsi:type="model:Image" id="11" x="56" y="448" width="32" height="44" measuredWidth="32" measuredHeight="44" src="assets/download.png"/>
+  <widgets xsi:type="model:Image" id="12" x="240" y="384" width="32" height="44" measuredWidth="32" measuredHeight="44" src="assets/download.png"/>
+  <widgets xsi:type="model:List" id="13" x="384" y="248" width="223" height="212" text="Salma's Kitchen&#xA;Menna's Kitchen&#xA;Nada's Kitchen&#xA;sana's Kitchen&#xA;Noha's Kitchen" measuredWidth="223" measuredHeight="212">
+    <font/>
+    <items link="kitchen.screen" x="0" y="2" width="223" height="21" text="Salma's Kitchen"/>
+    <items x="0" y="23" width="223" height="21" text="Menna's Kitchen"/>
+    <items x="0" y="44" width="223" height="21" text="Nada's Kitchen"/>
+    <items x="0" y="65" width="223" height="21" text="sana's Kitchen"/>
+    <items x="0" y="86" width="223" height="21" text="Noha's Kitchen"/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="14" x="248" y="264" width="32" height="44" measuredWidth="32" measuredHeight="44" src="assets/download.png"/>
+  <widgets xsi:type="model:LinkBar" id="15" x="393" y="120" text="English,Login,Register,Join Us" measuredWidth="214" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="41" height="23" text="English"/>
+    <items x="59" y="0" width="33" height="23" text="Login"/>
+    <items x="110" y="0" width="45" height="23" text="Register"/>
+    <items x="173" y="0" width="40" height="23" text="Join Us"/>
+  </widgets>
+  <widgets xsi:type="model:Note" id="16" x="648" y="82" width="153" height="183" text="this page need not the user to be logged in&#xD;&#xA;-----------&#xD;&#xA;display cooks based on location and when user click on cook location the user will be redirected to the cook profile" measuredWidth="153" measuredHeight="183">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

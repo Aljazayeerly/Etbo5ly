@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" x="24" y="8" width="849" height="529" text="Browser&#xA;http://Etbo5ly&#xA;" measuredWidth="849" measuredHeight="529">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Group" id="2" x="48" y="96" width="753" height="409" text="Create An Account" measuredWidth="753" measuredHeight="409">
+    <font size="19px" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="3" x="89" y="151" text="Name" measuredWidth="38" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="4" x="208" y="151" width="377" text="Text field" measuredWidth="377" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="5" x="89" y="192" text="E-mail" measuredWidth="40" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="6" x="208" y="192" width="377" text="Text field" measuredWidth="377" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="7" x="89" y="232" text="Password" measuredWidth="56" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="8" x="208" y="232" width="377" text="Text field" measuredWidth="377" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="9" x="89" y="272" text="Retype password" measuredWidth="95" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="10" x="208" y="272" width="377" text="Text field" measuredWidth="377" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="11" x="312" y="368" width="164" height="52" text="Create Account" measuredWidth="164" measuredHeight="52">
+    <font size="17px" bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="12" x="89" y="320" text="Phone Number" measuredWidth="87" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="13" x="208" y="320" width="377" text="Text field" measuredWidth="377" measuredHeight="23">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
