@@ -16,19 +16,15 @@
   <widgets xsi:type="model:Label" id="6" x="47" y="239" text="Salma's Kitchen" measuredWidth="89" measuredHeight="23">
     <font/>
   </widgets>
-  <widgets xsi:type="model:Table" id="7" x="46" y="263" width="295" text="Quantity,Item Description,Price&#xA;[-] 1 ,chicken panne serverd with rice ,35L.E&#xA;[-] 2 ,Griiled Chicken with pasta ,40L.E&#xA;" measuredWidth="295" measuredHeight="69" alternative="#eeeeee">
+  <widgets xsi:type="model:Table" id="7" x="46" y="263" width="295" text="Quantity,Item Description,Price&#xA; 1 ,chicken panne serverd with rice ,35L.E&#xA; 2 ,Griiled Chicken with pasta ,40L.E&#xA;" measuredWidth="295" measuredHeight="67" alternative="#eeeeee">
     <font bold="true"/>
   </widgets>
-  <widgets xsi:type="model:Icon" id="8" x="83" y="286" measuredWidth="16" measuredHeight="16" icon="squared-plus (small)"/>
-  <widgets xsi:type="model:Icon" id="9" x="83" y="305" measuredWidth="16" measuredHeight="16" icon="squared-plus (small)"/>
   <widgets xsi:type="model:Label" id="10" x="53" y="335" text="Menna's Kitchen" measuredWidth="94" measuredHeight="23">
     <font/>
   </widgets>
-  <widgets xsi:type="model:Table" id="11" x="46" y="370" width="295" text="Quantity,Item Description,Price&#xA;[-] 1 ,chicken panne serverd with rice ,35L.E&#xA;[-] 2 ,Griiled Chicken with pasta ,40L.E&#xA;" measuredWidth="295" measuredHeight="69" alternative="#eeeeee">
+  <widgets xsi:type="model:Table" id="11" x="46" y="370" width="295" text="Quantity,Item Description,Price&#xA;1 ,chicken panne serverd with rice ,35L.E&#xA;2 ,Griiled Chicken with pasta ,40L.E&#xA;" measuredWidth="295" measuredHeight="67" alternative="#eeeeee">
     <font bold="true"/>
   </widgets>
-  <widgets xsi:type="model:Icon" id="12" x="83" y="415" measuredWidth="16" measuredHeight="16" icon="squared-plus (small)"/>
-  <widgets xsi:type="model:Icon" id="13" x="83" y="397" measuredWidth="16" measuredHeight="16" icon="squared-plus (small)"/>
   <widgets xsi:type="model:HLine" id="14" x="46" y="445" width="296" measuredWidth="296" measuredHeight="6"/>
   <widgets xsi:type="model:Label" id="15" x="49" y="452" text="Sub-total" measuredWidth="55" measuredHeight="23">
     <font/>
