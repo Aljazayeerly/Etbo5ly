@@ -10,6 +10,11 @@ package com.iti.jet.gp.etbo5ly.web;
  *
  * @author AlJazayeerly
  */
+@Controller
 public class TestClass {
-    
+	
+	 @RequestMapping(value="/home.htm")
+	    public String index() {
+	        return "home";
+	    }
 }
