@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 1, 2016 3:52:52 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.iti.jet.gp.etbo5ly.model.pojos.DocumentType" table="document_type" catalog="mydb">
+        <id name="documentTypeId" type="int">
+            <column name="document_type_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="type" type="string">
+            <column name="type" length="45" not-null="true" />
+        </property>
+        <set name="documents" table="document" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="document_type_id" not-null="true" />
+            </key>
+            <one-to-many class="com.iti.jet.gp.etbo5ly.model.pojos.Document" />
+        </set>
+    </class>
+</hibernate-mapping>
