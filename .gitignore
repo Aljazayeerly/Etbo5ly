@@ -28,3 +28,4 @@ hs_err_pid*
 *.jsdtscope
 *netbeans_automatic_build
 *pom.properties
+/Demos/SpringSecurityXMLDB/target/

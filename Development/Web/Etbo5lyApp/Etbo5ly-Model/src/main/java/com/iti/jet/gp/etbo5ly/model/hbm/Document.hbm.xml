@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 1, 2016 3:52:52 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.iti.jet.gp.etbo5ly.model.pojos.Document" table="document" catalog="mydb">
+        <id name="documentId" type="int">
+            <column name="document_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="documentType" class="pojos.DocumentType" fetch="select">
+            <column name="document_type_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cook" class="com.iti.jet.gp.etbo5ly.model.pojos.Cook" fetch="select">
+            <column name="cook_id" not-null="true" />
+        </many-to-one>
+        <property name="description" type="string">
+            <column name="description" length="150" />
+        </property>
+        <property name="verfied" type="java.lang.Byte">
+            <column name="verfied" />
+        </property>
+        <property name="document" type="binary">
+            <column name="document" />
+        </property>
+    </class>
+</hibernate-mapping>
