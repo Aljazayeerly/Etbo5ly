@@ -6,4 +6,7 @@
   <packaging>pom</packaging>
   <name>Etbo5ly</name>
   <description>Graduation Project</description>
+    <modules>
+        <module>Etbo5ly-Model</module>
+    </modules>
 </project>
