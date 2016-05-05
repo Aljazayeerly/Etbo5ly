@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 1, 2016 3:52:52 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.iti.jet.gp.etbo5ly.model.pojos.Tags" table="tags" catalog="mydb">
+        <id name="tagId" type="int">
+            <column name="tag_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="tagEn" type="string">
+            <column name="tag_en" length="45" />
+        </property>
+        <property name="tagAr" type="string">
+            <column name="tag_ar" length="45" />
+        </property>
+        <set name="menuItems" table="tags_has_menu_items" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="tags_tag_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.iti.jet.gp.etbo5ly.model.pojos.MenuItems">
+                <column name="menu_item_id" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
