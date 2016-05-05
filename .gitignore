@@ -1,1 +1,30 @@
-/Development/Web/Etbo5lyApp/Etbo5ly-Model/target/
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+.metadata/
+*.project
+*.classpath
+*.MF
+*.container
+*.component
+*.lst
+*/nb-configuration.xml
+*nb-configuration.xml
+*.prefs
+*.name
+*.settings/org.eclipse.wst.common.project.facet.core.xml
+*settings/org.eclipse.wst.common.project.facet.core.xml
+*org.eclipse.wst.common.project.facet.core.prefs.xml
+*org.eclipse.wst.common.project.facet.core.xml
+*.jsdtscope
+*netbeans_automatic_build
+*pom.properties
