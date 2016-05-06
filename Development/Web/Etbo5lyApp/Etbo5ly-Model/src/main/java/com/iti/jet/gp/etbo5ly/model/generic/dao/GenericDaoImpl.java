@@ -1,141 +1,94 @@
 package  com.iti.jet.gp.etbo5ly.model.generic.dao;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.transaction.Transactional;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
 @Component("genericDaoImpl")
-public class GenericDaoImpl<T> implements GenericDao<T> {
+public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
-	private Class<T> entityClass;
-	private T object;
+    private Class<T> entityClass;
 
-	@Autowired
-	TransactionTemplate transactionTemplate;
-	@Autowired
-	HibernateTemplate hibernateTemplate;
+    @Autowired
+    SessionFactory sessionFactory;
 
-	public GenericDaoImpl() {
+    public GenericDaoImpl() {
 
-	}
+    }
 
-	public Class<T> getEntityClass() {
-		return entityClass;
-	}
+    public Class<T> getEntityClass() {
+        return entityClass;
+    }
 
-	public void setEntityClass(final Class<T> entityClass) {
-		this.entityClass = entityClass;
-		System.out.println("Entity class in setter : " + this.entityClass);
+    public void setEntityClass(final Class<T> entityClass) {
+        this.entityClass = entityClass;
+        System.out.println("Entity class in setter : " + this.entityClass);
 
-	}
+    }
 
-	public TransactionTemplate getTransactionTemplate() {
-		return transactionTemplate;
-	}
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
 
-	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
-		this.transactionTemplate = transactionTemplate;
-	}
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
-	public HibernateTemplate getHibernateTemplate() {
-		return hibernateTemplate;
-	}
+    protected Session getSession() {
+        return getSessionFactory().getCurrentSession();
+    }
 
-	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
-		this.hibernateTemplate = hibernateTemplate;
-	}
+    @Transactional
+    public T create(T t) {
 
-	public T create(final T t) {
+        getSession().persist(t);
 
-		try {
-			transactionTemplate.execute(new TransactionCallback<Object>() {
-				@Override
-				public Object doInTransaction(TransactionStatus ts) {
-					System.out.println("henaaa");
-					hibernateTemplate.persist(t);
-					GenericDaoImpl.this.object = t;
-					return t;
-				}
-			});
+        return t;
 
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		return (T)GenericDaoImpl.this.object;
-	}
+    }
 
-	public void delete(final Serializable id) {
+    @Transactional
+    public void delete(final Serializable id) {
 
-		try {
-			transactionTemplate.execute(new TransactionCallback<Object>() {
-				@Override
-				public Object doInTransaction(TransactionStatus ts) {
+        T t = (T) getSession().get(entityClass, id);
 
-					T t = (T) hibernateTemplate.load(entityClass, id);
+        getSession().delete(t);
 
-					getHibernateTemplate().delete(t);
-					return null;
-				}
+    }
 
-			});
+    @Transactional
+    public T find(final Serializable id) {
 
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
+        System.out.println("get Entity class in find : " + this.getEntityClass());
 
-	}
+        T t = (T) getSession().get(entityClass, id);
 
-	public T find(final Serializable id) {
+        return t;
+    }
 
-		
-		System.out.println("get Entity class in find : " + this.getEntityClass());
+    @Transactional
+    public void update(final T t) {
 
-		try {
-			transactionTemplate.execute(new TransactionCallback<Object>() {
-				@Override
-				public Object doInTransaction(TransactionStatus ts) {
-					System.out.println("do in transaction");
-					System.out.println("Entity class : " + entityClass + " id: " + id);
+        getSession().saveOrUpdate(t);
 
-					T t = (T) hibernateTemplate.load(entityClass, id);
-					System.out.println("tt : " + t);
-					GenericDaoImpl.this.object = t;
-					return t;
-				}
+    }
 
-			});
+     @Transactional
+    public List<T> getAll() {
 
-		} catch (Exception ex) {
-			System.out.println("here error");
+       return  getSession().createCriteria(entityClass).list();
 
-			ex.printStackTrace();
-		}
-		System.out.println("here " + GenericDaoImpl.this.object);
-		return (T)GenericDaoImpl.this.object;
-	}
-
-	public T update(final T t) {
-
-		try {
-			transactionTemplate.execute(new TransactionCallback<Object>() {
-				@Override
-				public Object doInTransaction(TransactionStatus ts) {
-
-					getHibernateTemplate().saveOrUpdate(t);
-					return null;
-				}
-
-			});
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		return null;
-	}
+    }
 
 }

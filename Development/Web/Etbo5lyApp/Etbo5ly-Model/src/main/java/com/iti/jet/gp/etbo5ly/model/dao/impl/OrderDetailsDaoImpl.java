@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
-import com.iti.jet.gp.etbo5ly.model.pojos.OrderDetails;
+import com.iti.jet.gp.etbo5ly.model.pojo.OrderDetails;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.OrderDetailsDao;
 
 @Repository("orderDetailsDaoImpl")
