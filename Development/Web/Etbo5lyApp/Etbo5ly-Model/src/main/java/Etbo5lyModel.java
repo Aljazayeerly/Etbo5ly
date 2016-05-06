@@ -250,13 +250,13 @@ public class Etbo5lyModel {
         DocumentDao documentDao = (DocumentDao) factory
                 .getBean("documentDaoImpl");
         Document document = new Document();
-        document.setCook(getCook(factory, 23));
+        document.setCook(getCook(factory, 36));
         document.setDescription("kakkak akkakakka kakak");
         document.setDocumentType(getDocumentType(factory, 1));
         documentDao.create(document);
 
         Document document2 = new Document();
-        document2.setCook(getCook(factory, 23));
+        document2.setCook(getCook(factory, 36));
         document2.setDescription("kakkak akkakakka kakak");
         document2.setDocumentType(getDocumentType(factory, 2));
         documentDao.create(document2);
@@ -328,8 +328,8 @@ public class Etbo5lyModel {
 
         OrderDao orderDao = (OrderDao) factory.getBean("orderDaoImpl");
         Order order = new Order();
-        order.setUserByCookId(getCook(factory, 23));
-        order.setUserByCustomerId(getCustomer(factory, 2));
+        order.setUserByCookId(getCook(factory, 37));
+        order.setUserByCustomerId(getCustomer(factory, 39));
         order.setOrderTime(new Date(2016, 6, 7, 3, 40));
         order.setCookComment("customer msh kwais");
         order.setDuration(30);
@@ -373,7 +373,7 @@ public class Etbo5lyModel {
         OrderDetails oderDetails = new OrderDetails();
 
         Order order = getOrder(factory, id);
-        MenuItems menuItems = getMenuItems(factory, 5);
+        MenuItems menuItems = getMenuItems(factory, 6);
         oderDetails.setId(new OrderDetailsId(order.getOrderId(), menuItems.getItemId()));
         oderDetails.setOrder(order);
         oderDetails.setQuantity(2);
@@ -431,21 +431,21 @@ public class Etbo5lyModel {
         Etbo5lyModel etbo5lyModel = new Etbo5lyModel();
 //        Cook cook = etbo5lyModel.addCook(factory);
 //        etbo5lyModel.addDocument(factory);
-//        etbo5lyModel.addMenuItems(factory);
-//        MenuItems menuItems = etbo5lyModel.getMenuItems(factory, 5);
+////        etbo5lyModel.addMenuItems(factory);
+//        MenuItems menuItems = etbo5lyModel.getMenuItems(factory, 6);
 //        System.out.println(menuItems.getDescriptionEn());
 
 //        Customer customer = etbo5lyModel.addCustomer(factory);
-//        etbo5lyModel.deleteCustomer(factory,34);
-//        Cook cook = etbo5lyModel.getCook(factory,23);
-//        System.out.println("status : " + cook.getAddress());
-//        Customer customer = etbo5lyModel.getCustomer(factory,32);
-//        System.out.println("status : " + customer.getAddress());
-//    
+//        etbo5lyModel.deleteCustomer(factory,38);
+//        Cook cook2 = etbo5lyModel.getCook(factory,36);
+//        System.out.println("status : " + cook2.getAddress());
+//        Customer customer1 = etbo5lyModel.getCustomer(factory,32);
+//        System.out.println("status : " + customer1.getAddress());
+////    
 //        etbo5lyModel.addTags(factory);
 //        etbo5lyModel.addOrder(factory);
-            
-           etbo5lyModel.getAllCategories(factory);
+
+        etbo5lyModel.getAllCategories(factory);
 
     }
 
