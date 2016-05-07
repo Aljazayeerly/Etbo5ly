@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
-import com.iti.jet.gp.etbo5ly.model.pojos.DocumentType;
+import com.iti.jet.gp.etbo5ly.model.pojo.DocumentType;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.DocumentTypeDao;
 
 @Repository("documentTypeDaoImpl")

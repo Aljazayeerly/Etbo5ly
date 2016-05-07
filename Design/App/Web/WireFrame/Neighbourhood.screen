@@ -10,7 +10,7 @@
     <font size="17px"/>
   </widgets>
   <widgets xsi:type="model:Image" id="8" x="32" y="240" width="273" height="283" measuredWidth="273" measuredHeight="283" src="assets/map.png"/>
-  <widgets xsi:type="model:Image" id="9" x="136" y="264" width="32" height="44" measuredWidth="32" measuredHeight="44" src="assets/download.png"/>
+  <widgets xsi:type="model:Image" id="9" x="136" y="264" width="32" height="44" measuredWidth="32" measuredHeight="44" link="kitchen.screen" src="assets/download.png"/>
   <widgets xsi:type="model:Image" id="10" x="48" y="296" width="32" height="44" measuredWidth="32" measuredHeight="44" src="assets/download.png"/>
   <widgets xsi:type="model:Image" id="11" x="56" y="448" width="32" height="44" measuredWidth="32" measuredHeight="44" src="assets/download.png"/>
   <widgets xsi:type="model:Image" id="12" x="240" y="384" width="32" height="44" measuredWidth="32" measuredHeight="44" src="assets/download.png"/>

@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
-import com.iti.jet.gp.etbo5ly.model.pojos.Role;
+import com.iti.jet.gp.etbo5ly.model.pojo.Role;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.RoleDao;
 
 @Repository("roleDaoImpl")
