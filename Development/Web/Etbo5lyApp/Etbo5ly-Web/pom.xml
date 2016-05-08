@@ -25,6 +25,16 @@
     
     <dependencies>
         <dependency>
+            <groupId>com.iti.jet.gp</groupId>
+            <artifactId>Etbo5ly-Model</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.iti.jet.gp</groupId>
+            <artifactId>Etbo5ly-Service</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
