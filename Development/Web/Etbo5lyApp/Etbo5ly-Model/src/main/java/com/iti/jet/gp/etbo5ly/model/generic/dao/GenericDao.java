@@ -1,6 +1,7 @@
 package com.iti.jet.gp.etbo5ly.model.generic.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 public interface GenericDao <T>{
 
@@ -9,9 +10,11 @@ public interface GenericDao <T>{
 
     void delete(Serializable id);
 
-    Object find(Serializable id);
+    T find(Serializable id);
 
-    T update(final T t); 
+    void update(final T t);
+    
+    List<T> getAll();
     
 
     

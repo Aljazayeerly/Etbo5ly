@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
-import com.iti.jet.gp.etbo5ly.model.pojos.CookStatus;
+import com.iti.jet.gp.etbo5ly.model.pojo.CookStatus;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CookStatusDao;
 
 @Repository("cookStatusDaoImpl")

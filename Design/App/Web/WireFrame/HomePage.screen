@@ -13,7 +13,7 @@
   <widgets xsi:type="model:Button" id="3" x="40" y="272" width="156" height="77" text="Neighbourhood Kitchens" measuredWidth="156" measuredHeight="77" link="Neighbourhood.screen">
     <font/>
   </widgets>
-  <widgets xsi:type="model:Button" id="4" x="240" y="272" width="156" height="77" text="Choose Your meal" measuredWidth="156" measuredHeight="77" link="ChooseMeal.screen">
+  <widgets xsi:type="model:Button" id="4" x="240" y="272" width="156" height="77" text="Choose Your meal" measuredWidth="156" measuredHeight="77" link="AllKitchens.screen">
     <font/>
   </widgets>
   <widgets xsi:type="model:Button" id="5" x="432" y="272" width="156" height="77" text="Catering" measuredWidth="156" measuredHeight="77" link="Catering.screen">
