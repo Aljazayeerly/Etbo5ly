@@ -29,3 +29,7 @@ hs_err_pid*
 *netbeans_automatic_build
 *pom.properties
 /Demos/SpringSecurityXMLDB/target/
+/Development/Web/Etbo5lyApp/Etbo5ly-Web/target/
+Development/Web/Etbo5lyApp/Etbo5ly-Model/target/classes/data.xml
+Development/Web/Etbo5lyApp/Etbo5ly-Model/target/classes/application.properties
+Demos/SpringRest/.settings/org.eclipse.jpt.entitygen.titlesconn.database

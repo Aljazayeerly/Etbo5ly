@@ -429,7 +429,7 @@ public class Etbo5lyModel {
 
         ApplicationContext factory = getBeanFactory();
         Etbo5lyModel etbo5lyModel = new Etbo5lyModel();
-//        Cook cook = etbo5lyModel.addCook(factory);
+        Cook cook = etbo5lyModel.addCook(factory);
 //        etbo5lyModel.addDocument(factory);
 ////        etbo5lyModel.addMenuItems(factory);
 //        MenuItems menuItems = etbo5lyModel.getMenuItems(factory, 6);
@@ -445,7 +445,7 @@ public class Etbo5lyModel {
 //        etbo5lyModel.addTags(factory);
 //        etbo5lyModel.addOrder(factory);
 
-        etbo5lyModel.getAllCategories(factory);
+//        etbo5lyModel.getAllCategories(factory);
 
     }
 
