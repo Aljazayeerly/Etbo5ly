@@ -6,10 +6,13 @@
 
 package com.iti.jet.gp.etbo5ly.service;
 
+import com.iti.jet.gp.etbo5ly.model.pojo.Category;
+import java.util.List;
+
 /**
  *
  * @author AlJazayeerly
  */
-public class ServiceTestClass {
-    
+public interface TestService {
+    List<Category> getAllCategories();
 }
