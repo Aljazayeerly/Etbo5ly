@@ -30,3 +30,6 @@ hs_err_pid*
 *pom.properties
 /Demos/SpringSecurityXMLDB/target/
 *.database
+*/classes/*
+*/target/*
+*/Etbo5ly-Web/target/Etbo5ly-Web-0.0.1-SNAPSHOT/*
