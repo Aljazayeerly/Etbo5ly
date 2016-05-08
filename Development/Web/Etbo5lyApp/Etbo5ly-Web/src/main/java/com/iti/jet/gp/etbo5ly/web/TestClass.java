@@ -6,6 +6,9 @@
 
 package com.iti.jet.gp.etbo5ly.web;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
  *
  * @author AlJazayeerly
