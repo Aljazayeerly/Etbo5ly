@@ -2,6 +2,7 @@ package com.iti.jet.gp.etbo5ly.model.pojo;
 // Generated May 6, 2016 12:05:20 PM by Hibernate Tools 4.3.1
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -78,6 +79,7 @@ public class Tags  implements java.io.Serializable {
     @JoinTable(name="tags_has_menu_items", catalog="mydb", joinColumns = { 
         @JoinColumn(name="tags_tag_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="menu_item_id", nullable=false, updatable=false) })
+  @JsonIgnore //salma-added
     public Set<MenuItems> getMenuItems() {
         return this.menuItems;
     }

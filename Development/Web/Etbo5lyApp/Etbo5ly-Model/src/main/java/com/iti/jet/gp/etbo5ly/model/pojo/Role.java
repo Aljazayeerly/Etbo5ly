@@ -2,6 +2,7 @@ package com.iti.jet.gp.etbo5ly.model.pojo;
 // Generated May 6, 2016 12:05:20 PM by Hibernate Tools 4.3.1
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -67,6 +68,7 @@ public class Role  implements java.io.Serializable {
     @JoinTable(name="user_has_role", catalog="mydb", joinColumns = { 
         @JoinColumn(name="role_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="user_id", nullable=false, updatable=false) })
+  @JsonIgnore //salma-added
     public Set<User> getUsers() {
         return this.users;
     }

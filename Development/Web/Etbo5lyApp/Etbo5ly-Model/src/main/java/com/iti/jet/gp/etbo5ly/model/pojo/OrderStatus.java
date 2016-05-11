@@ -2,6 +2,7 @@ package com.iti.jet.gp.etbo5ly.model.pojo;
 // Generated May 6, 2016 12:05:20 PM by Hibernate Tools 4.3.1
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -62,6 +63,7 @@ public class OrderStatus  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="orderStatus")
+  @JsonIgnore //salma-added
     public Set<StatusHasOrder>  getStatusHasOrders() {
         return this.statusHasOrders;
     }
