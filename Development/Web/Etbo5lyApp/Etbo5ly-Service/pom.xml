@@ -7,12 +7,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>Etbo5ly-Service</artifactId>
+    <version>1.0</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.iti.jet.gp</groupId>
             <artifactId>Etbo5ly-Model</artifactId>
-            <version>${project.version}</version>
+            <version>1.0</version>
         </dependency>
     </dependencies>
     <properties>

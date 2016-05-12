@@ -22,7 +22,7 @@
     <context:annotation-config />
     
     <import resource="dispatcher-servlet.xml" />
-    <import  resurce="classpath:data.xml"/>
+    <import resource="classpath:data.xml"/>
     <import resource="security.xml" />
 <!--       <import resource="spring-database.xml" />-->
 </beans>
