@@ -8,23 +8,26 @@ package com.iti.jet.gp.etbo5ly.service.impl;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.OrderDao;
 import com.iti.jet.gp.etbo5ly.model.pojo.Order;
 import com.iti.jet.gp.etbo5ly.service.OrderService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author menna
  */
-public class OrderServiceImpl implements OrderService{
+@Service
+public class OrderServiceImpl implements OrderService {
 
     @Autowired
     OrderDao orderDao;
-    
-    
+
     @Override
-    public void createorder(Order order) {
-       
-        orderDao.create(order);
-        
+    public List<Order> getAllOrders() {
+        System.out.println("seervice layer");
+        List<Order> orders = orderDao.getAll();
+        System.out.println("cooks size : " + orders.size());
+        return orders;
     }
-    
+
 }

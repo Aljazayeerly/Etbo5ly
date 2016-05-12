@@ -18,7 +18,6 @@ import org.springframework.transaction.support.TransactionTemplate;
 public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
     private Class<T> entityClass;
-    private List<T> list;
 
     @Autowired
     HibernateTemplate hibernateTemplate;
@@ -48,14 +47,6 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
     }
 
-    public List<T> getList() {
-        return list;
-    }
-
-    public void setList(List<T> list) {
-        this.list = list;
-    }
-
     public TransactionTemplate getTransactionTemplate() {
         return transactionTemplate;
     }
@@ -64,14 +55,13 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
         this.transactionTemplate = transactionTemplate;
     }
 
-    
 //    protected Session getSession() {
 //        return getSessionFactory().getCurrentSession();
 //    }
     @Transactional
     public T create(T t) {
 
-        hibernateTemplate.persist(t);
+        getHibernateTemplate().persist(t);
 
         return t;
 
@@ -80,9 +70,9 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
     @Transactional
     public void delete(final Serializable id) {
 
-        T t = (T) hibernateTemplate.get(entityClass, id);
+        T t = (T) getHibernateTemplate().get(entityClass, id);
 
-        hibernateTemplate.delete(t);
+        getHibernateTemplate().delete(t);
 
     }
 
@@ -91,7 +81,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
         System.out.println("get Entity class in find : " + this.getEntityClass());
 
-        T t = (T) hibernateTemplate.get(entityClass, id);
+        T t = (T) getHibernateTemplate().get(entityClass, id);
 
         return t;
     }
@@ -99,7 +89,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
     @Transactional
     public void update(final T t) {
 
-        hibernateTemplate.saveOrUpdate(t);
+        getHibernateTemplate().saveOrUpdate(t);
 
     }
 
@@ -110,14 +100,10 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
             @Override
             public Object doInTransaction(TransactionStatus ts) {
                 System.out.println("get all generic");
-                return   hibernateTemplate.findByCriteria(DetachedCriteria.forClass(entityClass));
-             
+                return getHibernateTemplate().findByCriteria(DetachedCriteria.forClass(entityClass));
+
             }
         });
     }
-    
-    
-    
-    
 
 }

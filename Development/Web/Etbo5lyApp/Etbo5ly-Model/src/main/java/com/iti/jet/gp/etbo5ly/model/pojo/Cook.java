@@ -100,7 +100,7 @@ public class Cook extends User implements java.io.Serializable {
         this.documents = documents;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "cook", cascade = CascadeType.ALL)//salma-changed it to eager
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cook", cascade = CascadeType.ALL)//salma-changed it to eager
     @JsonIgnore
     public Set<MenuItems> getMenuItems() {
         return this.menuItems;
