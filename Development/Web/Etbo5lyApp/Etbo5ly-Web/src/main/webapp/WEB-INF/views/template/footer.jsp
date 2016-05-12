@@ -1,14 +1,12 @@
-	<!-- FOOTER -->
-	<div id="f">
-		<div class="container">
-			<div class="row centered">
-				<a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i
-					class="fa fa-facebook"></i></a><a href="#"><i
-					class="fa fa-dribbble"></i></a>
+<footer class="footerinfo container-fluid">
 
-			</div>
-			<!-- row -->
-		</div>
-		<!-- container -->
-	</div>
-	<!-- Footer -->
+  <div class="row">
+
+    <div class="col-md-12 col-sm-12">
+
+        <p>Designed by Etbokhly team &copy; 2016</p>
+
+    </div>
+  </div>
+
+</footer>

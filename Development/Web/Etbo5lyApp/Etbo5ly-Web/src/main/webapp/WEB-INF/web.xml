@@ -8,7 +8,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-           /WEB-INF/spring/applicationContext.xml
+            /WEB-INF/spring/applicationContext.xml
         </param-value>
     </context-param>
    
@@ -49,6 +49,15 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>redirect.jsp</welcome-file>
     </welcome-file-list>
+<!--    <context-param>
+        <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+        <param-value>/WEB-INF/messages/menuMessages</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+        <param-value>/WEB-INF/messages/HomeDescription</param-value>
+    </context-param>-->
 </web-app>

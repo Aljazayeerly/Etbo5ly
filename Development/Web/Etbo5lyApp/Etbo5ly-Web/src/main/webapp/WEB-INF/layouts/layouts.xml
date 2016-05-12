@@ -13,13 +13,10 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
 	</definition>
+        
 
 	<definition name="home" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/pages/home.jsp" />
 	</definition>
-	
-	<!-- <definition name="personList" extends="DefaultTemplate">
-		<put-attribute name="body"
-			value="/WEB-INF/views/pages/personList.jsp" />
-	</definition> -->
+        
 </tiles-definitions>
