@@ -1,12 +1,11 @@
-package  com.iti.jet.gp.etbo5ly.model.generic.dao;
+package com.iti.jet.gp.etbo5ly.model.generic.dao;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
-
+import org.hibernate.criterion.DetachedCriteria;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
@@ -19,12 +18,24 @@ import org.springframework.transaction.support.TransactionTemplate;
 public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
     private Class<T> entityClass;
+    private List<T> list;
 
     @Autowired
-    SessionFactory sessionFactory;
+    HibernateTemplate hibernateTemplate;
+
+    @Autowired
+    TransactionTemplate transactionTemplate;
 
     public GenericDaoImpl() {
 
+    }
+
+    public HibernateTemplate getHibernateTemplate() {
+        return hibernateTemplate;
+    }
+
+    public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+        this.hibernateTemplate = hibernateTemplate;
     }
 
     public Class<T> getEntityClass() {
@@ -37,22 +48,30 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
     }
 
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
+    public List<T> getList() {
+        return list;
     }
 
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    public void setList(List<T> list) {
+        this.list = list;
     }
 
-    protected Session getSession() {
-        return getSessionFactory().getCurrentSession();
+    public TransactionTemplate getTransactionTemplate() {
+        return transactionTemplate;
     }
 
+    public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+        this.transactionTemplate = transactionTemplate;
+    }
+
+    
+//    protected Session getSession() {
+//        return getSessionFactory().getCurrentSession();
+//    }
     @Transactional
     public T create(T t) {
 
-        getSession().persist(t);
+        hibernateTemplate.persist(t);
 
         return t;
 
@@ -61,9 +80,9 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
     @Transactional
     public void delete(final Serializable id) {
 
-        T t = (T) getSession().get(entityClass, id);
+        T t = (T) hibernateTemplate.get(entityClass, id);
 
-        getSession().delete(t);
+        hibernateTemplate.delete(t);
 
     }
 
@@ -72,7 +91,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
         System.out.println("get Entity class in find : " + this.getEntityClass());
 
-        T t = (T) getSession().get(entityClass, id);
+        T t = (T) hibernateTemplate.get(entityClass, id);
 
         return t;
     }
@@ -80,15 +99,25 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
     @Transactional
     public void update(final T t) {
 
-        getSession().saveOrUpdate(t);
+        hibernateTemplate.saveOrUpdate(t);
 
     }
 
-     @Transactional
+//     @Transactional
     public List<T> getAll() {
+        return (List<T>) transactionTemplate.execute(new TransactionCallback<Object>() {
 
-       return  getSession().createCriteria(entityClass).list();
-
+            @Override
+            public Object doInTransaction(TransactionStatus ts) {
+                System.out.println("get all generic");
+                return   hibernateTemplate.findByCriteria(DetachedCriteria.forClass(entityClass));
+             
+            }
+        });
     }
+    
+    
+    
+    
 
 }

@@ -1,4 +1,118 @@
-<div style="margin:10px;">
-<h3>SpringMVC - Tiles3 Integration tutorial</h3>
-<p>By:- Tousif Khan</p>
+
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script
+src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+<script
+src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+<script
+src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+<script
+src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.js"></script>
+<link rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css"/>
+
+<header class="headbar">
+
+    <div class="fullbg">
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+
+                <!--        <nav class="navi navbar navbar-default" role="navigation"> -->
+
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle collapsed navb" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+
+                </div>
+
+                <!--        </nav>-->
+
+            </div>
+
+            <div class="col-md-8 col-md-offset-2 col-xs-12 text-center text-banner">
+
+                <h2><fmt:message key="introducingEtbokhly"/></h2>
+                <p><fmt:message key="introducingStatment"/></p>
+
+                <br>
+                <br>
+                <div class="demo-content buttondemoBasicUsage">
+                    <div ng-controller="AppCtrl">
+                        <section layout="row" layout-phone="column" layout-align="center center" layout-wrap>
+                            <md-button class="md-accent md-raised md-hue-1" id="buttons">Neighbourhood Kitchens</md-button>
+                            <md-button class="md-accent md-raised md-hue-1" id="buttons">Choose Your meal</md-button>
+                            <md-button class="md-accent md-raised md-hue-1" id="buttons">Catering</md-button>
+<!--                            <button class="md-raised md-primary">Catering</button>-->
+                            <div class="label"></div>
+                        </section>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container-fluid footer section-container">
+
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+
+            <h3><fmt:message key="contact"/></h3>
+
+            <span class="header-text"><fmt:message key="etbokhly"/></span> </div>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+
+            <div class="col-md-6 col-sm-6 address">
+
+                <p><fmt:message key="Address"/></p>
+
+                <!--        <p>Street-7 Local Highway,</p>
+                
+                        <p>Newyork - 392001</p>-->
+
+            </div>
+
+            <div class="col-md-6 col-sm-6 social">
+
+                <ul>
+
+                    <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+
+                    <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+
+                    <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+
+                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>

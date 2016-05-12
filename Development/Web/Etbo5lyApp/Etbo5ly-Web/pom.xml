@@ -25,17 +25,12 @@
     
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.iti.jet.gp</groupId>
             <artifactId>Etbo5ly-Model</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
-            <groupId>eg.gov.iti.jets.mdw</groupId>
-            <artifactId>MDWSystemService</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.iti.jet.gp</groupId>
             <artifactId>Etbo5ly-Service</artifactId>
             <version>1.0</version>
         </dependency>
@@ -167,6 +162,22 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.3.5</version>
         </dependency>
+        
+       <dependency> 
+            <groupId>taglibs</groupId> 
+            <artifactId>standard</artifactId> 
+            <version>1.1.2</version> 
+        </dependency>
+        <dependency>
+            <groupId>displaytag</groupId>
+            <artifactId>displaytag</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>displaytag</groupId>
+            <artifactId>displaytag-export-poi</artifactId>
+            <version>1.2</version>
+        </dependency>  
         
     </dependencies>
   

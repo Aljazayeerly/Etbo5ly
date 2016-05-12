@@ -85,4 +85,9 @@ public class TestClass {
         return "home";
     }
 
+    @RequestMapping(value = "/register.htm")
+    public String register() {
+        return "register";
+    }
+
 }
