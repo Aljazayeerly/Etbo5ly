@@ -3,6 +3,7 @@ package com.iti.jet.gp.etbo5ly.model.pojo;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -15,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,6 +26,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="menu_items")
+//@NamedQueries({
+//    
+//    @NamedQuery(name = "MenuItems.findMealByName", query = "SELECT m FROM menu_items WHERE m.name_en = :nameEn"),
+//    })
+
 public class MenuItems  implements java.io.Serializable {
 
 
@@ -77,7 +85,7 @@ public class MenuItems  implements java.io.Serializable {
         this.itemId = itemId;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)//salma-changed it to eager
     @JoinColumn(name="cook_id", nullable=false)
     public Cook getCook() {
         return this.cook;
@@ -161,6 +169,7 @@ public class MenuItems  implements java.io.Serializable {
     @JoinTable(name="tags_has_menu_items", catalog="mydb", joinColumns = { 
         @JoinColumn(name="menu_item_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="tags_tag_id", nullable=false, updatable=false) })
+  @JsonIgnore //salma-added
     public Set<Tags> getTagses() {
         return this.tagses;
     }
@@ -170,6 +179,7 @@ public class MenuItems  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="menuItems")
+  @JsonIgnore //salma-added
     public Set<OrderDetails> getOrderDetails() {
         return this.orderDetails;
     }
@@ -182,6 +192,7 @@ public class MenuItems  implements java.io.Serializable {
     @JoinTable(name="category_has_menu_items", catalog="mydb", joinColumns = { 
         @JoinColumn(name="menu_items_item_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="category_category_id", nullable=false, updatable=false) })
+  @JsonIgnore
     public Set<Category> getCategories() {
         return this.categories;
     }

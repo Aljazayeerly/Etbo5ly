@@ -84,42 +84,42 @@ public class Etbo5lyModel {
 
         Set items = new HashSet(0);
 
-        MenuItems menuItems = new MenuItems();
-        String desc = "";
-        try {
-            desc = new String("ممشم".getBytes(), "UTF-8");
-            System.out.println("descccc : " + desc);
-        } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        menuItems.setDescriptionAr(desc);
-        menuItems.setDescriptionEn("allallala");
-        Set categories = new HashSet(0);
-        categories.add(getCategory(factory, 1));
-        menuItems.setCategories(categories);
-        Set tags = new HashSet(0);
-        tags.add(getTags(factory, 1));
-        tags.add(getTags(factory, 2));
-        menuItems.setTagses(tags);
-        menuItems.setCook(getCook(factory, 1));
-        menuItems.setPrice(200);
-        menuItems.setNameEn("pasta white saus");
-        String name = "";
-        try {
-            name = new String("ممشم".getBytes(), "UTF-8");
-            System.out.println("namenamename : " + name);
-
-        } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        menuItems.setNameAr("ممشم");
-        menuItems.setCook(cook);
-
-        items.add(menuItems);
-        cook.setMenuItems(items);
-
+//        MenuItems menuItems = new MenuItems();
+//        String desc = "";
+//        try {
+//            desc = new String("ممشم".getBytes(), "UTF-8");
+//            System.out.println("descccc : " + desc);
+//        } catch (UnsupportedEncodingException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//        menuItems.setDescriptionAr(desc);
+//        menuItems.setDescriptionEn("allallala");
+//        Set categories = new HashSet(0);
+//        categories.add(getCategory(factory, 1));
+//        menuItems.setCategories(categories);
+//        Set tags = new HashSet(0);
+//        tags.add(getTags(factory, 1));
+//        tags.add(getTags(factory, 2));
+//        menuItems.setTagses(tags);
+//        menuItems.setCook(getCook(factory, 1));
+//        menuItems.setPrice(200);
+//        menuItems.setNameEn("pasta white saus");
+//        String name = "";
+//        try {
+//            name = new String("ممشم".getBytes(), "UTF-8");
+//            System.out.println("namenamename : " + name);
+//
+//        } catch (UnsupportedEncodingException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//        menuItems.setNameAr("ممشم");
+//        menuItems.setCook(cook);
+//
+//        items.add(menuItems);
+//        cook.setMenuItems(items);
+//
         cookDao.create(cook);
         System.out.println("cook is added");
         return cook;
@@ -454,7 +454,7 @@ public class Etbo5lyModel {
         // FileSystemResource("src/useroperationsdb/Userbean.xml"));
 
         ApplicationContext context = new ClassPathXmlApplicationContext(
-                "Beans.xml");
+                "data.xml");//salma-modified it from beans to data
         return context;// file:src/main/resources/beans.xml
     }
 }
