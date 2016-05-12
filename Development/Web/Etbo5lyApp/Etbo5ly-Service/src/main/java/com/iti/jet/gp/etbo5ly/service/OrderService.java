@@ -13,5 +13,5 @@ import com.iti.jet.gp.etbo5ly.model.pojo.Order;
  */
 public interface OrderService {
     
-    public void makeorder(Order order);
+    public void createorder(Order order);
 }

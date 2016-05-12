@@ -454,7 +454,7 @@ public class Etbo5lyModel {
         // FileSystemResource("src/useroperationsdb/Userbean.xml"));
 
         ApplicationContext context = new ClassPathXmlApplicationContext(
-                "Beans.xml");
+                "data.xml");
         return context;// file:src/main/resources/beans.xml
     }
 }

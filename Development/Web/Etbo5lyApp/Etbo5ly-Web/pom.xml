@@ -25,12 +25,17 @@
     
     <dependencies>
         <dependency>
-            <groupId>com.iti.jet.gp</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>Etbo5ly-Model</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
-            <groupId>com.iti.jet.gp</groupId>
+            <groupId>eg.gov.iti.jets.mdw</groupId>
+            <artifactId>MDWSystemService</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>Etbo5ly-Service</artifactId>
             <version>1.0</version>
         </dependency>

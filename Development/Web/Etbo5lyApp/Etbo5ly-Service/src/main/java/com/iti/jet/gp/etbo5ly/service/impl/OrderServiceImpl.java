@@ -5,8 +5,10 @@
  */
 package com.iti.jet.gp.etbo5ly.service.impl;
 
+import com.iti.jet.gp.etbo5ly.model.dao.interfaces.OrderDao;
 import com.iti.jet.gp.etbo5ly.model.pojo.Order;
 import com.iti.jet.gp.etbo5ly.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -14,9 +16,15 @@ import com.iti.jet.gp.etbo5ly.service.OrderService;
  */
 public class OrderServiceImpl implements OrderService{
 
+    @Autowired
+    OrderDao orderDao;
+    
+    
     @Override
-    public void makeorder(Order order) {
+    public void createorder(Order order) {
        
+        orderDao.create(order);
+        
     }
     
 }

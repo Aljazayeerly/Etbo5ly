@@ -33,6 +33,7 @@ public class AdminRestController {
     // delete titles usedby admin
     @RequestMapping(value = "/admin/title/delete/{titleId}", method = RequestMethod.POST)
     public ResponseEntity<Title> deleteTitle(@PathVariable("titleId") int id) {
+        
         System.out.println("Fetching & Deleting Title with id " + id);
         
         Title title = titleService.retrieveTitle(new Title(id));
