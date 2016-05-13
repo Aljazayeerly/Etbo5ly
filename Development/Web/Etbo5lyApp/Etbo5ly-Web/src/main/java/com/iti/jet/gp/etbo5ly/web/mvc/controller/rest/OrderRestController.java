@@ -30,7 +30,7 @@ public class OrderRestController {
     @RequestMapping(value = "/createOrder/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Order> createOrderService(Order order) {
 
-        orderService.createorder(order);
+        //orderService.createorder(order);
 
         return new ResponseEntity<Order>(HttpStatus.OK);
     }
