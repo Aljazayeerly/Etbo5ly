@@ -5,6 +5,7 @@
  */
 package com.iti.jet.gp.etbo5ly.web.mvc.controller.rest;
 
+import com.iti.jet.gp.etbo5ly.model.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.service.CookService;
 import java.util.List;
@@ -32,5 +33,13 @@ public class CookRestController {
         List<Cook> cooks = cookService.getAllCooks();
 
         return new ResponseEntity<List<Cook>>(cooks, HttpStatus.OK);
+    }
+    
+     @RequestMapping(value = "/test/cooks2", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<CookDTO>> getCooks2() {
+        System.out.println("in cooooooooooooooooook service controller");
+        List<CookDTO> cooks = cookService.getAllCookDTOs();
+
+        return new ResponseEntity<List<CookDTO>>(cooks, HttpStatus.OK);
     }
 }

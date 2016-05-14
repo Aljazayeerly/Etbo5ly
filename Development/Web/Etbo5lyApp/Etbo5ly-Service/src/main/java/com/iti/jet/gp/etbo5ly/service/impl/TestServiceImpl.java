@@ -10,6 +10,7 @@ import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CategoryDao;
 import com.iti.jet.gp.etbo5ly.model.pojo.Category;
 import com.iti.jet.gp.etbo5ly.service.TestService;
 import java.util.List;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,7 @@ public class TestServiceImpl implements TestService{
     CategoryDao categoryDao;
     
     @Override
+    @Transactional
     public List<Category> getAllCategories() {
         return  categoryDao.getAll();
     }

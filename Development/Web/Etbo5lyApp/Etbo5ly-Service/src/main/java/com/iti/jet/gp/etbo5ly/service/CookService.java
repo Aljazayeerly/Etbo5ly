@@ -5,6 +5,7 @@
  */
 package com.iti.jet.gp.etbo5ly.service;
 
+import com.iti.jet.gp.etbo5ly.model.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import java.util.List;
 
@@ -14,4 +15,5 @@ import java.util.List;
  */
 public interface CookService {
       List<Cook> getAllCooks();
+      public List<CookDTO> getAllCookDTOs();
 }

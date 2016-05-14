@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.lang.String;
+import javax.transaction.Transactional;
 /**
  *
  * @author salma
@@ -29,6 +30,7 @@ public class MenuItemsServiceImpl implements MenuItemsService{
     }
 
     @Override
+    @Transactional
     public List<MenuItems> getSpecificMealDetails(String mealName) {
        return menuItemsDao.searchByMealName(mealName);
 

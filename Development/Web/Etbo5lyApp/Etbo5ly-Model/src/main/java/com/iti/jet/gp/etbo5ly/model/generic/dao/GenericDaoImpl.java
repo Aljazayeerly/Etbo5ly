@@ -58,7 +58,6 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 //    protected Session getSession() {
 //        return getSessionFactory().getCurrentSession();
 //    }
-    @Transactional
     public T create(T t) {
 
         getHibernateTemplate().persist(t);
@@ -67,7 +66,6 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
     }
 
-    @Transactional
     public void delete(final Serializable id) {
 
         T t = (T) getHibernateTemplate().get(entityClass, id);
@@ -76,7 +74,6 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
     }
 
-    @Transactional
     public T find(final Serializable id) {
 
         System.out.println("get Entity class in find : " + this.getEntityClass());
@@ -86,14 +83,13 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
         return t;
     }
 
-    @Transactional
+    
     public void update(final T t) {
 
         getHibernateTemplate().saveOrUpdate(t);
 
     }
 
-//     @Transactional
     public List<T> getAll() {
         return (List<T>) transactionTemplate.execute(new TransactionCallback<Object>() {
 

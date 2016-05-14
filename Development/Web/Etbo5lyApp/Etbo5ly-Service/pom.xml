@@ -15,6 +15,13 @@
             <artifactId>Etbo5ly-Model</artifactId>
             <version>1.0</version>
         </dependency>
+        <!--Model Mapper-->
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>0.7.5</version>
+        </dependency>
+
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

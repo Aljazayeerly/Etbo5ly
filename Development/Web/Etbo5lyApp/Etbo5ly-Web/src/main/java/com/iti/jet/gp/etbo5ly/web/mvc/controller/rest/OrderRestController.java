@@ -34,4 +34,12 @@ public class OrderRestController {
 
         return new ResponseEntity<Order>(HttpStatus.OK);
     }
+    
+    @RequestMapping(value = "/rest/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Order>> getAllOrders(Order order) {
+
+        List<Order> orders=orderService.getAllOrders();
+
+        return new ResponseEntity<List<Order>>(orders,HttpStatus.OK);
+    }
 }

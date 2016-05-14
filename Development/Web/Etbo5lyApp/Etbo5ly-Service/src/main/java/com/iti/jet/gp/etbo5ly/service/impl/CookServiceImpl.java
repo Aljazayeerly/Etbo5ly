@@ -6,9 +6,13 @@
 package com.iti.jet.gp.etbo5ly.service.impl;
 
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CookDao;
+import com.iti.jet.gp.etbo5ly.model.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.service.CookService;
+import java.util.ArrayList;
 import java.util.List;
+import javax.transaction.Transactional;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +28,7 @@ public class CookServiceImpl implements CookService{
     
     
     @Override
+    @Transactional
     public List<Cook> getAllCooks() {
         System.out.println("seervice layer");
         List<Cook> cooks =   cookDao.getAll();
@@ -31,4 +36,15 @@ public class CookServiceImpl implements CookService{
         return cooks;
     }
     
+    @Transactional
+    public List<CookDTO> getAllCookDTOs(){
+        List<CookDTO> cookDTOs=new ArrayList<CookDTO>();
+        List<Cook> cooks=cookDao.getAll();
+        ModelMapper modelMapper=new ModelMapper();
+        for(Cook cook:cooks){
+            CookDTO cookDTO=modelMapper.map(cook, CookDTO.class);
+            cookDTOs.add(cookDTO);
+        }
+        return cookDTOs;
+    }
 }
