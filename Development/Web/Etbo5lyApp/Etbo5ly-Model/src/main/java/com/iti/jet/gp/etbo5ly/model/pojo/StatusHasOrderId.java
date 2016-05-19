@@ -1,5 +1,5 @@
 package com.iti.jet.gp.etbo5ly.model.pojo;
-// Generated May 6, 2016 12:05:20 PM by Hibernate Tools 4.3.1
+// Generated May 20, 2016 12:10:15 AM by Hibernate Tools 3.6.0
 
 
 import javax.persistence.Column;

@@ -330,7 +330,6 @@ public class Etbo5lyModel {
         Order order = new Order();
         order.setUserByCookId(getCook(factory, 37));
         order.setUserByCustomerId(getCustomer(factory, 39));
-        order.setOrderTime(new Date(2016, 6, 7, 3, 40));
         order.setCookComment("customer msh kwais");
         order.setDuration(30);
         order.setLocation("allallala");
