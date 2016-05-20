@@ -15,6 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -36,8 +37,9 @@ public class OrderRestController {
     }
     
     @RequestMapping(value = "/rest/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Order>> getAllOrders(Order order) {
+    public ResponseEntity<List<Order>> getAllOrdersByIdService(@RequestParam(value = "customerId")int id) {
 
+        System.out.println("order restful service");
         List<Order> orders=orderService.getAllOrders();
 
         return new ResponseEntity<List<Order>>(orders,HttpStatus.OK);

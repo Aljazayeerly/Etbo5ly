@@ -32,4 +32,12 @@ public class OrderServiceImpl implements OrderService {
         return orders;
     }
 
+    @Override
+    public List<Order> getAllOrdersByID(int id) {
+       
+        return  orderDao.getAllOrdersById(id);
+    }
+    
+    
+
 }

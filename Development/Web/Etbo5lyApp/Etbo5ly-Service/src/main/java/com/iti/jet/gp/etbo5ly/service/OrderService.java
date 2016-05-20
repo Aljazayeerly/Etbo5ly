@@ -13,6 +13,8 @@ import java.util.List;
  * @author menna
  */
 public interface OrderService {
-    
-     List<Order> getAllOrders();
+
+    List<Order> getAllOrders();
+
+    List<Order> getAllOrdersByID(int id);
 }

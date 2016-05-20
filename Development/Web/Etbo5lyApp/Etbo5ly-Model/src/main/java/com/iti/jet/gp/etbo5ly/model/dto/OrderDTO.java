@@ -6,10 +6,14 @@
 
 package com.iti.jet.gp.etbo5ly.model.dto;
 
+
 /**
  *
  * @author AlJazayeerly
  */
 public class OrderDTO {
     
+    
+     
+     
 }
