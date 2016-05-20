@@ -62,6 +62,7 @@ public class Region implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id", nullable = false)
+    @JsonIgnore
     public City getCity() {
         return this.city;
     }

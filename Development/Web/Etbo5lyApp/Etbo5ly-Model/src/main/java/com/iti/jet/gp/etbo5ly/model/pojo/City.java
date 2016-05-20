@@ -1,6 +1,7 @@
 package com.iti.jet.gp.etbo5ly.model.pojo;
 // Generated May 20, 2016 12:10:15 AM by Hibernate Tools 3.6.0
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -56,6 +57,7 @@ public class City implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", nullable = false)
+    @JsonIgnore
     public Country getCountry() {
         return this.country;
     }
