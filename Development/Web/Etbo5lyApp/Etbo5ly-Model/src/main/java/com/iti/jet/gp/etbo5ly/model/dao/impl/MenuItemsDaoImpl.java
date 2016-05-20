@@ -8,10 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.MenuItemsDao;
-import com.iti.jet.gp.etbo5ly.model.util.CriteriaUtil;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -34,27 +31,8 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
 //    public EntityManager getEntityManager() {
 //        return entityManager;
 //    }
-    @Autowired
-    HibernateTemplate hibernateTemplate;
-
-    @Autowired
-    TransactionTemplate transactionTemplate;
-
-    public HibernateTemplate getHibernateTemplate() {
-        return hibernateTemplate;
-    }
-
-    public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
-        this.hibernateTemplate = hibernateTemplate;
-    }
-
-    public TransactionTemplate getTransactionTemplate() {
-        return transactionTemplate;
-    }
-
-    public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
-        this.transactionTemplate = transactionTemplate;
-    }
+  
+   
 
     @PostConstruct
     public void init() {
@@ -69,12 +47,12 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
 
     @Override
     public List<MenuItems> searchByMealName(final String mealName) {
-        return (List<MenuItems>) transactionTemplate.execute(new TransactionCallback<Object>() {
+        return (List<MenuItems>) getTransactionTemplate().execute(new TransactionCallback<Object>() {
 
             @Override
             public Object doInTransaction(TransactionStatus ts) {
 
-                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class).add((Restrictions.eq("nameEn", mealName))));
+                return getHibernateTemplate().findByCriteria(DetachedCriteria.forClass(MenuItems.class).add((Restrictions.eq("nameEn", mealName))));
 
             }
         });
@@ -87,7 +65,7 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
         final int max = page * pageSize;
         final int min = max - pageSize;
         
-        return (List<MenuItems>) hibernateTemplate.execute( new HibernateCallback<Object>() {
+        return (List<MenuItems>) getHibernateTemplate().execute( new HibernateCallback<Object>() {
 
             @Override
             public Object doInHibernate(Session sn) throws HibernateException {
