@@ -6,7 +6,7 @@
 package com.iti.jet.gp.etbo5ly.service.impl;
 
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CookDao;
-import com.iti.jet.gp.etbo5ly.model.dto.CookDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.service.CookService;
 import java.util.ArrayList;

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.iti.jet.gp.etbo5ly.model.dto;
+package com.iti.jet.gp.etbo5ly.service.dto;
 
 /**
  *
