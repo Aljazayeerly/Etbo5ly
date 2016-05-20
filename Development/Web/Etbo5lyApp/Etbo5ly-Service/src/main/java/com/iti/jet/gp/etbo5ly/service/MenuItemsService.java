@@ -5,6 +5,7 @@
  */
 package com.iti.jet.gp.etbo5ly.service;
 
+import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import java.util.List;
 
@@ -13,7 +14,8 @@ import java.util.List;
  * @author salma
  */
 public interface MenuItemsService {
-    List<MenuItems>getAllMealsDetails();
-    List<MenuItems>getSpecificMealDetails(String mealName);
+    List<MenuItems> getAllMealsDetails();
+    List<MenuItems> getSpecificMealDetails(String mealName);
+    List<MenuItemDTO> getMealsByPage(int page);
     
 }

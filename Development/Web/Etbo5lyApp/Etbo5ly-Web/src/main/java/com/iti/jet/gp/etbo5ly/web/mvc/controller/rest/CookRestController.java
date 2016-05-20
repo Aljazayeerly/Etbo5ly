@@ -5,7 +5,7 @@
  */
 package com.iti.jet.gp.etbo5ly.web.mvc.controller.rest;
 
-import com.iti.jet.gp.etbo5ly.model.dto.CookDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.service.CookService;
 import java.util.List;
