@@ -100,7 +100,7 @@ public class Order  implements java.io.Serializable {
         this.userByCustomerId = userByCustomerId;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="region_id", nullable=false)
     public Region getRegion() {
         return this.region;

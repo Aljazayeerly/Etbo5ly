@@ -2,6 +2,7 @@ package com.iti.jet.gp.etbo5ly.model.pojo;
 // Generated May 20, 2016 12:10:15 AM by Hibernate Tools 3.6.0
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -25,6 +26,7 @@ public class CookStatus  implements java.io.Serializable {
 
      private Integer statusId;
      private String status;
+     @JsonIgnore
      private Set<Cook> cooks = new HashSet<Cook>(0);
 
     public CookStatus() {

@@ -39,7 +39,7 @@ public class MenuItems  implements java.io.Serializable {
      private Short itemRate;
      private String imageUrl;
      @JsonIgnore
-     private Set<Tags> tagses = new HashSet<Tags>(0);
+     private Set<Tags> tags = new HashSet<Tags>(0);
      @JsonIgnore
      private Set<OrderDetails> orderDetailses = new HashSet<OrderDetails>(0);
      @JsonIgnore
@@ -67,7 +67,7 @@ public class MenuItems  implements java.io.Serializable {
        this.descriptionAr = descriptionAr;
        this.itemRate = itemRate;
        this.imageUrl = imageUrl;
-       this.tagses = tagses;
+       this.tags = tagses;
        this.orderDetailses = orderDetailses;
        this.categories = categories;
     }
@@ -179,11 +179,11 @@ public class MenuItems  implements java.io.Serializable {
         @JoinColumn(name="menu_item_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="tags_tag_id", nullable=false, updatable=false) })
     public Set<Tags> getTagses() {
-        return this.tagses;
+        return this.tags;
     }
     
     public void setTagses(Set<Tags> tagses) {
-        this.tagses = tagses;
+        this.tags = tagses;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="menuItems")

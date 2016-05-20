@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -16,26 +17,16 @@ import javax.persistence.Table;
 @Table(name="customer"
     ,catalog="etbo5ly"
 )
+@PrimaryKeyJoinColumn(name="id")
 public class Customer  extends User implements java.io.Serializable {
 
 
-     private Integer id;
 
     public Customer() {
     }
 
    
-     @Id @GeneratedValue(strategy=IDENTITY)
-
-    
-    @Column(name="id", unique=true, nullable=false)
-    public Integer getId() {
-        return this.id;
-    }
-    
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  
 
 
 

@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,9 +25,9 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "cook", catalog = "etbo5ly"
 )
+@PrimaryKeyJoinColumn(name="id")
 public class Cook extends User implements java.io.Serializable {
 
-    private Integer id;
     private CookStatus cookStatus;
     private Date startWorkingHours;
     private Date endWorkingHours;
@@ -50,19 +51,7 @@ public class Cook extends User implements java.io.Serializable {
         this.menuItems = menuItemses;
     }
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-
-    @Column(name = "id", unique = true, nullable = false)
-    public Integer getId() {
-        return this.id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cook_status_id", nullable = false)
     public CookStatus getCookStatus() {
         return this.cookStatus;
