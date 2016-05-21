@@ -16,6 +16,7 @@
 		4AC619881CEF2340002D66EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC619871CEF2340002D66EB /* Images.xcassets */; };
 		4AC6198B1CEF2340002D66EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AC619891CEF2340002D66EB /* LaunchScreen.xib */; };
 		4AC619971CEF2341002D66EB /* Etbo5lyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC619961CEF2341002D66EB /* Etbo5lyTests.m */; };
+		CFF20B441CF0BB9E00359BAE /* URLS.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF20B431CF0BB9E00359BAE /* URLS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		4AC619901CEF2340002D66EB /* Etbo5lyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Etbo5lyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC619951CEF2341002D66EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC619961CEF2341002D66EB /* Etbo5lyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Etbo5lyTests.m; sourceTree = "<group>"; };
+		CFF20B421CF0BB9E00359BAE /* URLS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLS.h; sourceTree = "<group>"; };
+		CFF20B431CF0BB9E00359BAE /* URLS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLS.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,7 @@
 		4AC619761CEF2340002D66EB /* Etbo5ly */ = {
 			isa = PBXGroup;
 			children = (
+				CFF20B401CF0B8F000359BAE /* NetworkManager */,
 				4AC6197B1CEF2340002D66EB /* AppDelegate.h */,
 				4AC6197C1CEF2340002D66EB /* AppDelegate.m */,
 				4AC619811CEF2340002D66EB /* ViewController.h */,
@@ -124,6 +128,16 @@
 				4AC619951CEF2341002D66EB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFF20B401CF0B8F000359BAE /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				CFF20B421CF0BB9E00359BAE /* URLS.h */,
+				CFF20B431CF0BB9E00359BAE /* URLS.m */,
+			);
+			name = NetworkManager;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF20B441CF0BB9E00359BAE /* URLS.m in Sources */,
 				4AC6197D1CEF2340002D66EB /* AppDelegate.m in Sources */,
 				4AC619801CEF2340002D66EB /* Etbo5ly.xcdatamodeld in Sources */,
 				4AC619831CEF2340002D66EB /* ViewController.m in Sources */,
