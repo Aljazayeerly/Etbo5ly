@@ -6,18 +6,28 @@
 
 <tiles-definitions>
 	<definition name="DefaultPageTemplate" template="/WEB-INF/views/template/pagesTemplate.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/" />
+		<put-attribute name="header" value="/WEB-INF/views/template/pagesHeader.jsp" />
 		<put-attribute name="body" value="" />
 <!--		<put-attribute name="footer" value="/WEB-INF/views/template/pageFooter.jsp" />-->
 	</definition>
         
-
 	<definition name="register" extends="DefaultPageTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/pages/register.jsp" />
 	</definition>
         
+<<<<<<< HEAD
+	<definition name="login" extends="DefaultPageTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/pages/login.jsp" />
+	</definition>
+        
+        <definition name="kitchens" extends="DefaultPageTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/pages/kitchens.jsp" />
+	</definition>
+        
+=======
         
         <definition name="kitchen" extends="DefaultPageTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/pages/kitchen.jsp" />
 	</definition>
+>>>>>>> 6b0afbfb3c0b5b931b7d5e887740282367dad435
 </tiles-definitions>
