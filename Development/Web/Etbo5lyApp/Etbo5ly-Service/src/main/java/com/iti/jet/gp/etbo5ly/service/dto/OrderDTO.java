@@ -5,11 +5,7 @@
  */
 package com.iti.jet.gp.etbo5ly.service.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.iti.jet.gp.etbo5ly.model.pojo.City;
-import com.iti.jet.gp.etbo5ly.model.pojo.OrderDetails;
-import com.iti.jet.gp.etbo5ly.model.pojo.Region;
-import com.iti.jet.gp.etbo5ly.model.pojo.User;
+
 import java.util.HashSet;
 import java.util.Set;
 

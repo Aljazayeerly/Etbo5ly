@@ -5,7 +5,6 @@
  */
 package com.iti.jet.gp.etbo5ly.web.mvc.controller.rest;
 
-
 import com.iti.jet.gp.etbo5ly.service.OrderService;
 import com.iti.jet.gp.etbo5ly.service.dto.OrderDTO;
 import java.util.List;
@@ -37,7 +36,6 @@ public class OrderRestController {
 //        //orderService.createorder(order);
 //        return new ResponseEntity<Order>(HttpStatus.OK);
 //    }
-
     @RequestMapping(value = "/rest/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<OrderDTO>> getAllOrdersByIdService(@RequestParam(value = "customerId") int id) {
 
@@ -47,10 +45,13 @@ public class OrderRestController {
         return new ResponseEntity<List<OrderDTO>>(orders, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/rest/createOrder", method = RequestMethod.POST , headers = "Accept=application/json")
+    @RequestMapping(value = "/rest/createOrder", method = RequestMethod.POST, headers = "Accept=application/json")
     public ResponseEntity<Void> createOrderService(@RequestBody OrderDTO orderDTO, UriComponentsBuilder ucBuilder) {
 
-        //System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.);
+        System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.getCookName());
+        System.out.println("order items size is: " + orderDTO.getOrderDetails().size());
+        System.out.println("order items size is: " + orderDTO.getOrderDetails().iterator().next().getMenuItemsNameEn());
+
         //System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.getLocation());
 //        orderService.createOrder(order);
         HttpHeaders headers = new HttpHeaders();
