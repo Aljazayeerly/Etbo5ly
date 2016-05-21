@@ -24,20 +24,15 @@ import org.springframework.web.bind.annotation.RestController;
  * @author salma
  */
 @RestController
+@RequestMapping(value = "/rest/cook")
 public class CookRestController {
 
     @Autowired
     CookService cookService;
 
-    @RequestMapping(value = "/test/cooks", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Cook>> getCooks() {
-        System.out.println("in cooooooooooooooooook service controller");
-        List<Cook> cooks = cookService.getAllCooks();
+    
 
-        return new ResponseEntity<List<Cook>>(cooks, HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "/rest/cook/page", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/page", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<CookDTO>> getCooksByPage(@RequestParam(value = "page") int page) {
         List<CookDTO> cooks = cookService.getCooksByPage(page);
 

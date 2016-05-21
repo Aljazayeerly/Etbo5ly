@@ -1,0 +1,16 @@
+services
+
+name:get cooks by page
+url:Etbo5ly-Web/rest/cook/page?page=1
+=======================================
+name: get meal by page
+url:Etbo5ly-Web/rest/meal/page?page=1
+=======================================
+name: get country with city with region
+url: Etbo5ly-Web/rest/region/countries
+========================================
+name: get nearby cooks by longtitude and latitude
+url: Etbo5ly-Web/rest/cook/nearbyCooks2?long=30.975534&latit=30.059376
+========================================
+
+

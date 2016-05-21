@@ -24,12 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @author AlJazayeerly
  */
 @RestController
+@RequestMapping("rest/region")
 public class RegionRestController {
 
     @Autowired
     RegionService regionService;
 
-    @RequestMapping(value = "/rest/countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Country>> getCountries() {
 
         List<Country> countries = regionService.getAllCountries();
