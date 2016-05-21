@@ -14,8 +14,12 @@ import java.util.List;
  * @author salma
  */
 public interface MenuItemsService {
+
     List<MenuItems> getAllMealsDetails();
+
     List<MenuItems> getSpecificMealDetails(String mealName);
+
     List<MenuItemDTO> getMealsByPage(int page);
-    
+
+    List<MenuItemDTO> getMenuItemsOfCategory(int id);
 }

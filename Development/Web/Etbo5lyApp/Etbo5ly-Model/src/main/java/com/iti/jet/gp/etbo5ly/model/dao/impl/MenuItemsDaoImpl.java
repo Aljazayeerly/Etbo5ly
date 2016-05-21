@@ -8,10 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.MenuItemsDao;
-import com.iti.jet.gp.etbo5ly.model.util.CriteriaUtil;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -86,19 +83,31 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
         final int pageSize = 5;
         final int max = page * pageSize;
         final int min = max - pageSize;
-        
-        return (List<MenuItems>) hibernateTemplate.execute( new HibernateCallback<Object>() {
+
+        return (List<MenuItems>) hibernateTemplate.execute(new HibernateCallback<Object>() {
 
             @Override
             public Object doInHibernate(Session sn) throws HibernateException {
-                Criteria criteria=sn.createCriteria(MenuItems.class, "mi");
+                Criteria criteria = sn.createCriteria(MenuItems.class, "mi");
                 criteria.setFirstResult(min);
                 criteria.setMaxResults(max);
-                return  criteria.list();
-                
+                return criteria.list();
+
             }
         });
     }
-    
+
+    @Override
+    public List<MenuItems> getMealsOfCateogry(final int categoryID) {
+        return (List<MenuItems>) transactionTemplate.execute(new TransactionCallback<Object>() {
+
+            @Override
+            public Object doInTransaction(TransactionStatus ts) {
+
+                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class, "item").createAlias("item.categories", "categories").add((Restrictions.eq("categories.categoryId", categoryID))));
+
+            }
+        });
+    }
 
 }

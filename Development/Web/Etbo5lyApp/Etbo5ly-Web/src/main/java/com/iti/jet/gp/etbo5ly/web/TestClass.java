@@ -90,4 +90,9 @@ public class TestClass {
         return "register";
     }
 
+    
+      @RequestMapping(value = "/kitchen.htm")
+    public String showKitchens() {
+        return "kitchen";
+    }
 }

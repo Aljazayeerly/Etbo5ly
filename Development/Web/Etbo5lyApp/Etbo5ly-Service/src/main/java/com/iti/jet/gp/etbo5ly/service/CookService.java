@@ -14,6 +14,6 @@ import java.util.List;
  * @author salma
  */
 public interface CookService {
-      List<Cook> getAllCooks();
+      public List<Cook> getAllCooks();
       public List<CookDTO> getAllCookDTOs();
 }

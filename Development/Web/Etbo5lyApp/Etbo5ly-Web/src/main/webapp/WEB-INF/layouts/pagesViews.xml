@@ -16,4 +16,8 @@
 		<put-attribute name="body" value="/WEB-INF/views/pages/register.jsp" />
 	</definition>
         
+        
+        <definition name="kitchen" extends="DefaultPageTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/pages/kitchen.jsp" />
+	</definition>
 </tiles-definitions>

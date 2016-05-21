@@ -5,15 +5,18 @@
  */
 package com.iti.jet.gp.etbo5ly.web.mvc.controller.rest;
 
+//import com.iti.jet.gp.etbo5ly.service.dto.CategoryDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
-import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.service.MenuItemsService;
+import com.iti.jet.gp.etbo5ly.service.dto.CategoryDTO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,4 +68,34 @@ public class MenuItemsRestController {
             return new ResponseEntity<List<MenuItemDTO>>(mealsBatch, HttpStatus.NOT_FOUND);
         }
     }
+    
+    
+    
+     @RequestMapping(value = "/test/category", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<MenuItemDTO>> CategoryTest(@RequestParam(value = "id") int id) {
+
+        List<MenuItemDTO> sprcificMeal = menuItemsService.getMenuItemsOfCategory(id);
+        if (sprcificMeal != null) {
+            return new ResponseEntity<List<MenuItemDTO>>(sprcificMeal, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<MenuItemDTO>>(sprcificMeal, HttpStatus.NOT_FOUND);
+        }
+    }
+    
+    
+    
+     @RequestMapping(value = "/test/category2", method = RequestMethod.POST)
+    public ResponseEntity<List<MenuItemDTO>> getMealsOfCheckedCategories(@RequestBody  CategoryDTO category) {
+ 
+        
+        List<MenuItemDTO> sprcificMeal = menuItemsService.getMenuItemsOfCategory(category.getCategoryId());
+         System.out.println("iddddddddddd"+category.getCategoryId());
+        if (sprcificMeal != null) {
+            return new ResponseEntity<>(sprcificMeal, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(sprcificMeal, HttpStatus.NOT_FOUND);
+        }
+    }
+    
+    
 }
