@@ -5,7 +5,7 @@
  */
 package com.iti.jet.gp.etbo5ly.web.mvc.controller.rest;
 
-import com.iti.jet.gp.etbo5ly.model.dto.CookDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.service.CookService;
 import java.util.List;
@@ -36,13 +36,16 @@ public class CookRestController {
 
         return new ResponseEntity<List<Cook>>(cooks, HttpStatus.OK);
     }
-    
-     @RequestMapping(value = "/test/cooks2", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<CookDTO>> getCooks2() {
-        System.out.println("in cooooooooooooooooook service controller");
-        List<CookDTO> cooks = cookService.getAllCookDTOs();
 
-        return new ResponseEntity<List<CookDTO>>(cooks, HttpStatus.OK);
+    @RequestMapping(value = "/rest/cook/page", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<CookDTO>> getCooksByPage(@RequestParam(value = "page") int page) {
+        List<CookDTO> cooks = cookService.getCooksByPage(page);
+
+        if (cooks != null && cooks.size() != 0) {
+            return new ResponseEntity<List<CookDTO>>(cooks, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<CookDTO>>(cooks, HttpStatus.NOT_FOUND);
+        }
     }
     
     

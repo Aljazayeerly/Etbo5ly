@@ -6,9 +6,10 @@
 package com.iti.jet.gp.etbo5ly.service.impl;
 
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CookDao;
-import com.iti.jet.gp.etbo5ly.model.dto.CookDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.service.CookService;
+import com.iti.jet.gp.etbo5ly.service.util.DTOConverter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -61,6 +62,7 @@ public class CookServiceImpl implements CookService {
         }
         return cookDTOs;
     }
+<<<<<<< HEAD
 
     @Override
     @Transactional
@@ -113,4 +115,17 @@ public class CookServiceImpl implements CookService {
     }
     
 
+=======
+    
+    @Override
+    @Transactional
+    public List<CookDTO> getCooksByPage(int page) {
+
+        List<Cook> Cooks = cookDao.getCooksPage(page);
+        return DTOConverter.cookListToCookDTOList(Cooks);
+        
+        
+                
+    }
+>>>>>>> 6b0afbfb3c0b5b931b7d5e887740282367dad435
 }

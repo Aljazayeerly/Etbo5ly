@@ -91,6 +91,7 @@ public class TestClass {
         return "register";
     }
 
+<<<<<<< HEAD
     @RequestMapping(value = "/login.htm")
     public String login() {
         return "login";
@@ -101,4 +102,11 @@ public class TestClass {
         return "kitchens";
     }
 
+=======
+    
+      @RequestMapping(value = "/kitchen.htm")
+    public String showKitchens() {
+        return "kitchen";
+    }
+>>>>>>> 6b0afbfb3c0b5b931b7d5e887740282367dad435
 }

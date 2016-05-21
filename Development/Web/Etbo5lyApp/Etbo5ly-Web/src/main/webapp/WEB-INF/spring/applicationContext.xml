@@ -23,6 +23,6 @@
     
     <import resource="dispatcher-servlet.xml" />
     <import resource="classpath:data.xml"/>
-    <import resource="security.xml" />
+    <!--<import resource="security.xml" />-->
 <!--       <import resource="spring-database.xml" />-->
 </beans>

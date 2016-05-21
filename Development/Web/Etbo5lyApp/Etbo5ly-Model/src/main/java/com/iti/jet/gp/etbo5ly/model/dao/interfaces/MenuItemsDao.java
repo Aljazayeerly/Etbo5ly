@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface MenuItemsDao extends GenericDao<MenuItems>{
 public List<MenuItems> searchByMealName(String mealName);
+public List<MenuItems> getMenuItemsPage(int page);
+public List<MenuItems> getMealsOfCateogry(int categoryID);
 }

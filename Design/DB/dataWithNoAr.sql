@@ -9,10 +9,10 @@ INSERT INTO `etbo5ly`.`cook_status` (`status_id`, `status`) VALUES ('2', 'Pendin
 INSERT INTO `etbo5ly`.`cook_status` (`status_id`, `status`) VALUES ('3', 'Working');
 
 
-INSERT INTO `etbo5ly`.`country` (`country_id`, `country_name`, `country_name_ar`) VALUES ('1', 'Egypt', '„’—');
+INSERT INTO `etbo5ly`.`country` (`country_id`, `country_name`, `country_name_ar`) VALUES ('1', 'Egypt', '');
 
-INSERT INTO `etbo5ly`.`city` (`city_id`, `city_name`, `city_name_ar`, `country_id`) VALUES ('1', 'Cairo', '«·ﬁ«Â—…', '1');
-INSERT INTO `etbo5ly`.`city` (`city_id`, `city_name`, `city_name_ar`, `country_id`) VALUES ('2', 'Giza', '«·ÃÌ“…', '1');
+INSERT INTO `etbo5ly`.`city` (`city_id`, `city_name`, `city_name_ar`, `country_id`) VALUES ('1', 'Cairo', '', '1');
+INSERT INTO `etbo5ly`.`city` (`city_id`, `city_name`, `city_name_ar`, `country_id`) VALUES ('2', 'Giza', '', '1');
 
 INSERT INTO `etbo5ly`.`tags` (`tag_id`, `tag_en`, `tag_ar`) VALUES ('1', 'Oriental', '«ﬂ· ‘—ﬁÌ');
 INSERT INTO `etbo5ly`.`tags` (`tag_id`, `tag_en`, `tag_ar`) VALUES ('2', 'Syrian', '√ﬂ· ”Ê—Ì');
@@ -21,13 +21,13 @@ INSERT INTO `etbo5ly`.`tags` (`tag_id`, `tag_en`, `tag_ar`) VALUES ('4', 'desser
 INSERT INTO `etbo5ly`.`tags` (`tag_id`, `tag_en`, `tag_ar`) VALUES ('5', 'vegetarian', '‰»« Ì');
 
 
-INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('1', 'Haram St.', '‘«—⁄ «·Â—„', '2');
-INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('2', 'Faisal St.', '‘«—⁄ ›Ì’·', '2');
-INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('3', 'Smart Village', '«·ﬁ—Ì… «·–ﬂÌ…', '2');
-INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('4', 'Nasr City', '„œÌ‰… ‰’—', '1');
-INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('5', 'Masr gdeeda', '„’— «·ÃœÌœ…', '1');
-INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('6', 'Nozha', '«·‰“Â…', '1');
-INSERT INTO `etbo5ly`.`region` (`region_id`,`region_name`, `region_name_ar`, `city_id`) VALUES ('7','Shiekh Zayed', '«·‘ÌŒ “«Ìœ', '2');
+INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('1', 'Haram St.', '', '2');
+INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('2', 'Faisal St.', '', '2');
+INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('3', 'Smart Village', '', '2');
+INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('4', 'Nasr City', '', '1');
+INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('5', 'Masr gdeeda', '', '1');
+INSERT INTO `etbo5ly`.`region` (`region_id`, `region_name`, `region_name_ar`, `city_id`) VALUES ('6', 'Nozha', '', '1');
+INSERT INTO `etbo5ly`.`region` (`region_id`,`region_name`, `region_name_ar`, `city_id`) VALUES ('7','Shiekh Zayed', '', '2');
 
 INSERT INTO `etbo5ly`.`user` (id,`name`, `email`, `password`, `enabled`, `registeration_date`, `phone`, `address`, `longitude`, `latitude`, `region_id`) VALUES ('1','AlJazayeerly', 'aljazayeerly@gmail.com', '12345', '1', '2015-04-16 17:30:00', '01001358909', 'ITI', '31.021249', '30.071572', '3');
 INSERT INTO `etbo5ly`.`user` (id,`name`, `email`, `password`, `enabled`, `registeration_date`, `phone`, `address`, `longitude`, `latitude`, `region_id`) VALUES ('2','Menna', 'Menna@gmail.com', '12345', '1', '2015-04-16 17:30:00', '01001358909', 'Shiekh Zayed', '31.021732', '30.031087', '7');
