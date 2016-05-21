@@ -30,12 +30,7 @@ public class OrderRestController {
     @Autowired
     OrderService orderService;
 
-//    @RequestMapping(value = "/createOrder/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity<Order> createOrderService(Order order) {
-//
-//        //orderService.createorder(order);
-//        return new ResponseEntity<Order>(HttpStatus.OK);
-//    }
+
     @RequestMapping(value = "/rest/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<OrderDTO>> getAllOrdersByIdService(@RequestParam(value = "customerId") int id) {
 
@@ -57,6 +52,7 @@ public class OrderRestController {
         HttpHeaders headers = new HttpHeaders();
 //        headers.setLocation(ucBuilder.path("/rest/createOrder/{id}").buildAndExpand(order.getOrderId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+
     }
 
 }
