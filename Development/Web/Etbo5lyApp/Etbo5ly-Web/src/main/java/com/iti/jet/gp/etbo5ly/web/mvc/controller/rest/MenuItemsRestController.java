@@ -58,10 +58,8 @@ public class MenuItemsRestController {
 
     @RequestMapping(value = "/rest/meal/page", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItemDTO>> getMealsByPage(@RequestParam(value = "page") int page) {
-//        System.out.println("in meals service controller");
         List<MenuItemDTO> mealsBatch = menuItemsService.getMealsByPage(page);
         System.out.println("number of items retrieved is: "+mealsBatch.size());
-//        System.out.println("sizeeeeeeeeee of specific meal list"+sprcificMeal.size());
         if (mealsBatch != null) {
             return new ResponseEntity<List<MenuItemDTO>>(mealsBatch, HttpStatus.OK);
         } else {

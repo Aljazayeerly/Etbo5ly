@@ -5,7 +5,9 @@
  */
 package com.iti.jet.gp.etbo5ly.service.util;
 
+import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
+import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,5 +33,15 @@ public class DTOConverter {
             menuItemDTOs.add(menuItemDTO);
         }
         return menuItemDTOs;
+    }
+    
+    public static List<CookDTO> cookListToCookDTOList(List<Cook> cooks) {
+        List<CookDTO> cookDTOs = new ArrayList<>();
+        CookDTO cookDTO = null;
+        for (Cook c : cooks) {
+            cookDTO = modelMapper.map(c, CookDTO.class);
+            cookDTOs.add(cookDTO);
+        }
+        return cookDTOs;
     }
 }

@@ -34,3 +34,6 @@ Development/Web/Etbo5lyApp/Etbo5ly-Model/target/classes/data.xml
 Development/Web/Etbo5lyApp/Etbo5ly-Model/target/classes/application.properties
 Demos/SpringRest/.settings/org.eclipse.jpt.entitygen.titlesconn.database
 /Development/Web/Etbo5lyApp/Etbo5ly-Service/target/
+Development/Web/Etbo5lyApp/Etbo5ly-Model/.gitignore
+Development/Web/Etbo5lyApp/Etbo5ly-Service/.gitignore
+Development/Web/Etbo5lyApp/Etbo5ly-Web/.gitignore

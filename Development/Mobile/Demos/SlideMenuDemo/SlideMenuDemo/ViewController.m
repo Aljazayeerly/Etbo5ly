@@ -1,0 +1,31 @@
+//
+//  ViewController.m
+//  SlideMenuDemo
+//
+//  Created by ITI on 5/18/16.
+//  Copyright (c) 2016 JETS. All rights reserved.
+//
+
+#import "ViewController.h"
+#import "SWRevealViewController.h"
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    _barButtonItem.target=self.revealViewController;
+    _barButtonItem.action=@selector(revealToggle:);
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end
