@@ -1,78 +1,43 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page session="true"%>
-<html>
-<head>
-<title>Login Page</title>
-<style>
-.error {
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	color: #a94442;
-	background-color: #f2dede;
-	border-color: #ebccd1;
-}
+<%-- 
+    Document   : login
+    Created on : May 21, 2016, 3:57:32 PM
+    Author     : Nada
+--%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<!--<link href="/resources/css/font-awesome.css" rel="stylesheet"/>
+<link href="/resources/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/resources/css/animate.min.css" rel="stylesheet"/>-->
+<!--<link href="resources/css/pageCustomDesign.css" rel="stylesheet"/>-->
 
-.msg {
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	color: #31708f;
-	background-color: #d9edf7;
-	border-color: #bce8f1;
-}
+<!--<link href="/resources/css/owl.carousel.css" rel="stylesheet"/>
+<link href="/resources/css/owl.theme.css" rel="stylesheet"/>-->
 
-#login-box {
-	width: 300px;
-	padding: 20px;
-	margin: 100px auto;
-	background: #fff;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border: 1px solid #000;
-}
-</style>
-</head>
-<body onload='document.loginForm.username.focus();'>
+<!--    <script src="js/respond.min.js"></script>-->
 
-	<h1>Spring Security Login Form (Database Authentication)</h1>
+<div class="col-md-6" id="registerbox">
+    <div class="box">
+        <h1><fmt:message key="login"/></h1>
 
-	<div id="login-box">
+        <p class="lead"><fmt:message key="customer"/></p>
+        <hr>
 
-		<h2>Login with Username and Password</h2>
+        <form action="" method="post">
+                
+            <div class="form-group">
+                <label for="email" id="rLabel"><fmt:message key="email"/></label>
+                <input type="text" class="form-control" id="email">
+            </div>
+                
+            <div class="form-group">
+                <label for="password" id="rLabel"><fmt:message key="password"/></label>
+                <input type="password" class="form-control" id="password">
+            </div>
 
-		<c:if test="${not empty error}">
-			<div class="error">${error}</div>
-		</c:if>
-		<c:if test="${not empty msg}">
-			<div class="msg">${msg}</div>
-		</c:if>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" id="rButton"><i class="fa fa-user-md"></i> <fmt:message key="login"/></button>
+            </div>
+        </form>
+    </div>
+</div>
 
-		<form name='loginForm'
-		  action="<c:url value='/j_spring_security_check' />" method='POST'>
-
-		<table>
-			<tr>
-				<td>User:</td>
-				<td><input type='text' name='username'></td>
-			</tr>
-			<tr>
-				<td>Password:</td>
-				<td><input type='password' name='password' /></td>
-			</tr>
-			<tr>
-				<td colspan='2'><input name="submit" type="submit"
-				  value="submit" /></td>
-			</tr>
-		  </table>
-
-		  <input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />
-
-		</form>
-	</div>
-
-</body>
-</html>
