@@ -112,7 +112,6 @@ public class CookServiceImpl implements CookService {
         }
         return nearbyCooks;
     }
-    
 
     @Override
     @Transactional
@@ -124,7 +123,6 @@ public class CookServiceImpl implements CookService {
         
                 
     }
-
 
     @Override
     @Transactional
