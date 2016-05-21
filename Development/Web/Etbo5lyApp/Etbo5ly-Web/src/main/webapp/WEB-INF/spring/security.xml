@@ -31,10 +31,10 @@
         <authentication-provider>
            
             <jdbc-user-service data-source-ref="dataSource"	
-                               users-by-username-query="SELECT email,password,enabled FROM mydb.user where email=?"
+                               users-by-username-query="SELECT email,password,enabled FROM etbo5ly.user where email=?"
  
                                authorities-by-username-query="SELECT u.email, r.role
-                                FROM mydb.user u,mydb.role r,mydb.user_has_role ur
+                                FROM etbo5ly.user u,etbo5ly.role r,etbo5ly.user_has_role ur
 	                         where r.id = ur.role_id
                                   and u.id = ur.user_id 
                                   and u.email = ?"/>
