@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.MenuItemsDao;
-import com.iti.jet.gp.etbo5ly.model.util.CriteriaUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
