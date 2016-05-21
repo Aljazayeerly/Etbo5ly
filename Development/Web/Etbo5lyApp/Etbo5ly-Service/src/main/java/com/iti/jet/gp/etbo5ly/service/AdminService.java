@@ -13,6 +13,8 @@ import java.util.List;
  *
  * @author AlJazayeerly
  */
-public interface TestService {
-    List<Category> getAllCategories();
+public interface AdminService {
+    public Category addCategory(Category newCategory);
+    public List<Category> getAllCategories();
+    
 }

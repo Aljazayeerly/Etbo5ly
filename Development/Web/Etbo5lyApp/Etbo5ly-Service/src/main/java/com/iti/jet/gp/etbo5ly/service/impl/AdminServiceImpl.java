@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.iti.jet.gp.etbo5ly.service.impl;
 
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CategoryDao;
 import com.iti.jet.gp.etbo5ly.model.pojo.Category;
-import com.iti.jet.gp.etbo5ly.service.TestService;
+import com.iti.jet.gp.etbo5ly.service.AdminService;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,15 +18,20 @@ import org.springframework.stereotype.Service;
  * @author AlJazayeerly
  */
 @Service
-public class TestServiceImpl implements TestService{
+public class AdminServiceImpl implements AdminService {
 
     @Autowired
     CategoryDao categoryDao;
     
-    @Override
     @Transactional
+    @Override
+    public Category addCategory(Category newCategory) {
+        return categoryDao.create(newCategory);
+    }
+
+    @Override
     public List<Category> getAllCategories() {
         return  categoryDao.getAll();
     }
-    
+
 }
