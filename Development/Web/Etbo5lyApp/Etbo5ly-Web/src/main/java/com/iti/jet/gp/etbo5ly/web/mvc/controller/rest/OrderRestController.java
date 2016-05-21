@@ -10,11 +10,13 @@ import com.iti.jet.gp.etbo5ly.model.pojo.Order;
 import com.iti.jet.gp.etbo5ly.service.OrderService;
 import com.iti.jet.gp.etbo5ly.service.dto.OrderDTO;
 import java.util.List;
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,15 +51,21 @@ public class OrderRestController {
         return new ResponseEntity<List<OrderDTO>>(orders, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/rest/createOrder", method = RequestMethod.POST , headers = "Accept=application/json")
-    public ResponseEntity<Void> createOrderService(@RequestBody OrderDTO orderDTO, UriComponentsBuilder ucBuilder) {
-
+//     @ExceptionHandler(TypeMismatchException.class)
+    @RequestMapping(value = "/rest/createOrder", method = RequestMethod.POST , consumes = MediaType.APPLICATION_JSON_VALUE)//headers = "Accept=application/json")
+    public void createOrderService(@RequestBody OrderDTO orderDTO) {
+        //, UriComponentsBuilder ucBuilder
+//        TypeMismatchException ex,
+//         log.debug("Parameter failure: {}", ex.getRootCause().getLocalizedMessage());
+//        log.debug("Invalid value is: {}", ex.getValue());
+//        log.debug("Required type is: {}", ex.getRequiredType().getSimpleName());
+        
         System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.getDuration());
         System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.getLocation());
-//        orderService.createOrder(order);
-        HttpHeaders headers = new HttpHeaders();
-//        headers.setLocation(ucBuilder.path("/rest/createOrder/{id}").buildAndExpand(order.getOrderId()).toUri());
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+//        orderService.createOrder(orderDTO);
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setLocation(ucBuilder.path("/rest/createOrder/{id}").buildAndExpand(orderDTO.getOrderId()).toUri());
+//        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
 }

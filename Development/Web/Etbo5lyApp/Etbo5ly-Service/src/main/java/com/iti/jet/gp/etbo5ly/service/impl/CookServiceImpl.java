@@ -59,4 +59,12 @@ public class CookServiceImpl implements CookService{
         
                 
     }
+
+    @Override
+    @Transactional
+    public List<CookDTO> getCooksByRegion(int regionId) {
+       
+         List<Cook> Cooks = cookDao.getCooksByRegion(regionId);
+        return DTOConverter.cookListToCookDTOList(Cooks);
+    }
 }

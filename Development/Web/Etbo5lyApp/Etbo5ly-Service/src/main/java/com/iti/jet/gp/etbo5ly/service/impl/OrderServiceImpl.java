@@ -9,6 +9,7 @@ import com.iti.jet.gp.etbo5ly.model.dao.interfaces.OrderDao;
 import com.iti.jet.gp.etbo5ly.model.pojo.Order;
 import com.iti.jet.gp.etbo5ly.service.OrderService;
 import com.iti.jet.gp.etbo5ly.service.dto.OrderDTO;
+import com.iti.jet.gp.etbo5ly.service.util.DTOConverter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -42,28 +43,14 @@ public class OrderServiceImpl implements OrderService {
 
         List<OrderDTO> orderDTOs = new ArrayList<OrderDTO>();
         List<Order> orders = orderDao.getAllOrdersById(id);
-        ModelMapper modelMapper = new ModelMapper();
-        for (Order order : orders) {
-            
-//            PropertyMap<Order, OrderDTO> orderMap = new PropertyMap<Order, OrderDTO>() {
-//        protected void configure() {
-//            map().setCityName(order.getRegion().getCity().getCityName());
-//            map(order.Region.City.getCityName, orderDTO.cityName);
-//        }
-//    };
-            OrderDTO orderDTO = modelMapper.map(order, OrderDTO.class);
-            orderDTOs.add(orderDTO);
-        }
-        return orderDTOs;
+        return DTOConverter.orderListToOrderDTOList(orders);
     }
-    
-    
+
     @Transactional
     @Override
     public void createOrder(Order order) {
 
         orderDao.create(order);
     }
-    
 
 }

@@ -46,4 +46,16 @@ public class CookRestController {
             return new ResponseEntity<List<CookDTO>>(cooks, HttpStatus.NOT_FOUND);
         }
     }
+
+    @RequestMapping(value = "/rest/cooks/byRegion", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<CookDTO>> getCooksByRegion(@RequestParam(value = "region") int regionId) {
+
+        List<CookDTO> cooks = cookService.getCooksByRegion(regionId);
+        System.out.println("country size is: " + cooks.size());
+        if (cooks != null && cooks.size() != 0) {
+            return new ResponseEntity<List<CookDTO>>(cooks, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<CookDTO>>(cooks, HttpStatus.NOT_FOUND);
+        }
+    }
 }
