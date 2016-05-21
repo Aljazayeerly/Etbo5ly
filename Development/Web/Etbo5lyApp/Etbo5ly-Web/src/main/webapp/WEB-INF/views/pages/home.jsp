@@ -43,7 +43,7 @@ src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.js"></scri
                 <div class="demo-content buttondemoBasicUsage">
                     <div ng-controller="AppCtrl">
                         <section layout="row" layout-phone="column" layout-align="center center" layout-wrap>
-                            <md-button class="md-accent md-raised md-hue-1" id="buttons">Neighbourhood Kitchens</md-button>
+                            <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-click="kitchens('/kitchens.htm')">Neighbourhood Kitchens</md-button>
                             <md-button class="md-accent md-raised md-hue-1" id="buttons">Choose Your meal</md-button>
                             <md-button class="md-accent md-raised md-hue-1" id="buttons">Catering</md-button>
 <!--                            <button class="md-raised md-primary">Catering</button>-->
