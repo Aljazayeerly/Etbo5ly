@@ -6,6 +6,7 @@
 package com.iti.jet.gp.etbo5ly.service;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.Order;
+import com.iti.jet.gp.etbo5ly.service.dto.OrderDTO;
 import java.util.List;
 
 /**
@@ -16,5 +17,7 @@ public interface OrderService {
 
     List<Order> getAllOrders();
 
-    List<Order> getAllOrdersByID(int id);
+    List<OrderDTO> getAllOrdersByID(int id);
+
+    void createOrder(Order order);
 }
