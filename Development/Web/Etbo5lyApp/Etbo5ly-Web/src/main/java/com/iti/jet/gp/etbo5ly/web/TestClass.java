@@ -89,5 +89,9 @@ public class TestClass {
     public String register() {
         return "register";
     }
+      @RequestMapping(value = "/orderReview.htm")
+    public String orderReview() {
+        return "orderReview";
+    }
 
 }
