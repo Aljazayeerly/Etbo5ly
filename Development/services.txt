@@ -13,6 +13,6 @@ name: get nearby cooks by longtitude and latitude
 url: Etbo5ly-Web/rest/cook/nearbyCooks2?long=30.975534&latit=30.059376
 ========================================
 name: getCooksByRegion
-url: Etbo5ly-Web/rest/cook/byRegion?region=7
+url: Etbo5ly-Web/rest/cook/byRegion?region=7  
 
 
