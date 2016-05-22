@@ -6,7 +6,7 @@
 
 <tiles-definitions>
 	<definition name="DefaultPageTemplate" template="/WEB-INF/views/template/pagesTemplate.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/template/" />
+<!--		<put-attribute name="header" value="/WEB-INF/views/template/" />-->
 		<put-attribute name="body" value="" />
 <!--		<put-attribute name="footer" value="/WEB-INF/views/template/pageFooter.jsp" />-->
 	</definition>

@@ -21,7 +21,7 @@ _________________________________________________________ -->
     <div class="panel panel-default sidebar-menu">
 
         <div class="panel-heading">
-            <h3 class="panel-title"><b>Cooks</b></h3>
+            <h3 class="panel-title"><font color="#f0ad4e"><b>Cooks</b></font></h3>
         </div>
 
         <div class="panel-body">
@@ -46,7 +46,7 @@ _________________________________________________________ -->
     <div class="panel panel-default sidebar-menu">
 
         <div class="panel-heading">
-            <h3 class="panel-title"><b>Categories</b></h3>
+            <h3 class="panel-title"><font color="#f0ad4e"><b>Categories</b></font></h3>
         </div>
 
         <div class="panel-body">
@@ -85,7 +85,7 @@ _________________________________________________________ -->
     <div class="panel panel-default sidebar-menu">
 
         <div class="panel-heading">
-            <h3 class="panel-title"><b>Locations </b></h3>
+            <h3 class="panel-title"><font color="#f0ad4e"><b>Locations</b></font></h3>
         </div>
 
         <div class="panel-body">
@@ -121,6 +121,59 @@ _________________________________________________________ -->
 
         </div>
     </div>
-
-   
 </div>
+
+
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+    <p id="cart_selection" class="alert-txt" style="display: none">Items filtered by kitchen that you add first item from it.</p>
+    <div id="search_result" style="display: block;"><div class="meals item-gutter meals_menu" id="i846">
+            <div class="meal-inner menu">
+                <div class="meal-image menu">
+                    <input type="hidden" id="kitchen_846" value="14">
+                    <a href="">
+                        <img src="/uploads/items/185x145/846/1570.jpeg" class="img-responsive">
+
+
+                    </a>
+                </div>
+                <div class="meal-inner-details">
+                    <div class="meal-details">
+                        <div class="meal-title"><a href="" class="add_item_name brand-color-txt
+                                                   " id="846" data-id="0" 0="">Pasta salad with tuna</a>
+                        </div>
+                        <div class="meal-kitchen"><a href="/en/kitchens/14"><span>@</span><span>piccolino</span></a>
+                        </div>
+                        <div class="meal-ingredients details-gutter">
+                            <p> 150 gm pasta - tuna - colored capsicum &amp; mayo</p>
+
+                        </div>
+                        <div class="item-sizes">
+                            <div class="size">
+                                <input style="display: none;" type="radio" checked="checked" name="size_846" id="size_846_4" value="4">
+                                <label for="size_846_4">
+                                    <dl class="item-size-check">
+                                        <dt class="item-size-title">One Size</dt>
+                                        <dd>
+                                            <p>
+                                                <span class="item-size-price">26</span><span class="unit">EGP</span>
+                                            </p>
+                                        </dd>
+                                    </dl>
+                                </label>
+                            </div>
+                            <div class="btn-add"><a class="add_item
+
+                                                    " id="846" data-id="0" 0=""><span class="add-plus">+</span></a></div>
+                        </div>
+                        <input type="hidden" name="cook_status_846" value="2">
+                    </div>
+                </div>
+
+            </div>
+        </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+    </div>
+</div>                                                                                                                                                               
+
+
+

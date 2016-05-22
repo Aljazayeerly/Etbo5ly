@@ -18,7 +18,6 @@
 
     </head>
     <body>
-        <tiles:insertAttribute name="header"></tiles:insertAttribute>
         <tiles:insertAttribute name="body"></tiles:insertAttribute>
     </body>
 </html>
