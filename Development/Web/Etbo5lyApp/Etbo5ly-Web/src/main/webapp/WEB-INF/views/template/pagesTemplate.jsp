@@ -29,7 +29,7 @@
     </head>
     <body>
         <tiles:insertAttribute name="header"></tiles:insertAttribute>
-<<<<<<< HEAD
+
             <br>
             <br>
         <tiles:insertAttribute name="body"></tiles:insertAttribute>
@@ -66,8 +66,6 @@
         <br> 
         <br>
 
-=======
-        <tiles:insertAttribute name="body"></tiles:insertAttribute>
->>>>>>> 6b0afbfb3c0b5b931b7d5e887740282367dad435
+
     </body>
 </html>
