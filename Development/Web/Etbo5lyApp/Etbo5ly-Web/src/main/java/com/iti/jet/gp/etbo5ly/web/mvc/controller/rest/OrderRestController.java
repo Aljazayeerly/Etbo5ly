@@ -30,7 +30,6 @@ public class OrderRestController {
     @Autowired
     OrderService orderService;
 
-
     @RequestMapping(value = "/rest/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<OrderDTO>> getAllOrdersByIdService(@RequestParam(value = "customerId") int id) {
 
@@ -38,6 +37,7 @@ public class OrderRestController {
         List<OrderDTO> orders = orderService.getAllOrdersByID(id);
 
         return new ResponseEntity<List<OrderDTO>>(orders, HttpStatus.OK);
+        
     }
 
     @RequestMapping(value = "/rest/createOrder", method = RequestMethod.POST, headers = "Accept=application/json")
@@ -48,7 +48,7 @@ public class OrderRestController {
         System.out.println("order items size is: " + orderDTO.getOrderDetails().iterator().next().getMenuItemsNameEn());
 
         //System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.getLocation());
-//        orderService.createOrder(order);
+        orderService.createOrder(orderDTO);
         HttpHeaders headers = new HttpHeaders();
 //        headers.setLocation(ucBuilder.path("/rest/createOrder/{id}").buildAndExpand(order.getOrderId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);

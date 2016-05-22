@@ -19,5 +19,5 @@ public interface OrderService {
 
     List<OrderDTO> getAllOrdersByID(int id);
 
-    void createOrder(Order order);
+    void createOrder(OrderDTO orderDTO);
 }

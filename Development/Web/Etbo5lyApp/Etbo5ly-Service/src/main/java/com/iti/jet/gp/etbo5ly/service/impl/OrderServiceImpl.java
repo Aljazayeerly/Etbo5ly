@@ -7,6 +7,7 @@ package com.iti.jet.gp.etbo5ly.service.impl;
 
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.OrderDao;
 import com.iti.jet.gp.etbo5ly.model.pojo.Order;
+import com.iti.jet.gp.etbo5ly.model.pojo.OrderDetails;
 import com.iti.jet.gp.etbo5ly.service.OrderService;
 import com.iti.jet.gp.etbo5ly.service.dto.OrderDTO;
 import com.iti.jet.gp.etbo5ly.service.util.DTOConverter;
@@ -43,13 +44,27 @@ public class OrderServiceImpl implements OrderService {
 
         List<OrderDTO> orderDTOs = new ArrayList<OrderDTO>();
         List<Order> orders = orderDao.getAllOrdersById(id);
-        return DTOConverter.orderListToOrderDTOList(orders);
+        orderDTOs = DTOConverter.orderListToOrderDTOList(orders);
+        System.out.println("Size bta3 al zft : " + orderDTOs.get(0).getOrderDetails().size());
+        return orderDTOs;
     }
 
     @Transactional
     @Override
-    public void createOrder(Order order) {
+    public void createOrder(OrderDTO orderDTO) {
 
+        System.out.println("Service");
+        Order order = DTOConverter.orderDTOListToOrderList(orderDTO);
+        System.out.println("after converting");
+
+        for (OrderDetails orderDetails : order.getOrderDetails()) {
+            System.out.println("id :  " + orderDetails.getId().getOrderId());
+            orderDetails.setOrder(order);//getId().setOrderId(null);//getOrder().setOrderId(null);
+            System.out.println("id :  " + orderDetails.getId().getOrderId());
+        }
+        System.out.println("Type : " + order.getType());
+        System.out.println("details size" + order.getOrderDetails().size());
+        System.out.println("" + order.getOrderDetails().iterator().next().getMenuItems().getNameEn());
         orderDao.create(order);
     }
 

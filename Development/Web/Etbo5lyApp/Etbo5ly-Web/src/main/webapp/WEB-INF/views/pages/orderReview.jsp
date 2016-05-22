@@ -24,12 +24,6 @@
                         <form method="post" action="checkout4.html">
                             <h1>Checkout - Order review</h1>
                             <ul class="nav nav-pills nav-justified">
-                                <li><a href="checkout1.html"><i class="fa fa-map-marker"></i><br>Address</a>
-                                </li>
-                                <li><a href="checkout2.html"><i class="fa fa-truck"></i><br>Delivery Method</a>
-                                </li>
-                                <li><a href="checkout3.html"><i class="fa fa-money"></i><br>Payment Method</a>
-                                </li>
                                 <li class="active"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
                                 </li>
                             </ul>
@@ -42,35 +36,20 @@
                                                 <th colspan="2">Product</th>
                                                 <th>Quantity</th>
                                                 <th>Unit price</th>
-                                                <th>Discount</th>
                                                 <th>Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>
-                                                    <a href="#">
-                                                        <img src="img/detailsquare.jpg" alt="White Blouse Armani">
-                                                    </a>
-                                                </td>
-                                                <td><a href="#">White Blouse Armani</a>
-                                                </td>
+                                                <td>White Blouse Armani</td>
                                                 <td>2</td>
                                                 <td>$123.00</td>
-                                                <td>$0.00</td>
                                                 <td>$246.00</td>
                                             </tr>
                                             <tr>
-                                                <td>
-                                                    <a href="#">
-                                                        <img src="img/basketsquare.jpg" alt="Black Blouse Armani">
-                                                    </a>
-                                                </td>
-                                                <td><a href="#">Black Blouse Armani</a>
-                                                </td>
+                                                <td>Black Blouse Armani</td>
                                                 <td>1</td>
                                                 <td>$200.00</td>
-                                                <td>$0.00</td>
                                                 <td>$200.00</td>
                                             </tr>
                                         </tbody>

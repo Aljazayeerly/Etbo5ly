@@ -57,4 +57,13 @@ public class DTOConverter {
         return orderDTOs;
     }
 
+    public static Order orderDTOListToOrderList(OrderDTO orderDTO) {
+
+        Order order = null;
+
+        order = modelMapper.map(orderDTO, Order.class);
+        order.setOrderId(null);
+        return order;
+    }
+
 }
