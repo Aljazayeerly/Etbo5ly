@@ -27,12 +27,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @author salma
  */
 @RestController
+@RequestMapping(value = "/rest/meal")
 public class MenuItemsRestController {
 
     @Autowired
     MenuItemsService menuItemsService;
 
-    @RequestMapping(value = "/test/meals", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/meals", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItems>> getMeals() {
 //        System.out.println("in meals service controller");
         List<MenuItems> meals = menuItemsService.getAllMealsDetails();
@@ -44,7 +45,7 @@ public class MenuItemsRestController {
         }
     }
 
-    @RequestMapping(value = "/test/meal", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/meal", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItems>> getSpecificMeal(@RequestParam(value = "mealName") String name) {
 //        System.out.println("in meals service controller");
         List<MenuItems> sprcificMeal = menuItemsService.getSpecificMealDetails(name);
@@ -56,7 +57,7 @@ public class MenuItemsRestController {
         }
     }
 
-    @RequestMapping(value = "/rest/meal/page", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/page", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItemDTO>> getMealsByPage(@RequestParam(value = "page") int page) {
         List<MenuItemDTO> mealsBatch = menuItemsService.getMealsByPage(page);
         System.out.println("number of items retrieved is: "+mealsBatch.size());

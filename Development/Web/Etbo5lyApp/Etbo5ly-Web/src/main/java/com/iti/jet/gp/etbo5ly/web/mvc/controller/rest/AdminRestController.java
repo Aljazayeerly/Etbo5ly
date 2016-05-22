@@ -28,17 +28,7 @@ public class AdminRestController {
     @Autowired
     AdminService adminService;
 
-    // add new Category
-    @RequestMapping(value = "/rest/create/category", method = RequestMethod.POST)
-    public ResponseEntity<Void> createTitle(@RequestBody Category category, UriComponentsBuilder ucBuilder) {
-
-        System.out.println("Creating category " + category.getNameEn());
-
-        adminService.addCategory(category);
-
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-    }
+   
 
     @RequestMapping(value = "/rest/get/categories", method = RequestMethod.GET)
     public ResponseEntity<List<Category>> createTitle() {

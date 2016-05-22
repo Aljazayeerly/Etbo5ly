@@ -25,12 +25,6 @@ import org.springframework.transaction.support.TransactionTemplate;
 public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
         MenuItemsDao {
 
-//	@PersistenceContext
-//    private EntityManager entityManager;
-//
-//    public EntityManager getEntityManager() {
-//        return entityManager;
-//    }
     @Autowired
     HibernateTemplate hibernateTemplate;
 

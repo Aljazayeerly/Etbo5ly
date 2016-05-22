@@ -62,7 +62,6 @@ public class CookServiceImpl implements CookService {
         }
         return cookDTOs;
     }
-<<<<<<< HEAD
 
     @Override
     @Transactional
@@ -113,10 +112,8 @@ public class CookServiceImpl implements CookService {
         }
         return nearbyCooks;
     }
-    
 
-=======
-    
+
     @Override
     @Transactional
     public List<CookDTO> getCooksByPage(int page) {
@@ -127,5 +124,14 @@ public class CookServiceImpl implements CookService {
         
                 
     }
->>>>>>> 6b0afbfb3c0b5b931b7d5e887740282367dad435
+
+
+    @Override
+    @Transactional
+    public List<CookDTO> getCooksByRegion(int regionId) {
+       
+         List<Cook> Cooks = cookDao.getCooksByRegion(regionId);
+        return DTOConverter.cookListToCookDTOList(Cooks);
+    }
+
 }

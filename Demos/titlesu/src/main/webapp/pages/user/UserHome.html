@@ -1,0 +1,225 @@
+<html>
+    <head>  
+        <title>Title</title>  
+        <style>
+            .username.ng-valid {
+                background-color: lightgreen;
+            }
+            .username.ng-dirty.ng-invalid-required {
+                background-color: red;
+            }
+            .username.ng-dirty.ng-invalid-minlength {
+                background-color: yellow;
+            }
+
+            .email.ng-valid {
+                background-color: lightgreen;
+            }
+            .email.ng-dirty.ng-invalid-required {
+                background-color: red;
+            }
+            .email.ng-dirty.ng-invalid-email {
+                background-color: yellow;
+            }
+
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link href="../../resources/css/app.css" rel="stylesheet"></link>
+        <link rel="stylesheet" href="../../resources/css/style.css" type="text/css" media="all" />
+
+    </head>
+    <body ng-app="myApp" ng-controller="UserController as ctrl">
+        <!-- Shell -->
+        <div id="shell">
+            <!-- Header -->
+            <div id="header">
+                <h1 id="logo"><a href="#">Movie Hunter</a></h1>
+
+
+                <!-- Navigation -->
+                <div id="navigation">
+                    <ul>
+                        <li><a class="active" href="#">LOGOUT</a></li>
+                    </ul>
+                </div>
+                <!-- end Navigation -->
+
+                <!-- Sub-menu -->
+                <div id="sub-navigation">
+                    <ul>
+                        <li><a ng-click="ctrl.order(0)" >Year</a></li>
+                        <li><a ng-click="ctrl.order(1)">IMDB Votes</a></li>
+                        <li><a ng-click="ctrl.order(2)">IMDB Rate</a></li>
+                    </ul>
+                    <div id="search">
+                            <label for="search-field">SEARCH</label>					
+                            <input type="text" name="search field" value="Enter search here" ng-model="ctrl.searchString" id="search-field" title="Enter search here" class="blink search-field"  />
+                            <input type="button" value="GO!" ng-click="ctrl.filterByName()" class="search-button" />
+                    </div>
+                </div>
+                <!-- end Sub-Menu -->
+
+            </div>
+            <!-- end Header -->
+
+            <!-- Main -->
+            <div id="main">
+                <!-- Content -->
+                <div id="content">
+
+                    <!-- Box -->
+                    <div class="box">
+
+
+                        <!-- Movie -->
+                        <div class="movie" dir-paginate="t in ctrl.searchTitles | itemsPerPage: ctrl.pageSize" current-page="ctrl.currentPage">
+
+                            <div class="movie-image">
+
+                                <a ng-click="ctrl.showTitle(t.id)"><span class="play"><span class="name">{{t.title}}</span></span><img src="../../resources/images/movies_images/{{t.imageUrl}}" alt="movie" /></a>
+                            </div>
+
+                            <div class="rating">
+                                <p><font color="green" size="2">{{t.title}}</font></p>
+                            </div>
+                        </div>
+                        <!-- end Movie -->
+
+
+
+                        <div class="cl">&nbsp;</div>
+                    </div>
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="../../resources/js/pagination/dirPagination.tpl.html"></dir-pagination-controls>
+
+                    <!-- end Box -->
+
+                </div>
+                <!-- end Content -->
+
+
+
+
+                <div class="cl">&nbsp;</div>
+            </div>
+            <!-- end Main -->
+
+            <!-- Title -->
+            <div id="news" ng-show="ctrl.title.id">
+
+                <div class="content">
+                    <h4>Title</h4>
+                    <p>{{ctrl.title.title}}</p>
+                </div>
+                <div class="content">
+                    <h4>Country</h4>
+                    <p>{{ctrl.title.country}}</p>
+                </div>
+                <div class="content">
+                    <h4>Awards</h4>
+                    <p>{{ctrl.title.awards}}</p>
+                </div>
+                <div class="content">
+                    <h4>IMDB Votes</h4>
+                    <p>{{ctrl.title.imdbvotes}}</p>
+                </div>
+                <div class="content">
+                    <h4>IMDB Rating</h4>
+                    <p>{{ctrl.title.imdbrating}}</p>
+                </div>
+                <div class="content">
+                    <h4>IMDB ID</h4>
+                    <p>{{ctrl.title.imdbId}}</p>
+                </div>
+                <div class="content">
+                    <h4>Type</h4>
+                    <p>{{ctrl.title.type}}</p>
+                </div>
+                <div class="content">
+                    <h4>Year</h4>
+                    <p>{{ctrl.title.year}}</p>
+                </div>
+                <div class="content">
+                    <h4>Genre</h4>
+                    <p>{{ctrl.title.genre}}</p>
+                </div>
+                <div class="content">
+                    <h4>Director</h4>
+                    <p>{{ctrl.title.director}}</p>
+                </div>
+                <div class="content">
+                    <h4>Writer</h4>
+                    <p>{{ctrl.title.writer}}</p>
+                </div>
+                <div class="content">
+                    <h4>Actors</h4>
+                    <p>{{ctrl.title.actors}}</p>
+                </div>
+                <div class="content">
+                    <h4>Language</h4>
+                    <p>{{ctrl.title.language}}</p>
+                </div>
+
+
+            </div>
+            <!-- end Title -->
+
+            <!-- Coming -->
+            <div id="coming" ng-show="ctrl.title.id">
+                <div class="content">
+                    <h4>Users' Comments and Ratings</h4>
+                    <div ng-repeat="c in ctrl.title.userRatingCollection">
+                        <p><i>{{c.comment}}</i></p>
+                        <font color="orange"><b><u>{{c.rating}}</u></b></font>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div id="search">
+                        <input type="text" name="search field" ng-model="ctrl.userComment" id="search-field" title="Enter Comment here" class="blink search-field"  />
+                        <button type="button" ng-click="ctrl.comment(1, ctrl.title.id, ctrl.userComment)"   class="search-button" >Comment</button>
+                    </div>
+                </div>
+                <div class="cl">&nbsp;</div>
+            </div >
+            <div id="coming" ng-show="ctrl.title.id">
+                <div class="content">
+                    <h4>Your Rating</h4>
+                    <div id="search">
+                        <label>
+                            <input type="radio" ng-change="ctrl.rate(1,ctrl.title.id)" ng-model="ctrl.rateValue" value="1">
+
+                        </label>
+                        <label>
+                            <input type="radio" ng-change="ctrl.rate(1,ctrl.title.id)" ng-model="ctrl.rateValue" value="2">
+
+                        </label>
+                        <label>
+                            <input type="radio" ng-change="ctrl.rate(1,ctrl.title.id)" ng-model="ctrl.rateValue" value="3">
+
+                        </label>
+                        <label>
+                            <input type="radio"  ng-change="ctrl.rate(1,ctrl.title.id)" ng-model="ctrl.rateValue" value="4">
+
+                        </label><label>
+                            <input type="radio"  ng-change="ctrl.rate(1,ctrl.title.id)" ng-model="ctrl.rateValue" value="5">
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end Coming -->
+            <div class="cl">&nbsp;</div>
+
+        </div>
+        <!-- end Shell -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+        <script src="../../resources/js/app.js"></script>
+        <script src="../../resources/js/service/user_service.js"></script>
+        <script src="../../resources/js/controller/user_controller.js"></script>
+        <script src="../../resources/js/pagination/dirPagination.js"></script>
+        <script type="text/javascript" src="../../resources/js/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../../resources/js/jquery-func.js"></script>
+
+    </body>
+</html>
