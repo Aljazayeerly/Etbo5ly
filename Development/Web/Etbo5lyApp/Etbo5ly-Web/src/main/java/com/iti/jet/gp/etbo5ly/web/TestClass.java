@@ -5,6 +5,7 @@
  */
 package com.iti.jet.gp.etbo5ly.web;
 
+import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -90,8 +91,17 @@ public class TestClass {
         return "register";
     }
 
-    
-      @RequestMapping(value = "/kitchen.htm")
+    @RequestMapping(value = "/orderReview.htm")
+    public String orderReview() {
+        return "orderReview";
+    }
+
+    @RequestMapping(value = "/login.htm")
+    public String login() {
+        return "login";
+    }
+
+    @RequestMapping(value = "/kitchen.htm")
     public String showKitchens() {
         return "kitchen";
     }

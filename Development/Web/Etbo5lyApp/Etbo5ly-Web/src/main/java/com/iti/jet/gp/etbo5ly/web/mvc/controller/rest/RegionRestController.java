@@ -7,6 +7,7 @@ package com.iti.jet.gp.etbo5ly.web.mvc.controller.rest;
 
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CountryDao;
 import com.iti.jet.gp.etbo5ly.model.pojo.Category;
+import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.model.pojo.Country;
 import com.iti.jet.gp.etbo5ly.service.RegionService;
 import com.iti.jet.gp.etbo5ly.service.TestService;
@@ -24,12 +25,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @author AlJazayeerly
  */
 @RestController
+@RequestMapping("rest/region")
 public class RegionRestController {
 
     @Autowired
     RegionService regionService;
 
-    @RequestMapping(value = "/rest/countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Country>> getCountries() {
 
         List<Country> countries = regionService.getAllCountries();
@@ -39,4 +41,7 @@ public class RegionRestController {
         else
             return new ResponseEntity<List<Country>>(countries,HttpStatus.NOT_FOUND);
     }
+    
+    
+    
 }

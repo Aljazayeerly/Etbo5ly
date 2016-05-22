@@ -14,7 +14,20 @@ import java.util.List;
  * @author salma
  */
 public interface CookService {
-      public List<Cook> getAllCooks();
-      public List<CookDTO> getAllCookDTOs();
-      List<CookDTO> getCooksByPage(int page);
+
+
+    List<CookDTO> getCooksByPage(int page);
+
+    List<CookDTO> getCooksByRegion(int regionId);
+
+    public List<Cook> getAllCooks();
+
+    public List<CookDTO> getAllCookDTOs();
+
+    public List<Cook> getAllNearbyCooks(double Clongtitude, double Clatitude);
+
+    public List<CookDTO> getAllNearbyCooksDTO(double cLongtitude, double cLatitude);
+
+
+
 }

@@ -2,7 +2,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!--Fixed Menu Bar-->
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top" id="myHeader">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -14,7 +14,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href=""><fmt:message key="login"/></a></li>
+                <li class="active"><a href="login.htm"><fmt:message key="login"/></a></li>
                 <li><a href="register.htm"><fmt:message key="register"/></a></li>
                 <li><a href="#contact"><fmt:message key="joinUs"/></a></li>
                  <li class="dropdown">
@@ -25,13 +25,7 @@
               </ul>
             </li>
 
-
-                <!--                <li class="active"><a href="#">login</a></li>
-                                <li><a href="#about">Register</a></li>
-                                <li><a href="#contact">Join Us</a></li>
-                                <li><a href="#contact">Lang</a></li>-->-->
-
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </div>

@@ -16,7 +16,7 @@
 
 <!--    <script src="js/respond.min.js"></script>-->
 
-<div class="col-md-6">
+<div class="col-md-6" id="registerbox">
     <div class="box">
         <h1><fmt:message key="newAccount"/></h1>
 
