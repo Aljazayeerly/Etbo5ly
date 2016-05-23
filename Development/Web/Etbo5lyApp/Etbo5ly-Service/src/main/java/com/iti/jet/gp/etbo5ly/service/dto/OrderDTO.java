@@ -15,8 +15,10 @@ import java.util.Set;
  */
 public class OrderDTO {
 
-    private int orderId;
+//    private int orderId;
+    private int userByCustomerId;
     private String customerName;
+    private int userByCookId;
     private String cookName;
     private String location;
     private int duration;
@@ -28,6 +30,7 @@ public class OrderDTO {
     private Double longitude;
     private Double latitude;
     private String addressDetails;
+    private int regionId;
     private String regionName;
     private String regionNameAr;
     private String regionCityName;
@@ -38,12 +41,28 @@ public class OrderDTO {
     public OrderDTO() {
     }
 
-    public int getOrderId() {
-        return orderId;
+//    public int getOrderId() {
+//        return orderId;
+//    }
+//
+//    public void setOrderId(int orderId) {
+//        this.orderId = orderId;
+//    }
+    
+    public int getUserByCustomerId() {
+        return userByCustomerId;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setUserByCustomerId(int userByCustomerId) {
+        this.userByCustomerId = userByCustomerId;
+    }
+
+    public int getUserByCookId() {
+        return userByCookId;
+    }
+
+    public void setUserByCookId(int userByCookId) {
+        this.userByCookId = userByCookId;
     }
 
     public String getCustomerName() {
@@ -142,6 +161,14 @@ public class OrderDTO {
         this.addressDetails = addressDetails;
     }
 
+    public int getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(int regionId) {
+        this.regionId = regionId;
+    }
+    
     public String getRegionName() {
         return regionName;
     }
@@ -186,8 +213,9 @@ public class OrderDTO {
         return orderDetails;
     }
 
-    public void setOrderDetailses(Set<OrderDetailsDTO> orderDetails) {
+    public void setOrderDetails(Set<OrderDetailsDTO> orderDetails) {
         this.orderDetails = orderDetails;
     }
 
+    
 }

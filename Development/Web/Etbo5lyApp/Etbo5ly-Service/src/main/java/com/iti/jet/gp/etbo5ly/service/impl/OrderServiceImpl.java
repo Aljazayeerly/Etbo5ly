@@ -56,14 +56,14 @@ public class OrderServiceImpl implements OrderService {
         System.out.println("Service");
         Order order = DTOConverter.orderDTOListToOrderList(orderDTO);
         System.out.println("after converting");
+        System.out.println("details size" + order.getOrderDetails().size());
 
         for (OrderDetails orderDetails : order.getOrderDetails()) {
             System.out.println("id :  " + orderDetails.getId().getOrderId());
-            orderDetails.setOrder(order);//getId().setOrderId(null);//getOrder().setOrderId(null);
+            orderDetails.getId().setOrderId(null);//getOrder().setOrderId(null);
             System.out.println("id :  " + orderDetails.getId().getOrderId());
         }
         System.out.println("Type : " + order.getType());
-        System.out.println("details size" + order.getOrderDetails().size());
         System.out.println("" + order.getOrderDetails().iterator().next().getMenuItems().getNameEn());
         orderDao.create(order);
     }
