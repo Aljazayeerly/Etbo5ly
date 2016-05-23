@@ -29,7 +29,6 @@
     </head>
     <body>
         <tiles:insertAttribute name="header"></tiles:insertAttribute>
-<<<<<<< HEAD
             <br>
             <br>
         <tiles:insertAttribute name="body"></tiles:insertAttribute>
