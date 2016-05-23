@@ -19,11 +19,9 @@
         <put-attribute name="body" value="/WEB-INF/views/pages/login.jsp" />
     </definition>
         
-    <definition name="kitchens" extends="DefaultPageTemplate">
-        <put-attribute name="body" value="/WEB-INF/views/pages/kitchens.jsp" />
+    <definition name="neighbouringKitchens" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/neighbouringKitchens.jsp" />
     </definition>
-        
-
         
     <definition name="kitchen" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/kitchen.jsp" />

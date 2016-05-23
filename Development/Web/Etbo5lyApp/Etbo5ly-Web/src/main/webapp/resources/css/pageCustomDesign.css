@@ -246,9 +246,17 @@ blockquote.pull-right {
     position: absolute;
     left: 0;
     right: 0;
-    
+
     border-color: #f0ad4e;
 }
 #srch-term{
-   
+
 }
+#map {
+    /*    width: 500px;
+        height: 400px;*/
+
+    height: 100%;
+    width: 100%;
+}
+

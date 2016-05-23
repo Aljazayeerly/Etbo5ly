@@ -105,4 +105,9 @@ public class TestClass {
     public String showKitchens() {
         return "kitchen";
     }
+    
+    @RequestMapping(value = "/neighbouringKitchen.htm")
+    public String neighbouringKitchens(){
+        return "neighbouringKitchens";
+    }
 }
