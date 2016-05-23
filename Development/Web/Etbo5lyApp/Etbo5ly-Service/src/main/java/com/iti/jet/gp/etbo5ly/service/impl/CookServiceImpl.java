@@ -68,10 +68,7 @@ public class CookServiceImpl implements CookService {
 //
 //            @Override
 //            public Object doInTransaction(TransactionStatus ts) {
-//                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(Cook.class)).add(Restrictions.le(
-//                        3956 * 2 * Math.asin(Math.sqrt(Math.pow(Math.sin((Clatitude - Math.abs()) * Math.PI / 180 / 2), 2) + Math.cos(Clatitude * Math.PI / 180) * Math.cos(Math.abs(allCooks.get(i).getLatitude()) * Math.PI / 180)
-//                                        * Math.pow(Math.sin((Clongtitude - Math.abs(allCooks.get(i).getLongitude())) * Math.PI / 180 / 2), 2)
-//                                )), 10));
+//                return hibernateTemplate.getSessionFactory().getCurrentSession().getNamedQuery("callCooksStoreProcedure").setParameters(os, types);
 //
 //            }
 //        });
@@ -80,9 +77,11 @@ public class CookServiceImpl implements CookService {
         System.out.print("Nearby Coooooooooks");
         List<Cook> nearbyCooks = new ArrayList<>();
         for (int i = 0; i < allCooks.size(); i++) {
+            
             double distance = 3956 * 2 * Math.asin(Math.sqrt(Math.pow(Math.sin((Clatitude - Math.abs(allCooks.get(i).getLatitude())) * Math.PI / 180 / 2), 2) + Math.cos(Clatitude * Math.PI / 180) * Math.cos(Math.abs(allCooks.get(i).getLatitude()) * Math.PI / 180)
                     * Math.pow(Math.sin((Clongtitude - Math.abs(allCooks.get(i).getLongitude())) * Math.PI / 180 / 2), 2)
             ));
+            
             System.out.print("distance value" + distance);
             if (distance <= 5) {
                 nearbyCooks.add(allCooks.get(i));
