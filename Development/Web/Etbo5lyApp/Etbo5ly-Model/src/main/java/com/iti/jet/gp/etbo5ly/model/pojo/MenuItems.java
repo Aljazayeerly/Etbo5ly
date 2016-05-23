@@ -47,6 +47,10 @@ public class MenuItems  implements java.io.Serializable {
 
     public MenuItems() {
     }
+    
+    public MenuItems(Integer id) {
+        this.itemId=id;
+    }
 
 	
     public MenuItems(Cook cook, String nameEn, String nameAr, float price, String descriptionEn, String descriptionAr) {

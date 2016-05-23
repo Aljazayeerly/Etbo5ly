@@ -220,7 +220,7 @@ DROP TABLE IF EXISTS `etbo5ly`.`order` ;
 CREATE  TABLE IF NOT EXISTS `etbo5ly`.`order` (
   `order_id` INT(11) NOT NULL AUTO_INCREMENT ,
   `location` VARCHAR(100) NOT NULL ,
-  `order_time` DATETIME NOT NULL ,
+  `order_time` DATETIME  ,
   `duration` INT(11) NOT NULL ,
   `customer_rating` SMALLINT(6) NULL DEFAULT NULL ,
   `order_comment` VARCHAR(150) NULL DEFAULT NULL ,
