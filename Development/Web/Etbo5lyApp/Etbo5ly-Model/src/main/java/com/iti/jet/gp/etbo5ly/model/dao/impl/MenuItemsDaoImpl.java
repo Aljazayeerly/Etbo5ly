@@ -20,6 +20,8 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
+//import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
+
 
 @Repository("menuItemsDaoImpl")
 public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
@@ -103,5 +105,17 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
             }
         });
     }
+
+//    @Override
+//    public List<MenuItemDTO> getAllMeals() {
+//return (List<MenuItemDTO>) transactionTemplate.execute(new TransactionCallback<Object>() {
+//
+//            @Override
+//            public Object doInTransaction(TransactionStatus ts) {
+//
+//                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class));
+//
+//            }
+//        });    }
 
 }
