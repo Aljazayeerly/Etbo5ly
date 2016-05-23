@@ -12,13 +12,13 @@ import javax.persistence.Embeddable;
 public class OrderDetailsId  implements java.io.Serializable {
 
 
-     private int orderId;
+     private Integer orderId;
      private int menuItemId;
 
     public OrderDetailsId() {
     }
 
-    public OrderDetailsId(int orderId, int menuItemId) {
+    public OrderDetailsId(Integer orderId, int menuItemId) {
        this.orderId = orderId;
        this.menuItemId = menuItemId;
     }
@@ -26,11 +26,11 @@ public class OrderDetailsId  implements java.io.Serializable {
 
 
     @Column(name="order_id", nullable=false)
-    public int getOrderId() {
+    public Integer getOrderId() {
         return this.orderId;
     }
     
-    public void setOrderId(int orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 

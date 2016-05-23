@@ -45,9 +45,7 @@ public class CookServiceImpl implements CookService {
     @Override
     @Transactional
     public List<Cook> getAllCooks() {
-        System.out.println("seervice layer");
         List<Cook> cooks = cookDao.getAll();
-        System.out.println("cooks size : " + cooks.size());
         return cooks;
     }
 
@@ -78,17 +76,17 @@ public class CookServiceImpl implements CookService {
 //            }
 //        });
 //    }
-        List<Cook> allCooks=getAllCooks();
+        List<Cook> allCooks = getAllCooks();
         System.out.print("Nearby Coooooooooks");
         List<Cook> nearbyCooks = new ArrayList<>();
-        for(int i=0;i<allCooks.size();i++){
-            double distance=3956*2*Math.asin(Math.sqrt(Math.pow(Math.sin((Clatitude-Math.abs(allCooks.get(i).getLatitude()))*Math.PI/180/2)
-                    , 2)+Math.cos(Clatitude*Math.PI/180) * Math.cos(Math.abs(allCooks.get(i).getLatitude())*Math.PI/180)*
-                    Math.pow(Math.sin((Clongtitude-Math.abs(allCooks.get(i).getLongitude()))*Math.PI/180/2), 2)
-                    ));
+        for (int i = 0; i < allCooks.size(); i++) {
+            double distance = 3956 * 2 * Math.asin(Math.sqrt(Math.pow(Math.sin((Clatitude - Math.abs(allCooks.get(i).getLatitude())) * Math.PI / 180 / 2), 2) + Math.cos(Clatitude * Math.PI / 180) * Math.cos(Math.abs(allCooks.get(i).getLatitude()) * Math.PI / 180)
+                    * Math.pow(Math.sin((Clongtitude - Math.abs(allCooks.get(i).getLongitude())) * Math.PI / 180 / 2), 2)
+            ));
             System.out.print("distance value" + distance);
-            if(distance<=5)
+            if (distance <= 5) {
                 nearbyCooks.add(allCooks.get(i));
+            }
         }
         return nearbyCooks;
     }
@@ -96,23 +94,21 @@ public class CookServiceImpl implements CookService {
     @Override
     @Transactional
     public List<CookDTO> getAllNearbyCooksDTO(double cLongtitude, double cLatitude) {
-        List<CookDTO> allCooks=getAllCookDTOs();
-        List<CookDTO> nearbyCooks=new ArrayList<>();
-         ModelMapper modelMapper = new ModelMapper();
-        for (int i=0;i<allCooks.size();i++){
-              double distance=3956*2*Math.asin(Math.sqrt(Math.pow(Math.sin((cLatitude-Math.abs(allCooks.get(i).getLatitude()))*Math.PI/180/2)
-                    , 2)+Math.cos(cLatitude*Math.PI/180) * Math.cos(Math.abs(allCooks.get(i).getLatitude())*Math.PI/180)*
-                    Math.pow(Math.sin((cLongtitude-Math.abs(allCooks.get(i).getLongitude()))*Math.PI/180/2), 2)
-                    ));
+        List<CookDTO> allCooks = getAllCookDTOs();
+        List<CookDTO> nearbyCooks = new ArrayList<>();
+        ModelMapper modelMapper = new ModelMapper();
+        for (int i = 0; i < allCooks.size(); i++) {
+            double distance = 3956 * 2 * Math.asin(Math.sqrt(Math.pow(Math.sin((cLatitude - Math.abs(allCooks.get(i).getLatitude())) * Math.PI / 180 / 2), 2) + Math.cos(cLatitude * Math.PI / 180) * Math.cos(Math.abs(allCooks.get(i).getLatitude()) * Math.PI / 180)
+                    * Math.pow(Math.sin((cLongtitude - Math.abs(allCooks.get(i).getLongitude())) * Math.PI / 180 / 2), 2)
+            ));
             System.out.print("distance value" + distance);
-            if(distance<=5){
-                 CookDTO cookDTO =modelMapper.map(allCooks.get(i),CookDTO.class);
+            if (distance <= 5) {
+                CookDTO cookDTO = modelMapper.map(allCooks.get(i), CookDTO.class);
                 nearbyCooks.add(cookDTO);
             }
         }
         return nearbyCooks;
     }
-
 
     @Override
     @Transactional
@@ -120,17 +116,14 @@ public class CookServiceImpl implements CookService {
 
         List<Cook> Cooks = cookDao.getCooksPage(page);
         return DTOConverter.cookListToCookDTOList(Cooks);
-        
-        
-                
-    }
 
+    }
 
     @Override
     @Transactional
     public List<CookDTO> getCooksByRegion(int regionId) {
-       
-         List<Cook> Cooks = cookDao.getCooksByRegion(regionId);
+
+        List<Cook> Cooks = cookDao.getCooksByRegion(regionId);
         return DTOConverter.cookListToCookDTOList(Cooks);
     }
 
