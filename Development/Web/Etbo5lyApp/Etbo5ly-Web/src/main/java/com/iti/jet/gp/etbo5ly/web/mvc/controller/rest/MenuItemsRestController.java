@@ -36,17 +36,17 @@ public class MenuItemsRestController {
     @Autowired
     MenuItemsService menuItemsService;
 
-    @RequestMapping(value = "/meals", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<MenuItems>> getMeals() {
-//        System.out.println("in meals service controller");
-        List<MenuItems> meals = menuItemsService.getAllMealsDetails();
-
-        if (meals != null) {
-            return new ResponseEntity<List<MenuItems>>(meals, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<List<MenuItems>>(meals, HttpStatus.NOT_FOUND);
-        }
-    }
+//    @RequestMapping(value = "/meals", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<List<MenuItemDTO>> getMeals() {
+////        System.out.println("in meals service controller");
+//        List<MenuItemDTO> meals = menuItemsService.getAllMealsDetails();
+//
+//        if (meals != null) {
+//            return new ResponseEntity<List<MenuItemDTO>>(meals, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<List<MenuItemDTO>>(meals, HttpStatus.NOT_FOUND);
+//        }
+//    }
 
     @RequestMapping(value = "/meal", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItems>> getSpecificMeal(@RequestParam(value = "mealName") String name) {

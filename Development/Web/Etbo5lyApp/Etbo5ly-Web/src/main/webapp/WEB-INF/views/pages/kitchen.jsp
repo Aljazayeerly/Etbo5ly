@@ -7,9 +7,11 @@
 <%--<%@page contentType="text/html" pageEncoding="UTF-8"%>--%>
 <!--<!DOCTYPE html>-->
 <!--<html>
-    <head>
+-->   
+<!--<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="../../../resources/css/menuStyle.css" rel="stylesheet" type="text/css"/>
     </head>-->
 <!--    <body>
         <h1>Hello World!</h1>
@@ -124,56 +126,27 @@ _________________________________________________________ -->
 </div>
 
 
-<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 
-    <p id="cart_selection" class="alert-txt" style="display: none">Items filtered by kitchen that you add first item from it.</p>
-    <div id="search_result" style="display: block;"><div class="meals item-gutter meals_menu" id="i846">
-            <div class="meal-inner menu">
-                <div class="meal-image menu">
-                    <input type="hidden" id="kitchen_846" value="14">
-                    <a href="">
-                        <img src="/uploads/items/185x145/846/1570.jpeg" class="img-responsive">
+<div ng-app="myApp">
+    <section  ng-controller="MenuController as ctrl"  style="width: 4000px; left: 5000px">
 
-
-                    </a>
-                </div>
-                <div class="meal-inner-details">
-                    <div class="meal-details">
-                        <div class="meal-title"><a href="" class="add_item_name brand-color-txt
-                                                   " id="846" data-id="0" 0="">Pasta salad with tuna</a>
-                        </div>
-                        <div class="meal-kitchen"><a href="/en/kitchens/14"><span>@</span><span>piccolino</span></a>
-                        </div>
-                        <div class="meal-ingredients details-gutter">
-                            <p> 150 gm pasta - tuna - colored capsicum &amp; mayo</p>
-
-                        </div>
-                        <div class="item-sizes">
-                            <div class="size">
-                                <input style="display: none;" type="radio" checked="checked" name="size_846" id="size_846_4" value="4">
-                                <label for="size_846_4">
-                                    <dl class="item-size-check">
-                                        <dt class="item-size-title">One Size</dt>
-                                        <dd>
-                                            <p>
-                                                <span class="item-size-price">26</span><span class="unit">EGP</span>
-                                            </p>
-                                        </dd>
-                                    </dl>
-                                </label>
-                            </div>
-                            <div class="btn-add"><a class="add_item
-
-                                                    " id="846" data-id="0" 0=""><span class="add-plus">+</span></a></div>
-                        </div>
-                        <input type="hidden" name="cook_status_846" value="2">
+        <div ng-repeat="i in ctrl.items" style="left: 390px;width: 600px;height: 200px;margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+            <div style="position: relative">
+                <div style="margin-left: 340px;">
+                    <label style="color: #E18728; margin-left: -220px; font-size: 15px" ng-bind="i.nameEn"></label>
+                    <br>
+                    <label style="color: gray; margin-left: -220px; font-size: 13px" ng-bind="i.cookName"></label>
+                    <div >
+                        <label style="color: black; margin-left: -220px; font-size: 10px" ng-bind="i.descriptionEn"></label>
                     </div>
                 </div>
-
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/ada-small.jpeg" style="margin-left: -360px;margin-top: -90px;">
             </div>
-        </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-    </div>
-</div>                                                                                                                                                               
+        </div>  
+    </section>
+</div>
 
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script src="resources/js/controller/admin_controller.js" type="text/javascript"></script>
+<!--<script src="resources/js/app.js" type="text/javascript"></script>-->
+<script src="resources/js/service/admin_service.js" type="text/javascript"></script>

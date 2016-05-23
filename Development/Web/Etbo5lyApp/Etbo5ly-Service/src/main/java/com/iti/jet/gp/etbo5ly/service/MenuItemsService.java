@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface MenuItemsService {
 
-    List<MenuItems> getAllMealsDetails();
+//    List<MenuItemDTO> getAllMealsDetails();
 
     List<MenuItems> getSpecificMealDetails(String mealName);
 
