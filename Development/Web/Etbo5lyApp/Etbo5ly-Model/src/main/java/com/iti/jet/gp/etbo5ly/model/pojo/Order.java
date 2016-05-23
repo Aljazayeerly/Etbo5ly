@@ -223,7 +223,6 @@ public class Order  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="order")//,cascade = CascadeType.PERSIST)
-@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     public Set<OrderDetails> getOrderDetails() {
         return this.orderDetails;
     }
