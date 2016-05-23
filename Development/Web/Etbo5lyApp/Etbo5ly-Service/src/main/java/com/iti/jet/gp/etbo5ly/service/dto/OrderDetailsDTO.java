@@ -11,6 +11,7 @@ package com.iti.jet.gp.etbo5ly.service.dto;
  */
 public class OrderDetailsDTO {
 
+    private int menuItemsItemId;
     private String menuItemsNameEn;
     private String menuItemsNameAr;
     private float menuItemsPrice;
@@ -21,6 +22,14 @@ public class OrderDetailsDTO {
     private Float totalPrice;
     private Short rating;
     private String comment;
+
+    public int getMenuItemsItemId() {
+        return menuItemsItemId;
+    }
+
+    public void setMenuItemsItemId(int menuItemsItemId) {
+        this.menuItemsItemId = menuItemsItemId;
+    }
 
     public String getMenuItemsNameEn() {
         return menuItemsNameEn;
@@ -102,6 +111,4 @@ public class OrderDetailsDTO {
         this.comment = comment;
     }
 
-   
-    
 }

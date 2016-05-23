@@ -27,10 +27,10 @@ public class MenuItemsServiceImpl implements MenuItemsService {
     @Autowired
     MenuItemsDao menuItemsDao;
 
-    @Override
-    public List<MenuItems> getAllMealsDetails() {
-        return menuItemsDao.getAll();
-    }
+//    @Override
+//    public List<MenuItemDTO> getAllMealsDetails() {
+//        return menuItemsDao.getAllMeals();
+//    }
 
     @Override
     @Transactional
