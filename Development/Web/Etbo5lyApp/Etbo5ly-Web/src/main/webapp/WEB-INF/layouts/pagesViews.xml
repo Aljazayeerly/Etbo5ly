@@ -30,4 +30,7 @@
      <definition name="orderReview" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/orderReview.jsp" />
     </definition>
+      <definition name="cart" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/cart.jsp" />
+    </definition>
 </tiles-definitions>
