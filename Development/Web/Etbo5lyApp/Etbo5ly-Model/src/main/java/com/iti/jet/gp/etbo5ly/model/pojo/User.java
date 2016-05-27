@@ -43,6 +43,8 @@ public class User implements java.io.Serializable {
     private String address;
     private Double longitude;
     private Double latitude;
+    private String imageURL;
+
     @JsonIgnore
     private Set<Role> roles = new HashSet<Role>(0);
     @JsonIgnore
@@ -108,6 +110,15 @@ public class User implements java.io.Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    @Column(name = "image_url")
+    public String getImageURL() {
+        return this.imageURL;
+    }
+
+    public void setImageURL(String imageUrl) {
+        this.imageURL = imageUrl;
     }
 
     @Column(name = "email", nullable = false, length = 45)

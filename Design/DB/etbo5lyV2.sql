@@ -198,6 +198,7 @@ CREATE  TABLE IF NOT EXISTS `etbo5ly`.`user` (
   `longitude` DOUBLE NULL ,
   `latitude` DOUBLE NULL ,
   `region_id` INT NOT NULL ,
+  `image_url` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_user_region1_idx` (`region_id` ASC) ,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) ,
@@ -220,7 +221,7 @@ DROP TABLE IF EXISTS `etbo5ly`.`order` ;
 CREATE  TABLE IF NOT EXISTS `etbo5ly`.`order` (
   `order_id` INT(11) NOT NULL AUTO_INCREMENT ,
   `location` VARCHAR(100) NOT NULL ,
-  `order_time` DATETIME  ,
+  `order_time` DATETIME NOT NULL ,
   `duration` INT(11) NOT NULL ,
   `customer_rating` SMALLINT(6) NULL DEFAULT NULL ,
   `order_comment` VARCHAR(150) NULL DEFAULT NULL ,

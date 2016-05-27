@@ -20,5 +20,9 @@ public class ResourceUtil {
     public static String getMealsImagesURL(){
         return PROTOCOL+HOST_IP+":"+PORT+APPLICATION_CONTEXT+RESOURCE_URL+"meals/";
     }
+    
+    public static String getCooksImagesURL(){
+        return PROTOCOL+HOST_IP+":"+PORT+APPLICATION_CONTEXT+RESOURCE_URL+"cooks/";
+    }
 
 }
