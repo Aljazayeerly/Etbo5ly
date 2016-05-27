@@ -142,3 +142,4 @@ _________________________________________________________ -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
 <script src="resources/js/controller/admin_controller.js" type="text/javascript"></script>
 <script src="resources/js/service/admin_service.js" type="text/javascript"></script>
+<script src="resources/js/service/mainService.js" type="text/javascript"></script>
