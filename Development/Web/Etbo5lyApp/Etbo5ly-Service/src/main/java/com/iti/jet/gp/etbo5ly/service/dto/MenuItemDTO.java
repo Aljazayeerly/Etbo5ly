@@ -5,6 +5,8 @@
  */
 package com.iti.jet.gp.etbo5ly.service.dto;
 
+import com.iti.jet.gp.etbo5ly.service.util.ResourceUtil;
+
 /**
  *
  * @author AlJazayeerly
@@ -20,6 +22,7 @@ public class MenuItemDTO {
     private String descriptionAr;
     private Short itemRate;
     private String imageUrl;
+    private static String resourcesURL = ResourceUtil.getMealsImagesURL();
 
     public Integer getItemId() {
         return itemId;
@@ -86,11 +89,17 @@ public class MenuItemDTO {
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        return  imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    public String getResourcesURL() {
+        return resourcesURL;
+    }
+    
+    
 
 }
