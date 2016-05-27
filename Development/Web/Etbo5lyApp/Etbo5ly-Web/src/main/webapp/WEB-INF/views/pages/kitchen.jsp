@@ -114,8 +114,8 @@ _________________________________________________________ -->
                     </div>
                     <label style="color: #E18728; margin-left: -220px; font-size: 13px" ng-bind="i.price +' L.E'"></label>
                 </div>
-                <div style="margin-left: 340px; margin-top: -110px;">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/ada-small.jpeg" style="float: left; margin-left: -380px; margin-top: -8px;">
+                <div style="margin-left: 340px;  padding-top: -500px; margin-top: -120px;">
+                    <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="float: left; margin-left: -380px;width: 154px;height: 154px;">
                 </div>
             </div>
         </div>  
