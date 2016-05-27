@@ -6,12 +6,19 @@
 package com.iti.jet.gp.etbo5ly.service.impl;
 
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.OrderDao;
+import com.iti.jet.gp.etbo5ly.model.dao.interfaces.OrderDetailsDao;
+import com.iti.jet.gp.etbo5ly.model.dao.interfaces.StatusHasOrderDao;
+import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.model.pojo.Order;
 import com.iti.jet.gp.etbo5ly.model.pojo.OrderDetails;
+import com.iti.jet.gp.etbo5ly.model.pojo.OrderDetailsId;
+import com.iti.jet.gp.etbo5ly.model.pojo.StatusHasOrder;
+import com.iti.jet.gp.etbo5ly.model.pojo.StatusHasOrderId;
 import com.iti.jet.gp.etbo5ly.service.OrderService;
 import com.iti.jet.gp.etbo5ly.service.dto.OrderDTO;
 import com.iti.jet.gp.etbo5ly.service.util.DTOConverter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -28,6 +35,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     OrderDao orderDao;
+    
+    @Autowired
+    OrderDetailsDao orderDetailsDao;
+    
+    @Autowired
+    StatusHasOrderDao statusHasOrderDao;
 
     @Transactional
     @Override
@@ -55,17 +68,16 @@ public class OrderServiceImpl implements OrderService {
 
         System.out.println("Service");
         Order order = DTOConverter.orderDTOListToOrderList(orderDTO);
-        System.out.println("after converting");
-        System.out.println("details size" + order.getOrderDetails().size());
-
-        for (OrderDetails orderDetails : order.getOrderDetails()) {
-            System.out.println("id :  " + orderDetails.getId().getOrderId());
-            orderDetails.getId().setOrderId(null);//getOrder().setOrderId(null);
-            System.out.println("id :  " + orderDetails.getId().getOrderId());
-        }
-        System.out.println("Type : " + order.getType());
-        System.out.println("" + order.getOrderDetails().iterator().next().getMenuItems().getNameEn());
         orderDao.create(order);
+        
+        for (OrderDetails orderDetails : order.getOrderDetails()) {
+            Integer menuItemID=orderDetails.getId().getMenuItemId();
+            orderDetails.setId(new OrderDetailsId(order.getOrderId(),menuItemID ));
+            orderDetailsDao.create(orderDetails);
+        }
+        
+        statusHasOrderDao.create(new StatusHasOrder(new StatusHasOrderId(1, order.getOrderId()), null, null, new Date()));
+       
     }
 
 }

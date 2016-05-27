@@ -198,6 +198,7 @@ CREATE  TABLE IF NOT EXISTS `etbo5ly`.`user` (
   `longitude` DOUBLE NULL ,
   `latitude` DOUBLE NULL ,
   `region_id` INT NOT NULL ,
+  `image_url` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_user_region1_idx` (`region_id` ASC) ,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) ,
