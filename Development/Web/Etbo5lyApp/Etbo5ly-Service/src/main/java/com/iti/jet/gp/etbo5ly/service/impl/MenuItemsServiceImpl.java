@@ -31,12 +31,11 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 //    public List<MenuItemDTO> getAllMealsDetails() {
 //        return menuItemsDao.getAllMeals();
 //    }
-
     @Override
     @Transactional
-    public List<MenuItems> getSpecificMealDetails(String mealName) {
-        return menuItemsDao.searchByMealName(mealName);
-
+    public List<MenuItemDTO> getSpecificMealDetails(String mealName) {
+        List<MenuItems> menuItems = menuItemsDao.searchByMealName(mealName);
+        return DTOConverter.menuItemListToMenuItemDTOList(menuItems);
     }
 
     @Override
@@ -51,20 +50,16 @@ public class MenuItemsServiceImpl implements MenuItemsService {
     @Override
     @Transactional
     public List<MenuItemDTO> getMenuItemsOfCategory(int categoryID) {
-     
-        
-        
-         List<MenuItemDTO> itemDTOs=new ArrayList<MenuItemDTO>();
-        List<MenuItems> menuItems=menuItemsDao.getMealsOfCateogry(categoryID);
-        ModelMapper modelMapper=new ModelMapper();
-        for(MenuItems item:menuItems){
-            MenuItemDTO DTO=modelMapper.map(item, MenuItemDTO.class);
+
+        List<MenuItemDTO> itemDTOs = new ArrayList<MenuItemDTO>();
+        List<MenuItems> menuItems = menuItemsDao.getMealsOfCateogry(categoryID);
+        ModelMapper modelMapper = new ModelMapper();
+        for (MenuItems item : menuItems) {
+            MenuItemDTO DTO = modelMapper.map(item, MenuItemDTO.class);
             itemDTOs.add(DTO);
         }
         return itemDTOs;
-        
-    }
 
-   
+    }
 
 }

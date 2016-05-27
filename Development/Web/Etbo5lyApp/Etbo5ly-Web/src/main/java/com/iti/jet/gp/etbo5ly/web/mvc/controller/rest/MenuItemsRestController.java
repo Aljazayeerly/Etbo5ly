@@ -49,17 +49,18 @@ public class MenuItemsRestController {
 //    }
 
     @RequestMapping(value = "/meal", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<MenuItems>> getSpecificMeal(@RequestParam(value = "mealName") String name) {
-//        System.out.println("in meals service controller");
-        List<MenuItems> sprcificMeal = menuItemsService.getSpecificMealDetails(name);
-//        System.out.println("sizeeeeeeeeee of specific meal list"+sprcificMeal.size());
+    public ResponseEntity<List<MenuItemDTO>> getSpecificMeal(@RequestParam(value = "mealName") String name) {
+
+        List<MenuItemDTO> sprcificMeal = menuItemsService.getSpecificMealDetails(name);
+        System.out.println("lengthhhhhhhhhh"+sprcificMeal.size());
         if (sprcificMeal != null) {
-            return new ResponseEntity<List<MenuItems>>(sprcificMeal, HttpStatus.OK);
+            return new ResponseEntity<List<MenuItemDTO>>(sprcificMeal, HttpStatus.OK);
         } else {
-            return new ResponseEntity<List<MenuItems>>(sprcificMeal, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<List<MenuItemDTO>>(sprcificMeal, HttpStatus.NOT_FOUND);
         }
     }
 
+    
     @RequestMapping(value = "/page", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItemDTO>> getMealsByPage(@RequestParam(value = "page") int page) {
         List<MenuItemDTO> mealsBatch = menuItemsService.getMealsByPage(page);

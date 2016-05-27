@@ -13,6 +13,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateCallback;
@@ -67,11 +68,14 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
             @Override
             public Object doInTransaction(TransactionStatus ts) {
 
-                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class).add((Restrictions.eq("nameEn", mealName))));
+                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class).add((Restrictions.ilike("nameEn", mealName, MatchMode.ANYWHERE))));
 
             }
         });
     }
+    
+  
+    
 
     @Override
     public List<MenuItems> getMenuItemsPage(int page) {
