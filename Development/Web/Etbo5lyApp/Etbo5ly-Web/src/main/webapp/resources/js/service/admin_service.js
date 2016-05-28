@@ -17,6 +17,18 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                         );
             }
             ,
+             getCookMeals: function (id) {
+                return $http.get('/Etbo5ly-Web/rest/cookMeals?id='+id)
+                        .then(
+                                function (response) {
+                                    return response.data;
+                                },
+                                function (errResponse) {
+                                    console.error('Error while fetching cook meals');
+                                    return $q.reject(errResponse);
+                                }
+                        );
+            },
             getAllCooks: function () {
                 return $http.get('/Etbo5ly-Web/rest/cook/page?page=-2')
                         .then(

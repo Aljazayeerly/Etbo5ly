@@ -29,7 +29,7 @@ _________________________________________________________ -->
         <div ng-controller="MenuController as ctrl" class="panel-body">
             <ul ng-repeat="i in ctrl.cooks" class="nav nav-pills nav-stacked category-menu">
                 <li>
-                    <a href="category.html" ng-bind="i.name +'&rsquo;'+'s Menu'"></a>
+                    <a href="cook.htm" ng-bind="i.name +'&rsquo;'+'s Menu'"></a>
                 </li>
             </ul>
         </div>
@@ -46,12 +46,12 @@ _________________________________________________________ -->
                 <div class="form-group">
                     <div ng-repeat="c in ctrl.categories"class="checkbox">
                         <label>
-                            <input type="checkbox">{{c.nameEn}}
+                            <input type="checkbox" ng-model="checked" >{{c.nameEn}}
                         </label>
                     </div>
                 </div>
-                <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Apply</button>
-
+                 <!--checked="false" ng-checked="ctrl.isSelected(c.categoryId,checkedCategories)"  -->
+                <button class="btn btn-default btn-sm btn-primary" ng-click="getSelected(checked,checkedCategories)"> Apply</button>
             </form>
 
         </div>
@@ -132,7 +132,7 @@ _________________________________________________________ -->
                     <label style="color: #E18728; margin-left: -220px; font-size: 13px" ng-bind="m.price +' L.E'"></label>
                 </div>
                 <div style="margin-left: 340px; margin-top: -110px;">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/ada-small.jpeg" style="float: left; margin-left: -380px; margin-top: -8px;">
+                    <!--<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/ada-small.jpeg" style="float: left; margin-left: -380px; margin-top: -8px;">-->
                 </div>
             </div>
         </div>  

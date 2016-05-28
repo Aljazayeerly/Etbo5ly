@@ -62,4 +62,16 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 
     }
 
+    @Override
+    public List<MenuItemDTO> getSpecificCookMeals(int id) {
+        List<MenuItemDTO> itemDTOs = new ArrayList<MenuItemDTO>();
+        List<MenuItems> menuItems = menuItemsDao.getMealsOfCook(id);
+        ModelMapper modelMapper = new ModelMapper();
+        for (MenuItems item : menuItems) {
+            MenuItemDTO DTO = modelMapper.map(item, MenuItemDTO.class);
+            itemDTOs.add(DTO);
+        }
+        return itemDTOs;
+    }
+
 }

@@ -2,7 +2,7 @@
 
 var App = angular.module('myApp', []);
 App.controller('MenuController', ['$scope', 'MenuService', 'MainService', function ($scope, MenuService, MainService) {
-        alert("inside controller jj");
+//        alert("inside controller jj");
         var self = this;
         self.item = {};
         self.items = [];
@@ -12,13 +12,16 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
         self.categories = [];
         self.searchMeals = [];
         self.check = false;
+        $scope.checkedCategories = [];
+        self.cookMeals=[];
+//        .selected=[];
 
         var itemDetails = {menuItemsItemId: 0, menuItemsNameEn: "", menuItemsNameAr: "", menuItemsPrice: 0, menuItemsDescriptionEn: "", menuItemsDescriptionAr: "", menuItemsImageUrl: "", quantity: 1, totalPrice: 0.0};
         var totalPrice = 0;
 
         self.getList = function () {
 
-            alert("getList");
+//            alert("getList");
 
             self.addedItems = MainService.list();
 
@@ -29,7 +32,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
             MenuService.getAllMeals()
                     .then(
                             function (d) {
-                                alert("getAllMeals");
+//                                alert("getAllMeals");
                                 self.items = d;
                             },
                             function (errResponse) {
@@ -39,14 +42,26 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
         };
 
 
-        self.getAllCooks = function () {
-            MenuService.getAllCooks()
+        self.getAllCooks = function (id) {
+            MenuService.getAllCooks(id)
                     .then(
                             function (d) {
                                 self.cooks = d;
                             },
                             function (errResponse) {
                                 console.error('Error while fetching cooks');
+                            }
+                    );
+        };
+        
+        self.getCookMeals = function (id) {
+            MenuService.getCookMeals()
+                    .then(
+                            function (d) {
+                                self.cookMeals = d;
+                            },
+                            function (errResponse) {
+                                console.error('Error while fetching cook meals');
                             }
                     );
         };
@@ -83,7 +98,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
         };
 
         $scope.createOrder = function () {
-            alert("hennnnnnaaaa");
+//            alert("hennnnnnaaaa");
 //            MenuService.createOrder(order)
 //                    .then(
 //                            self.getAllMeals,
@@ -106,13 +121,13 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
 
         $scope.addItem = function (itemId) {
 
-            alert("add items method");
+//            alert("add items method");
             var found = false;
             $.each(self.addedItems, function (index, item)
             {
                 if (item.menuItemsItemId == itemId)
                 {
-                    alert("found");
+//                    alert("found");
                     item.quantity = item.quantity + 1;
                     item.totalPrice = item.menuItemsPrice * item.quantity;
                     totalPrice += item.menuItemsPrice;
@@ -122,7 +137,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
             })
             if (!found)
             {
-                alert("not found")
+//                alert("not found");
                 $.each(self.items, function (index, item)
                 {
                     if (item.itemId == itemId)
@@ -151,7 +166,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
         {
             $.each(self.addedItems, function (index, item)
             {
-                alert("check if found in added items");
+//                alert("check if found in added items");
                 if (item.menuItemsItemId == itemId)
                 {
                     totalPrice -= item.totalPrice;
@@ -161,12 +176,28 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
                 }
             })
 
-        }
+        };
         $scope.checkOut = function ()
         {
-            alert("checkout");
+//            alert("checkout");
             MainService.setList(self.addedItems);
             window.location = "orderReview2.htm";
-        }
+        };
+
+
+        self.isSelected = function (id,checkedCategories) {
+            alert("category id " + id);
+            alert("category selected[ " + checkedCategories);
+
+            return $scope.checkedCategories.push(id);
+        };
+
+
+        self.getSelected = function (checked,checkedCategories) {
+            alert("category check"+checkedCategories);
+            alert("checked  "+checked);
+
+        };
+
 
     }]);
