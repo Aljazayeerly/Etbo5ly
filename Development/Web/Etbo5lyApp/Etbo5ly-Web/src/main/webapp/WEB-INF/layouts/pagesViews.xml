@@ -12,6 +12,7 @@
     <definition name="DefaultPageTemplate" template="/WEB-INF/views/template/pagesTemplate.jsp">
         <put-attribute name="header" value="/WEB-INF/views/template/pagesHeader.jsp" />
         <put-attribute name="body" value="" />
+        
         <!--		<put-attribute name="footer" value="/WEB-INF/views/template/pageFooter.jsp" />-->
     </definition>
         
@@ -36,5 +37,8 @@
     </definition>
     <definition name="cart" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/cart.jsp" />
+    </definition>
+     <definition name="orderReview2" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/orderReview2.jsp" />
     </definition>
 </tiles-definitions>

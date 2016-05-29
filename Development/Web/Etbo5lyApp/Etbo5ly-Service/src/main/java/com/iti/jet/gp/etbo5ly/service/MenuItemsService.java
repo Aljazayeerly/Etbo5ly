@@ -16,10 +16,11 @@ import java.util.List;
 public interface MenuItemsService {
 
 //    List<MenuItemDTO> getAllMealsDetails();
-
-    List<MenuItems> getSpecificMealDetails(String mealName);
+    List<MenuItemDTO> getSpecificMealDetails(String mealName);
 
     List<MenuItemDTO> getMealsByPage(int page);
 
     List<MenuItemDTO> getMenuItemsOfCategory(int id);
+
+    List<MenuItemDTO> getSpecificCookMeals(int id);
 }

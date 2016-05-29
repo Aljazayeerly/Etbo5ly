@@ -105,18 +105,25 @@ public class TestClass {
     public String showKitchens() {
         return "kitchen";
     }
-    
+
     @RequestMapping(value = "/neighbouringKitchen.htm")
-    public String neighbouringKitchens(){
+    public String neighbouringKitchens() {
         return "neighbouringKitchens";
     }
-    
-     @RequestMapping(value = "/cart.htm")
-    public String cart(){
+
+    @RequestMapping(value = "/cart.htm")
+    public String cart() {
         return "cart";
     }
+    
     @RequestMapping(value="/cooksInformation.htm")
     public String cookInformation(){
         return "cookInfo";
+    }
+
+    @RequestMapping(value = "/orderReview2.htm")
+    public String orderReview2() {
+        return "orderReview2";
+
     }
 }

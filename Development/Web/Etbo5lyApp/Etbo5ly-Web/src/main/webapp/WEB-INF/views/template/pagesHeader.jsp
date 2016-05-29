@@ -34,17 +34,22 @@ Author     : Nada
                 </li>
 
             </ul>
-            <div id="headersearch">
+            <div ng-controller="MenuController as ctrl"  id="headersearch">
                 <form action="" method="" class="navbar-form" role="search">
 
                     <div class="input-group add-on">
-                        <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                        <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text" ng-model="mealName">
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            <button class="btn btn-default" type="submit" ng-click="searchForMeal(mealName)">
+                            <i class="glyphicon glyphicon-search"></i></button>
                         </div>
                     </div>
                 </form>
             </div>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </div>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script src="resources/js/controller/admin_controller.js" type="text/javascript"></script>
+<script src="resources/js/service/admin_service.js" type="text/javascript"></script>-->
