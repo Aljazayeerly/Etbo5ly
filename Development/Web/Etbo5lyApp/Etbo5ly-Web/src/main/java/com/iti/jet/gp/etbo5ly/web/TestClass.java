@@ -126,4 +126,13 @@ public class TestClass {
         return "orderReview2";
 
     }
+     @RequestMapping(value = "/customerOrders.htm")
+    public String customerOrders() {
+        return "customerOrders";
+    }
+     @RequestMapping(value = "/customerOrder.htm")
+    public String customerOrder() {
+        return "customerOrder";
+
+    }
 }

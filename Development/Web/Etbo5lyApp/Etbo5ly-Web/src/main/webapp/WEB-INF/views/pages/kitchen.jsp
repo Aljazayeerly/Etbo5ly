@@ -140,21 +140,50 @@ _________________________________________________________ -->
             </div>  
         </section>
     </div>
+    <div class="col-md-3" style="width:30%;height: 50%;left: 50px; margin-left: 65%;margin-top: 70px;">
+        <table id="cart" class="table table-hover table-condensed">
+            <thead>    
+                <tr>   
+                    <th style="width:50%">Product</th>
+                    <th style="width:10%">Price</th>
+                    <th style="width:8%">Quantity</th>
+                    <th style="width:22%" class="text-center">Subtotal</th>
+                    <th style="width:10%"></th>
+                </tr>   
+            </thead>        
+            <tbody>   
+                <tr>   
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
+                            <div class="col-sm-10">
+                                <h4 class="nomargin">Product Name</h4>
+                                <p>Ay Klam </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Price">$1.99</td>
+                    <td data-th="Quantity">
+                        <input type="number" class="form-control text-center" value="1">
+                    </td>
+                    <td data-th="Subtotal" class="text-center">1.99</td>
+                    <td class="actions" data-th="">
+                        <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="visible-xs">
+                    <td class="text-center"><strong>Total 1.99</strong></td>
+                </tr>
+                <tr>
+                    <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                    <td colspan="2" class="hidden-xs"></td>
+                    <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+                    <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 
-<!--    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-
-     Angular Material Library 
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.js"></script>
-    <script src="resources/js/app.js" type="text/javascript"></script>
-    <script src="resources/js/controller/admin_controller.js" type="text/javascript"></script>
-    <script src="resources/js/controller/myMapJS.js" type="text/javascript"></script>
-
-    <script src="resources/js/service/admin_service.js" type="text/javascript"></script>
-    <script src="resources/js/service/mainService.js" type="text/javascript"></script>
-    <script src="resources/js/service/myMapService.js" type="text/javascript"></script>
-    <script src="resources/js/service/pageIntegerationService.js" type="text/javascript"></script>-->

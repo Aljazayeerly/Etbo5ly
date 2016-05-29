@@ -41,4 +41,10 @@
      <definition name="orderReview2" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/orderReview2.jsp" />
     </definition>
+      <definition name="customerOrders" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/customerOrders.jsp" />
+    </definition>
+      <definition name="customerOrder" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/customerOrder.jsp" />
+    </definition>
 </tiles-definitions>

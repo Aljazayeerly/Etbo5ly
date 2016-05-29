@@ -61,7 +61,6 @@ public class OrderServiceImpl implements OrderService {
         System.out.println("Size bta3 al zft : " + orderDTOs.get(0).getOrderDetails().size());
         return orderDTOs;
     }
-
     @Transactional
     @Override
     public void createOrder(OrderDTO orderDTO) {

@@ -5,7 +5,6 @@
  */
 package com.iti.jet.gp.etbo5ly.service.dto;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -49,7 +48,6 @@ public class OrderDTO {
 //    public void setOrderId(int orderId) {
 //        this.orderId = orderId;
 //    }
-    
     public int getUserByCustomerId() {
         return userByCustomerId;
     }
@@ -169,7 +167,7 @@ public class OrderDTO {
     public void setRegionId(int regionId) {
         this.regionId = regionId;
     }
-    
+
     public String getRegionName() {
         return regionName;
     }
@@ -226,6 +224,5 @@ public class OrderDTO {
         this.statusHasOrders = statusHasOrders;
     }
 
-   
 
 }
