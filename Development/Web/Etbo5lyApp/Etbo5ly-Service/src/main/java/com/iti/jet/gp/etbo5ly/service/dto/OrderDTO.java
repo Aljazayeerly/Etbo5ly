@@ -36,8 +36,7 @@ public class OrderDTO {
     private String regionCityNameAr;
     private String regionCityCountryName;
     private Set<OrderDetailsDTO> orderDetails = new HashSet<OrderDetailsDTO>(0);
-
-    private Set<OrderStatusDTO> statusHasOrders = new HashSet<OrderStatusDTO>(0);
+    private Set<OrderStatusDTO> statusHasOrders= new HashSet<OrderStatusDTO>(0);
 
     public OrderDTO() {
     }
@@ -224,5 +223,6 @@ public class OrderDTO {
     public void setStatusHasOrders(Set<OrderStatusDTO> statusHasOrders) {
         this.statusHasOrders = statusHasOrders;
     }
+
 
 }
