@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 'use strict';
-//var App = angular.module('myApp', []);
+//var App = angular.module('aa', ['ngMaterial']);
 App.factory('MapService',['$http', '$q', function($http, $q){
         
         	return {

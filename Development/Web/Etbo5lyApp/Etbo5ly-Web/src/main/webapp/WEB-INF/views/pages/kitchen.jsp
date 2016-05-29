@@ -29,7 +29,7 @@ _________________________________________________________ -->
         <div ng-controller="MenuController as ctrl" class="panel-body">
             <ul ng-repeat="i in ctrl.cooks" class="nav nav-pills nav-stacked category-menu">
                 <li>
-                    <a href="cook.htm" ng-bind="i.name +'&rsquo;'+'s Menu'"></a>
+                    <a href="cook.htm" ng-bind="i.name + '&rsquo;' + 's Menu'"></a>
                 </li>
             </ul>
         </div>
@@ -50,8 +50,8 @@ _________________________________________________________ -->
                         </label>
                     </div>
                 </div>
-                 <!--checked="false" ng-checked="ctrl.isSelected(c.categoryId,checkedCategories)"  -->
-                <button class="btn btn-default btn-sm btn-primary" ng-click="getSelected(checked,checkedCategories)"> Apply</button>
+                <!--checked="false" ng-checked="ctrl.isSelected(c.categoryId,checkedCategories)"  -->
+                <button class="btn btn-default btn-sm btn-primary" ng-click="getSelected(checked, checkedCategories)"> Apply</button>
             </form>
 
         </div>
@@ -101,47 +101,60 @@ _________________________________________________________ -->
 
 <div>
 
-<div >
-    <section  ng-controller="MenuController as ctrl"  style="width: 4000px; left: 5000px">
+    <div >
+        <section  ng-controller="MenuController as ctrl"  style="width: 4000px; left: 5000px">
 
-        <div ng-show="!searchMeals" ng-repeat="i in ctrl.items" style="left: 390px;width: 600px;height: 200px;margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
-            <div>
+            <div ng-show="!searchMeals" ng-repeat="i in ctrl.items" style="left: 390px;width: 600px;height: 200px;margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+                <div>
 
-                <div style="margin-left: 340px;">
-                    <label style="color: #E18728; margin-left: -220px; font-size: 15px" ng-bind="i.nameEn"></label>
-                    <br>
-                    <label style="color: gray; margin-left: -220px; font-size: 13px" ng-bind="i.cookName"></label>
-                    <div>
-                        <label style="color: black; margin-left: -220px; font-size: 10px" ng-bind="i.descriptionEn"></label>
+                    <div style="margin-left: 340px;">
+                        <label style="color: #E18728; margin-left: -220px; font-size: 15px" ng-bind="i.nameEn"></label>
+                        <br>
+                        <label style="color: gray; margin-left: -220px; font-size: 13px" ng-bind="i.cookName"></label>
+                        <div>
+                            <label style="color: black; margin-left: -220px; font-size: 10px" ng-bind="i.descriptionEn"></label>
+                        </div>
+                        <label style="color: #E18728; margin-left: -220px; font-size: 13px" ng-bind="i.price + ' L.E'"></label>
                     </div>
-                    <label style="color: #E18728; margin-left: -220px; font-size: 13px" ng-bind="i.price +' L.E'"></label>
-                </div>
-                <div style="margin-left: 340px;  padding-top: -500px; margin-top: -120px;">
-                    <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="float: left; margin-left: -380px;width: 154px;height: 154px;">
-                </div>
-            </div>
-        </div>  
-        
-        <div ng-show="searchMeals" ng-repeat="m in ctrl.searchMeals" style="left: 390px;width: 600px;height: 200px;margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
-            <div>
-                <div style="margin-left: 340px;">
-                    <label style="color: #E18728; margin-left: -220px; font-size: 15px" ng-bind="m.nameEn"></label>
-                    <br>
-                    <label style="color: gray; margin-left: -220px; font-size: 13px" ng-bind="m.cookName"></label>
-                    <div>
-                        <label style="color: black; margin-left: -220px; font-size: 10px" ng-bind="m.descriptionEn"></label>
+                    <div style="margin-left: 340px;  padding-top: -500px; margin-top: -120px;">
+                        <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="float: left; margin-left: -380px;width: 154px;height: 154px;">
                     </div>
-                    <label style="color: #E18728; margin-left: -220px; font-size: 13px" ng-bind="m.price +' L.E'"></label>
                 </div>
-                <div style="margin-left: 340px; margin-top: -110px;">
-                    <!--<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/ada-small.jpeg" style="float: left; margin-left: -380px; margin-top: -8px;">-->
-                </div>
-            </div>
-        </div>  
-    </section>
-</div>
+            </div>  
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-<script src="resources/js/controller/admin_controller.js" type="text/javascript"></script>
-<script src="resources/js/service/admin_service.js" type="text/javascript"></script>
-<script src="resources/js/service/mainService.js" type="text/javascript"></script>
+            <div ng-show="searchMeals" ng-repeat="m in ctrl.searchMeals" style="left: 390px;width: 600px;height: 200px;margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+                <div>
+                    <div style="margin-left: 340px;">
+                        <label style="color: #E18728; margin-left: -220px; font-size: 15px" ng-bind="m.nameEn"></label>
+                        <br>
+                        <label style="color: gray; margin-left: -220px; font-size: 13px" ng-bind="m.cookName"></label>
+                        <div>
+                            <label style="color: black; margin-left: -220px; font-size: 10px" ng-bind="m.descriptionEn"></label>
+                        </div>
+                        <label style="color: #E18728; margin-left: -220px; font-size: 13px" ng-bind="m.price + ' L.E'"></label>
+                    </div>
+                    <div style="margin-left: 340px; margin-top: -110px;">
+                        <!--<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/ada-small.jpeg" style="float: left; margin-left: -380px; margin-top: -8px;">-->
+                    </div>
+                </div>
+            </div>  
+        </section>
+    </div>
+
+<!--    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+
+     Angular Material Library 
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.js"></script>
+    <script src="resources/js/app.js" type="text/javascript"></script>
+    <script src="resources/js/controller/admin_controller.js" type="text/javascript"></script>
+    <script src="resources/js/controller/myMapJS.js" type="text/javascript"></script>
+
+    <script src="resources/js/service/admin_service.js" type="text/javascript"></script>
+    <script src="resources/js/service/mainService.js" type="text/javascript"></script>
+    <script src="resources/js/service/myMapService.js" type="text/javascript"></script>
+    <script src="resources/js/service/pageIntegerationService.js" type="text/javascript"></script>-->

@@ -17,8 +17,8 @@ App.factory('PageService', ['$http', '$q', function ($http, $q) {
         return{
             setElement: setElement,
             getElement: getElement,
-            getCookByitLocation: function (latitude, longitude) {
-                return $http.get("/Etbo5ly-Web/rest/cook/selectedCook?long=" + longitude + "&latit=" + latitude + "")
+            getCookMeals: function (id) {
+                return $http.get("/Etbo5ly-Web/rest/cookMeals?id=" +id)
                         .then(
                                 function (response) {
                                     return response.data;

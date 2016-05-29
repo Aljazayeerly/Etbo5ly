@@ -41,7 +41,7 @@ Author     : Nada
                         <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text" ng-model="mealName">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit" ng-click="searchForMeal(mealName)">
-                            <i class="glyphicon glyphicon-search"></i></button>
+                                <i class="glyphicon glyphicon-search"></i></button>
                         </div>
                     </div>
                 </form>
@@ -49,7 +49,3 @@ Author     : Nada
         </div>
     </div>
 </div>
-
-<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-<script src="resources/js/controller/admin_controller.js" type="text/javascript"></script>
-<script src="resources/js/service/admin_service.js" type="text/javascript"></script>-->

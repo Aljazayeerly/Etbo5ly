@@ -1,6 +1,6 @@
 'use strict';
 
-var App = angular.module('myApp', []);
+//var App = angular.module('myApp', ['ngMaterial']);
 App.controller('MenuController', ['$scope', 'MenuService', 'MainService', function ($scope, MenuService, MainService) {
 //        alert("inside controller jj");
         var self = this;
