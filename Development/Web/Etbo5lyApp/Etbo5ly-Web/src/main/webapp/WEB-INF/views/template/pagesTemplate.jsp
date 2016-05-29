@@ -18,8 +18,10 @@
 
         <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'/>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>-->
         <script src="resources/js/bootstrap.min.js"></script>
-
+        
+        
         <style>
             body{ margin-top:20px; margin-bottom:20px; background-color:#f0f0f0;}
         </style>
@@ -27,7 +29,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
     </head>
-    <body>
+    <body  ng-app="myApp">
         <tiles:insertAttribute name="header"></tiles:insertAttribute>
             <br>
             <br>
