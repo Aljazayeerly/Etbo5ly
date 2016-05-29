@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 'use strict';
-var App = angular.module('myApp', ['ngMaterial']);
+//var App = angular.module('myApp', ['ngMaterial']);
 App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia', 'PageService', function ($scope, MapService, $mdDialog, $mdMedia, PageService) {
 
         $scope.items = [];
@@ -109,7 +109,9 @@ function DialogController($scope, $mdDialog, PageService) {
         $mdDialog.hide(answer);
     };
     $scope.clickedCook = PageService.getElement();
-   // alert("element send is " + JSON.stringify(PageService.getElement()));
+//    alert(" the user id is " + clickedCook.id);
+//    PageService.getCookMeals(clickedCook.id);
+    alert("element send is " + JSON.stringify(PageService.getElement()));
 }
 
 //    function geocodeAddress(geocoder, resultsMap) {

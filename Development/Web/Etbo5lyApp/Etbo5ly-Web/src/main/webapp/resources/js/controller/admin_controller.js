@@ -16,6 +16,8 @@ App.config(['$routeProvider', '$stateProvider',function($stateProvider, $urlRout
 }]);
 
 App.controller('MenuController', ['$scope', 'MenuService', 'MainService', function($scope, MenuService, MainService) {
+
+
 //        alert("inside controller jj");
         var self = this;
         self.item = {};
