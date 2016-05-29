@@ -5,7 +5,6 @@
  */
 package com.iti.jet.gp.etbo5ly.service.dto;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,7 +36,9 @@ public class OrderDTO {
     private String regionCityNameAr;
     private String regionCityCountryName;
     private Set<OrderDetailsDTO> orderDetails = new HashSet<OrderDetailsDTO>(0);
-    
+
+    private Set<OrderStatusDTO> statusHasOrders = new HashSet<OrderStatusDTO>(0);
+
     public OrderDTO() {
     }
 
@@ -48,7 +49,6 @@ public class OrderDTO {
 //    public void setOrderId(int orderId) {
 //        this.orderId = orderId;
 //    }
-    
     public int getUserByCustomerId() {
         return userByCustomerId;
     }
@@ -168,7 +168,7 @@ public class OrderDTO {
     public void setRegionId(int regionId) {
         this.regionId = regionId;
     }
-    
+
     public String getRegionName() {
         return regionName;
     }
@@ -217,6 +217,12 @@ public class OrderDTO {
         this.orderDetails = orderDetails;
     }
 
+    public Set<OrderStatusDTO> getStatusHasOrders() {
+        return statusHasOrders;
+    }
 
-    
+    public void setStatusHasOrders(Set<OrderStatusDTO> statusHasOrders) {
+        this.statusHasOrders = statusHasOrders;
+    }
+
 }

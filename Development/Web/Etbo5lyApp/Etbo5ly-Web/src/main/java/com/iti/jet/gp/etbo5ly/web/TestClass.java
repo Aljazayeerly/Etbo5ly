@@ -115,10 +115,16 @@ public class TestClass {
     public String cart() {
         return "cart";
     }
+    
+    @RequestMapping(value="/cooksInformation.htm")
+    public String cookInformation(){
+        return "cookInfo";
+    }
 
     @RequestMapping(value = "/orderReview2.htm")
     public String orderReview2() {
         return "orderReview2";
+
     }
      @RequestMapping(value = "/customerOrders.htm")
     public String customerOrders() {

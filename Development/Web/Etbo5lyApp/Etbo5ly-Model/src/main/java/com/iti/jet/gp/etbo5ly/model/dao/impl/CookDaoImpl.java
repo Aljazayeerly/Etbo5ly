@@ -58,13 +58,34 @@ public class CookDaoImpl extends GenericDaoImpl<Cook> implements
         System.out.println("Regiooooooooooooooon : " + regionId);
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
         Region regionObject = (Region) getHibernateTemplate().getSessionFactory().getCurrentSession().get(Region.class, regionId);//createCriteria(Region.class).add(Restrictions.like("regionName", region)).uniqueResult();
-       if(regionObject == null)
+        if (regionObject == null) {
             System.out.println("null");
-       else
+        } else {
             System.out.println("not null");
+        }
         List<Cook> cooks = session.createCriteria(Cook.class, "c").add(Restrictions.eq("c.region", regionObject)).list();
         System.out.println("size : " + cooks.size());
         return cooks;
+    }
+
+    @Override
+    public Cook getCookByLocation(double longitude, double latitude) {
+        System.out.println("model getCookByLocation");
+        final double longitud = longitude;
+        final double latitiude = latitude;
+
+        return (Cook) getHibernateTemplate().execute(new HibernateCallback<Object>() {
+
+            @Override
+            public Object doInHibernate(Session sn) throws HibernateException {
+                Cook selectedCook = new Cook();
+               // selectedCook = (Cook) sn.createCriteria(Cook.class).add(Restrictions.and(Restrictions.eq("latitude", latitiude), Restrictions.eq("longitude", longitud))).uniqueResult();
+                selectedCook = (Cook) sn.createCriteria(Cook.class).add(Restrictions.eq("latitude", latitiude)).uniqueResult();
+               // System.out.println(selectedCook.getName());
+                return selectedCook;
+
+            }
+        });
     }
 
 }

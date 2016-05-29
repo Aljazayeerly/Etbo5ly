@@ -26,22 +26,12 @@ _________________________________________________________ -->
             <h3 class="panel-title"><font color="#f0ad4e"><b>Cooks</b></font></h3>
         </div>
 
-        <div class="panel-body">
-            <ul class="nav nav-pills nav-stacked category-menu">
+        <div ng-controller="MenuController as ctrl" class="panel-body">
+            <ul ng-repeat="i in ctrl.cooks" class="nav nav-pills nav-stacked category-menu">
                 <li>
-                    <a href="category.html">Salma's Menu </a>
+                    <a href="cook.htm" ng-bind="i.name +'&rsquo;'+'s Menu'"></a>
                 </li>
             </ul>
-            <ul class="nav nav-pills nav-stacked category-menu">
-                <li><a href="category.html">Menna's Menu </a>
-                </li>
-            </ul>
-            <ul class="nav nav-pills nav-stacked category-menu">
-                <li><a href="category.html">Nada's Menu</a>
-                </li>
-
-            </ul>   
-
         </div>
     </div>
 
@@ -50,35 +40,18 @@ _________________________________________________________ -->
         <div class="panel-heading">
             <h3 class="panel-title"><font color="#f0ad4e"><b>Categories</b></font></h3>
         </div>
-
-        <div class="panel-body">
+        <div ng-controller="MenuController as ctrl" class="panel-body">
 
             <form>
                 <div class="form-group">
-                    <div class="checkbox">
+                    <div ng-repeat="c in ctrl.categories"class="checkbox">
                         <label>
-                            <input type="checkbox">Sandwich
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox">Salad
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox">Pasta
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox">Soup
+                            <input type="checkbox" ng-model="checked" >{{c.nameEn}}
                         </label>
                     </div>
                 </div>
-
-                <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Apply</button>
-
+                 <!--checked="false" ng-checked="ctrl.isSelected(c.categoryId,checkedCategories)"  -->
+                <button class="btn btn-default btn-sm btn-primary" ng-click="getSelected(checked,checkedCategories)"> Apply</button>
             </form>
 
         </div>
@@ -126,21 +99,43 @@ _________________________________________________________ -->
 </div>
 
 
+<div>
 
-<div ng-app="myApp">
+<div >
     <section  ng-controller="MenuController as ctrl"  style="width: 4000px; left: 5000px">
 
-        <div ng-repeat="i in ctrl.items" style="left: 390px;width: 600px;height: 200px;margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
-            <div style="position: relative">
+        <div ng-show="!searchMeals" ng-repeat="i in ctrl.items" style="left: 390px;width: 600px;height: 200px;margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+            <div>
+
                 <div style="margin-left: 340px;">
                     <label style="color: #E18728; margin-left: -220px; font-size: 15px" ng-bind="i.nameEn"></label>
                     <br>
                     <label style="color: gray; margin-left: -220px; font-size: 13px" ng-bind="i.cookName"></label>
-                    <div >
+                    <div>
                         <label style="color: black; margin-left: -220px; font-size: 10px" ng-bind="i.descriptionEn"></label>
                     </div>
+                    <label style="color: #E18728; margin-left: -220px; font-size: 13px" ng-bind="i.price +' L.E'"></label>
                 </div>
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/ada-small.jpeg" style="margin-left: -360px;margin-top: -90px;">
+                <div style="margin-left: 340px;  padding-top: -500px; margin-top: -120px;">
+                    <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="float: left; margin-left: -380px;width: 154px;height: 154px;">
+                </div>
+            </div>
+        </div>  
+        
+        <div ng-show="searchMeals" ng-repeat="m in ctrl.searchMeals" style="left: 390px;width: 600px;height: 200px;margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+            <div>
+                <div style="margin-left: 340px;">
+                    <label style="color: #E18728; margin-left: -220px; font-size: 15px" ng-bind="m.nameEn"></label>
+                    <br>
+                    <label style="color: gray; margin-left: -220px; font-size: 13px" ng-bind="m.cookName"></label>
+                    <div>
+                        <label style="color: black; margin-left: -220px; font-size: 10px" ng-bind="m.descriptionEn"></label>
+                    </div>
+                    <label style="color: #E18728; margin-left: -220px; font-size: 13px" ng-bind="m.price +' L.E'"></label>
+                </div>
+                <div style="margin-left: 340px; margin-top: -110px;">
+                    <!--<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/ada-small.jpeg" style="float: left; margin-left: -380px; margin-top: -8px;">-->
+                </div>
             </div>
         </div>  
     </section>

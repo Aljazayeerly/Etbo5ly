@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head >
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="resources/css/pageCustomDesign.css" rel="stylesheet"/>
@@ -29,7 +29,8 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
     </head>
-    <body  ng-app="myApp">
+
+    <body ng-app="myApp">
         <tiles:insertAttribute name="header"></tiles:insertAttribute>
             <br>
             <br>
