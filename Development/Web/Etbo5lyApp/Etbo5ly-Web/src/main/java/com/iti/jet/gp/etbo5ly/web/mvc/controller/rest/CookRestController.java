@@ -63,6 +63,7 @@ public class CookRestController {
         System.out.println("getting nearby cooks ");
         System.out.println("long is "+ cLongtitude+" latit is " + cLatitude);
         List<Cook> nearbyCooks=cookService.getAllNearbyCooks(cLongtitude, cLatitude);
+        System.out.println("ana rg3t");
         return new ResponseEntity<List<Cook>>(nearbyCooks,HttpStatus.OK);
     }
     
@@ -74,6 +75,13 @@ public class CookRestController {
         return new ResponseEntity<List<CookDTO>>(nearbyCooks,HttpStatus.OK);
     }
     
-
+       @RequestMapping(value="/selectedCook" , method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Cook> getCookByLocation(@RequestParam(value="long")Double cLongtitude,@RequestParam(value="latit")Double cLatitude){
+        System.out.println("getting selected Cook ");
+        System.out.println("long is "+ cLongtitude+" latit is " + cLatitude);
+        Cook selectedCook=cookService.getCookByLocation(cLongtitude, cLatitude);
+        System.out.println("selected cook" + selectedCook.getName());
+        return new ResponseEntity<Cook>(selectedCook,HttpStatus.OK);
+    }
     
 }

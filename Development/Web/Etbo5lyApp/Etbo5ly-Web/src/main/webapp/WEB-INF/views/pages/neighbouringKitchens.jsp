@@ -10,7 +10,13 @@
     <input id="submit" type="button" value="Geocode">
 </div>-->
 
-<div id="map"></div>
+<div id="map" ng-controller="mapController">
+    <!--    <div class="dialog-demo-content" layout="row" ayout="row" layout-wrap layout-margin layout-align="center">
+    
+            <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+                Custom Dialog
+            </md-button>-->
+</div>
 <style>
     #map {
         width: 1350px;
@@ -31,72 +37,16 @@
         padding-left: 10px;
     }
 </style>
-<script>
-    function initMap() {
-//        alert("inside initMap method");
-        var mapDiv = document.getElementById('map');
-        var map = new google.maps.Map(mapDiv, {
-            center: {lat: 44.540, lng: -78.546},
-            zoom: 8
-        });
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            alert("navigator is not on , sorry please enable your location so we can find you");
-        }
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
 
-    }
-    function showPosition(position) {
-        var mapDiv = document.getElementById('map');
-        var map = new google.maps.Map(mapDiv, {
-            center: {lat: position.coords.latitude, lng: position.coords.longitude},
-            zoom: 12
-        });
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-            map: map
-        });
-        
-//        var geocoder = new google.maps.Geocoder();
-//        document.getElementById('submit').addEventListener('click', function () {
-//            geocodeAddress(geocoder, map);
-//        });
-
-        $.ajax({
-            type: 'GET',
-            url: "/Etbo5ly-Web/rest/cook/nearbyCooks?long=" + position.coords.longitude + "&latit=" + position.coords.latitude + "",
-            dataType: "json",
-            success: function (data) {
-                //  alert (" the data send was " + JSON.stringify(data))  ;
-                var nearbyCooks = JSON.stringify(data);
-                $.each(data, function (index, element) {
-                    //alert(element.latitude);
-                    marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(element.latitude, element.longitude),
-                        map: map
-                    });
-                });
-
-            }
-        });
-    }
-
-//    function geocodeAddress(geocoder, resultsMap) {
-//        var address = document.getElementById('address').value;
-//        geocoder.geocode({'address': address}, function (results, status) {
-//            if (status === google.maps.GeocoderStatus.OK) {
-//                resultsMap.setCenter(results[0].geometry.location);
-//                var marker = new google.maps.Marker({
-//                    map: resultsMap,
-//                    position: results[0].geometry.location
-//                });
-//            } else {
-//                alert('Geocode was not successful for the following reason: ' + status);
-//            }
-//        });
-//    }
-
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo&callback=initMap" async defer ></script>
-
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.js"></script>
+<script src="resources/js/controller/myMapJS.js" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo" async defer ></script>
+<script src="resources/js/service/myMapService.js" type="text/javascript"></script>
+<script src="resources/js/service/pageIntegerationService.js" type="text/javascript"></script>

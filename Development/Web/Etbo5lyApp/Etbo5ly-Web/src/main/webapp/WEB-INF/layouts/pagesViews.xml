@@ -5,6 +5,10 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
+    
+    <definition name="cookInfo" template="/WEB-INF/views/pages/cooksInformation.jsp">
+    </definition>
+    
     <definition name="DefaultPageTemplate" template="/WEB-INF/views/template/pagesTemplate.jsp">
         <put-attribute name="header" value="/WEB-INF/views/template/pagesHeader.jsp" />
         <put-attribute name="body" value="" />
@@ -27,10 +31,10 @@
         <put-attribute name="body" value="/WEB-INF/views/pages/kitchen.jsp" />
     </definition>
     
-     <definition name="orderReview" extends="DefaultPageTemplate">
+    <definition name="orderReview" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/orderReview.jsp" />
     </definition>
-      <definition name="cart" extends="DefaultPageTemplate">
+    <definition name="cart" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/cart.jsp" />
     </definition>
 </tiles-definitions>

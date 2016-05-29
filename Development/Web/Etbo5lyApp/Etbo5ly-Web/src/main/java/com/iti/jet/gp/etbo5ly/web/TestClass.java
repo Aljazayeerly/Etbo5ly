@@ -115,4 +115,8 @@ public class TestClass {
     public String cart(){
         return "cart";
     }
+    @RequestMapping(value="/cooksInformation.htm")
+    public String cookInformation(){
+        return "cookInfo";
+    }
 }

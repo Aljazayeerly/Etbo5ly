@@ -127,7 +127,7 @@ _________________________________________________________ -->
 
 
 
-<div ng-app="myApp">
+<div>
     <section  ng-controller="MenuController as ctrl"  style="width: 4000px; left: 5000px">
 
         <div ng-repeat="i in ctrl.items" style="left: 390px;width: 600px;height: 200px;margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">

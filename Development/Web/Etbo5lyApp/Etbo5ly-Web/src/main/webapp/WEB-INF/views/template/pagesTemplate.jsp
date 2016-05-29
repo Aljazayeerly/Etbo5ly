@@ -27,7 +27,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
     </head>
-    <body>
+    <body ng-app="myApp">
         <tiles:insertAttribute name="header"></tiles:insertAttribute>
             <br>
             <br>
