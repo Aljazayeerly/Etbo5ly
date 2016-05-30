@@ -1,7 +1,23 @@
 'use strict';
-
 var App = angular.module('myApp', []);
-App.controller('MenuController', ['$scope', 'MenuService', 'MainService', function ($scope, MenuService, MainService) {
+App.config(['$routeProvider', '$stateProvider',function($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise('/posts');
+    $stateProvider
+            .state('menus', {
+                url: '/createOrder',
+                templateUrl: 'kitchen.htm'
+            })
+            .state('menus.order', {
+                url: '/customerOrder',
+                templateUrl: '/customerOrder'
+            })
+                    .otherwise("kitchen.htm");
+}]);
+
+App.controller('MenuController', ['$scope', 'MenuService', 'MainService', function($scope, MenuService, MainService) {
+
+
 //        alert("inside controller jj");
         var self = this;
         self.item = {};
@@ -16,90 +32,85 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
         self.cookMeals = [];
         $scope.checked = true;
 //        $scope.checked;
+
 //        .selected=[];
 
         var itemDetails = {menuItemsItemId: 0, menuItemsNameEn: "", menuItemsNameAr: "", menuItemsPrice: 0, menuItemsDescriptionEn: "", menuItemsDescriptionAr: "", menuItemsImageUrl: "", quantity: 1, totalPrice: 0.0};
         var totalPrice = 0;
-
-        self.getList = function () {
+        self.getList = function() {
 
 //            alert("getList");
 
             self.addedItems = MainService.list();
-
-
         };
-
-        self.getAllMeals = function () {
+        self.getAllMeals = function() {
             MenuService.getAllMeals()
                     .then(
-                            function (d) {
+                            function(d) {
 //                                alert("getAllMeals");
                                 self.items = d;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching titles');
                             }
                     );
         };
-
-
-        self.getAllCooks = function (id) {
+        self.getAllCooks = function(id) {
             MenuService.getAllCooks(id)
                     .then(
-                            function (d) {
+                            function(d) {
                                 self.cooks = d;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching cooks');
                             }
                     );
         };
 
-        self.getCookMeals = function (id) {
+
+    
+        self.getCookMeals = function(id) {
+
             MenuService.getCookMeals()
                     .then(
-                            function (d) {
+                            function(d) {
                                 self.cookMeals = d;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching cook meals');
                             }
                     );
         };
-
-        self.getAllCategories = function () {
+        self.getAllCategories = function() {
 
             MenuService.getAllCategories()
                     .then(
-                            function (d) {
+                            function(d) {
                                 self.categories = d;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching categories');
                             }
                     );
         };
-
-        $scope.searchForMeal = function (mealName) {
+        $scope.searchForMeal = function(mealName) {
 
             alert("controller +  meal name " + mealName);
             MenuService.searchForMeal(mealName)
                     .then(
-                            function (d) {
+                            function(d) {
                                 alert("okkkk controller" + d);
                                 self.searchMeals = d;
                                 alert("search meals" + self.searchMeals.length);
                                 self.check = true;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 alert("errooooooor" + errResponse);
                                 console.error('Error while fetching search meals');
                             }
                     );
         };
-
-        $scope.createOrder = function () {
+        $scope.createOrder = function() {
 //            alert("hennnnnnaaaa");
 //            MenuService.createOrder(order)
 //                    .then(
@@ -109,23 +120,20 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
 //                            }
 //                    );
         };
-
         self.getAllMeals();
         self.getList();
         self.getAllCooks();
         self.getAllCategories();
-
-        self.submit = function () {
+        self.submit = function() {
             console.log('Saving New Order', self.order);
             self.createOrder(self.order);
             self.reset();
         };
+        $scope.addItem = function(itemId) {
 
-        $scope.addItem = function (itemId) {
-
-//            alert("add items method");
+            alert("add items method");
             var found = false;
-            $.each(self.addedItems, function (index, item)
+            $.each(self.addedItems, function(index, item)
             {
                 if (item.menuItemsItemId == itemId)
                 {
@@ -140,7 +148,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
             if (!found)
             {
 //                alert("not found");
-                $.each(self.items, function (index, item)
+                $.each(self.items, function(index, item)
                 {
                     if (item.itemId == itemId)
                     {
@@ -152,21 +160,18 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
                         itemDetails.menuItemsPrice = item.price;
                         itemDetails.menuItemsDescriptionEn = item.descriptionEn;
                         itemDetails.menuItemsImageUrl = item.imageUrl;
-
                         item.quantity = 10;
-
                         self.addedItems.push(itemDetails);
                         totalPrice += itemDetails.totalPrice;
                         document.getElementById("total").innerHTML = totalPrice;
-
                     }
                 })
             }
 
         };
-        $scope.deleteItem = function (itemId)
+        $scope.deleteItem = function(itemId)
         {
-            $.each(self.addedItems, function (index, item)
+            $.each(self.addedItems, function(index, item)
             {
 //                alert("check if found in added items");
                 if (item.menuItemsItemId == itemId)
@@ -179,28 +184,21 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
             })
 
         };
-        $scope.checkOut = function ()
+        $scope.checkOut = function()
         {
 //            alert("checkout");
             MainService.setList(self.addedItems);
             window.location = "orderReview2.htm";
         };
 
-
-        self.isSelected = function (id, checkedCategories) {
+        self.isSelected = function(id, checkedCategories) {
             alert("category id " + id);
             alert("category selected[ " + checkedCategories);
-
-            alert("checked" + $scope.checked);
             return $scope.checkedCategories.push(id);
         };
-
-
-        self.getSelected = function (checked, checkedCategories) {
+        self.getSelected = function(checked, checkedCategories) {
             alert("category check" + checkedCategories);
             alert("checked  " + checked);
 
         };
-
-
     }]);
