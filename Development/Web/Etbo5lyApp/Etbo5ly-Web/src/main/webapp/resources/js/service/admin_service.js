@@ -11,7 +11,7 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                                     return response.data;
                                 },
                                 function (errResponse) {
-                                    console.error('Error while fetching titles');
+                                    console.error('Error while fetching meals');
                                     return $q.reject(errResponse);
                                 }
                         );
@@ -36,7 +36,7 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                                     return response.data;
                                 },
                                 function (errResponse) {
-                                    console.error('Error while fetching titles');
+                                    console.error('Error while fetching cooks');
                                     return $q.reject(errResponse);
                                 }
                         );

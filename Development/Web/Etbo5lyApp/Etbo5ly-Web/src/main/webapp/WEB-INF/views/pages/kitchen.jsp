@@ -46,12 +46,14 @@ _________________________________________________________ -->
                 <div class="form-group">
                     <div ng-repeat="c in ctrl.categories"class="checkbox">
                         <label>
-                            <input type="checkbox" ng-model="checked" >{{c.nameEn}}
+                            <input type="checkbox" ng-checked="ctrl.isSelected(c.categoryId,checkedCategories)" >{{c.nameEn}} 
                         </label>
                     </div>
                 </div>
+                <!--ng-model="checked" ng-checked="master"-->
+                <!--{{checked}}-->
                  <!--checked="false" ng-checked="ctrl.isSelected(c.categoryId,checkedCategories)"  -->
-                <button class="btn btn-default btn-sm btn-primary" ng-click="getSelected(checked,checkedCategories)"> Apply</button>
+                <ng-button class="btn btn-default btn-sm btn-primary" ng-click="getSelected(checked,checkedCategories)"> Apply</ng-button>
             </form>
 
         </div>
@@ -115,7 +117,7 @@ _________________________________________________________ -->
                     <label style="color: #E18728; margin-left: -220px; font-size: 13px" ng-bind="i.price +' L.E'"></label>
                 </div>
                 <div style="margin-left: 340px;  padding-top: -500px; margin-top: -120px;">
-                    <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="float: left; margin-left: -380px;width: 154px;height: 154px;">
+                    <!--<img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="float: left; margin-left: -380px;width: 154px;height: 154px;">-->
                 </div>
             </div>
         </div>  

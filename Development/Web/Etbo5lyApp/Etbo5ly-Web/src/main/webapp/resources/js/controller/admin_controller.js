@@ -13,7 +13,9 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
         self.searchMeals = [];
         self.check = false;
         $scope.checkedCategories = [];
-        self.cookMeals=[];
+        self.cookMeals = [];
+        $scope.checked = true;
+//        $scope.checked;
 //        .selected=[];
 
         var itemDetails = {menuItemsItemId: 0, menuItemsNameEn: "", menuItemsNameAr: "", menuItemsPrice: 0, menuItemsDescriptionEn: "", menuItemsDescriptionAr: "", menuItemsImageUrl: "", quantity: 1, totalPrice: 0.0};
@@ -53,7 +55,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
                             }
                     );
         };
-        
+
         self.getCookMeals = function (id) {
             MenuService.getCookMeals()
                     .then(
@@ -185,17 +187,18 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', functi
         };
 
 
-        self.isSelected = function (id,checkedCategories) {
+        self.isSelected = function (id, checkedCategories) {
             alert("category id " + id);
             alert("category selected[ " + checkedCategories);
 
+            alert("checked" + $scope.checked);
             return $scope.checkedCategories.push(id);
         };
 
 
-        self.getSelected = function (checked,checkedCategories) {
-            alert("category check"+checkedCategories);
-            alert("checked  "+checked);
+        self.getSelected = function (checked, checkedCategories) {
+            alert("category check" + checkedCategories);
+            alert("checked  " + checked);
 
         };
 
