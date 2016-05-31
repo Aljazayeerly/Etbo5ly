@@ -17,14 +17,17 @@
         <link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,900,700,700italic,900italic' rel='stylesheet' type='text/css'/>
 
         <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'/>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>-->
+        <script src="jquery-1.12.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type= "text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>-->
         <script src="resources/js/bootstrap.min.js"></script>
         <style>
             body{ margin-top:20px; margin-bottom:20px; background-color:#f0f0f0;}
         </style>
 
-<!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>-->
+        <!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>-->
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -41,7 +44,7 @@
         <script src="resources/js/service/mainService.js" type="text/javascript"></script>
         <script src="resources/js/service/myMapService.js" type="text/javascript"></script>
         <script src="resources/js/service/pageIntegerationService.js" type="text/javascript"></script>
-
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo" async defer ></script>
 
 
     </head>

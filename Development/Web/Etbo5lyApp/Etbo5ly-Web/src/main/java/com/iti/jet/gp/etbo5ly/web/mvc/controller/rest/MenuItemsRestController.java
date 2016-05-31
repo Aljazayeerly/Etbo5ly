@@ -92,9 +92,9 @@ public class MenuItemsRestController {
         List<MenuItemDTO> specificMeal = menuItemsService.getSpecificCookMeals(id);
         System.out.println("cooooook idddddddd" + id);
         if (specificMeal != null) {
-            return new ResponseEntity<>(specificMeal, HttpStatus.OK);
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(specificMeal, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.NOT_FOUND);
         }
     }
     

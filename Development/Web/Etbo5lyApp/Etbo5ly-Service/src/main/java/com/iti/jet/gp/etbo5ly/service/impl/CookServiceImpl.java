@@ -94,7 +94,7 @@ public class CookServiceImpl implements CookService {
             ));
 
             System.out.print("distance value" + distance);
-            if (distance <= 5) {
+            if (distance <= 15) {
                 nearbyCooks.add(allCooks.get(i));
             }
         }

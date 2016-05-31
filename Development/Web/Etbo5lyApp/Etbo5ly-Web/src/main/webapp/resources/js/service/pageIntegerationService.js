@@ -7,29 +7,44 @@
 //var App = angular.module('myApp', []);
 App.factory('PageService', ['$http', '$q', function ($http, $q) {
         var cook = {};
+        var menu = {};
+
         function setElement(data) {
             cook = data;
         }
         function getElement() {
             return cook;
         }
+        function setMenu(data) {
+            menu = data;
+        }
+        function getMenu() {
+            return menu;
+        }
 
         return{
             setElement: setElement,
             getElement: getElement,
             getCookMeals: function (id) {
-                return $http.get("/Etbo5ly-Web/rest/cookMeals?id=" +id)
-                        .then(
-                                function (response) {
-                                    return response.data;
-                                },
-                                function (errResponse) {
-                                    console.error('Error while fetching near by cooks');
-                                    return $q.reject(errResponse);
-                                }
-                        );
+                var data = "";
+                var deferred = $q.defer();
+                $http.get("/Etbo5ly-Web/rest/cookMeals?id=" + id)
+                        .success(function (response, status, headers, config) {
+                            deferred.resolve(response);
+                        })
+                        .error(function (errResp) {
+                            console.error('Error while fetching near by cooks');
+                            deferred.reject({message: "'Error while fetching near by cooks'"});
+                        });
+                return deferred.promise;
             }
+
+            ,
+            setMenu: setMenu,
+            getMenu: getMenu
         };
+
+
 
 
     }]);

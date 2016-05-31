@@ -9,6 +9,7 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
 
         $scope.items = [];
         $scope.cook;
+        $scope.cookMenu;
         $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
 
         $scope.showCookInformation = function (ev) {
@@ -56,7 +57,7 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
                                 $scope.items = data;
                                 var nearbyCooks = JSON.stringify(data);
                                 $.each(data, function (index, element) {
-                                    
+
                                     marker = new google.maps.Marker({
                                         position: new google.maps.LatLng(element.latitude, element.longitude),
                                         map: map
@@ -65,9 +66,20 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
                                     marker.addListener('click', function (cook) {
                                         $scope.cook = element;
                                         var cookjson = JSON.parse(JSON.stringify($scope.cook));
-                                       // alert(" element is " + JSON.stringify($scope.cook));
+                                        // alert(" element is " + JSON.stringify($scope.cook));
                                         PageService.setElement($scope.cook);
-                                        $scope.showCookInformation();
+                                        $scope.cookMenu = PageService.getCookMeals($scope.cook.id);
+                                        $scope.cookMenu.then(function (resolve) {
+                                          //  alert(resolve);
+                                            PageService.setMenu($scope.cookMenu);
+                                            $scope.showCookInformation();
+
+                                        }, function (reject) {
+                                            console.log(reject);
+                                          //  alert(reject)
+                                        });
+
+
                                     });
 
                                 });
@@ -79,7 +91,7 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
         }
 
         $scope.initMap = function () {
-            alert("inside in the function");
+             alert("inside in the function");
             var mapDiv = document.getElementById('map');
             var map = new google.maps.Map(mapDiv, {
                 center: {lat: 44.540, lng: -78.546},
@@ -99,6 +111,7 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
 
 function DialogController($scope, $mdDialog, PageService) {
     $scope.clickedCook;
+    $scope.menu;
     $scope.hide = function () {
         $mdDialog.hide();
     };
@@ -109,25 +122,12 @@ function DialogController($scope, $mdDialog, PageService) {
         $mdDialog.hide(answer);
     };
     $scope.clickedCook = PageService.getElement();
-//    alert(" the user id is " + clickedCook.id);
-//    PageService.getCookMeals(clickedCook.id);
-    alert("element send is " + JSON.stringify(PageService.getElement()));
+   // alert(" id of the cook is " + $scope.clickedCook.id);
+   // $scope.menu = PageService.getCookMeals($scope.clickedCook.id);
+    $scope.menu = PageService.getMenu();
+  //  alert(" the menu is " + JSON.stringify($scope.menu));
 }
 
-//    function geocodeAddress(geocoder, resultsMap) {
-//        var address = document.getElementById('address').value;
-//        geocoder.geocode({'address': address}, function (results, status) {
-//            if (status === google.maps.GeocoderStatus.OK) {
-//                resultsMap.setCenter(results[0].geometry.location);
-//                var marker = new google.maps.Marker({
-//                    map: resultsMap,
-//                    position: results[0].geometry.location
-//                });
-//            } else {
-//                alert('Geocode was not successful for the following reason: ' + status);
-//            }
-//        });
-//    }
 
 
 
