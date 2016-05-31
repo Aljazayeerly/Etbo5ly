@@ -1,5 +1,5 @@
 'use strict';
-//var App=angular.module('myApp',[]);
+var App=angular.module('myApp',[]);
 App.factory('orderService', ['$http', '$q', function($http, $q) {
         var order = [];
 

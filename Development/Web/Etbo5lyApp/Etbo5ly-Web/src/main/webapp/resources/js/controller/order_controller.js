@@ -1,6 +1,6 @@
 
 'use strict';
-var App = angular.module('myApp', ['ui.router']);
+var App = angular.module('myApp', ['ui.router', 'ngMaterial']);
 //App.config(function($stateProvider, $urlRouterProvider)
 //{
 ////    $urlRouterProvider = "/";
@@ -51,11 +51,11 @@ App.controller('OrderController', function($scope, $state, orderService, $locati
         orderService.setOrder(self.orders[id - 1]);
         orderService.getOrder();
         alert("getting the order" + JSON.stringify(orderService.getOrder()));
-      //  $window.location.reload();
-        $window.location="customerOrder.htm";
+        //  $window.location.reload();
+        $window.location = "customerOrder.htm";
 //        $state.go('^');
-       // $state.go('^',"first",{notify: false});
-      // alert("url is " + $location.path());
+        // $state.go('^',"first",{notify: false});
+        // alert("url is " + $location.path());
 //       $location.path('customerOrder.htm',false);
 
     }
@@ -84,4 +84,23 @@ App.controller('OrderController2', ['$scope', 'orderService', function($scope, o
 
         //   $scope.getOrderDetails();
     }]);
+
+App.controller('AppCtrl', function($scope, $mdDialog, $mdMedia) {
+$scope.status = '  ';
+        $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+        $scope.showAlert = function(ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        // Modal dialogs should fully cover application
+        // to prevent interaction outside of dialog
+        $mdDialog.show(
+                $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('This is an alert title')
+                .textContent('You can specify some description text in here.')
+                .ariaLabel('Alert Dialog Demo')
+                .ok('Got it!')
+                .targetEvent(ev)
+                );
+        }});
     
