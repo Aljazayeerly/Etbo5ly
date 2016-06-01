@@ -1,16 +1,22 @@
 
 'use strict';
-var App = angular.module('myApp', ['ui.router', 'ngMaterial']);
-//App.config(function($stateProvider, $urlRouterProvider)
-//{
-////    $urlRouterProvider = "/";
-////    $stateProvider.state('first', {
-////        url: "/Etbo5ly-Web/customerOrder.htm",
-////        templateUrl: 'customerOrder.htm'
-////    })
-////});
+//var App = angular.module('myApp', ['ui.router']);
+//App.config(['$routeProvider', '$stateProvider',function($stateProvider, $urlRouterProvider) {
+//
+//    $urlRouterProvider.otherwise('/posts');
+//    $stateProvider
+//            .state('menus', {
+//                url: '/createOrder',
+//                templateUrl: 'kitchen.htm'
+//            })
+//            .state('menus.order', {
+//                url: '/customerOrder',
+//                templateUrl: '/customerOrder'
+//            })
+//                    .otherwise("kitchen.htm");
+//}]);
 
-App.controller('OrderController', function($scope, $state, orderService, $location, $window) {
+App.controller('OrderController', function($scope, orderService, $location, $window) {
 
     alert("inside");
     var self = $scope;
@@ -62,45 +68,29 @@ App.controller('OrderController', function($scope, $state, orderService, $locati
 
 });
 
-App.controller('OrderController2', ['$scope', 'orderService', function($scope, orderService) {
 
-        alert("inside 2 ");
-        //var self = this;
-        //  $scope.orders = []; //[ {userByCustomerId:0,customerName:"",userByCookId:0,cookName:"",location:"",duration:0,orderDetails:[{menuItemsItemId:0},{menuItemsItemId:0}]},{}];
-        $scope.orderr = {};
 
-//        $scope.getOrderDetails = function()
-//        {
-//            alert("view get details");
-//            $scope.order = orderService.getOrder();
-//            alert("getting the order " + orderService.getOrder());
-//            alert("location :" + $scope.order); //unzeft
+
+//App.controller('OrderController2', ['$scope', 'orderService', function($scope, orderService) {
 //
+//        alert("inside 2 ");
+//        //var self = this;
+//        //  $scope.orders = []; //[ {userByCustomerId:0,customerName:"",userByCookId:0,cookName:"",location:"",duration:0,orderDetails:[{menuItemsItemId:0},{menuItemsItemId:0}]},{}];
+//        $scope.orderr = {};
 //
-//        }
-
-        $scope.orderr = orderService.getOrder();
-        alert("location in ctrl :" + JSON.stringify($scope.orderr));
-
-        //   $scope.getOrderDetails();
-    }]);
-
-App.controller('AppCtrl', function($scope, $mdDialog, $mdMedia) {
-$scope.status = '  ';
-        $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
-        $scope.showAlert = function(ev) {
-        // Appending dialog to document.body to cover sidenav in docs app
-        // Modal dialogs should fully cover application
-        // to prevent interaction outside of dialog
-        $mdDialog.show(
-                $mdDialog.alert()
-                .parent(angular.element(document.querySelector('#popupContainer')))
-                .clickOutsideToClose(true)
-                .title('This is an alert title')
-                .textContent('You can specify some description text in here.')
-                .ariaLabel('Alert Dialog Demo')
-                .ok('Got it!')
-                .targetEvent(ev)
-                );
-        }});
+////        $scope.getOrderDetails = function()
+////        {
+////            alert("view get details");
+////            $scope.order = orderService.getOrder();
+////            alert("getting the order " + orderService.getOrder());
+////            alert("location :" + $scope.order); //unzeft
+////
+////
+////        }
+//
+//        $scope.orderr = orderService.getOrder();
+//        alert("location in ctrl :" + JSON.stringify($scope.orderr));
+//
+//        //   $scope.getOrderDetails();
+//    }]);
     

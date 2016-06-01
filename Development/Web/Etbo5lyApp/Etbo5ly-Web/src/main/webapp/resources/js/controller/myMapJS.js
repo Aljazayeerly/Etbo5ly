@@ -109,9 +109,9 @@ function DialogController($scope, $mdDialog, PageService) {
         $mdDialog.hide(answer);
     };
     $scope.clickedCook = PageService.getElement();
-//    alert(" the user id is " + clickedCook.id);
-//    PageService.getCookMeals(clickedCook.id);
-    alert("element send is " + JSON.stringify(PageService.getElement()));
+    alert(" the user id is " + $scope.clickedCook.id);
+   $scope.cookMenu= PageService.getCookMeals($scope.clickedCook.id);
+  //  alert("element send is " + JSON.stringify(PageService.getElement()));
 }
 
 //    function geocodeAddress(geocoder, resultsMap) {
