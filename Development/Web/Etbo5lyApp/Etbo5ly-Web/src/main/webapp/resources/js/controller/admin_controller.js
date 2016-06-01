@@ -1,19 +1,18 @@
 'use strict';
-var App = angular.module('myApp', []);
-App.config(['$routeProvider', '$stateProvider',function($stateProvider, $urlRouterProvider) {
-
-    $urlRouterProvider.otherwise('/posts');
-    $stateProvider
-            .state('menus', {
-                url: '/createOrder',
-                templateUrl: 'kitchen.htm'
-            })
-            .state('menus.order', {
-                url: '/customerOrder',
-                templateUrl: '/customerOrder'
-            })
-                    .otherwise("kitchen.htm");
-}]);
+//App.config(['$routeProvider', '$stateProvider',function($stateProvider, $urlRouterProvider) {
+//
+//    $urlRouterProvider.otherwise('/posts');
+//    $stateProvider
+//            .state('menus', {
+//                url: '/createOrder',
+//                templateUrl: 'kitchen.htm'
+//            })
+//            .state('menus.order', {
+//                url: '/customerOrder',
+//                templateUrl: '/customerOrder'
+//            })
+//                    .otherwise("kitchen.htm");
+//}]);
 
 App.controller('MenuController', ['$scope', 'MenuService', 'MainService', function($scope, MenuService, MainService) {
 

@@ -1,6 +1,6 @@
 
 'use strict';
-var App = angular.module('myApp', ['ui.router', 'ngMaterial']);
+//var App = angular.module('myApp', ['ui.router', 'ngMaterial']);
 //App.config(function($stateProvider, $urlRouterProvider)
 //{
 ////    $urlRouterProvider = "/";
@@ -85,7 +85,7 @@ App.controller('OrderController2', ['$scope', 'orderService', function($scope, o
         //   $scope.getOrderDetails();
     }]);
 
-App.controller('AppCtrl', function($scope, $mdDialog, $mdMedia) {
+App.controller('AppCtrll', function($scope, $mdDialog, $mdMedia) {
 $scope.status = '  ';
         $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
         $scope.showAlert = function(ev) {

@@ -5,6 +5,7 @@
  */
 package com.iti.jet.gp.etbo5ly.web;
 
+import javax.ws.rs.QueryParam;
 import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -115,9 +116,9 @@ public class TestClass {
     public String cart() {
         return "cart";
     }
-    
-    @RequestMapping(value="/cooksInformation.htm")
-    public String cookInformation(){
+
+    @RequestMapping(value = "/cooksInformation.htm")
+    public String cookInformation() {
         return "cookInfo";
     }
 
@@ -126,13 +127,21 @@ public class TestClass {
         return "orderReview2";
 
     }
-     @RequestMapping(value = "/customerOrders.htm")
+
+    @RequestMapping(value = "/customerOrders.htm")
     public String customerOrders() {
         return "customerOrders";
     }
-     @RequestMapping(value = "/customerOrder.htm")
+
+    @RequestMapping(value = "/customerOrder.htm")
     public String customerOrder() {
         return "customerOrder";
-
+    }
+    
+    
+    @RequestMapping(value = "/cookKitchen.htm")
+    @QueryParam("id")
+    public String cookKitchen(@RequestParam(value = "id") int id) {
+        return "cookKitchen";
     }
 }

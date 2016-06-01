@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 'use strict';
-//var App = angular.module('myApp', ['ngMaterial']);
+
 App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia', 'PageService', function ($scope, MapService, $mdDialog, $mdMedia, PageService) {
 
         $scope.items = [];
@@ -42,14 +42,11 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
                 center: {lat: position.coords.latitude, lng: position.coords.longitude},
                 zoom: 12
             });
+            
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
                 map: map
             });
-//        var geocoder = new google.maps.Geocoder();
-//        document.getElementById('submit').addEventListener('click', function () {
-//            geocodeAddress(geocoder, map);
-//        });
 
             MapService.getnearbyCooks(position.coords.latitude, position.coords.longitude)
                     .then(
@@ -122,10 +119,13 @@ function DialogController($scope, $mdDialog, PageService) {
         $mdDialog.hide(answer);
     };
     $scope.clickedCook = PageService.getElement();
-   // alert(" id of the cook is " + $scope.clickedCook.id);
-   // $scope.menu = PageService.getCookMeals($scope.clickedCook.id);
     $scope.menu = PageService.getMenu();
-  //  alert(" the menu is " + JSON.stringify($scope.menu));
+
+    
+    $scope.goToCook=function(){
+     //   alert("cooooooooooooooooooooooooooook");
+        window.location.href="cookKitchen.htm?id=" +$scope.clickedCook.id;
+    };
 }
 
 

@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div ng-controller="AppCtrl" class="md-padding" id="popupContainer" ng-cloak>
+<div ng-controller="AppCtrll" class="md-padding" id="popupContainer" ng-cloak>
     <p class="inset">
         Open a dialog over the app's content. Press escape or click outside to close the dialog and
         send focus back to the triggering button.
