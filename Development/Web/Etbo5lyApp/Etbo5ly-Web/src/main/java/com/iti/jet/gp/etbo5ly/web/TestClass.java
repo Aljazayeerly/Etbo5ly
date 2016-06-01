@@ -144,4 +144,24 @@ public class TestClass {
     public String cookKitchen(@RequestParam(value = "id") int id) {
         return "cookKitchen";
     }
+
+    @RequestMapping(value = "/orderReviewDialog.htm")
+    public String orderReviewDialog() {
+        return "orderReviewDialog";
+    }
+
+    @RequestMapping(value = "/addressDetailsDialog.htm")
+    public String addressDetailsDialog() {
+        return "addressDetailsDialog";
+    }
+
+    @RequestMapping(value = "/customerOrderDialog.htm")
+    public String customerOrderDialog() {
+        return "customerOrderDialog";
+    }
+    @RequestMapping(value = "/orderDialog.htm")
+    public String orderDialog() {
+        return "orderDialog";
+
+    }
 }

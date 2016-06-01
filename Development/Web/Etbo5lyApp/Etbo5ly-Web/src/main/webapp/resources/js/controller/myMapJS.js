@@ -15,7 +15,7 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
         $scope.showCookInformation = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
             $mdDialog.show({
-                controller: DialogController,
+                controller: cookDialogController,
                 templateUrl: 'cooksInformation.htm',
                 parent: angular.element(document.body),
                 targetEvent: ev,
@@ -67,13 +67,13 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
                                         PageService.setElement($scope.cook);
                                         $scope.cookMenu = PageService.getCookMeals($scope.cook.id);
                                         $scope.cookMenu.then(function (resolve) {
-                                          //  alert(resolve);
+                                            //  alert(resolve);
                                             PageService.setMenu($scope.cookMenu);
                                             $scope.showCookInformation();
 
                                         }, function (reject) {
                                             console.log(reject);
-                                          //  alert(reject)
+                                            //  alert(reject)
                                         });
 
 
@@ -88,7 +88,7 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
         }
 
         $scope.initMap = function () {
-             alert("inside in the function");
+            alert("inside in the function");
             var mapDiv = document.getElementById('map');
             var map = new google.maps.Map(mapDiv, {
                 center: {lat: 44.540, lng: -78.546},
@@ -106,7 +106,7 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
     }]);
 
 
-function DialogController($scope, $mdDialog, PageService) {
+function cookDialogController($scope, $mdDialog, PageService) {
     $scope.clickedCook;
     $scope.menu;
     $scope.hide = function () {
@@ -126,7 +126,17 @@ function DialogController($scope, $mdDialog, PageService) {
      //   alert("cooooooooooooooooooooooooooook");
         window.location.href="cookKitchen.htm?id=" +$scope.clickedCook.id;
     };
+
+//    alert(" the user id is " + $scope.clickedCook.id);
+//    $scope.cookMenu = PageService.getCookMeals($scope.clickedCook.id);
+//    //  alert("element send is " + JSON.stringify(PageService.getElement()));
+//    // alert(" id of the cook is " + $scope.clickedCook.id);
+//    // $scope.menu = PageService.getCookMeals($scope.clickedCook.id);
+//    $scope.menu = PageService.getMenu();
+//    //  alert(" the menu is " + JSON.stringify($scope.menu));
 }
+
+
 
 
 

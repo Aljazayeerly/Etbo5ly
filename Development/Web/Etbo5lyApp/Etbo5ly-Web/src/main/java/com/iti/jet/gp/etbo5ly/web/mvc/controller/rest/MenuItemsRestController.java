@@ -98,17 +98,13 @@ public class MenuItemsRestController {
         }
     }
     
-    @RequestMapping(value = "/search", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<List<List<MenuItemDTO>>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
         List<MenuItemDTO> specificMeal = null;
          List<List<MenuItemDTO>> result = new ArrayList<>();
-//        System.out.println("searchhhhhhhhhh sizeeeeeee "+searchDTO.getSelectedCategories().size());
         for (int i = 0; i < searchDTO.getSelectedCategories().size(); i++) {
-//             System.out.println("iddddddddddd " + searchDTO.getSelectedCategories().get(i).getCategoryId());
             specificMeal=menuItemsService.getMenuItemsOfCategory(searchDTO.getSelectedCategories().get(i).getCategoryId());
-//            System.out.println("size of specificccc meal "+specificMeal.size());
            result.add(specificMeal);
-//            System.out.println("result sizzzeeeeeeeee "+ result.size());
 
         }
  

@@ -17,6 +17,7 @@ import com.iti.jet.gp.etbo5ly.model.pojo.StatusHasOrderId;
 import com.iti.jet.gp.etbo5ly.service.OrderService;
 import com.iti.jet.gp.etbo5ly.service.dto.OrderDTO;
 import com.iti.jet.gp.etbo5ly.service.util.DTOConverter;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,10 +36,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     OrderDao orderDao;
-    
+
     @Autowired
     OrderDetailsDao orderDetailsDao;
-    
+
     @Autowired
     StatusHasOrderDao statusHasOrderDao;
 
@@ -61,22 +62,26 @@ public class OrderServiceImpl implements OrderService {
         System.out.println("Size bta3 al zft : " + orderDTOs.get(0).getOrderDetails().size());
         return orderDTOs;
     }
+
     @Transactional
     @Override
     public void createOrder(OrderDTO orderDTO) {
 
         System.out.println("Service");
         Order order = DTOConverter.orderDTOListToOrderList(orderDTO);
+        java.util.Date date = new java.util.Date();
+
+        order.setOrderTime(new Timestamp(date.getTime()));
         orderDao.create(order);
-        
+
         for (OrderDetails orderDetails : order.getOrderDetails()) {
-            Integer menuItemID=orderDetails.getId().getMenuItemId();
-            orderDetails.setId(new OrderDetailsId(order.getOrderId(),menuItemID ));
+            Integer menuItemID = orderDetails.getId().getMenuItemId();
+            orderDetails.setId(new OrderDetailsId(order.getOrderId(), menuItemID));
             orderDetailsDao.create(orderDetails);
         }
-        
+
         statusHasOrderDao.create(new StatusHasOrder(new StatusHasOrderId(1, order.getOrderId()), null, null, new Date()));
-       
+
     }
 
 }

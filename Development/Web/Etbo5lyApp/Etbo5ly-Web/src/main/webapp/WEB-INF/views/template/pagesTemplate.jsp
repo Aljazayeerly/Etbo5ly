@@ -54,6 +54,7 @@
         <script src="resources/js/service/pageIntegerationService.js" type="text/javascript"></script>
         <script src="resources/js/service/order_service.js" type="text/javascript"></script>
         <script src="resources/js/service/cookMenuService.js" type="text/javascript"></script>
+
     </head>
 
     <body ng-app="myApp">
