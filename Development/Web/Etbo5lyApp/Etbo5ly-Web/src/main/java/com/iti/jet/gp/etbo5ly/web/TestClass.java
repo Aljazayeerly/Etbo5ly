@@ -115,9 +115,9 @@ public class TestClass {
     public String cart() {
         return "cart";
     }
-    
-    @RequestMapping(value="/cooksInformation.htm")
-    public String cookInformation(){
+
+    @RequestMapping(value = "/cooksInformation.htm")
+    public String cookInformation() {
         return "cookInfo";
     }
 
@@ -126,13 +126,29 @@ public class TestClass {
         return "orderReview2";
 
     }
-     @RequestMapping(value = "/customerOrders.htm")
+
+    @RequestMapping(value = "/customerOrders.htm")
     public String customerOrders() {
         return "customerOrders";
     }
-     @RequestMapping(value = "/customerOrder.htm")
+
+    @RequestMapping(value = "/customerOrder.htm")
     public String customerOrder() {
         return "customerOrder";
 
+    }
+
+    @RequestMapping(value = "/orderReviewDialog.htm")
+    public String orderReviewDialog() {
+        return "orderReviewDialog";
+    }
+
+    @RequestMapping(value = "/addressDetailsDialog.htm")
+    public String addressDetailsDialog() {
+        return "addressDetailsDialog";
+    }
+    @RequestMapping(value = "/customerOrderDialog.htm")
+    public String customerOrderDialog() {
+        return "customerOrderDialog";
     }
 }
