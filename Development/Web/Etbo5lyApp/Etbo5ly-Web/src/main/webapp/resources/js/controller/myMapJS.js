@@ -70,13 +70,13 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
                                         PageService.setElement($scope.cook);
                                         $scope.cookMenu = PageService.getCookMeals($scope.cook.id);
                                         $scope.cookMenu.then(function (resolve) {
-                                          //  alert(resolve);
+                                            //  alert(resolve);
                                             PageService.setMenu($scope.cookMenu);
                                             $scope.showCookInformation();
 
                                         }, function (reject) {
                                             console.log(reject);
-                                          //  alert(reject)
+                                            //  alert(reject)
                                         });
 
 
@@ -91,7 +91,7 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
         }
 
         $scope.initMap = function () {
-             alert("inside in the function");
+            alert("inside in the function");
             var mapDiv = document.getElementById('map');
             var map = new google.maps.Map(mapDiv, {
                 center: {lat: 44.540, lng: -78.546},
@@ -124,13 +124,16 @@ function DialogController($scope, $mdDialog, PageService) {
     $scope.clickedCook = PageService.getElement();
 
     alert(" the user id is " + $scope.clickedCook.id);
-   $scope.cookMenu= PageService.getCookMeals($scope.clickedCook.id);
-  //  alert("element send is " + JSON.stringify(PageService.getElement()));
-   // alert(" id of the cook is " + $scope.clickedCook.id);
-   // $scope.menu = PageService.getCookMeals($scope.clickedCook.id);
+    $scope.cookMenu = PageService.getCookMeals($scope.clickedCook.id);
+    //  alert("element send is " + JSON.stringify(PageService.getElement()));
+    // alert(" id of the cook is " + $scope.clickedCook.id);
+    // $scope.menu = PageService.getCookMeals($scope.clickedCook.id);
     $scope.menu = PageService.getMenu();
-  //  alert(" the menu is " + JSON.stringify($scope.menu));
+    //  alert(" the menu is " + JSON.stringify($scope.menu));
+
 }
+
+
 
 
 
