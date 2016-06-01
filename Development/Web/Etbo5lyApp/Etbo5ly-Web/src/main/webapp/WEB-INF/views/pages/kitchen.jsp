@@ -46,12 +46,12 @@ _________________________________________________________ -->
                 <div class="form-group">
                     <div ng-repeat="c in ctrl.categories"class="checkbox">
                         <label>
-                            <input type="checkbox" ng-model="checked" >{{c.nameEn}}
+                            <input type="checkbox" ng-model="$scope.checked" ng-change="isSelected(c.categoryId, c.nameEn, $scope.checked,$index)">{{c.nameEn}}
                         </label>
                     </div>
                 </div>
                 <!--checked="false" ng-checked="ctrl.isSelected(c.categoryId,checkedCategories)"  -->
-                <button class="btn btn-default btn-sm btn-primary" ng-click="getSelected(checked, checkedCategories)"> Apply</button>
+                <button class="btn btn-default btn-sm btn-primary" ng-click="getSelected()"> Apply</button>
             </form>
 
         </div>
@@ -101,9 +101,11 @@ _________________________________________________________ -->
 
 <div>
 
+    
     <div class="col-md-6">
         <div>
             <section  ng-controller="MenuController as ctrl"  >
+
                 <div>
                     <div ng-show="!searchMeals" ng-repeat="i in ctrl.items" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
                         <div>
@@ -135,6 +137,7 @@ _________________________________________________________ -->
             </section>
         </div>
     </div>
+
     <div ng-show="searchMeals" ng-repeat="m in ctrl.searchMeals" style="left: 390px;width: 600px;height: 200px;margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
         <div>
             <div style="margin-left: 340px;">
@@ -158,47 +161,50 @@ _________________________________________________________ -->
     <div class="box-header">
         <h3>Your Cart</h3>
     </div>
-        <table id="cart" class="table table-hover table-condensed" ng-controller="MenuController as ctrl">
-            <thead>    
-                <tr>   
-                    <th style="width:50%">Product</th>
-                    <th style="width:10%">Price</th>
-                    <th style="width:8%">Quantity</th>
-                    <th style="width:22%" class="text-center">Subtotal</th>
-                    <th style="width:10%"></th>
-                </tr>   
-            </thead>        
-            <tbody>   
-                <tr ng-repeat="i in ctrl.addedItems">   
-                    <td data-th="Product">
-                        <!--<div class="row">-->
-                        <div class="col-sm-10">
-                            <label style="color: #E18728; font-size: 15px" ng-bind="i.menuItemsNameEn"></label>
-                        </div>
-                        <!--</div>-->
-                    </td>
-                    <td data-th="Price"><label ng-bind="i.menuItemsPrice"></label></td>
-                    <td data-th="Quantity">
-                        <input type="number" min="1" max="30" class="form-control text-center" value="1" value="i.quantity" ng-model="i.quantity">
-                    </td>
-                    <td data-th="Subtotal" class="text-center"><p ng-bind="i.totalPrice"</p></td>
-                    <td class="actions" data-th="">
-                        <!--<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>-->
-                        <button class="btn btn-danger btn-sm" ng-click="deleteItem(i.menuItemsItemId)"><i class="fa fa-trash-o"></i></button>								
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr class="visible-xs">
-                    <td class="text-center"><strong><label id="totalPrices" value="ooo"></label></strong></td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="hidden-xs"></td>
-                    <td class="hidden-xs text-center"><strong> <label id="total"></label></strong></td>
-                    <!--<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>-->
-                    <td><button type="submit" class="btn btn-success btn-block"  ng-click="checkOut()" >CheckOut</button></td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+
+    <table id="cart" class="table table-hover table-condensed" ng-controller="MenuController as ctrl">
+        <thead>    
+            <tr>   
+                <th style="width:50%">Product</th>
+                <th style="width:10%">Price</th>
+                <th style="width:8%">Quantity</th>
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%"></th>
+            </tr>   
+        </thead>        
+        <tbody>   
+            <tr ng-repeat="i in ctrl.addedItems">   
+                <td data-th="Product">
+                    <!--<div class="row">-->
+                    <div class="col-sm-10">
+                        <label style="color: #E18728; font-size: 15px" ng-bind="i.menuItemsNameEn"></label>
+                    </div>
+
+                    <!--</div>-->
+                </td>
+                <td data-th="Price"><label ng-bind="i.menuItemsPrice"></label></td>
+                <td data-th="Quantity">
+                    <input type="number" min="1" max="30" class="form-control text-center" value="1" value="i.quantity" ng-model="i.quantity">
+                </td>
+                <td data-th="Subtotal" class="text-center"><p ng-bind="i.totalPrice"</p></td>
+                <td class="actions" data-th="">
+
+                    <button class="btn btn-danger btn-sm" ng-click="deleteItem(i.menuItemsItemId)"><i class="fa fa-trash-o"></i></button>								
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="visible-xs">
+                <td class="text-center"><strong><label id="totalPrices" value="ooo"></label></strong></td>
+
+            </tr>
+            <tr>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center"><strong> <label id="total"></label></strong></td>
+                <!--<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>-->
+                <td><button type="submit" class="btn btn-success btn-block"  ng-click="checkOut()" >CheckOut</button></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
 

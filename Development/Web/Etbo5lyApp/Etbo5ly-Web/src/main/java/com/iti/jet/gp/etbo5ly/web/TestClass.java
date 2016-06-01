@@ -139,6 +139,7 @@ public class TestClass {
     }
 
     @RequestMapping(value = "/orderReviewDialog.htm")
+
     public String orderReviewDialog() {
         return "orderReviewDialog";
     }
@@ -147,8 +148,10 @@ public class TestClass {
     public String addressDetailsDialog() {
         return "addressDetailsDialog";
     }
+
     @RequestMapping(value = "/customerOrderDialog.htm")
     public String customerOrderDialog() {
         return "customerOrderDialog";
+
     }
 }

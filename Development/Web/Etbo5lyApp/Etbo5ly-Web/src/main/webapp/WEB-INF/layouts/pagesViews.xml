@@ -38,22 +38,22 @@
     <definition name="cart" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/cart.jsp" />
     </definition>
-     <definition name="orderReview2" extends="DefaultPageTemplate">
+    <definition name="orderReview2" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/orderReview2.jsp" />
     </definition>
-      <definition name="customerOrders" extends="DefaultPageTemplate">
+    <definition name="customerOrders" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/customerOrders.jsp" />
     </definition>
-      <definition name="customerOrder" extends="DefaultPageTemplate">
+    <definition name="customerOrder" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/customerOrder.jsp" />
     </definition>
-      <definition name="orderReviewDialog" extends="DefaultPageTemplate">
+    <definition name="orderReviewDialog" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/orderReviewDialog.jsp" />
     </definition>
-      <definition name="addressDetailsDialog" extends="DefaultPageTemplate">
+    <definition name="addressDetailsDialog" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/addressDetailsDialog.jsp" />
     </definition>
-      <definition name="customerOrderDialog" extends="DefaultPageTemplate">
+    <definition name="customerOrderDialog" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/customerOrderDialog.jsp" />
     </definition>
 </tiles-definitions>

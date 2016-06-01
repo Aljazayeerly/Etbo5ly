@@ -92,9 +92,9 @@ public class MenuItemsRestController {
         List<MenuItemDTO> specificMeal = menuItemsService.getSpecificCookMeals(id);
         System.out.println("cooooook idddddddd" + id);
         if (specificMeal != null) {
-            return new ResponseEntity<>(specificMeal, HttpStatus.OK);
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(specificMeal, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.NOT_FOUND);
         }
     }
     
@@ -102,13 +102,9 @@ public class MenuItemsRestController {
     public ResponseEntity<List<List<MenuItemDTO>>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
         List<MenuItemDTO> specificMeal = null;
          List<List<MenuItemDTO>> result = new ArrayList<>();
-//        System.out.println("searchhhhhhhhhh sizeeeeeee "+searchDTO.getSelectedCategories().size());
         for (int i = 0; i < searchDTO.getSelectedCategories().size(); i++) {
-//             System.out.println("iddddddddddd " + searchDTO.getSelectedCategories().get(i).getCategoryId());
             specificMeal=menuItemsService.getMenuItemsOfCategory(searchDTO.getSelectedCategories().get(i).getCategoryId());
-//            System.out.println("size of specificccc meal "+specificMeal.size());
            result.add(specificMeal);
-//            System.out.println("result sizzzeeeeeeeee "+ result.size());
 
         }
  

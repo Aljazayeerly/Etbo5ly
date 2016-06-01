@@ -40,6 +40,8 @@
                         </td>
                         <td><button type="submit" ng-click="OrderDetails(1)" value="View" class="btn btn-primary btn-sm"></button></td>
 
+                        <!--<td><button type="submit" ng-click="setOrderDetails(1)" value="View" class="btn btn-primary btn-sm"></button></td>-->
+
                     </tr>
                 </tbody>
             </table>

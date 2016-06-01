@@ -5,10 +5,10 @@ App.controller('OrderController', '$mdDialog', '$mdMedia', function($scope, orde
 
     $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
 
+
     alert("inside");
     var self = $scope;
     $scope.orders = []; //[ {userByCustomerId:0,customerName:"",userByCookId:0,cookName:"",location:"",duration:0,orderDetails:[{menuItemsItemId:0},{menuItemsItemId:0}]},{}];
-    // self.orders =  $scope.orders;
     $scope.order = {};
 
 
@@ -17,7 +17,7 @@ App.controller('OrderController', '$mdDialog', '$mdMedia', function($scope, orde
         orderService.getAllCustomerOrders()
                 .then(
                         function(d) {
-                            
+
 //                            alert("getAllCustomerOrders  : " + d.length);
 //                            alert("getAllCustomerOrders  : " + d[0].orderDetails.length);
 //                            alert("cutomer" + JSON.stringify(d));
@@ -89,4 +89,3 @@ function DialogController($scope, $mdDialog) {
         alert("answer");
     };
 }
-    
