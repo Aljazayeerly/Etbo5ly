@@ -38,8 +38,7 @@
                         <td>$ 150.00</td>
                         <td><span class="label label-info">Being prepared</span>
                         </td>
-                        <!--<td><a href="customer-order.html" class="btn btn-primary btn-sm">View</a>-->
-                        <td><button type="submit" ng-click="showAlert()" value="View" class="btn btn-primary btn-sm"></button></td>
+                        <td><button type="submit" ng-click="setOrderDetails(1)" value="View" class="btn btn-primary btn-sm"></button></td>
 
                     </tr>
                 </tbody>
@@ -47,16 +46,3 @@
         </div>
     </div>
 </div>
-<!--
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.min.js"></script>-->
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs.angularjs/1.4.4/angularjs.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-<script src="resources/js/service/order_service.js" type="text/javascript"></script>
-<!--<script src="resources/js/service/admin_service.js" type="text/javascript"></script>-->
-<script src="resources/js/controller/order_controller.js" type="text/javascript"></script>
-<script src="resources/js/controller/controller2.js" type="text/javascript"></script>
-<!--<script src="resources/js/app.js" type="text/javascript"></script>-->

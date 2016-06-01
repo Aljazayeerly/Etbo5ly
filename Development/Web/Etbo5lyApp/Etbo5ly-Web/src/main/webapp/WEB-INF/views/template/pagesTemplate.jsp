@@ -41,11 +41,22 @@
         <script src="resources/js/app.js" type="text/javascript"></script>
         <script src="resources/js/controller/admin_controller.js" type="text/javascript"></script>
         <script src="resources/js/controller/myMapJS.js" type="text/javascript"></script>
+        <script src="resources/js/controller/order_controller.js" type="text/javascript"></script>
         <script src="resources/js/service/admin_service.js" type="text/javascript"></script>
         <script src="resources/js/service/mainService.js" type="text/javascript"></script>
         <script src="resources/js/service/myMapService.js" type="text/javascript"></script>
         <script src="resources/js/service/pageIntegerationService.js" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <script src="resources/js/service/order_service.js" type="text/javascript"></script>
 
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo" async defer ></script>
+=======
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo" async defer ></script>
+>>>>>>> 0e6b4e1b471c0ebe969392b7010091d87391f86a
+
+>>>>>>> 1d8d2512eac5cea73ab0a1738c5139f8382e43f9
 
     </head>
 

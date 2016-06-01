@@ -47,4 +47,7 @@
       <definition name="customerOrder" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/customerOrder.jsp" />
     </definition>
+      <definition name="orderReviewDialog" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/orderReviewDialog.jsp" />
+    </definition>
 </tiles-definitions>

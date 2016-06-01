@@ -135,4 +135,9 @@ public class TestClass {
         return "customerOrder";
 
     }
+        @RequestMapping(value = "/orderReviewDialog.htm")
+    public String orderReviewDialog() {
+        return "orderReviewDialog";
+
+    }
 }

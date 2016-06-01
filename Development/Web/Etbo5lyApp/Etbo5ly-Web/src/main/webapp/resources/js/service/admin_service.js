@@ -85,6 +85,23 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                                 }
                         );
             }
+            
+            ,
+            getMealsForCheckedCategories:function(search)
+            {
+                return $http.post('/Etbo5ly-Web/rest/search', search)
+                        .then(
+                                function (response) {
+                                    return response.data;
+                                },
+                                function (errResponse) {
+                                    console.error('Error while fetching checked categories');
+                                    return $q.reject(errResponse);
+                                }
+                        );
+                
+            }
+            
         };
 
     }]);
