@@ -14,6 +14,7 @@ import com.iti.jet.gp.etbo5ly.service.util.ResourceUtil;
 public class MenuItemDTO {
 
     private Integer itemId;
+    private int cookId;
     private String cookName;
     private String nameEn;
     private String nameAr;
@@ -30,6 +31,14 @@ public class MenuItemDTO {
 
     public void setItemId(Integer itemId) {
         this.itemId = itemId;
+    }
+
+    public int getCookId() {
+        return cookId;
+    }
+
+    public void setCookId(int cookId) {
+        this.cookId = cookId;
     }
 
     public String getCookName() {
@@ -89,7 +98,7 @@ public class MenuItemDTO {
     }
 
     public String getImageUrl() {
-        return  imageUrl;
+        return imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
@@ -99,7 +108,5 @@ public class MenuItemDTO {
     public String getResourcesURL() {
         return resourcesURL;
     }
-    
-    
 
 }

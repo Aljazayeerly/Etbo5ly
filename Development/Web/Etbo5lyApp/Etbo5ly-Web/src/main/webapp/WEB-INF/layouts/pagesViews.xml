@@ -47,4 +47,13 @@
       <definition name="customerOrder" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/customerOrder.jsp" />
     </definition>
+      <definition name="orderReviewDialog" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/orderReviewDialog.jsp" />
+    </definition>
+      <definition name="addressDetailsDialog" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/addressDetailsDialog.jsp" />
+    </definition>
+      <definition name="customerOrderDialog" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/customerOrderDialog.jsp" />
+    </definition>
 </tiles-definitions>
