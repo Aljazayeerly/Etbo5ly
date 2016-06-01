@@ -1,6 +1,6 @@
 
 'use strict';
-var App = angular.module('myApp', ['ui.router', 'ngMaterial']);
+//var App = angular.module('myApp', ['ui.router', 'ngMaterial']);
 //App.config(function($stateProvider, $urlRouterProvider)
 //{
 ////    $urlRouterProvider = "/";
