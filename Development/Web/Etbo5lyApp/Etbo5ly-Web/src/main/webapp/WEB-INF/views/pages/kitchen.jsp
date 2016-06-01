@@ -46,12 +46,12 @@ _________________________________________________________ -->
                 <div class="form-group">
                     <div ng-repeat="c in ctrl.categories"class="checkbox">
                         <label>
-                            <input type="checkbox" ng-model="$scope.checked" ng-change="isSelected(c.categoryId,c.nameEn,$scope.checked)">{{c.nameEn}}{{$scope.checked}}
+                            <input type="checkbox" ng-model="$scope.checked" ng-change="isSelected(c.categoryId,c.nameEn,$scope.checked,$index)">{{c.nameEn}}{{$scope.checked}}
                         </label>
                     </div>
                 </div>
                 <!--checked="false" ng-checked="ctrl.isSelected(c.categoryId,checkedCategories)"  -->
-                <button class="btn btn-default btn-sm btn-primary" ng-click="getSelected($scope.checked)"> Apply</button>
+                <button class="btn btn-default btn-sm btn-primary" ng-click="getSelected()"> Apply</button>
             </form>
 
         </div>

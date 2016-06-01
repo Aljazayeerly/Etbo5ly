@@ -1,47 +1,47 @@
 'use strict';
 
-App.controller('AdminController', ['$scope', 'AdminService', function($scope, AdminService) {
+App.controller('AdminController', ['$scope', 'AdminService', function ($scope, AdminService) {
         var self = this;
         self.title = {};
         self.titles = [];
 
-        self.fetchAllTitles = function() {
+        self.fetchAllTitles = function () {
             AdminService.fetchAllTitles()
                     .then(
-                            function(d) {
+                            function (d) {
                                 self.titles = d;
                             },
-                            function(errResponse) {
+                            function (errResponse) {
                                 console.error('Error while fetching titles');
                             }
                     );
         };
 
-        self.createTitle = function(title) {
+        self.createTitle = function (title) {
             AdminService.createTitle(title)
                     .then(
                             self.fetchAllTitles,
-                            function(errResponse) {
+                            function (errResponse) {
                                 console.error('Error while creating Titles.');
                             }
                     );
         };
 
-        self.updateTitle = function(title, id){
-         AdminService.updateTitle(title, id)
-         .then(
-         self.fetchAllTitles, 
-         function(errResponse){
-         console.error('Error while updating Title.');
-         }	
-         );
-         };
+        self.updateTitle = function (title, id) {
+            AdminService.updateTitle(title, id)
+                    .then(
+                            self.fetchAllTitles,
+                            function (errResponse) {
+                                console.error('Error while updating Title.');
+                            }
+                    );
+        };
 
-        self.deleteTitle = function(id) {
+        self.deleteTitle = function (id) {
             AdminService.deleteTitle(id)
                     .then(
                             self.fetchAllTitles,
-                            function(errResponse) {
+                            function (errResponse) {
                                 console.error('Error while deleting Title.');
                             }
                     );
@@ -49,7 +49,7 @@ App.controller('AdminController', ['$scope', 'AdminService', function($scope, Ad
 
         self.fetchAllTitles();
 
-        self.submit = function() {
+        self.submit = function () {
             if (self.title.id == null) {
                 console.log('Saving New Title', self.title);
                 self.createTitle(self.title);
@@ -60,29 +60,29 @@ App.controller('AdminController', ['$scope', 'AdminService', function($scope, Ad
             self.reset();
         };
 
-        self.edit = function(id){
-         console.log('id to be edited', id);
-         for(var i = 0; i < self.titles.length; i++){
-         if(self.titles[i].id == id) {
-         self.title = angular.copy(self.titles[i]);
-         break;
-         }
-         }
-         };
+        self.edit = function (id) {
+            console.log('id to be edited', id);
+            for (var i = 0; i < self.titles.length; i++) {
+                if (self.titles[i].id == id) {
+                    self.title = angular.copy(self.titles[i]);
+                    break;
+                }
+            }
+        };
 
-        self.remove = function(id) {
+        self.remove = function (id) {
             console.log('id to be deleted', id);
 
-            
-            if(self.title.id === id) {
-                 self.reset();
-              }
-              self.deleteTitle(id);
+
+            if (self.title.id === id) {
+                self.reset();
+            }
+            self.deleteTitle(id);
 
         };
 
 
-        self.reset = function() {
+        self.reset = function () {
             self.title = {};
             $scope.myForm.$setPristine(); //reset Form
         };

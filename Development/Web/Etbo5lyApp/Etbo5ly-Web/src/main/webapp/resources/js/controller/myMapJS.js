@@ -122,16 +122,14 @@ function DialogController($scope, $mdDialog, PageService) {
         $mdDialog.hide(answer);
     };
     $scope.clickedCook = PageService.getElement();
-<<<<<<< HEAD
+
     alert(" the user id is " + $scope.clickedCook.id);
    $scope.cookMenu= PageService.getCookMeals($scope.clickedCook.id);
   //  alert("element send is " + JSON.stringify(PageService.getElement()));
-=======
    // alert(" id of the cook is " + $scope.clickedCook.id);
    // $scope.menu = PageService.getCookMeals($scope.clickedCook.id);
     $scope.menu = PageService.getMenu();
   //  alert(" the menu is " + JSON.stringify($scope.menu));
->>>>>>> 1d8d2512eac5cea73ab0a1738c5139f8382e43f9
 }
 
 

@@ -11,7 +11,7 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                                     return response.data;
                                 },
                                 function (errResponse) {
-                                    console.error('Error while fetching titles');
+                                    console.error('Error while fetching AllMeals in service');
                                     return $q.reject(errResponse);
                                 }
                         );
@@ -24,7 +24,7 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                                     return response.data;
                                 },
                                 function (errResponse) {
-                                    console.error('Error while fetching cook meals');
+                                    console.error('Error while fetching cook meals in service');
                                     return $q.reject(errResponse);
                                 }
                         );
@@ -36,7 +36,7 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                                     return response.data;
                                 },
                                 function (errResponse) {
-                                    console.error('Error while fetching titles');
+                                    console.error('Error while fetching All Cooks in service');
                                     return $q.reject(errResponse);
                                 }
                         );
@@ -48,7 +48,7 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                                     return response.data;
                                 },
                                 function (errResponse) {
-                                    console.error('Error while creating Order');
+                                    console.error('Error while creating Order in service');
                                     return $q.reject(errResponse);
                                 }
                         );
@@ -63,7 +63,7 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
 
                                 },
                                 function (errResponse) {
-                                    console.error('Error while fetching titles');
+                                    console.error('Error while fetching All Categories in service');
                                     return $q.reject(errResponse);
                                 }
                         );
@@ -80,22 +80,22 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                                 },
                                 function (errResponse) {
                                     alert("service error" + errResponse);
-                                    console.error('Error while fetching meals');
+                                    console.error('Error while fetching meals based on search in service');
                                     return $q.reject(errResponse);
                                 }
                         );
             }
             
             ,
-            getMealsForCheckedCategories:function(search)
+            getMealsForCheckedCategories:function(searchDTO)
             {
-                return $http.post('/Etbo5ly-Web/rest/search', search)
+                return $http.post('/Etbo5ly-Web/rest/search', searchDTO)
                         .then(
                                 function (response) {
                                     return response.data;
                                 },
                                 function (errResponse) {
-                                    console.error('Error while fetching checked categories');
+                                    console.error('Error while fetching checked categories in service');
                                     return $q.reject(errResponse);
                                 }
                         );

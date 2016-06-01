@@ -14,11 +14,11 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         self.check = false;
         $scope.checkedCategories=[];
         self.cookMeals = [];
-//        .selected=[];
+
         $scope.status = '  ';
         $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
         $scope.checked;
-//        self.search={};
+
 
         var itemDetails = {menuItemsItemId: 0, menuItemsNameEn: "", menuItemsNameAr: "", menuItemsPrice: 0, menuItemsDescriptionEn: "", menuItemsDescriptionAr: "", menuItemsImageUrl: "", quantity: 1, totalPrice: 0.0};
         var totalPrice = 0;
@@ -46,20 +46,20 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                                 self.items = d;
                             },
                             function (errResponse) {
-                                console.error('Error while fetching titles');
+                                console.error('Error while fetching all meals in controller');
                             }
                     );
         };
 
 
-        self.getAllCooks = function (id) {
-            MenuService.getAllCooks(id)
+        self.getAllCooks = function () {
+            MenuService.getAllCooks()
                     .then(
                             function (d) {
                                 self.cooks = d;
                             },
                             function (errResponse) {
-                                console.error('Error while fetching cooks');
+                                console.error('Error while fetching cooks in controller');
                             }
                     );
         };
@@ -71,7 +71,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                                 self.cookMeals = d;
                             },
                             function (errResponse) {
-                                console.error('Error while fetching cook meals');
+                                console.error('Error while fetching cook meals in controller');
                             }
                     );
         };
@@ -84,7 +84,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                                 self.categories = d;
                             },
                             function (errResponse) {
-                                console.error('Error while fetching categories');
+                                console.error('Error while fetching all categories in controller');
                             }
                     );
         };
@@ -102,7 +102,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             },
                             function (errResponse) {
 //                                alert("errooooooor" + errResponse);
-                                console.error('Error while fetching search meals');
+                                console.error('Error while fetching search meals in controller');
                             }
                     );
         };
@@ -207,35 +207,25 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         };
 
 
-        $scope.isSelected = function (categorgyId, categorgyName, checked) {
-//            alert("category id " + categorgyId);
+        $scope.isSelected = function (categorgyId, categorgyName, checked,index) {
+
             self.catg = {};
-            self.catg.categorgyId = categorgyId;
-            self.catg.categorgyName = categorgyName;
-//            alert("sizzzzeeeee1 "+$scope.checkedCategories.length);
-//            alert("category selected[ " + $scope.checkedCategories);
-//            alert("checked " + checked);
+            self.catg.categoryId = categorgyId;
+            self.catg.nameEn = categorgyName;
+
             if (checked == true)
             {
-//                alert(self.catg.categorgyId);
-//                alert(self.catg.categorgyName);
                 $scope.checkedCategories.push(self.catg);//array of searchDTO objects
-//                alert("checked categories pushed " + $scope.checkedCategories);
-//                alert("sizzzzeeeee 2 "+$scope.checkedCategories.length);
             }
             else
-                $scope.checkedCategories.pop();
+                $scope.checkedCategories.splice(index,1);
             return   $scope.checkedCategories;
 
         };
 
 
         $scope.getSelected = function () {
-//            alert("category check" + $scope.checkedCategories);
-
             s.selectedCategories = $scope.checkedCategories;
-//            alert("lengthhhhh" + s.selectedCategories.length);
-        
             MenuService.getMealsForCheckedCategories(s)
                     .then(
                             function (d) {
@@ -243,7 +233,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                                 self.items = d;
                             },
                             function (errResponse) {
-                                console.error('Error while fetching titles');
+                                console.error('Error while fetching Meals catergory in controller');
                             }
                     );
 
