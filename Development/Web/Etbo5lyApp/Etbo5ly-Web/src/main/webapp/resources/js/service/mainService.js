@@ -12,29 +12,29 @@ App.service('MainService', function() {
 
     return {
         setList: function(addedItems) {
-            alert("setList");
+//            alert("setList");
             orderItems = addedItems;
 
-            alert("List items");
+//            alert("List items");
             $.each(orderItems, function(index, item)
             {
 
-
-                alert("Name b2a : " + item.menuItemsNameEn);
-                alert("Quantity b2a : " + item.quantity);
-                alert("Price b2a : " + item.totalPrice);
+//
+//                alert("Name b2a : " + item.menuItemsNameEn);
+//                alert("Quantity b2a : " + item.quantity);
+//                alert("Price b2a : " + item.totalPrice);
             })
 
         },
         list: function() {
 
-            alert("Get Items");
+//            alert("Get Items");
             $.each(orderItems, function(index, item)
             {
-
-                alert("Name b2a : " + item.menuItemsNameEn);
-                alert("Quantity b2a : " + item.quantity);
-                alert("Price b2a : " + item.totalPrice);
+//
+//                alert("Name b2a : " + item.menuItemsNameEn);
+//                alert("Quantity b2a : " + item.quantity);
+//                alert("Price b2a : " + item.totalPrice);
             })
 
             return orderItems;

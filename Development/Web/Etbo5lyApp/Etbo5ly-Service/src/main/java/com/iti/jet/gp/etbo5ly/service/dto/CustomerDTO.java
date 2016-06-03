@@ -5,40 +5,35 @@
  */
 package com.iti.jet.gp.etbo5ly.service.dto;
 
-import com.iti.jet.gp.etbo5ly.service.util.ResourceUtil;
+import com.iti.jet.gp.etbo5ly.model.pojo.Region;
 import java.util.Date;
 
 /**
  *
- * @author AlJazayeerly
+ * @author menna
  */
-public class CookDTO {
+public class CustomerDTO {
 
+    private Integer id;
     private String name;
     private String email;
     private String password;
     private Boolean enabled;
-
+    private byte[] image;
     private Date registerationDate;
     private String phone;
     private String address;
-    private Date startWorkingHours;
-    private Date endWorkingHours;
-    private double longitude;
-    private double latitude;
     private String imageURL;
-    private int id;
+    private Integer RoleId;
+    private String role;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-
-   
-    private static String resourcesURL = ResourceUtil.getCooksImagesURL();
 
     public String getName() {
         return name;
@@ -72,6 +67,14 @@ public class CookDTO {
         this.enabled = enabled;
     }
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
     public Date getRegisterationDate() {
         return registerationDate;
     }
@@ -96,38 +99,6 @@ public class CookDTO {
         this.address = address;
     }
 
-    public Date getStartWorkingHours() {
-        return startWorkingHours;
-    }
-
-    public void setStartWorkingHours(Date startWorkingHours) {
-        this.startWorkingHours = startWorkingHours;
-    }
-
-    public Date getEndWorkingHours() {
-        return endWorkingHours;
-    }
-
-    public void setEndWorkingHours(Date endWorkingHours) {
-        this.endWorkingHours = endWorkingHours;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
     public String getImageURL() {
         return imageURL;
     }
@@ -136,8 +107,23 @@ public class CookDTO {
         this.imageURL = imageURL;
     }
 
-    public  String getResourcesURL() {
-        return resourcesURL;
+    public Integer getRoleId() {
+        return RoleId;
     }
 
+    public void setRoleId(Integer RoleId) {
+        this.RoleId = RoleId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+    
+    
+    
+    
 }

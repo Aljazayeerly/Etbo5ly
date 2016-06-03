@@ -73,7 +73,7 @@ public class MenuItemsRestController {
     }
 
     @RequestMapping(value = "/category", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<MenuItemDTO>> CategorySpecificCategoryMeals(@RequestParam(value = "id") int id) {
+    public ResponseEntity<List<MenuItemDTO>> getSpecificCategoryMeals(@RequestParam(value = "id") int id) {
 
         List<MenuItemDTO> specificMeal = menuItemsService.getMenuItemsOfCategory(id);
         System.out.println("categoryyyy idddddddd" + id);
@@ -85,17 +85,26 @@ public class MenuItemsRestController {
     }
 
     
-    @RequestMapping(value = "/search", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    
+     @RequestMapping(value = "/cookMeals", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<MenuItemDTO>> getSpecificCookMeals(@RequestParam(value = "id") int id) {
+        
+        List<MenuItemDTO> specificMeal = menuItemsService.getSpecificCookMeals(id);
+        System.out.println("cooooook idddddddd" + id);
+        if (specificMeal != null) {
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.NOT_FOUND);
+        }
+    }
+    
+    @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<List<List<MenuItemDTO>>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
         List<MenuItemDTO> specificMeal = null;
          List<List<MenuItemDTO>> result = new ArrayList<>();
-//        System.out.println("searchhhhhhhhhh sizeeeeeee "+searchDTO.getSelectedCategories().size());
         for (int i = 0; i < searchDTO.getSelectedCategories().size(); i++) {
-//             System.out.println("iddddddddddd " + searchDTO.getSelectedCategories().get(i).getCategoryId());
             specificMeal=menuItemsService.getMenuItemsOfCategory(searchDTO.getSelectedCategories().get(i).getCategoryId());
-//            System.out.println("size of specificccc meal "+specificMeal.size());
            result.add(specificMeal);
-//            System.out.println("result sizzzeeeeeeeee "+ result.size());
 
         }
  
@@ -105,5 +114,11 @@ public class MenuItemsRestController {
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
         }
     }
+    
+    
+    
+    
+    
+    
 
 }

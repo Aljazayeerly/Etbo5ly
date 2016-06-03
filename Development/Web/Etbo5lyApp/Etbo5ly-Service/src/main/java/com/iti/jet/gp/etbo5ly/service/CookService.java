@@ -27,6 +27,8 @@ public interface CookService {
     public List<Cook> getAllNearbyCooks(double Clongtitude, double Clatitude);
 
     public List<CookDTO> getAllNearbyCooksDTO(double cLongtitude, double cLatitude);
+    
+    public Cook getCookByLocation (double cLongtitude,double cLatitude);
 
 
 

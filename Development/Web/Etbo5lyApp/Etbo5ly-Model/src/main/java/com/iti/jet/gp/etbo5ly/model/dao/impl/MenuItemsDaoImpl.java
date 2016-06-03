@@ -122,4 +122,16 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
 //            }
 //        });    }
 
+    @Override
+    public List<MenuItems> getMealsOfCook(final int cookID) {
+ return (List<MenuItems>) transactionTemplate.execute(new TransactionCallback<Object>() {
+
+            @Override
+            public Object doInTransaction(TransactionStatus ts) {
+
+                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class, "item").createAlias("item.cook", "cook").add((Restrictions.eq("cook.id", cookID))));
+
+            }
+        });    }
+
 }

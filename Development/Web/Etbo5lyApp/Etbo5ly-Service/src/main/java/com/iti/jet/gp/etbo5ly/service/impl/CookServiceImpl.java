@@ -42,6 +42,9 @@ public class CookServiceImpl implements CookService {
     @Autowired
     TransactionTemplate transactionTemplate;
 
+    double longitude;
+    double latitude;
+
     @Override
     @Transactional
     public List<Cook> getAllCooks() {
@@ -64,26 +67,34 @@ public class CookServiceImpl implements CookService {
     @Override
     @Transactional
     public List<Cook> getAllNearbyCooks(double Clongtitude, double Clatitude) {
-//        return (List<Cook>) transactionTemplate.execute(new TransactionCallback<Object>() {
-//
+//        longitude=Clongtitude;
+//        latitude=Clatitude;
+//        System.out.println("long" + longitude);
+//        System.out.println("Service cooks");
+//       return (List<Cook>) transactionTemplate.execute(new TransactionCallback<Object>() {
+//           
 //            @Override
 //            public Object doInTransaction(TransactionStatus ts) {
-//                return hibernateTemplate.getSessionFactory().getCurrentSession().getNamedQuery("callCooksStoreProcedure").setParameters(os, types);
-//
+//               List<Cook> myCooks= hibernateTemplate.getSessionFactory().getCurrentSession().getNamedQuery("callCooksStoreProcedure").setParameter("longitude", longitude).setParameter("latitude", latitude).list();
+//                for (Cook myCook : myCooks) {
+//                    System.out.println("myCooks" + myCook.getName());
+//                }           
+//               return myCooks;
 //            }
+//           
 //        });
 //    }
         List<Cook> allCooks = getAllCooks();
         System.out.print("Nearby Coooooooooks");
         List<Cook> nearbyCooks = new ArrayList<>();
         for (int i = 0; i < allCooks.size(); i++) {
-            
+
             double distance = 3956 * 2 * Math.asin(Math.sqrt(Math.pow(Math.sin((Clatitude - Math.abs(allCooks.get(i).getLatitude())) * Math.PI / 180 / 2), 2) + Math.cos(Clatitude * Math.PI / 180) * Math.cos(Math.abs(allCooks.get(i).getLatitude()) * Math.PI / 180)
                     * Math.pow(Math.sin((Clongtitude - Math.abs(allCooks.get(i).getLongitude())) * Math.PI / 180 / 2), 2)
             ));
-            
+
             System.out.print("distance value" + distance);
-            if (distance <= 5) {
+            if (distance <= 15) {
                 nearbyCooks.add(allCooks.get(i));
             }
         }
@@ -124,6 +135,16 @@ public class CookServiceImpl implements CookService {
 
         List<Cook> Cooks = cookDao.getCooksByRegion(regionId);
         return DTOConverter.cookListToCookDTOList(Cooks);
+    }
+
+    @Override
+    @Transactional
+    public Cook getCookByLocation(double cLongtitude, double cLatitude) {
+        System.out.println("inside Location");
+        System.out.println("long" + cLongtitude+"lat"+ cLatitude);
+        Cook cook=cookDao.getCookByLocation(cLongtitude, cLatitude);
+        System.out.println("cook " + cook.getName());
+        return cook;
     }
 
 }
