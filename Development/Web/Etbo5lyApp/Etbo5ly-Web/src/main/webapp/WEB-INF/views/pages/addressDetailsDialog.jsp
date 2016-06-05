@@ -7,148 +7,42 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <md-dialog aria-label="Mango (Fruit)"  ng-cloak>
-    <form method="post" action="checkout2.html">
-        <h1>Checkout</h1>
-        <ul class="nav nav-pills nav-justified">
-            <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
-            </li>
-            <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
-            </li>
-            <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
-            </li>
-            <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
-            </li>
-        </ul>
-        <form>
-            <md-toolbar>
-                <div class="md-toolbar-tools">
-                    <h2>Checkout</h2>
-                    <span flex></span>
-                    <md-button class="md-icon-button" ng-click="cancel()">
-                        <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
-            <md-dialog-content>
-                <div class="col-md-9" id="checkout">
-
-                    <div class="box">
-                        <form method="post" action="checkout2.html">
-                            <h1>Checkout</h1>
-                            <ul class="nav nav-pills nav-justified">
-                                <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
-                                </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
-                                </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
-                                </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
-                                </li>
-                            </ul>
-
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="firstname">Firstname</label>
-                                            <input type="text" class="form-control" id="firstname">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="lastname">Lastname</label>
-                                            <input type="text" class="form-control" id="lastname">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="company">Company</label>
-                                            <input type="text" class="form-control" id="company">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="street">Street</label>
-                                            <input type="text" class="form-control" id="street">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-
-                                <div class="row">
-                                    <div class="col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="city">Company</label>
-                                            <input type="text" class="form-control" id="city">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="zip">ZIP</label>
-                                            <input type="text" class="form-control" id="zip">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="state">State</label>
-                                            <select class="form-control" id="state"></select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="country">Country</label>
-                                            <select class="form-control" id="country"></select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="phone">Telephone</label>
-                                            <input type="text" class="form-control" id="phone">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="text" class="form-control" id="email">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- /.row -->
-                            </div>
-
-                            <div class="box-footer">
-                                <div class="pull-left">
-                                    <a href="basket.html" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to basket</a>
-                                </div>
-                                <div class="pull-right">
-                                    <button type="submit" class="btn btn-primary">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- /.box -->
-
-
-                </div>
-            </md-dialog-content>
-            <md-dialog-actions layout="row">
-                <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
-                    More on Wikipedia
-                </md-button>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Mango (Fruit)</h2>
                 <span flex></span>
-                <md-button ng-click="answer('not useful')">
-                    Not Useful
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
                 </md-button>
-                <md-button ng-click="answer('useful')" style="margin-right:20px;">
-                    Useful
-                </md-button>
-            </md-dialog-actions>
-        </form>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h2>Using .md-dialog-content class that sets the padding as the spec</h2>
+                <p>
+                    The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees, cultivated mostly for edible fruit. The majority of these species are found in nature as wild mangoes. They all belong to the flowering plant family Anacardiaceae. The mango is native to South and Southeast Asia, from where it has been distributed worldwide to become one of the most cultivated fruits in the tropics.
+                </p>
+                <img style="margin: auto; max-width: 100%;" alt="Lush mango tree" src="img/mangues.jpg">
+                <p>
+                    The highest concentration of Mangifera genus is in the western part of Malesia (Sumatra, Java and Borneo) and in Burma and India. While other Mangifera species (e.g. horse mango, M. foetida) are also grown on a more localized basis, Mangifera indica&mdash;the "common mango" or "Indian mango"&mdash;is the only mango tree commonly cultivated in many tropical and subtropical regions.
+                </p>
+                <p>
+                    It originated in Indian subcontinent (present day India and Pakistan) and Burma. It is the national fruit of India, Pakistan, and the Philippines, and the national tree of Bangladesh. In several cultures, its fruit and leaves are ritually used as floral decorations at weddings, public celebrations, and religious ceremonies.
+                </p>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+                More on Wikipedia
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="answer('not useful')">
+                Not Useful
+            </md-button>
+            <md-button ng-click="answer('useful')" style="margin-right:20px;">
+                Useful
+            </md-button>
+        </md-dialog-actions>
+    </form>
 </md-dialog>

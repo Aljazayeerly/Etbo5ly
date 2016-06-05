@@ -1,107 +1,123 @@
 'use strict';
 
-App.factory('MenuService', ['$http', '$q', function ($http, $q) {
+App.factory('MenuService', ['$http', '$q', function($http, $q) {
 
 
         return {
-            getAllMeals: function () {
+            getAllMeals: function() {
                 return $http.get('/Etbo5ly-Web/rest/page?page=-2')
                         .then(
-                                function (response) {
+                                function(response) {
                                     return response.data;
                                 },
-                                function (errResponse) {
+                                function(errResponse) {
                                     console.error('Error while fetching titles');
                                     return $q.reject(errResponse);
                                 }
                         );
             }
             ,
-             getCookMeals: function (id) {
-                return $http.get('/Etbo5ly-Web/rest/cookMeals?id='+id)
+            getAllRegions: function() {
+
+                alert("get regions Service");
+                return $http.get('/Etbo5ly-Web/rest/region/countries')
                         .then(
-                                function (response) {
+                                function(response) {
                                     return response.data;
                                 },
-                                function (errResponse) {
+                                function(errResponse) {
+                                    console.error('Error while fetching countries');
+                                    return $q.reject(errResponse);
+                                }
+                        );
+            }
+            ,
+            getCookMeals: function(id) {
+                return $http.get('/Etbo5ly-Web/rest/cookMeals?id=' + id)
+                        .then(
+                                function(response) {
+                                    return response.data;
+                                },
+                                function(errResponse) {
                                     console.error('Error while fetching cook meals');
                                     return $q.reject(errResponse);
                                 }
                         );
             },
-            getAllCooks: function () {
+            getAllCooks: function() {
                 return $http.get('/Etbo5ly-Web/rest/cook/page?page=-2')
                         .then(
-                                function (response) {
+                                function(response) {
                                     return response.data;
                                 },
-                                function (errResponse) {
+                                function(errResponse) {
                                     console.error('Error while fetching titles');
                                     return $q.reject(errResponse);
                                 }
                         );
             },
-            createOrder: function (order) {
+            createOrder: function(order) {
                 return $http.post('/Etbo5ly-Web/rest/createOrder', order)
                         .then(
-                                function (response) {
+                                function(response) {
                                     return response.data;
                                 },
-                                function (errResponse) {
+                                function(errResponse) {
                                     console.error('Error while creating Order');
                                     return $q.reject(errResponse);
                                 }
                         );
             },
-            getAllCategories: function () {
+            getAllCategories: function() {
                 return $http.get('/Etbo5ly-Web/rest/get/categories')
                         .then(
-                                function (response) {
+                                function(response) {
 
                                     return response.data;
 
 
                                 },
-                                function (errResponse) {
+                                function(errResponse) {
                                     console.error('Error while fetching titles');
                                     return $q.reject(errResponse);
                                 }
                         );
             },
-            searchForMeal: function (mealName) {
+            searchForMeal: function(mealName) {
                 alert("serviceee " + mealName);
                 return $http.get('/Etbo5ly-Web/rest/meal?mealName=' + mealName)
 
                         .then(
-                                function (response) {
+                                function(response) {
                                     alert("service response" + response);
                                     return response.data;
 
                                 },
-                                function (errResponse) {
+                                function(errResponse) {
                                     alert("service error" + errResponse);
                                     console.error('Error while fetching meals');
                                     return $q.reject(errResponse);
                                 }
                         );
             }
-            
+
             ,
-            getMealsForCheckedCategories:function(search)
+            getMealsForCheckedCategories: function(search)
             {
                 return $http.post('/Etbo5ly-Web/rest/search', search)
                         .then(
-                                function (response) {
+                                function(response) {
                                     return response.data;
                                 },
-                                function (errResponse) {
+                                function(errResponse) {
                                     console.error('Error while fetching checked categories');
                                     return $q.reject(errResponse);
                                 }
                         );
-                
+
             }
             
+
         };
 
     }]);
