@@ -46,7 +46,8 @@ _________________________________________________________ -->
                 <div class="form-group">
                     <div ng-repeat="c in ctrl.categories"class="checkbox">
                         <label>
-                            <input type="checkbox" ng-model="$scope.checked" ng-change="isSelected(c.categoryId, c.nameEn, $scope.checked,$index)">{{c.nameEn}}
+                            <input type="checkbox" ng-model="$scope.checked" ng-change="isSelected(c.categoryId,c.nameEn,$scope.checked,$index)">{{c.nameEn}}{{$scope.checked}}
+
                         </label>
                     </div>
                 </div>

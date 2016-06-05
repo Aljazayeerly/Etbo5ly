@@ -6,10 +6,11 @@
 'use strict';
 //var App = angular.module('myApp', []);
 App.factory('PageService', ['$http', '$q', function($http, $q) {
+
         var cook = {};
         var menu = {};
         var city = null;
-        var region = null;
+        var region = 0;
         var addressDetails = null;
         var cookId = 0;
         var cookName = null;

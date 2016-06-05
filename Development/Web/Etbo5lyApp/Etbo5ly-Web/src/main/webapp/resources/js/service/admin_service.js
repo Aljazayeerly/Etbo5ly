@@ -1,5 +1,4 @@
 'use strict';
-
 App.factory('MenuService', ['$http', '$q', function($http, $q) {
 
 
@@ -11,7 +10,7 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                                     return response.data;
                                 },
                                 function(errResponse) {
-                                    console.error('Error while fetching titles');
+                                    console.error('Error while fetching AllMeals in service');
                                     return $q.reject(errResponse);
                                 }
                         );
@@ -21,6 +20,7 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
 
                 alert("get regions Service");
                 return $http.get('/Etbo5ly-Web/rest/region/countries')
+
                         .then(
                                 function(response) {
                                     return response.data;
@@ -51,19 +51,19 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                                     return response.data;
                                 },
                                 function(errResponse) {
-                                    console.error('Error while fetching titles');
+                                    console.error('Error while fetching All Cooks in service');
                                     return $q.reject(errResponse);
                                 }
                         );
             },
-            createOrder: function(order) {
+            createOrderService: function(order) {
                 return $http.post('/Etbo5ly-Web/rest/createOrder', order)
                         .then(
                                 function(response) {
                                     return response.data;
                                 },
                                 function(errResponse) {
-                                    console.error('Error while creating Order');
+                                    console.error('Error while creating Order in service');
                                     return $q.reject(errResponse);
                                 }
                         );
@@ -74,11 +74,9 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                                 function(response) {
 
                                     return response.data;
-
-
                                 },
                                 function(errResponse) {
-                                    console.error('Error while fetching titles');
+                                    console.error('Error while fetching All Categories in service');
                                     return $q.reject(errResponse);
                                 }
                         );
@@ -91,33 +89,28 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                                 function(response) {
                                     alert("service response" + response);
                                     return response.data;
-
                                 },
                                 function(errResponse) {
                                     alert("service error" + errResponse);
-                                    console.error('Error while fetching meals');
+                                    console.error('Error while fetching meals based on search in service');
                                     return $q.reject(errResponse);
                                 }
                         );
-            }
-
-            ,
-            getMealsForCheckedCategories: function(search)
+            },
+            getMealsForCheckedCategories: function(searchDTO)
             {
-                return $http.post('/Etbo5ly-Web/rest/search', search)
+                return $http.post('/Etbo5ly-Web/rest/search', searchDTO)
                         .then(
                                 function(response) {
                                     return response.data;
                                 },
                                 function(errResponse) {
-                                    console.error('Error while fetching checked categories');
+                                    console.error('Error while fetching checked categories in service');
                                     return $q.reject(errResponse);
                                 }
                         );
-
             }
-            
+
 
         };
-
     }]);

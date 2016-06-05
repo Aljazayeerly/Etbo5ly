@@ -10,7 +10,13 @@
 
     <md-dialog  aria-label="Mango (Fruit)"  ng-cloak >
         <form method="post">
-
+            <!--<h1>Checkout</h1>-->
+            <ul class="nav nav-pills nav-justified">
+                <li ng-show="addressLI" id="addressLI" class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
+                </li>
+                <li ng-show="orderReviewLI" id="orderReviewLI" class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
+                </li>
+            </ul>
             <form>
                 <md-toolbar>
                     <div class="md-toolbar-tools">
@@ -38,13 +44,29 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="city">City</label>
-                                                    <input type="text" class="form-control" id="city">
+                                                    <!--<input type="text" class="form-control" id
+                                                    ="city" ng-model="city">-->
+                                                    <!--                                                    <select  ng-change="onChangeCity(itemSelected)" ng-model="selectedCity" ng-options="city.cityId as city.cityName for city in cities" >
+                                                                                                            <select ng-model="opt1" ng-options="obj.num as obj.code for obj in opts">                                                        <option value="">Select City</option>
+                                                                                                        </select>-->
+                                                    <select ng-change="onChangeCity(itemSelected)" name="selectedCity" id="selectedCity" ng-model="selectedCity">
+                                                        <option ng-repeat="city in cities" value="{{city.cityId}}">{{city.cityName}}</option>
+                                                    </select>
                                                 </div>
                                             </div>
+                                            <br>
+                                            <br>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="region">Region</label>
-                                                    <input type="text" class="form-control" id="region">
+                                                    <!--<input type="text" class="form-control" id="region" ng-model="region">-->
+                                                    <!--                                                    <select ng-model="selectedRegion" ng-options="region.regionId as region.regionName for region in regions"  value="{{option.id}}">
+                                                                                                            <option value="">Select Region</option>
+                                                                                                        </select>-->
+                                                    <select name="selectedRegion" id="selectedRegion" ng-model="selectedRegion">
+                                                        <option ng-repeat="region in regions" value="{{region.regionId}}">{{region.regionName}}</option>
+                                                    </select>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -55,10 +77,9 @@
                                                 <div class="form-group">
                                                     <label for="addressDetails">Address Details</label>
                                                     <!--                                                <input type="text" class="form-control" id="addressDetails">-->
-                                                    <textarea type="text" class="form-control" id="addressDetails"></textarea>
+                                                    <textarea type="text" class="form-control" id="addressDetails" ng-model="addressDetails"  ng-required="required"></textarea>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <!-- /.row -->
                                     </div>

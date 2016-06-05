@@ -149,6 +149,7 @@ function CustomerHistoryDialogController($scope, $mdDialog, PageService) {
     alert("dialog controllerrr");
     $scope.order = PageService.getOrder();
     alert("orderss: " + $scope.order.orderDetails.length);
+
     $scope.hide = function() {
         $mdDialog.hide();
     };

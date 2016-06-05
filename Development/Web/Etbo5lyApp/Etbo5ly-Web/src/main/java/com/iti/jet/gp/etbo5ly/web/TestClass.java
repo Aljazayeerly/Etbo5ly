@@ -5,6 +5,7 @@
  */
 package com.iti.jet.gp.etbo5ly.web;
 
+import javax.ws.rs.QueryParam;
 import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -135,11 +136,16 @@ public class TestClass {
     @RequestMapping(value = "/customerOrder.htm")
     public String customerOrder() {
         return "customerOrder";
-
+    }
+    
+    
+    @RequestMapping(value = "/cookKitchen.htm")
+    @QueryParam("id")
+    public String cookKitchen(@RequestParam(value = "id") int id) {
+        return "cookKitchen";
     }
 
     @RequestMapping(value = "/orderReviewDialog.htm")
-
     public String orderReviewDialog() {
         return "orderReviewDialog";
     }
@@ -152,6 +158,10 @@ public class TestClass {
     @RequestMapping(value = "/customerOrderDialog.htm")
     public String customerOrderDialog() {
         return "customerOrderDialog";
+    }
+    @RequestMapping(value = "/orderDialog.htm")
+    public String orderDialog() {
+        return "orderDialog";
 
     }
 }

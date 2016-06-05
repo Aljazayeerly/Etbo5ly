@@ -27,7 +27,17 @@ public class CookDTO {
     private double longitude;
     private double latitude;
     private String imageURL;
+    private int id;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+   
     private static String resourcesURL = ResourceUtil.getCooksImagesURL();
 
     public String getName() {
