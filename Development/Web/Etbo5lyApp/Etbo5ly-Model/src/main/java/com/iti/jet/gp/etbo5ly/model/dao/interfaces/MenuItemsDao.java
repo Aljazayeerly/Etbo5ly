@@ -11,8 +11,10 @@ public interface MenuItemsDao extends GenericDao<MenuItems> {
 
     List<MenuItems> getMenuItemsPage(int page);
 
-    List<MenuItems> getMealsOfCateogry(int categoryID);
-    
+    List<MenuItems> getMealsOfCateogries(List<Integer> id);
+
+    List<MenuItems> getMealsOfCateogry(int id);
+
     List<MenuItems> getMealsOfCook(int cookID);
 //    List<MenuItemDTO> getAllMeals();
 

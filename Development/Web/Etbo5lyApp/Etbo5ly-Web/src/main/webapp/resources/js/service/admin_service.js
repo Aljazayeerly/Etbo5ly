@@ -17,8 +17,8 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                         );
             }
             ,
-             getCookMeals: function (id) {
-                return $http.get('/Etbo5ly-Web/rest/cookMeals?id='+id)
+            getCookMeals: function (id) {
+                return $http.get('/Etbo5ly-Web/rest/cookMeals?id=' + id)
                         .then(
                                 function (response) {
                                     return response.data;
@@ -79,19 +79,21 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
 
                                 },
                                 function (errResponse) {
-                                    alert("service error" + errResponse);
+                                    alert("service error" +JSON.stringify(errResponse));
                                     console.error('Error while fetching meals based on search in service');
                                     return $q.reject(errResponse);
                                 }
                         );
             }
-            
+
             ,
-            getMealsForCheckedCategories:function(searchDTO)
+            getMealsForCheckedCategories: function (searchDTO)
             {
                 return $http.post('/Etbo5ly-Web/rest/search', searchDTO)
                         .then(
                                 function (response) {
+                                    alert("responsssssse" + response);
+                                    alert("responsssssse dataa" + JSON.stringify(response.data));
                                     return response.data;
                                 },
                                 function (errResponse) {
@@ -99,9 +101,9 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                                     return $q.reject(errResponse);
                                 }
                         );
-                
+
             }
-            
+
         };
 
     }]);

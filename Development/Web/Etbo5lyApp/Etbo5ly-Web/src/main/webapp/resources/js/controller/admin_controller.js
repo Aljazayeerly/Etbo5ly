@@ -6,6 +6,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         var self = this;
         self.item = {};
         self.items = [];
+        self.checkedItems = [];
         self.order = {};
         self.addedItems = [];
         self.cooks = [];
@@ -17,32 +18,37 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         $scope.status = '  ';
         $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
         $scope.checked;
+        $scope.result;
+        $scope.finalResult;
         var itemDetails = {menuItemsItemId: 0, menuItemsNameEn: "", menuItemsNameAr: "", menuItemsPrice: 0, menuItemsDescriptionEn: "", menuItemsDescriptionAr: "", menuItemsImageUrl: "", quantity: 1, totalPrice: 0.0};
         var totalPrice = 0;
         $scope.status = '  ';
         $scope.checked;
+        $scope.showCheckedMeal = false;
+        $scope.showAllMeals = true;
+        $scope.showSearchMeals = false;
+
         var s = {"selectedCategories": [
-                {
-                    "categoryId": 0,
-                    "nameEn": ""
-                }
             ]};
         self.getList = function () {
 
             self.addedItems = MainService.list();
         };
+
         self.getAllMeals = function () {
             MenuService.getAllMeals()
                     .then(
                             function (d) {
 
                                 self.items = d;
+//                                alert(JSON.stringify( self.items));
                             },
                             function (errResponse) {
                                 console.error('Error while fetching all meals in controller');
                             }
                     );
         };
+
         self.getAllCooks = function () {
 
             MenuService.getAllCooks()
@@ -55,6 +61,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
+
         self.getCookMeals = function (id) {
 
             MenuService.getCookMeals()
@@ -79,21 +86,26 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
-        $scope.searchForMeal = function (mealName) {
-
-
+        self.searchForMeal = function (mealName) {
+            $scope.showCheckedMeal = false;
+            $scope.showAllMeals = false;
+            $scope.showSearchMeals = true;
+            
             MenuService.searchForMeal(mealName)
                     .then(
                             function (d) {
                                 self.searchMeals = d;
                                 self.check = true;
+                                alert(JSON.stringify(self.searchMeals));
                             },
                             function (errResponse) {
-//                                alert("errooooooor" + errResponse);
+                                alert("errooooooor" + JSON.stringify(errResponse));
                                 console.error('Error while fetching search meals in controller');
                             }
                     );
         };
+        
+        
         $scope.createOrder = function () {
             alert("hennnnnnaaaa");
             order.userByCustomerId = 1;
@@ -126,6 +138,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         self.getList();
         self.getAllCooks();
         self.getAllCategories();
+
         self.submit = function () {
 
             console.log('Saving New Order', self.order);
@@ -217,39 +230,41 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         };
 
 
+        self.isSelected = function (categorgyId, checked, index) {
 
-        $scope.isSelected = function (categorgyId, categorgyName, checked, index) {
 
-            self.catg = {};
-            self.catg.categoryId = categorgyId;
-            self.catg.nameEn = categorgyName;
             if (checked == true)
             {
-                $scope.checkedCategories.push(self.catg); //array of searchDTO objects
+                $scope.checkedCategories.push(categorgyId);
             }
             else
+            {
                 $scope.checkedCategories.splice(index, 1);
+            }
 
             return   $scope.checkedCategories;
         };
 
 
 
-        $scope.getSelected = function () {
+        self.getSelected = function () {
+            $scope.showCheckedMeal = true;
+            $scope.showAllMeals = false;
 
             s.selectedCategories = $scope.checkedCategories;
             MenuService.getMealsForCheckedCategories(s)
                     .then(
                             function (d) {
-                                alert("getSelected");
-                                self.items = d;
+                                self.checkedItems = d;
+                                alert(" data in the checkedItems " + JSON.stringify(self.checkedItems));
+                                alert(self.checkedItems.length);
                             },
                             function (errResponse) {
                                 console.error('Error while fetching Meals catergory in controller');
-
                             }
                     );
         };
+
         $scope.showAdvanced = function (ev) {
 
             alert("show advanced");
