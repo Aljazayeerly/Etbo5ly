@@ -42,6 +42,7 @@ public class Order implements java.io.Serializable {
     private Double longitude;
     private Double latitude;
     private String addressDetails;
+    private Float orderTotalPrice;
     @JsonIgnore
     private Set<OrderDetails> orderDetails = new HashSet<OrderDetails>(0);
     @JsonIgnore
@@ -91,7 +92,7 @@ public class Order implements java.io.Serializable {
         this.orderId = orderId;
     }
 
-     @Column(name = "order_time", nullable = false, length = 100)
+    @Column(name = "order_time", nullable = false, length = 100)
     public Timestamp getOrderTime() {
         return orderTime;
     }
@@ -245,6 +246,15 @@ public class Order implements java.io.Serializable {
 
     public void setStatusHasOrders(Set<StatusHasOrder> statusHasOrders) {
         this.statusHasOrders = statusHasOrders;
+    }
+
+    @Column(name = "total_price", nullable = false)
+    public Float getOrderTotalPrice() {
+        return orderTotalPrice;
+    }
+
+    public void setOrderTotalPrice(Float orderTotalPrice) {
+        this.orderTotalPrice = orderTotalPrice;
     }
 
 }

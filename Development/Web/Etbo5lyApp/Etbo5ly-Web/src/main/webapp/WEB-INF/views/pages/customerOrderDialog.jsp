@@ -7,18 +7,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <md-dialog aria-label="Mango (Fruit)"  ng-cloak>
-    <form method="post" action="checkout2.html">
+    <form method="post">
         <h1>Checkout</h1>
-        <ul class="nav nav-pills nav-justified">
-            <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
-            </li>
-            <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
-            </li>
-            <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
-            </li>
-            <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
-            </li>
-        </ul>
+        <!--        <ul class="nav nav-pills nav-justified">
+                    <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
+                    </li>
+                    <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
+                    </li>
+                    <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
+                    </li>
+                    <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
+                    </li>
+                </ul>-->
         <form>
             <md-toolbar>
                 <div class="md-toolbar-tools">
@@ -47,68 +47,29 @@
                                         <th colspan="2">Product</th>
                                         <th>Quantity</th>
                                         <th>Unit price</th>
-                                        <th>Discount</th>
                                         <th>Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="i in orderr.orderDetails">
-                                        <!--                        <td>
-                                                                    <a href="#">
-                                                                        <img src="img/detailsquare.jpg" alt="White Blouse Armani">
-                                                                    </a>
-                                                                </td>-->
+                                    <tr ng-repeat="i in order.orderDetails">
+
                                         <td><label ng-bind="i.menuItemsNameEn"></label></td>
                                         <td><label ng-bind="i.quantity"></label></td>
-                                        <td>$123.00</td>
-                                        <td>$0.00</td>
-                                        <td>$246.00</td>
+                                        <td><label ng-bind="i.menuItemsPrice"></label></td>
+                                        <td><label ng-bind="i.totalPrice"></label></td>
                                     </tr>
 
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="5" class="text-right">Order subtotal</th>
-                                        <th>$446.00</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="5" class="text-right">Shipping and handling</th>
-                                        <th>$10.00</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="5" class="text-right">Tax</th>
-                                        <th>$0.00</th>
-                                    </tr>
-                                    <tr>
                                         <th colspan="5" class="text-right">Total</th>
-                                        <th>$456.00</th>
+                                        <th><label ng-bind="orders.totalPrice"></label></th>
                                     </tr>
                                 </tfoot>
                             </table>
 
                         </div>
                         <!-- /.table-responsive -->
-
-                        <div class="row addresses">
-                            <div class="col-md-6">
-                                <h2>Invoice address</h2>
-                                <p>John Brown
-                                    <br>13/25 New Avenue
-                                    <br>New Heaven
-                                    <br>45Y 73J
-                                    <br>England
-                                    <br>Great Britain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <h2>Shipping address</h2>
-                                <p>John Brown
-                                    <br>13/25 New Avenue
-                                    <br>New Heaven
-                                    <br>45Y 73J
-                                    <br>England
-                                    <br>Great Britain</p>
-                            </div>
-                        </div>
 
                     </div>
                 </div>

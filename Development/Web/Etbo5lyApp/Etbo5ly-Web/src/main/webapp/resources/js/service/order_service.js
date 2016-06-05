@@ -1,5 +1,5 @@
 'use strict';
-//var App=angular.module('myApp',[]);
+
 App.factory('orderService', ['$http', '$q', function($http, $q) {
         var order = [];
 
@@ -10,7 +10,7 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
             order.push(givenOrder);
             alert("quantity tany :" + order[0].location);
         }
-        function getOrder() {  
+        function getOrder() {
             alert("location in service  : " + order[0]);
             return order[0];
         }
@@ -23,6 +23,7 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
                         .then(
                                 function(response) {
                                     alert("response");
+                                    alert("response: " + response.length);
                                     return response.data;
                                 },
                                 function(errResponse) {
