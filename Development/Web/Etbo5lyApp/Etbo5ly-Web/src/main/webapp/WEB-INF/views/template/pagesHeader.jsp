@@ -38,7 +38,7 @@ Author     : Nada
                 <form action="" method="" class="navbar-form" role="search">
 
                     <div class="input-group add-on">
-                        <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text" ng-model="mealName">
+                        <input class="form-control" placeholder="Search"  id="srch-term" type="text" ng-model="mealName">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit" ng-click="searchForMeal(mealName)">
                                 <i class="glyphicon glyphicon-search"></i></button>
