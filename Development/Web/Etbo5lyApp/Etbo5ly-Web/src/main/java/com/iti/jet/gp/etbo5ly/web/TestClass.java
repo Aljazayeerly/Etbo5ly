@@ -164,4 +164,10 @@ public class TestClass {
         return "orderDialog";
 
     }
+    
+     @RequestMapping(value = "/cookProfile.htm")
+    public String cookProfile() {
+        return "cookProfile";
+
+    }
 }
