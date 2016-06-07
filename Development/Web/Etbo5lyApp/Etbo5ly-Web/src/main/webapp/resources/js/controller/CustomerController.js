@@ -11,25 +11,40 @@ App.controller('RegisterController', ['$scope', 'RegisterService', function ($sc
         $scope.allregions = [];
         $scope.regions = [];
         $scope.regionSelected = 0;
+        var date = new Date();
+        var json = JSON.stringify(date);
+        var dateStr = JSON.parse(json);
+
+
         $scope.registerCustomer = function (name, password, email, phone, address) {
-            customer.name = name;
-            customer.password = password;
-            customer.email = email;
-            customer.phone = phone;
-            customer.address = address;
-            customer.regionId = parseInt($scope.regionSelected);
+            if (name != null && password != null && email != null && address != null && $scope.regionSelected != 0) {
+                customer.name = name;
+                customer.password = password;
+                customer.email = email;
+                customer.phone = phone;
+                customer.address = address;
+                customer.regionId = parseInt($scope.regionSelected);
+                customer.registerationDate = dateStr;
+                customer.enabled = true;
+
+
 //            customer.id=0;
 //            customer.image=null;
-        //    customer.enabled=false;
 //            customer.imageURL=null;
-//            customer.registerationDate=null;
 //            customer.role=null;
 //            customer.RoleId=0;
-//var utc = new Date().toJSON().slice(0,10);
 
-            alert("customersss object is " + JSON.stringify(customer))
-            $scope.addedCustomer = RegisterService.registerCustomer(customer);
-            alert(" added Customer is " + JSON.stringify($scope.addedCustomer));
+                alert("customersss object is " + JSON.stringify(customer));
+                 RegisterService.registerCustomer(customer).then(function (resolve) {
+                  alert("resolve is " + resolve);
+                  $scope.addedCustomer =resolve;
+
+                }, function (reject) {
+                    console.log(reject);
+                      alert(reject)
+                });
+                alert(" added Customer is " + JSON.stringify($scope.addedCustomer));
+            }
 
         }
 

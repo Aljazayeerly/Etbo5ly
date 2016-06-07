@@ -36,37 +36,38 @@
             <form:errors path="*" element="div" />
             <div class="form-group">
                 <label path="name" id="rLabel"><fmt:message key="name"/></label>
-                <input type="text" class="form-control" id="name" path="name" ng-model="name">
+                <input type="text" class="form-control" id="name" path="name" ng-model="name" required="true">
                 <form:errors cssClass="error" path="name"/>
             </div>
             <div class="form-group">
                 <label path="email" id="rLabel"><fmt:message key="email"/></label>
-                <input type="text" class="form-control" id="email" path="email" ng-model="email">
+                <input type="text" class="form-control" id="email" path="email" ng-model="email" required="true">
                 <form:errors cssClass="error" path="email"/>
 
             </div>
             <div class="form-group">
                 <label path="password" id="rLabel"><fmt:message key="password"/></label>
-                <input type="password" class="form-control" id="password" path="password" ng-model="password">
+                <input type="password" class="form-control" id="password" path="password" ng-model="password" required="true">
                 <form:errors cssClass="error" path="password"/>
 
             </div>
             <div class="form-group">
                 <label path="phone" id="rLabel"><fmt:message key="phone"/></label>
-                <input type="text" class="form-control" id="phone" path="phone" ng-model="phone">
+                <input type="text" class="form-control" id="phone" path="phone" ng-model="phone" required="true">
                 <form:errors cssClass="error" path="phone"/>
 
             </div>
             <div class="form-group">
                 <label path="address"id="rLabel"><fmt:message key="address"/></label>
-                <input type="text" class="form-control" id="address" path="address" ng-model="address">
+                <input type="text" class="form-control" id="address" path="address" ng-model="address" required="true">
                 <form:errors cssClass="error" path="address"/>
 
 
             </div>
             <div class="form-group">
                 <label for="singleSelect"><fmt:message key="location"/> </label>
-                <select name="singleSelect" id="singleSelect" ng-model="$scope.regionSelected" ng-change="showRegionnSelected($scope.regionSelected)">
+                <select name="singleSelect" id="singleSelect" ng-model="$scope.regionSelected" ng-change="showRegionnSelected($scope.regionSelected)" required="true">
+                     <option value="">Please Choose your region</option>
                     <option ng-repeat="region in allregions" value="{{region.regionId}}">{{region.regionName}}</option>
                 </select><br>
             </div>
