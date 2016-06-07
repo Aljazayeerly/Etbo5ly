@@ -14,4 +14,7 @@ import com.iti.jet.gp.etbo5ly.service.dto.CustomerDTO;
  */
 public interface CustomerService {
 
+    public CustomerDTO signIn(String email, String password);
+    public boolean signUp(CustomerDTO customer);
+
 }

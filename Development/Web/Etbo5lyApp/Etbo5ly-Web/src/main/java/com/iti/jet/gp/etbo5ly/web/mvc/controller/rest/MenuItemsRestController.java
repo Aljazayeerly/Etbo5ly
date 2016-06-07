@@ -114,18 +114,18 @@ public class MenuItemsRestController {
 //            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
 //        }
 //    }
-    
-    @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
-    public ResponseEntity<List<MenuItemDTO>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
-        List<MenuItemDTO> result = null;
-            result=menuItemsService.getMenuItemsOfCategories(searchDTO.getSelectedCategories());
- 
-        if (result != null) {
-            return new ResponseEntity<>(result, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
-        }
-    }
+//    
+//    @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
+//    public ResponseEntity<List<MenuItemDTO>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
+//        List<MenuItemDTO> result = null;
+//            result=menuItemsService.getMenuItemsOfCategories(searchDTO.getSelectedCategories());
+// 
+//        if (result != null) {
+//            return new ResponseEntity<>(result, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+//        }
+//    }
     
     
     

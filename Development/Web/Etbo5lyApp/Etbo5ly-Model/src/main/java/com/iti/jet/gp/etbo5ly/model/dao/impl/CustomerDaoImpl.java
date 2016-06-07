@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.Customer;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CustomerDao;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 @Repository("customerDaoImpl")
 public class CustomerDaoImpl extends GenericDaoImpl<Customer> implements
@@ -23,7 +25,35 @@ public class CustomerDaoImpl extends GenericDaoImpl<Customer> implements
 		super();
 	}
 
+//<<<<<<< HEAD
+//        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+//        Customer customer = (Customer) getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Customer.class).add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password))).uniqueResult();
+//=======
+//>>>>>>> fd4cfc820b3887b361f056a20be3e86493754ad3
 
 	
+
+    @Override
+    public boolean signUp(Customer customer) {
+        System.out.println("sign up Dao");
+        boolean userAdded = false;
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Customer oldCustomer = (Customer) getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Customer.class).add(Restrictions.eq("email", customer.getEmail())).uniqueResult();
+        if (oldCustomer == null) {
+            session.persist(customer);
+            userAdded = true;
+        } else {
+            System.out.println("User Already Exist ");
+            userAdded = false;
+        }
+        return userAdded;
+    }
+
+    @Override
+    public Customer signIn(String email, String password) {
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Customer customer = (Customer) getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Customer.class).add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password))).uniqueResult();
+        return customer;
+    }
 
 }

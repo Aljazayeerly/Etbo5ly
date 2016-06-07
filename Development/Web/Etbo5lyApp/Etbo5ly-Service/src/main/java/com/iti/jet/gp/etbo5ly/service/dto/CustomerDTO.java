@@ -14,6 +14,7 @@ import java.util.Date;
  */
 public class CustomerDTO {
 
+    private int regionId;
     private Integer id;
     private String name;
     private String email;
@@ -26,6 +27,7 @@ public class CustomerDTO {
     private String imageURL;
     private Integer RoleId;
     private String role;
+    
 
     public Integer getId() {
         return id;
@@ -122,8 +124,13 @@ public class CustomerDTO {
     public void setRole(String role) {
         this.role = role;
     }
-    
-    
-    
-    
+
+    public int getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(int regionId) {
+        this.regionId = regionId;
+    }
+
 }
