@@ -25,9 +25,25 @@ public class CustomerDaoImpl extends GenericDaoImpl<Customer> implements
     public Customer signIn(String email, String password) {
 
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
-        Customer customer = (Customer) getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Customer.class).add(Restrictions.and(Restrictions.eq("email", email),Restrictions.eq("password", password))).uniqueResult();
+        Customer customer = (Customer) getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Customer.class).add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password))).uniqueResult();
 
         return customer;
+    }
+
+    @Override
+    public boolean signUp(Customer customer) {
+        System.out.println("sign up Dao");
+        boolean userAdded = false;
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Customer oldCustomer = (Customer) getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Customer.class).add(Restrictions.eq("email", customer.getEmail())).uniqueResult();
+        if (oldCustomer == null) {
+            session.persist(customer);
+            userAdded = true;
+        } else {
+            System.out.println("User Already Exist ");
+            userAdded = false;
+        }
+        return userAdded;
     }
 
 }

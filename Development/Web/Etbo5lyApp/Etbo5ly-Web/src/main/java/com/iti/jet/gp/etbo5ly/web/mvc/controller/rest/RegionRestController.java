@@ -9,6 +9,7 @@ import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CountryDao;
 import com.iti.jet.gp.etbo5ly.model.pojo.Category;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.model.pojo.Country;
+import com.iti.jet.gp.etbo5ly.model.pojo.Region;
 import com.iti.jet.gp.etbo5ly.service.RegionService;
 import com.iti.jet.gp.etbo5ly.service.TestService;
 import java.util.List;
@@ -40,6 +41,17 @@ public class RegionRestController {
             return new ResponseEntity<List<Country>>(countries, HttpStatus.OK);
         else
             return new ResponseEntity<List<Country>>(countries,HttpStatus.NOT_FOUND);
+    }
+    
+        @RequestMapping(value = "/allRegion", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Region>> getAllRegion() {
+
+        List<Region> allRegions = regionService.getAllRegions();
+        System.out.println("country size is: "+allRegions.size());
+        if(allRegions!=null && allRegions.size() !=0)
+            return new ResponseEntity<List<Region>>(allRegions, HttpStatus.OK);
+        else
+            return new ResponseEntity<List<Region>>(allRegions,HttpStatus.NOT_FOUND);
     }
     
     

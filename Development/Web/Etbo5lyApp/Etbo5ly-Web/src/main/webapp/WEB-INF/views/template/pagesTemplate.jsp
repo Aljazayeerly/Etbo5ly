@@ -48,13 +48,14 @@
         <script src="resources/js/controller/myMapJS.js" type="text/javascript"></script>
         <script src="resources/js/controller/order_controller.js" type="text/javascript"></script>
         <script src="resources/js/controller/cookMenuController.js" type="text/javascript"></script>
+        <script src="resources/js/controller/CustomerController.js" type="text/javascript"></script>
         <script src="resources/js/service/admin_service.js" type="text/javascript"></script>
         <script src="resources/js/service/mainService.js" type="text/javascript"></script>
         <script src="resources/js/service/myMapService.js" type="text/javascript"></script>
         <script src="resources/js/service/pageIntegerationService.js" type="text/javascript"></script>
         <script src="resources/js/service/order_service.js" type="text/javascript"></script>
         <script src="resources/js/service/cookMenuService.js" type="text/javascript"></script>
-
+        <script src="resources/js/service/RegisterService.js" type="text/javascript"></script>
     </head>
 
     <body ng-app="myApp">
