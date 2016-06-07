@@ -15,16 +15,6 @@
         <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
 
         <hr>
-      
-            <div class="products-sort-by">
-                <strong>Show</strong>
-                <select ng-model="mySelect" ng-change="showSelectValue(mySelect)" class="form-control">
-                    <option>All</option>
-                    <option>Current Orders</option>
-                    <option>Past Orders</option>
-                </select>
-            </div>
- 
 
         <div class="table-responsive">
             <table class="table table-hover">
@@ -40,17 +30,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="i in orders | orderBy {duration : 90}">
+                    <tr ng-repeat="i in orders">
                         <th>{{ $index + 1}}</th>
                         <th><label ng-model="i.cookName" ng-bind="i.cookName"></label></th>
-                        <td><label ng-bind="i.orderTime"></label></td>
+                        <td><label ng-bind="i.duration"></label></td>
                         <td><label ng-bind="i.type"></label></td>
-                        <td><label ng-bind="i.totalPrice"></label></td>
+                        <td>$ 150.00</td>
                         <td><span class="label label-info">Being prepared</span>
                         </td>
-                        <td><button type="submit" ng-click="OrderDetails($index)" value="View" class="btn btn-primary btn-sm">View</button></td>
-
-                        <!--<td><button type="submit" ng-click="setOrderDetails(1)" value="View" class="btn btn-primary btn-sm"></button></td>-->
+                        <td><button type="submit" ng-click="setOrderDetails(1)" value="View" class="btn btn-primary btn-sm"></button></td>
 
                     </tr>
                 </tbody>

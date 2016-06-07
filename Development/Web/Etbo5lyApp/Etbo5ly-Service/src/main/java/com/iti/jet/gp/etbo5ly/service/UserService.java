@@ -6,15 +6,12 @@
 
 package com.iti.jet.gp.etbo5ly.service;
 
-import com.iti.jet.gp.etbo5ly.model.pojo.Country;
-import com.iti.jet.gp.etbo5ly.model.pojo.Region;
-import java.util.List;
+import com.iti.jet.gp.etbo5ly.model.pojo.User;
 
 /**
  *
  * @author AlJazayeerly
  */
-public interface RegionService {
-    List<Country> getAllCountries();
-    List<Region> getAllRegions();
+public interface UserService {
+    User loadUserByEmail(String email);
 }

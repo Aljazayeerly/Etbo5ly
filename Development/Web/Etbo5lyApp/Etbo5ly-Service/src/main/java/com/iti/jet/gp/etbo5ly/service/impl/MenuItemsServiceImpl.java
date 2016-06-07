@@ -79,6 +79,7 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 
     }
     @Override
+    @Transactional
     public List<MenuItemDTO> getSpecificCookMeals(int id) {
         List<MenuItemDTO> itemDTOs = new ArrayList<MenuItemDTO>();
         List<MenuItems> menuItems = menuItemsDao.getMealsOfCook(id);

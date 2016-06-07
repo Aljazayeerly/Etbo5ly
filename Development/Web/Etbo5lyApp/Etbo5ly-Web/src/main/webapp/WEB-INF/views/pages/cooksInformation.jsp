@@ -41,7 +41,7 @@
                 
             </md-dialog-content>
             <md-dialog-actions layout="row">
-                <md-button target="_blank" md-autofocus ng-click="goToCook()">
+                <md-button href="/Etbo5ly-Web/kitchen.htm" target="_blank" md-autofocus>
                     Visit Cook page
                 </md-button>
                 <span flex></span>

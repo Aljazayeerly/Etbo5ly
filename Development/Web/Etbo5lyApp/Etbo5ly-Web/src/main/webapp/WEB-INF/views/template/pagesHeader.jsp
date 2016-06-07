@@ -24,7 +24,6 @@ Author     : Nada
                 <li class="active"><a href="home.htm"><fmt:message key="home"/></a></li>
                 <li><a href="login.htm"><fmt:message key="login"/></a></li>
                 <li><a href="register.htm"><fmt:message key="register"/></a></li>
-                <li><a href="customerOrders.htm"><fmt:message key="myOrders"/></a></li>
                 <li><a href="#contact"><fmt:message key="joinUs"/></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><fmt:message key="language"/><span class="caret"></span></a>

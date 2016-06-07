@@ -7,8 +7,10 @@ package com.iti.jet.gp.etbo5ly.service.impl;
 
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CategoryDao;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CountryDao;
+import com.iti.jet.gp.etbo5ly.model.dao.interfaces.RegionDao;
 import com.iti.jet.gp.etbo5ly.model.pojo.Category;
 import com.iti.jet.gp.etbo5ly.model.pojo.Country;
+import com.iti.jet.gp.etbo5ly.model.pojo.Region;
 import com.iti.jet.gp.etbo5ly.service.RegionService;
 import com.iti.jet.gp.etbo5ly.service.TestService;
 import java.util.ArrayList;
@@ -28,6 +30,9 @@ public class RegionServiceImpl implements RegionService {
 
     @Autowired
     CountryDao countryDao;
+    
+    @Autowired
+    RegionDao regionDao;
 
     @Override
     @Transactional
@@ -40,6 +45,15 @@ public class RegionServiceImpl implements RegionService {
         filteredResult.addAll(0, result);
 
         return filteredResult;
+    }
+
+    @Override
+    @Transactional
+    public List<Region> getAllRegions() {
+        System.out.println("inside all Region service");
+        List<Region> allRegion = regionDao.getAll();
+        return allRegion;
+       
     }
 
 }
