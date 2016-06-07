@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.User;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.UserDao;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.springframework.orm.hibernate4.HibernateCallback;
 
 @Repository("userDaoImpl")
 public class UserDaoImpl extends GenericDaoImpl<User> implements
@@ -25,6 +28,17 @@ UserDao{
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+    @Override
+    public User getUserByEmail(final String email) {
+        return (User) getHibernateTemplate().execute( new HibernateCallback<Object>() {
+
+            @Override
+            public Object doInHibernate(Session sn) throws HibernateException {
+                return sn.getNamedQuery("getUserByEmail").setParameter("email", email).uniqueResult();
+            }
+        });
+    }
 
 	
 
