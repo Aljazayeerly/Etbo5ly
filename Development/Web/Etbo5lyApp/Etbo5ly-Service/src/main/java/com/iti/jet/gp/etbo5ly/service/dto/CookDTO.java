@@ -16,6 +16,8 @@ import java.util.Set;
  */
 public class CookDTO {
 
+    
+    private Integer id;
     private String name;
     private String email;
     private String password;
@@ -140,6 +142,14 @@ public class CookDTO {
 
     public void setMenuItems(Set<MenuItemDTO> menuItems) {
         this.menuItems = menuItems;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     
