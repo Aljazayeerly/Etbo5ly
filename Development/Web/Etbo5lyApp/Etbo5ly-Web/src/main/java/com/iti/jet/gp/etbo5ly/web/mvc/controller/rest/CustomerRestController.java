@@ -34,6 +34,7 @@ public class CustomerRestController {
     @Autowired(required = true)
     CustomerService customerService;
 
+
     @RequestMapping(value = "/signIn/{email}/{password}", method = RequestMethod.GET)
     public ResponseEntity<CustomerDTO> signIn(@PathVariable("email") String email, @PathVariable("password") String password) {
 
@@ -51,5 +52,4 @@ public class CustomerRestController {
         boolean userAdded = customerService.signUp(customer);
         return new ResponseEntity<Boolean>(userAdded,HttpStatus.OK);
     }
-
 }

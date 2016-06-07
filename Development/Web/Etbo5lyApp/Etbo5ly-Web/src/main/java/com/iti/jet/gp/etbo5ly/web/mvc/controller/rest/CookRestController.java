@@ -29,7 +29,7 @@ public class CookRestController {
     @Autowired
     CookService cookService;
 
-  
+    
 
     @RequestMapping(value = "/page", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<CookDTO>> getCooksByPage(@RequestParam(value = "page") int page) {
