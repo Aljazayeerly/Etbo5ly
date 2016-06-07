@@ -26,12 +26,10 @@
         <style>
             body{ margin-top:20px; margin-bottom:20px; background-color:#f0f0f0;}
         </style>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo" async defer ></script>
 
         <!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>-->
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.css"/>
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>-->
-<!--                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
@@ -44,18 +42,18 @@
         <script src="resources/js/controller/myMapJS.js" type="text/javascript"></script>
         <script src="resources/js/controller/order_controller.js" type="text/javascript"></script>
         <script src="resources/js/controller/cookMenuController.js" type="text/javascript"></script>
-
-        <script src="resources/js/controller/CustomerController.js" type="text/javascript"></script>
-
-
         <script src="resources/js/service/admin_service.js" type="text/javascript"></script>
         <script src="resources/js/service/mainService.js" type="text/javascript"></script>
         <script src="resources/js/service/myMapService.js" type="text/javascript"></script>
         <script src="resources/js/service/pageIntegerationService.js" type="text/javascript"></script>
-        <script src="resources/js/service/order_service.js" type="text/javascript"></script>
-
         <script src="resources/js/service/cookMenuService.js" type="text/javascript"></script>
         <script src="resources/js/service/RegisterService.js" type="text/javascript"></script>
+        <script src="resources/js/service/order_service.js" type="text/javascript"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo" async defer ></script>
+
+
+        <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo" async defer ></script>-->
 
 
     </head>
