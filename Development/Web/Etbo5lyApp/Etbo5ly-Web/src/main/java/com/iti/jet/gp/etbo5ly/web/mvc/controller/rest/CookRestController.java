@@ -83,4 +83,14 @@ public class CookRestController {
 //        return new ResponseEntity<Cook>(selectedCook,HttpStatus.OK);
 //    }
     
+           @RequestMapping(value="/cookProfile" , method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CookDTO> getCookByLocation(@RequestParam (value = "id")int id){
+        CookDTO selectedCook=cookService.getCookDataForProfile(id);
+        return new ResponseEntity<CookDTO>(selectedCook,HttpStatus.OK);
+    }
+            
+            
+            
+            
+            
 }

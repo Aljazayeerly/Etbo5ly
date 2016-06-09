@@ -12,7 +12,10 @@ import com.iti.jet.gp.etbo5ly.model.pojo.Region;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.support.TransactionTemplate;
 
 /**
  *
@@ -22,7 +25,6 @@ import org.springframework.stereotype.Repository;
 @Repository("regionDaoImpl")
 public class RegionDaoImpl  extends GenericDaoImpl<Region> implements RegionDao{
 
-   
     @PostConstruct
     public void init() {
         System.out.println("hena fl init");
@@ -38,4 +40,6 @@ public class RegionDaoImpl  extends GenericDaoImpl<Region> implements RegionDao{
 //        
 //        return allRegions;
 //    }
+
+    
 }

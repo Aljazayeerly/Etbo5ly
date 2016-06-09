@@ -8,6 +8,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         self.item = {};
         self.items = [];
         self.checkedItems = [];
+        self.checkedAddress = [];
         self.order = {};
         self.addedItems = [];
         self.cooks = [];
@@ -15,20 +16,24 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         self.searchMeals = [];
         self.check = false;
         $scope.checkedCategories = [];
+        $scope.checkedLocations = [];
         self.cookMeals = [];
         $scope.status = '  ';
         $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
         $scope.checked;
-        $scope.result;
-        $scope.finalResult;
+        $scope.location;
         var itemDetails = {menuItemsItemId: 0, menuItemsNameEn: "", menuItemsNameAr: "", menuItemsPrice: 0, menuItemsDescriptionEn: "", menuItemsDescriptionAr: "", menuItemsImageUrl: "", quantity: 1, totalPrice: 0.0};
         var totalPrice = 0;
         $scope.status = '  ';
         var cookName = null;
         $scope.checked;
+        $scope.checked2;
+        self.locations = [];
         $scope.showCheckedMeal = false;
         $scope.showAllMeals = true;
         $scope.showSearchMeals = false;
+        $scope.showLocationMeals = false;
+
 //        self.countries = [];
 //        $scope.selectedCity = null;
 //        $scope.selectedRegion = null;
@@ -36,6 +41,10 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
 //        var numbers = ['1','2','3'];
         var s = {"selectedCategories": [
             ]};
+
+        var l = {"selectedLocations": [
+            ]};
+
         self.getList = function () {
 
             self.addedItems = MainService.list();
@@ -65,6 +74,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
+
         self.getCookMeals = function (id) {
 
             MenuService.getCookMeals()
@@ -77,6 +87,9 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
+
+
+
         self.getAllCategories = function () {
 
             MenuService.getAllCategories()
@@ -89,6 +102,24 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
+
+
+        self.getAllLocations = function () {
+//alert("in locations");
+            MenuService.getAllLocations()
+                    .then(
+                            function (d) {
+                                self.locations = d;
+//                                alert(JSON.stringify(self.locations));
+                            },
+                            function (errResponse) {
+                                console.error('Error while fetching all locations in controller');
+                            }
+                    );
+        };
+
+
+
         self.searchForMeal = function (mealName) {
             $scope.showCheckedMeal = false;
             $scope.showAllMeals = false;
@@ -106,7 +137,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
-        
+
         $scope.createOrder = function () {
 //            alert("seldfff :  " + self.totalPrice);
             var cityName = null;
@@ -149,6 +180,8 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         self.getList();
         self.getAllCooks();
         self.getAllCategories();
+        self.getAllLocations();
+
         self.submit = function () {
 
             console.log('Saving New Order', self.order);
@@ -255,6 +288,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
 
             $scope.showAdvanced();
         };
+
         self.isSelected = function (categorgyId, checked, index) {
 
 
@@ -271,10 +305,10 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         };
 
 
-
         self.getSelected = function () {
             $scope.showCheckedMeal = true;
             $scope.showAllMeals = false;
+            $scope.showLocationMeals = false;
 
             s.selectedCategories = $scope.checkedCategories;
             MenuService.getMealsForCheckedCategories(s)
@@ -290,6 +324,46 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     );
         };
 
+
+        self.isSelectedLocation = function (address, checked2, index) {
+
+            alert(address);
+            alert(checked2);
+            alert(index);
+            if (checked2 == true)
+            {
+                $scope.checkedLocations.push(address);
+            }
+            else
+            {
+                $scope.checkedLocations.splice(index, 1);
+            }
+
+            return   $scope.checkedLocations;
+        };
+
+
+        self.getSelectedLocation = function () {
+            $scope.showCheckedMeal = false;
+            $scope.showAllMeals = false;
+            $scope.showLocationMeals = true;
+
+            alert("in get selected locations");
+            l.selectedLocations = $scope.checkedLocations;
+            alert(JSON.stringify(l.selectedLocations));
+            MenuService.getMealsByLocation(l)
+                    .then(
+                            function (d) {
+                                self.checkedAddress = d;
+                                alert(" data in the checkedAddress " + JSON.stringify(self.checkedAddress));
+                                alert(self.checkedAddress.length);
+                            },
+                            function (errResponse) {
+                                alert("erroooor");
+                                console.error('Error while fetching Meals catergory in controller');
+                            }
+                    );
+        };
 
         $scope.showAdvanced = function (ev) {
 

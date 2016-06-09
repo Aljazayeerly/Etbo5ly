@@ -10,6 +10,7 @@ import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.service.MenuItemsService;
 import com.iti.jet.gp.etbo5ly.service.dto.CategoryDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.SearchByLocationDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.SearchDTO;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
@@ -113,7 +114,16 @@ public class MenuItemsRestController {
     }
     
     
-    
+     @RequestMapping(value = "/locationMeals", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<MenuItemDTO>> getSpecificMealsByLocation(@RequestBody SearchByLocationDTO searchByLocationDTO) {
+        
+        List<MenuItemDTO> specificMeal = menuItemsService.getMealsByLocation(searchByLocationDTO.getSelectedLocations());
+        if (specificMeal != null) {
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.NOT_FOUND);
+        }
+    }
     
 
 }

@@ -16,7 +16,7 @@ body {
 .bg-grid-line,
 .card:after,
 .card header:before {
-  background-color: #333;
+  background-color: #f0ad4e;
   background-image: 
     linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), 
     linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
@@ -26,8 +26,8 @@ body {
 
 .card {
   position:relative;
-  height:380px;
-  width:750px;
+  height:780px;
+  width:1000px;
   margin:0 auto;
   background:#ECECEC;
   border-radius:4px;
@@ -39,13 +39,13 @@ body {
   ;
 }
 
-.card:hover img {
+/*.card:hover img {
   -webkit-filter:invert(100%);
   filter:invert(100%);
   
   border:5px solid rgba(0, 0, 0, .5);
   box-shadow:0 0 3px rgba(255, 255, 255, .25);
-}
+}*/
 
 /* card stripe */
 .card:before {
@@ -90,7 +90,7 @@ body {
 
 .card header {
   position:relative;
-  background:#ED3D34;
+  background:#694615;
   height:90px;
   width:100%;
   border-top-left-radius:4px;
@@ -265,4 +265,37 @@ body {
     inset 0 -1px 0 rgba(0, 0, 0, 0.07)
   ;
   border-radius:50px;
+}
+
+
+
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
 }

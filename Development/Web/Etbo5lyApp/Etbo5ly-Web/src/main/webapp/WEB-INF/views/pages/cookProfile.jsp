@@ -3,88 +3,84 @@
     Created on : Jun 5, 2016, 7:56:01 PM
     Author     : salma
 --%>
-<!--
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>-->
-<!--<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>-->
+
+<div ng-controller="cookProfileController as rl">
+    <div class='card'>
+        <header>
+            <h1>Profile</h1>
+        </header>
+        <article>
+            <button ng-click="rl.getCookData(3)">click</button>
+            <!--<img src="{{self.cookData.resourcesURL}}/{{self.cookData.imageURL}}">-->
+            <img  src="http://127.0.0.1:8089/Etbo5ly-Web/resources/images/cooks/nada.jpg">
+            <h2>{{rl.cookData.name}}</h2>
+          
+            <div class='area'>
+                  <h3>start from:{{rl.cookData.startWorkingHours}}</h3>
+                    <h4>to:{{rl.cookData.endWorkingHours}}</h4>
+                <ul>
+                    <li>
+                        Cook Rating 
+                        <span class='bar percent-80'></span>
+                    </li>
+                   
+                </ul>
+                <h3>Categories</h3>
+                <ul ng-repeat="m in rl.cookData.menuItems" >
+                    <ul ng-repeat="c in m.categories">
+                        <li>
+                            {{c.nameEn}}
+                        </li>
+                    </ul>
+                </ul>
+               
+            </div>
+        </article>
+
+        
+        
+        <br><br>
 
 
-<div class='card'>
-  <header>
-    <h1>Skills</h1>
-  </header>
-  <article>
-    <img alt='My Pic' id='thumb' src='http://s.cdpn.io/1202/timpietrusky_on_rampage_small_1.jpg'>
-    <h2>Tim Pietrusky</h2>
-    <div class='area'>
-      <h3>Frontend Development</h3>
-      <ul>
-        <li>
-          HTML
-          <span class='bar percent-100'></span>
-        </li>
-        <li>
-          CSS
-          <span class='bar percent-90'></span>
-        </li>
-        <li>
-          The Force.js
-          <span class='bar percent-100'></span>
-        </li>
-      </ul>
-      <h3>Backend Development</h3>
-      <ul>
-        <li>
-          PHP
-          <span class='bar percent-90'></span>
-        </li>
-        <li>
-          Java
-          <span class='bar percent-80'></span>
-        </li>
-        <li>
-          MySQL
-          <span class='bar percent-70'></span>
-        </li>
-      </ul>
-      <h3>Tools</h3>
-      <ul>
-        <li>
-          Photoshop
-          <span class='bar percent-70'></span>
-        </li>
-        <li>
-          Eclipse
-          <span class='bar percent-80'></span>
-        </li>
-        <li>
-          Shell
-          <span class='bar percent-90'></span>
-        </li>
-      </ul>
-      <h3>OS</h3>
-      <ul>
-        <li>
-          Ubuntu
-          <span class='bar percent-80'></span>
-        </li>
-        <li>
-          Windows
-          <span class='bar percent-50'></span>
-        </li>
-      </ul>
+        <div class="row user-infos cyruxx">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">User information</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
+                                <strong>Cyruxx</strong><br>
+                                <table class="table table-user-information">
+                                    <tbody>
+                                    <tr>
+                                        <td>User level:</td>
+                                        <td>Administrator</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Registered since:</td>
+                                        <td>11/12/2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Topics</td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Warnings</td>
+                                        <td>0</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>       
     </div>
-  </article>
 </div>
 
-  <script src='http://codepen.io/assets/libs/fullpage/none.js'></script>
-  <script src="resources/js/index.js" type="text/javascript"></script>
-  <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
+<script src='http://codepen.io/assets/libs/fullpage/none.js'></script>
+<link href="resources/css/style.css" rel="stylesheet" type="text/css"/>

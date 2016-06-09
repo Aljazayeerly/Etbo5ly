@@ -9,7 +9,9 @@ public interface CookDao extends GenericDao<Cook> {
     public List<Cook> getCooksPage(int page);
 
     public List<Cook> getCooksByRegion(int regionId);
-    
-    public Cook getCookByLocation(double longitude,double latitude);
+
+    public Cook getCookByLocation(double longitude, double latitude);
+
+    public Cook getCookData(int id);
 
 }

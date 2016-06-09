@@ -41,7 +41,7 @@ public class OrderDTO {
     public OrderDTO() {
     }
 
-//    public int getOrderId() {
+//    public int getOxrderId() {
 //        return orderId;
 //    }
 //
