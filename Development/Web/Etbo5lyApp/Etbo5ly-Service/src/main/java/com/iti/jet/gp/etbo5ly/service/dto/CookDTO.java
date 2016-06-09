@@ -16,8 +16,10 @@ import java.util.Set;
  */
 public class CookDTO {
 
+
    
-    private int regionId;
+    private int regionId;    
+    private Integer id;
     private String name;
     private String email;
     private String password;
@@ -145,6 +147,7 @@ public class CookDTO {
         this.menuItems = menuItems;
     }
 
+
     public int getRegionId() {
         return regionId;
     }
@@ -160,6 +163,16 @@ public class CookDTO {
     public void setCookStatusStatusId(int cookStatusStatusId) {
         this.cookStatusStatusId = cookStatusStatusId;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
     
      
 }

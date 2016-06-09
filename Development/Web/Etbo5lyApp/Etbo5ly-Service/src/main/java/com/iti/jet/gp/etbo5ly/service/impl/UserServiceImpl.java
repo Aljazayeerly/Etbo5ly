@@ -9,6 +9,7 @@ package com.iti.jet.gp.etbo5ly.service.impl;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.UserDao;
 import com.iti.jet.gp.etbo5ly.model.pojo.User;
 import com.iti.jet.gp.etbo5ly.service.UserService;
+import com.iti.jet.gp.etbo5ly.service.dto.LoginDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public User loadUserByEmail(String email) {
         return userDao.getUserByEmail(email);
+    }
+
+    @Override
+    public User loginIn(LoginDTO loginDTO) {
+        return userDao.getUserByEmailAndPassword(loginDTO.getEmail(), loginDTO.getPassword());
     }
     
 }

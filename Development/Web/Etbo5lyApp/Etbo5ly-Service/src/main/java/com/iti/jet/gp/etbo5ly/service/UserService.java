@@ -7,6 +7,7 @@
 package com.iti.jet.gp.etbo5ly.service;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.User;
+import com.iti.jet.gp.etbo5ly.service.dto.LoginDTO;
 
 /**
  *
@@ -14,4 +15,5 @@ import com.iti.jet.gp.etbo5ly.model.pojo.User;
  */
 public interface UserService {
     User loadUserByEmail(String email);
+    User loginIn(LoginDTO loginDTO);
 }
