@@ -40,6 +40,17 @@ UserDao{
         });
     }
 
+    @Override
+    public User getUserByEmailAndPassword(final String email, final String password) {
+        return (User) getHibernateTemplate().execute( new HibernateCallback<Object>() {
+
+            @Override
+            public Object doInHibernate(Session sn) throws HibernateException {
+                return sn.getNamedQuery("getUserByEmailAndPassword").setParameter("email", email).setParameter("password", password).uniqueResult();
+            }
+        });
+    }
+
 	
 
 
