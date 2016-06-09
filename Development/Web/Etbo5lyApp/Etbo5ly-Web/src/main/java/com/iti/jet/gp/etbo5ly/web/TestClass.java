@@ -142,6 +142,7 @@ public class TestClass {
     @QueryParam("id")
     public String cookKitchen(@RequestParam(value = "id") int id) {
         return "cookKitchen";
+
     }
 
     @RequestMapping(value = "/orderReviewDialog.htm")
@@ -182,5 +183,10 @@ public class TestClass {
     @RequestMapping(value = "/cookOrderRatingDialog.htm")
     public String cookOrderRatingDialog() {
         return "cookOrderRatingDialog";
+    }
+
+    @RequestMapping(value = "/joinUS.htm")
+    public String cookRegister() {
+        return "cookRegister";
     }
 }

@@ -72,6 +72,7 @@ public class OrderServiceImpl implements OrderService {
         java.util.Date date = new java.util.Date();
 
         order.setOrderTime(new Timestamp(date.getTime()));
+
         orderDao.create(order);
 
         for (OrderDetails orderDetails : order.getOrderDetails()) {

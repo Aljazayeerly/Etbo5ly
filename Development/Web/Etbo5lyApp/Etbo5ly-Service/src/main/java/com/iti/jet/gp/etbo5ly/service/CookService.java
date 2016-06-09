@@ -7,6 +7,7 @@ package com.iti.jet.gp.etbo5ly.service;
 
 import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
+import com.iti.jet.gp.etbo5ly.service.dto.CustomerDTO;
 import java.util.List;
 
 /**
@@ -30,5 +31,9 @@ public interface CookService {
     public Cook getCookByLocation(double cLongtitude, double cLatitude);
 
     public void changeCookStatus(Cook cook);
+
+    public CookDTO registerCook(CookDTO cook);
+
+    public CookDTO checkEmail(String email);
 
 }

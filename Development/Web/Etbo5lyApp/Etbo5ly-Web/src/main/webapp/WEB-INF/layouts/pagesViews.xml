@@ -19,6 +19,11 @@
     <definition name="register" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/register.jsp" />
     </definition>
+    
+    <definition name="cookRegister" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/joinUs.jsp" />
+    </definition>
+        
         
     <definition name="login" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/login.jsp" />
@@ -35,36 +40,21 @@
     <definition name="orderReview" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/orderReview.jsp" />
     </definition>
-    
     <definition name="cart" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/cart.jsp" />
     </definition>
-    
     <definition name="orderReview2" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/orderReview2.jsp" />
     </definition>
-    
-    <definition name="customerOrders" extends="DefaultPageTemplate">
-        <put-attribute name="body" value="/WEB-INF/views/pages/customerOrders.jsp" />
-    </definition>
-    
+  
     <definition name="customerOrder" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/customerOrder.jsp" />
     </definition>
-    
-    <definition name="cookKitchen" extends="DefaultPageTemplate">
-        <put-attribute name="body" value="/WEB-INF/views/pages/cookKitchen.jsp" />
-    </definition>
-        
-    <definition name="orderReview2" extends="DefaultPageTemplate">
-        <put-attribute name="body" value="/WEB-INF/views/pages/orderReview2.jsp" />
-    </definition>
+  
     <definition name="customerOrders" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/customerOrders.jsp" />
     </definition>
-    <definition name="customerOrder" extends="DefaultPageTemplate">
-        <put-attribute name="body" value="/WEB-INF/views/pages/customerOrder.jsp" />
-    </definition> 
+
     <definition name="orderReviewDialog" template="/WEB-INF/views/pages/orderReviewDialog.jsp">
     </definition>
     
@@ -88,5 +78,5 @@
     <definition name="cookOrders" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/cookOrders.jsp" />
     </definition>
-    
+
 </tiles-definitions>

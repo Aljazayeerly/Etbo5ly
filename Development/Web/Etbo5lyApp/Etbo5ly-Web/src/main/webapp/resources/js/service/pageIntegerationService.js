@@ -6,7 +6,6 @@
 'use strict';
 //var App = angular.module('myApp', []);
 App.factory('PageService', ['$http', '$q', function($http, $q) {
-
         var cook = {};
         var menu = {};
         var city = null;
@@ -36,14 +35,9 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
             return city;
         }
         function setRegion(data) {
-            alert(" SET data  : " + data);
             region = data;
-            alert("SET region  : " + region);
-
         }
         function getRegion() {
-            alert(" GET region  : " + region);
-
             return region;
         }
         function setAddressDetails(data) {
@@ -52,11 +46,6 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
         function getAddressDetails() {
             return addressDetails;
         }
-
-        function setCookId(data) {
-            cookId = data;
-        }
-
         function getCookId() {
             return cookId;
         }
@@ -65,6 +54,12 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
         }
         function getCookName() {
             return cookName;
+        }
+        function setCookId(data) {
+            cookId = data;
+        }
+        function getCookId() {
+            return cookId;
         }
         function setOrder(data) {
             order = data;
@@ -78,10 +73,7 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
         function getTotalPrice() {
             return totalPrice;
         }
-//        function getOrder(id)
-//        {
-//            return orders[id];
-//        }
+
         return{
             setElement: setElement,
             getElement: getElement,
@@ -111,16 +103,9 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
                             deferred.reject({message: "'Error while fetching near by cooks'"});
                         });
                 return deferred.promise;
-            }
-
-            ,
+            },
             setMenu: setMenu,
             getMenu: getMenu
-
         };
-
-
-
-
     }]);
 

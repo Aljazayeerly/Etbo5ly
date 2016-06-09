@@ -2,7 +2,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <script
-src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 <script
 src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
 <script
@@ -44,7 +44,7 @@ src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.js"></scri
                     <div ng-controller="AppCtrl">
                         <section layout="row" layout-phone="column" layout-align="center center" layout-wrap>
                             <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="neighbouringKitchen.htm">Neighbourhood Kitchens</md-button>
-                            <md-button class="md-accent md-raised md-hue-1" id="buttons">Choose Your meal</md-button>
+                            <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="kitchen.htm">Choose Your meal</md-button>
                             <md-button class="md-accent md-raised md-hue-1" id="buttons">Catering</md-button>
 <!--                            <button class="md-raised md-primary">Catering</button>-->
                             <div class="label"></div>

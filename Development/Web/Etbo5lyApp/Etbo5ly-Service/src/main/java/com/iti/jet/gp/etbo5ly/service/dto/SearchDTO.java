@@ -12,15 +12,15 @@ import java.util.List;
  *
  * @author salma
  */
-public class SearchDTO{
+ public class SearchDTO{
     
-    List<CategoryDTO> selectedCategories =new ArrayList<CategoryDTO>();
+    List<Integer> selectedCategories =new ArrayList<Integer>();
 
-    public List<CategoryDTO> getSelectedCategories() {
+    public List<Integer> getSelectedCategories() {
         return selectedCategories;
     }
 
-    public void setSelectedCategories(List<CategoryDTO> selectedCategories) {
+    public void setSelectedCategories(List<Integer> selectedCategories) {
         this.selectedCategories = selectedCategories;
     }
     

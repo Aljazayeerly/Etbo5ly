@@ -46,10 +46,10 @@ public class OrderRestController {
     @RequestMapping(value = "/rest/createOrder", method = RequestMethod.POST, headers = "Accept=application/json")
     public ResponseEntity<Void> createOrderService(@RequestBody OrderDTO orderDTO, UriComponentsBuilder ucBuilder) {
 
-        System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.getRegionId());
-        System.out.println("order items size is: " + orderDTO.getOrderDetails().size());
-        System.out.println("order items size is: " + orderDTO.getOrderDetails().iterator().next().getMenuItemsNameEn());
-
+        System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.getUserByCookId());
+        System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.getUserByCustomerId());
+//        System.out.println("order items size is: " + orderDTO.getOrderDetails().size());
+//        System.out.println("order items size is: " + orderDTO.getOrderDetails().iterator().next().getMenuItemsNameEn());
         //System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.getLocation());
         orderService.createOrder(orderDTO);
         HttpHeaders headers = new HttpHeaders();

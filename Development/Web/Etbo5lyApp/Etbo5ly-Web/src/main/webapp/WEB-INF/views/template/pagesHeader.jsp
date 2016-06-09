@@ -24,8 +24,7 @@ Author     : Nada
                 <li class="active"><a href="home.htm"><fmt:message key="home"/></a></li>
                 <li><a href="login.htm"><fmt:message key="login"/></a></li>
                 <li><a href="register.htm"><fmt:message key="register"/></a></li>
-                <li><a href="customerOrders.htm"><fmt:message key="myOrders"/></a></li>
-                <li><a href="#contact"><fmt:message key="joinUs"/></a></li>
+                <li><a href="joinUS.htm"><fmt:message key="joinUs"/></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><fmt:message key="language"/><span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -39,7 +38,7 @@ Author     : Nada
                 <form action="" method="" class="navbar-form" role="search">
 
                     <div class="input-group add-on">
-                        <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text" ng-model="mealName">
+                        <input class="form-control" placeholder="Search"  id="srch-term" type="text" ng-model="mealName">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit" ng-click="searchForMeal(mealName)">
                                 <i class="glyphicon glyphicon-search"></i></button>

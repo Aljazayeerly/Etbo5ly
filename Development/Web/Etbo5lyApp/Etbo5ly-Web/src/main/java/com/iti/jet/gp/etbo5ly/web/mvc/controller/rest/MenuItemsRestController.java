@@ -98,25 +98,35 @@ public class MenuItemsRestController {
         }
     }
     
-    @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
-    public ResponseEntity<List<List<MenuItemDTO>>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
-        List<MenuItemDTO> specificMeal = null;
-         List<List<MenuItemDTO>> result = new ArrayList<>();
-        for (int i = 0; i < searchDTO.getSelectedCategories().size(); i++) {
-            specificMeal=menuItemsService.getMenuItemsOfCategory(searchDTO.getSelectedCategories().get(i).getCategoryId());
-           result.add(specificMeal);
-
-        }
- 
-        if (specificMeal != null) {
-            return new ResponseEntity<>(result, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
-        }
-    }
-    
-    
-    
+//    @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
+//    public ResponseEntity<List<List<MenuItemDTO>>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
+//        List<MenuItemDTO> specificMeal = null;
+//         List<List<MenuItemDTO>> result = new ArrayList<>();
+//        for (int i = 0; i < searchDTO.getSelectedCategories().size(); i++) {
+//            specificMeal=menuItemsService.getMenuItemsOfCategory(searchDTO.getSelectedCategories().get(i).getCategoryId());
+//           result.add(specificMeal);
+//
+//        }
+// 
+//        if (specificMeal != null) {
+//            return new ResponseEntity<>(result, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+//        }
+//    }
+//    
+//    @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
+//    public ResponseEntity<List<MenuItemDTO>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
+//        List<MenuItemDTO> result = null;
+//            result=menuItemsService.getMenuItemsOfCategories(searchDTO.getSelectedCategories());
+// 
+//        if (result != null) {
+//            return new ResponseEntity<>(result, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+//        }
+//  }
+//    
     
     
     

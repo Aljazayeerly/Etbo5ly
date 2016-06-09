@@ -1,9 +1,6 @@
 
 'use strict';
 
-//App.controller('JoinUsController', ['$scope', function($scope) {
-//
-//    }]);
 
 App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$mdMedia', 'PageService', function($scope, orderService, $mdDialog, $mdMedia, PageService) {
 
@@ -87,7 +84,6 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
             var orderStatus = {};
             orderStatus.status = "Delivered";
             orderStatus.statusIdOrder = orderId;
-            alert("OrderID : " + orderId);
             PageService.setOrder($scope.orders[orderId]);
             orderService.changeOrderStatus(orderStatus);
             $scope.showOrderRatingDialog();
@@ -133,15 +129,12 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
 
 
         $scope.order = PageService.getOrder();
-
         $scope.rating1 = 5;
         $scope.rating2 = 2;
         $scope.isReadonly = true;
         $scope.rateFunction = function() {
-            alert("Rating : " + $scope.rating1);
-            alert("Rating : " + $scope.rating2);
+  
         };
-
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -194,8 +187,56 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
             console.log('mouseLeave(' + param + ')');
             $scope.hoverRating3 = param + '*';
         };
+    }]);
+App.controller('JoinUsController', ['$scope', 'RegisterService', function($scope, RegisterService) {
 
+        var cook = {};
+        $scope.regionSelected = 0;
+        $scope.addedCook = {};
+        $scope.AlreadyCook = "";
+        $scope.registerCook = function(name, email, password, phone, address) {
+            if (name != null && password != null && email != null && address != null && $scope.regionSelected != 0) {
+                cook.name = name;
+                cook.email = email;
+                cook.password = password;
+                cook.phone = phone;
+                cook.address = address;
+                cook.regionId = parseInt($scope.regionSelected);
+                cook.cookStatusStatusId = 2;
+                RegisterService.registerCook(cook).then(
+                        function(resolve) {
+                            $scope.addedCook = resolve;
+                        },
+                        function(reject) {
+                            console.log(reject);
+                        }
+                );
+            }
+        }
 
+        $scope.showRegionnSelected = function(regionSelected) {
+            $scope.regionSelected = regionSelected;
+        }
 
+        $scope.getAllRegions = function() {
+            RegisterService.getAllRegion().then(function(resolve) {
+                $scope.allregions = resolve;
+            },
+                    function(reject) {
+                        console.log(reject);
+                    });
+        }
+
+        $scope.getAllRegions();
+        $scope.checkCookMail = function() {
+            $scope.AlreadyCook = "";
+            RegisterService.checkCookEmail($scope.email).then(function(resolve) {
+                if (!jQuery.isEmptyObject(resolve)) {
+                    $scope.AlreadyCustomer = "Already a user";
+                }
+            }, function(reject) {
+                console.log(reject);
+            });
+        }
 
     }]);

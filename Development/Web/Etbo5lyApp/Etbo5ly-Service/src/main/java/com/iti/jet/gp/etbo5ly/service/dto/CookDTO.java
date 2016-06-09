@@ -7,6 +7,8 @@ package com.iti.jet.gp.etbo5ly.service.dto;
 
 import com.iti.jet.gp.etbo5ly.service.util.ResourceUtil;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -14,6 +16,10 @@ import java.util.Date;
  */
 public class CookDTO {
 
+
+   
+    private int regionId;    
+    private Integer id;
     private String name;
     private String email;
     private String password;
@@ -27,15 +33,9 @@ public class CookDTO {
     private double longitude;
     private double latitude;
     private String imageURL;
-    private int id;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private int cookStatusStatusId;
+    
+    Set<MenuItemDTO> menuItems=new HashSet<>(0);
 
     private static String resourcesURL = ResourceUtil.getCooksImagesURL();
 
@@ -139,4 +139,40 @@ public class CookDTO {
         return resourcesURL;
     }
 
+    public Set<MenuItemDTO> getMenuItems() {
+        return menuItems;
+    }
+
+    public void setMenuItems(Set<MenuItemDTO> menuItems) {
+        this.menuItems = menuItems;
+    }
+
+
+    public int getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(int regionId) {
+        this.regionId = regionId;
+    }
+
+    public int getCookStatusStatusId() {
+        return cookStatusStatusId;
+    }
+
+    public void setCookStatusStatusId(int cookStatusStatusId) {
+        this.cookStatusStatusId = cookStatusStatusId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
+    
+     
 }

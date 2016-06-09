@@ -6,6 +6,8 @@
 package com.iti.jet.gp.etbo5ly.service.dto;
 
 import com.iti.jet.gp.etbo5ly.service.util.ResourceUtil;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -23,6 +25,7 @@ public class MenuItemDTO {
     private String descriptionAr;
     private Short itemRate;
     private String imageUrl;
+    private Set<CategoryDTO> categories = new HashSet<CategoryDTO>(0);
     private static String resourcesURL = ResourceUtil.getMealsImagesURL();
 
     public Integer getItemId() {
@@ -31,14 +34,6 @@ public class MenuItemDTO {
 
     public void setItemId(Integer itemId) {
         this.itemId = itemId;
-    }
-
-    public int getCookId() {
-        return cookId;
-    }
-
-    public void setCookId(int cookId) {
-        this.cookId = cookId;
     }
 
     public String getCookName() {
@@ -109,4 +104,19 @@ public class MenuItemDTO {
         return resourcesURL;
     }
 
+    public Set<CategoryDTO> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<CategoryDTO> categories) {
+        this.categories = categories;
+    }
+
+    public int getCookId() {
+        return cookId;
+    }
+
+    public void setCookId(int cookId) {
+        this.cookId = cookId;
+    }
 }

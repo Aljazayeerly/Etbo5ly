@@ -109,6 +109,20 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
             }
         });
     }
+    
+    
+     @Override
+    public List<MenuItems> getMealsOfCateogries(final List<Integer>id) {
+        return (List<MenuItems>) transactionTemplate.execute(new TransactionCallback<Object>() {
+
+            @Override
+            public Object doInTransaction(TransactionStatus ts) {
+
+                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class, "item").createAlias("item.categories", "categories").add((Restrictions.in("categories.categoryId", id))));
+
+            }
+        });
+    }
 
 //    @Override
 //    public List<MenuItemDTO> getAllMeals() {
