@@ -19,7 +19,7 @@ public class OrderDetailsDTO {
     private String menuItemsDescriptionAr;
     private String menuItemsImageUrl;
     private Integer quantity;
-    private Float totalPrice;
+    private Float price;
     private Short rating;
     private String comment;
 
@@ -87,12 +87,12 @@ public class OrderDetailsDTO {
         this.quantity = quantity;
     }
 
-    public Float getTotalPrice() {
-        return totalPrice;
+    public Float getPrice() {
+        return price;
     }
 
-    public void setTotalPrice(Float totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
     public Short getRating() {

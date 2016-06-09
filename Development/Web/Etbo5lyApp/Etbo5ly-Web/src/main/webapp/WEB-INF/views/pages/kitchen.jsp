@@ -187,7 +187,7 @@ _________________________________________________________ -->
                 <td data-th="Quantity">
                     <input type="number" min="1" max="30" class="form-control text-center" value="1" value="i.quantity" ng-model="i.quantity">
                 </td>
-                <td data-th="Subtotal" class="text-center"><p ng-bind="i.totalPrice"</p></td>
+                <td data-th="Subtotal" class="text-center"><p ng-bind="i.price"</p></td>
                 <td class="actions" data-th="">
 
                     <button class="btn btn-danger btn-sm" ng-click="deleteItem(i.menuItemsItemId)"><i class="fa fa-trash-o"></i></button>								

@@ -5,8 +5,11 @@
  */
 package com.iti.jet.gp.etbo5ly.web.mvc.controller.rest;
 
+import com.iti.jet.gp.etbo5ly.model.pojo.Order;
+import com.iti.jet.gp.etbo5ly.model.pojo.StatusHasOrder;
 import com.iti.jet.gp.etbo5ly.service.OrderService;
 import com.iti.jet.gp.etbo5ly.service.dto.OrderDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.StatusHasOrderDTO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -37,13 +40,13 @@ public class OrderRestController {
         List<OrderDTO> orders = orderService.getAllOrdersByID(id);
 
         return new ResponseEntity<List<OrderDTO>>(orders, HttpStatus.OK);
-        
+
     }
 
     @RequestMapping(value = "/rest/createOrder", method = RequestMethod.POST, headers = "Accept=application/json")
     public ResponseEntity<Void> createOrderService(@RequestBody OrderDTO orderDTO, UriComponentsBuilder ucBuilder) {
 
-        System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.getCookName());
+        System.out.println("Creating Orderrrrrrrrrrrrrrrrrrrrrrrrrrrrr " + orderDTO.getRegionId());
         System.out.println("order items size is: " + orderDTO.getOrderDetails().size());
         System.out.println("order items size is: " + orderDTO.getOrderDetails().iterator().next().getMenuItemsNameEn());
 
@@ -55,4 +58,31 @@ public class OrderRestController {
 
     }
 
+    @RequestMapping(value = "/rest/updateOrderStatus", method = RequestMethod.POST, headers = "Accept=application/json")
+    public ResponseEntity<Void> updateOrderStatus(@RequestBody StatusHasOrderDTO statusHasOrderDTO, UriComponentsBuilder ucBuilder) {
+
+        System.out.println("service updateOrderStatus");
+        orderService.updateOrderStatus(statusHasOrderDTO);
+        HttpHeaders headers = new HttpHeaders();
+        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/rest/orderRate", method = RequestMethod.POST, headers = "Accept=application/json")
+    public ResponseEntity<Void> orderRate(@RequestBody OrderDTO orderDTO, UriComponentsBuilder ucBuilder) {
+
+        System.out.println("service orderRate");
+        orderService.orderRate(orderDTO);
+        HttpHeaders headers = new HttpHeaders();
+        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/rest/cookOrders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<OrderDTO>> getAllCookOrders(@RequestParam(value = "cookId") int id) {
+
+        System.out.println("Cook order restful service");
+        List<OrderDTO> orders = orderService.getAllCookOrders(id);
+
+        return new ResponseEntity<List<OrderDTO>>(orders, HttpStatus.OK);
+
+    }
 }

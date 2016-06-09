@@ -1,6 +1,6 @@
 <%-- 
-    Document   : customerOrderDialog
-    Created on : Jun 1, 2016, 6:59:13 AM
+    Document   : cookOrderDialog
+    Created on : Jun 8, 2016, 11:03:52 AM
     Author     : menna
 --%>
 
@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <md-dialog aria-label="Mango (Fruit)"  ng-cloak>
     <form method="post">
-        <h1>Checkout</h1>
 
         <form>
             <md-toolbar>
@@ -22,8 +21,9 @@
             </md-toolbar>
             <md-dialog-content>
 
-                <div class="col-md-9" id="customer-order">
+                <div class="col-md-9" id="cook-order">
                     <div class="box">
+                        <!--                        <h1>Order</h1>-->
 
                         <p class="lead">The order was placed on <strong><label ng-model="order.orderTime"></label></strong> and is currently <strong>Being prepared</strong>.</p>
                         <p class="text-muted">If you have any questions, please feel free to <a href="contact.htm">contact us</a>, our customer service center is working for you 24/7.</p>
@@ -66,7 +66,6 @@
 
             </md-dialog-content>
             <md-dialog-actions layout="row">
-
                 <span flex></span>
 
                 <md-button class="btn btn-primary" ng-click="hide()" style="margin-right:20px;">

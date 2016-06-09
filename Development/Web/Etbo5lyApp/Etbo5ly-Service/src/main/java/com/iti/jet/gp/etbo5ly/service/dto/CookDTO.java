@@ -37,7 +37,6 @@ public class CookDTO {
         this.id = id;
     }
 
-   
     private static String resourcesURL = ResourceUtil.getCooksImagesURL();
 
     public String getName() {
@@ -136,7 +135,7 @@ public class CookDTO {
         this.imageURL = imageURL;
     }
 
-    public  String getResourcesURL() {
+    public String getResourcesURL() {
         return resourcesURL;
     }
 

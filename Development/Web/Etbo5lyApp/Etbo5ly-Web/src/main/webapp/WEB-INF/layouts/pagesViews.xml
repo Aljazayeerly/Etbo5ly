@@ -76,8 +76,17 @@
     
     <definition name="customerOrderDialog" template="/WEB-INF/views/pages/customerOrderDialog.jsp">
     </definition>
+    <definition name="customerOrderRatingDialog" template="/WEB-INF/views/pages/customerOrderRatingDialog.jsp">
+    </definition>
+    <definition name="cookOrderDialog" template="/WEB-INF/views/pages/cookOrderDialog.jsp">
+    </definition>
+    <definition name="cookOrderRatingDialog" template="/WEB-INF/views/pages/cookOrderRatingDialog.jsp">
+    </definition>
     <definition name="orderDialog" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/orderDialog.jsp" />
+    </definition>
+    <definition name="cookOrders" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/cookOrders.jsp" />
     </definition>
     
 </tiles-definitions>

@@ -15,7 +15,6 @@ import java.util.List;
  */
 public interface CookService {
 
-
     List<CookDTO> getCooksByPage(int page);
 
     List<CookDTO> getCooksByRegion(int regionId);
@@ -27,9 +26,9 @@ public interface CookService {
     public List<Cook> getAllNearbyCooks(double Clongtitude, double Clatitude);
 
     public List<CookDTO> getAllNearbyCooksDTO(double cLongtitude, double cLatitude);
-    
-    public Cook getCookByLocation (double cLongtitude,double cLatitude);
 
+    public Cook getCookByLocation(double cLongtitude, double cLatitude);
 
+    public void changeCookStatus(Cook cook);
 
 }

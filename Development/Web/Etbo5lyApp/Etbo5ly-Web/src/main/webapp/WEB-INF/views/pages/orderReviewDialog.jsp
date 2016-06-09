@@ -127,7 +127,7 @@
                                                             <table class="table">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th colspan="2">Product</th>
+                                                                        <th>Product</th>
                                                                         <th>Quantity</th>
                                                                         <th>Unit price</th>
                                                                         <th>Total</th>
@@ -142,22 +142,20 @@
                                                                             </div>
                                                                             <!--</div>-->
                                                                         </td>
-                                                                        <td data-th="Price"><label ng-bind="i.menuItemsPrice"></label></td>
                                                                         <td data-th="Quantity">
-                                                                            <input type="number" min="1" max="30" class="form-control text-center" value="i.quantity" ng-model="i.quantity">
+                                                                            <input type="text" ng-disabled="true" style="width: 20%;height: 20%" class="form-control text-center" value="i.quantity" ng-model="i.quantity">
                                                                         </td>
-                                                                        <td data-th="Subtotal" class="text-center"><p ng-bind="i.totalPrice"</p></td>
+                                                                        <td data-th="Price"><label ng-bind="i.menuItemsPrice"></label></td>
+
+                                                                        <td data-th="Subtotal" class="text-center"><p ng-model="i.price"</p></td>
                                                                         <!--//"(i.quantity) * (i.menuItemsPrice)"-->
-                                                                        <td class="actions" data-th="">
-                                                                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                                                                            <button class="btn btn-danger btn-sm" ng-click="deleteItem(i.menuItemsItemId)"><i class="fa fa-trash-o"></i></button>								
-                                                                        </td>
+
                                                                     </tr>
                                                                 </tbody>
                                                                 <tfoot>
                                                                     <tr>
                                                                         <th colspan="4">Total</th>
-                                                                        <td></td>
+                                                                        <td><label ng-model="totalPrice" ></label></td>
                                                                     </tr>
                                                                 </tfoot>
                                                             </table>

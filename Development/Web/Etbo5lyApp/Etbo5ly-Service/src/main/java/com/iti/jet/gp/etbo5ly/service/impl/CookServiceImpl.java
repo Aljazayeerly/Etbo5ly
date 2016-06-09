@@ -141,10 +141,18 @@ public class CookServiceImpl implements CookService {
     @Transactional
     public Cook getCookByLocation(double cLongtitude, double cLatitude) {
         System.out.println("inside Location");
-        System.out.println("long" + cLongtitude+"lat"+ cLatitude);
-        Cook cook=cookDao.getCookByLocation(cLongtitude, cLatitude);
+        System.out.println("long" + cLongtitude + "lat" + cLatitude);
+        Cook cook = cookDao.getCookByLocation(cLongtitude, cLatitude);
         System.out.println("cook " + cook.getName());
         return cook;
+    }
+
+    @Override
+    @Transactional
+    public void changeCookStatus(Cook cook) {
+
+        System.out.println("change cook status" + cook.getName() + " " + cook.getId());
+        cookDao.update(cook);
     }
 
 }

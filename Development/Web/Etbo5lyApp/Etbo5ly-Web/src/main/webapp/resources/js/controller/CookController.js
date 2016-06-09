@@ -1,12 +1,18 @@
 
 'use strict';
-App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMedia', 'PageService', function($scope, orderService, $mdDialog, $mdMedia, PageService) {
-        $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
-        var self = $scope;
-        $scope.orders = []; //[ {userByCustomerId:0,customerName:"",userByCookId:0,cookName:"",location:"",duration:0,orderDetails:[{menuItemsItemId:0},{menuItemsItemId:0}]},{}];
+
+//App.controller('JoinUsController', ['$scope', function($scope) {
+//
+//    }]);
+
+App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$mdMedia', 'PageService', function($scope, orderService, $mdDialog, $mdMedia, PageService) {
+
+        $scope.orders = [];
         $scope.order = {};
-        $scope.getAllCustomerOrders = function() {
-            orderService.getAllCustomerOrders()
+        $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+
+        $scope.getAllCookOrders = function() {
+            orderService.getAllCookOrders()
                     .then(
                             function(d) {
                                 $scope.orders = d;
@@ -17,11 +23,11 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
                                 })
                             },
                             function(errResponse) {
-                                console.error('Error while fetching orders');
+                                console.error('Error while fetching cook orders');
                             }
                     );
         };
-        $scope.getAllCustomerOrders();
+        $scope.getAllCookOrders();
         $scope.OrderDetails = function(id)
         {
 
@@ -32,8 +38,8 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
 
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
             $mdDialog.show({
-                controller: CustomerHistoryDialogController,
-                templateUrl: 'customerOrderDialog.htm',
+                controller: CookHistoryDialogController,
+                templateUrl: 'cookOrderDialog.htm',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -81,15 +87,17 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
             var orderStatus = {};
             orderStatus.status = "Delivered";
             orderStatus.statusIdOrder = orderId;
+            alert("OrderID : " + orderId);
             PageService.setOrder($scope.orders[orderId]);
             orderService.changeOrderStatus(orderStatus);
             $scope.showOrderRatingDialog();
+            location.reload();
         }
         $scope.showOrderRatingDialog = function(ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
             $mdDialog.show({
-                controller: "customerOrderRatingDialog",
-                templateUrl: 'customerOrderRatingDialog.htm',
+                controller: "cookOrderRatingDialog",
+                templateUrl: 'cookOrderRatingDialog.htm',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -107,7 +115,7 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
             });
         };
     }]);
-function CustomerHistoryDialogController($scope, $mdDialog, PageService) {
+function CookHistoryDialogController($scope, $mdDialog, PageService) {
 
     $scope.order = PageService.getOrder();
     $scope.hide = function() {
@@ -120,11 +128,20 @@ function CustomerHistoryDialogController($scope, $mdDialog, PageService) {
         alert("answer");
     };
 }
-App.controller("customerOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'PageService', 'orderService', function($scope, $mdDialog, $mdMedia, PageService, orderService)
+App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'PageService', 'orderService', function($scope, $mdDialog, $mdMedia, PageService, orderService)
     {
 
 
         $scope.order = PageService.getOrder();
+
+        $scope.rating1 = 5;
+        $scope.rating2 = 2;
+        $scope.isReadonly = true;
+        $scope.rateFunction = function() {
+            alert("Rating : " + $scope.rating1);
+            alert("Rating : " + $scope.rating2);
+        };
+
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -177,4 +194,8 @@ App.controller("customerOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 
             console.log('mouseLeave(' + param + ')');
             $scope.hoverRating3 = param + '*';
         };
+
+
+
+
     }]);

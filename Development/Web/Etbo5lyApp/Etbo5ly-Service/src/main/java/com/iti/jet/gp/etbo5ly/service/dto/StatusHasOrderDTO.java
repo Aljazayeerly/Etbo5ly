@@ -11,11 +11,11 @@ import java.util.Date;
  *
  * @author AlJazayeerly
  */
-public class OrderStatusDTO {
+public class StatusHasOrderDTO {
 
     private Integer statusIdOrder;
     private String status;
-    private Date time;
+//    private Date time;
 
     public Integer getStatusIdOrder() {
         return statusIdOrder;
@@ -33,12 +33,12 @@ public class OrderStatusDTO {
         this.status = status;
     }
 
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
+//    public Date getTime() {
+//        return time;
+//    }
+//
+//    public void setTime(Date time) {
+//        this.time = time;
+//    }
 
 }

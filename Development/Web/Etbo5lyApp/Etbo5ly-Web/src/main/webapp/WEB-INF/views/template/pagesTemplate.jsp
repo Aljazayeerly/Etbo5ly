@@ -32,42 +32,35 @@
 
         <!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>-->
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.css"/>
-<<<<<<< HEAD
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>-->
-=======
-<!--                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>-->
->>>>>>> 4a0db1bc351aed81bd4d422f5a3f7077bf27d959
+
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-<!--        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>-->
-<!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js.map"></script>-->
+        <!--        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>-->
+        <!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js.map"></script>-->
+
 
 
 
         <!-- Angular Material Library -->
         <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.js"></script>
         <script src="resources/js/app.js" type="text/javascript"></script>
+        <script src="resources/js/directives/starRatingDirective.js" type="text/javascript"></script>
         <script src="resources/js/controller/admin_controller.js" type="text/javascript"></script>
         <script src="resources/js/controller/myMapJS.js" type="text/javascript"></script>
         <script src="resources/js/controller/order_controller.js" type="text/javascript"></script>
-<<<<<<< HEAD
-=======
+
         <script src="resources/js/controller/cookMenuController.js" type="text/javascript"></script>
->>>>>>> 4a0db1bc351aed81bd4d422f5a3f7077bf27d959
+        <script src="resources/js/controller/CookController.js" type="text/javascript"></script>
         <script src="resources/js/service/admin_service.js" type="text/javascript"></script>
         <script src="resources/js/service/mainService.js" type="text/javascript"></script>
         <script src="resources/js/service/myMapService.js" type="text/javascript"></script>
         <script src="resources/js/service/pageIntegerationService.js" type="text/javascript"></script>
         <script src="resources/js/service/order_service.js" type="text/javascript"></script>
-<<<<<<< HEAD
 
-
-=======
         <script src="resources/js/service/cookMenuService.js" type="text/javascript"></script>
->>>>>>> 4a0db1bc351aed81bd4d422f5a3f7077bf27d959
 
     </head>
 

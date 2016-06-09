@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public class OrderDTO {
 
-//    private int orderId;
+    private int orderId;
     private int userByCustomerId;
     private String customerName;
     private int userByCookId;
@@ -39,18 +39,18 @@ public class OrderDTO {
 //    private String regionCityNameAr;
 //    private String regionCityCountryName;
     private Set<OrderDetailsDTO> orderDetails = new HashSet<OrderDetailsDTO>(0);
-    private Set<OrderStatusDTO> statusHasOrders = new HashSet<OrderStatusDTO>(0);
+    private Set<StatusHasOrderDTO> statusHasOrders = new HashSet<StatusHasOrderDTO>(0);
 
     public OrderDTO() {
     }
 
-//    public int getOrderId() {
-//        return orderId;
-//    }
-//
-//    public void setOrderId(int orderId) {
-//        this.orderId = orderId;
-//    }
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
     public int getUserByCustomerId() {
         return userByCustomerId;
     }
@@ -226,11 +226,11 @@ public class OrderDTO {
         this.orderDetails = orderDetails;
     }
 
-    public Set<OrderStatusDTO> getStatusHasOrders() {
+    public Set<StatusHasOrderDTO> getStatusHasOrders() {
         return statusHasOrders;
     }
 
-    public void setStatusHasOrders(Set<OrderStatusDTO> statusHasOrders) {
+    public void setStatusHasOrders(Set<StatusHasOrderDTO> statusHasOrders) {
         this.statusHasOrders = statusHasOrders;
     }
 
@@ -241,6 +241,5 @@ public class OrderDTO {
     public void setTotalPrice(Float totalPrice) {
         this.totalPrice = totalPrice;
     }
-    
 
 }

@@ -15,7 +15,7 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
         var cookId = 0;
         var cookName = null;
         var order = {};
-
+        var totalPrice = 0;
         function setElement(data) {
             cook = data;
         }
@@ -72,6 +72,12 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
         function getOrder() {
             return order;
         }
+        function setTotalPrice(data) {
+            totalPrice = data;
+        }
+        function getTotalPrice() {
+            return totalPrice;
+        }
 //        function getOrder(id)
 //        {
 //            return orders[id];
@@ -91,6 +97,8 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
             getCookName: getCookName,
             setOrder: setOrder,
             getOrder: getOrder,
+            setTotalPrice: setTotalPrice,
+            getTotalPrice: getTotalPrice,
             getCookMeals: function(id) {
                 var data = "";
                 var deferred = $q.defer();

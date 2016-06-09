@@ -137,8 +137,7 @@ public class TestClass {
     public String customerOrder() {
         return "customerOrder";
     }
-    
-    
+
     @RequestMapping(value = "/cookKitchen.htm")
     @QueryParam("id")
     public String cookKitchen(@RequestParam(value = "id") int id) {
@@ -159,9 +158,29 @@ public class TestClass {
     public String customerOrderDialog() {
         return "customerOrderDialog";
     }
+
     @RequestMapping(value = "/orderDialog.htm")
     public String orderDialog() {
         return "orderDialog";
+    }
 
+    @RequestMapping(value = "/customerOrderRatingDialog.htm")
+    public String customerOrderRatingDialog() {
+        return "customerOrderRatingDialog";
+    }
+
+    @RequestMapping(value = "/cookOrders.htm")
+    public String cookOrders() {
+        return "cookOrders";
+    }
+
+    @RequestMapping(value = "/cookOrderDialog.htm")
+    public String cookOrderDialog() {
+        return "cookOrderDialog";
+    }
+
+    @RequestMapping(value = "/cookOrderRatingDialog.htm")
+    public String cookOrderRatingDialog() {
+        return "cookOrderRatingDialog";
     }
 }

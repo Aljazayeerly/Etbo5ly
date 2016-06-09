@@ -1,14 +1,14 @@
 <%-- 
-    Document   : ordersHistory
-    Created on : May 27, 2016, 6:50:45 PM
+    Document   : cookOrders
+    Created on : Jun 8, 2016, 9:26:55 AM
     Author     : menna
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<div class="col-md-9" id="customer-orders" style="float: right;">
-    <div ng-controller="OrderController as ctrl" class="box">
+<div class="col-md-9" id="cook-orders" style="float: right;">
+    <div ng-controller="OrderCookController as ctrl" class="box">
         <h1>My orders</h1>
 
         <p class="lead">Your orders on one place.</p>
@@ -31,7 +31,7 @@
                 <thead>
                     <tr>
                         <th>Order</th>
-                        <th>Cook</th>
+                        <th>Customer</th>
                         <th>Date</th>
                         <th>Type</th>
                         <th>Total</th>
@@ -40,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="i in orders| filter : myFilter">
+                    <tr ng-repeat="i in orders | filter : myFilter">
                         <th>{{ $index + 1}}</th>
                         <th><label ng-model="i.customerName" ng-bind="i.customerName"></label></th>
                         <td><label ng-bind="i.orderTime"></label></td>
@@ -66,3 +66,4 @@
         </div>
     </div>
 </div>
+
