@@ -29,6 +29,9 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         $scope.showCheckedMeal = false;
         $scope.showAllMeals = true;
         $scope.showSearchMeals = false;
+        $scope.result;
+        $scope.finalResult;
+
         var s = {"selectedCategories": [
             ]};
         self.getList = function() {
@@ -42,6 +45,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             function(d) {
 
                                 self.items = d;
+//                                alert(JSON.stringify( self.items));
                             },
                             function(errResponse) {
                                 console.error('Error while fetching all meals in controller');
@@ -100,11 +104,10 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     );
         };
         $scope.createOrder = function() {
-
+//            alert("seldfff :  " + self.totalPrice);
             var cityName = null;
             var addressDetails = null;
             cookId = PageService.getCookId();
-
             cookName = PageService.getCookName();
             cityName = PageService.getCity();
             var regionID = PageService.getRegion();
@@ -127,6 +130,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             MenuService.createOrderService(order)
                     .then(
                             function() {
+//                                alert("inside function");
                             },
                             function(errResponse) {
 
@@ -168,6 +172,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             {
 
                 $.each(self.items, function(index, item)
+
                 {
                     if (item.itemId == itemId)
                     {
@@ -204,7 +209,8 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
 
 
                     }
-                })
+                }
+                )
             }
 
         };
@@ -231,7 +237,6 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             $scope.showAdvanced();
         };
         self.isSelected = function(categorgyId, checked, index) {
-
 
             if (checked == true)
             {
@@ -260,6 +265,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     );
         };
         $scope.showAdvanced = function(ev) {
+
 
 //            alert("show advanced");
 
@@ -334,5 +340,7 @@ App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuServ
         }
     }
 ]);
+
+
 
 

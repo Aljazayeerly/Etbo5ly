@@ -13,6 +13,7 @@ App.factory('RegisterService', ['$http', '$q', function ($http, $q) {
                 return $http.post('/Etbo5ly-Web/rest/customer/signUp', customer)
                         .then(
                                 function (response) {
+
                                     return response.data;
                                 },
                                 function (errResponse) {
@@ -58,6 +59,7 @@ App.factory('RegisterService', ['$http', '$q', function ($http, $q) {
             },
             registerCook:function(cook){
                 var deferred = $q.defer();
+
                 return $http.post('/Etbo5ly-Web/rest/cook/joinUS', cook)
                         .then(
                                 function (response) {

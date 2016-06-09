@@ -123,6 +123,7 @@ function DialogController($scope, $mdDialog, PageService) {
     };
     $scope.clickedCook = PageService.getElement();
 
+
    $scope.cookMenu= PageService.getCookMeals($scope.clickedCook.id);
   //  alert("element send is " + JSON.stringify(PageService.getElement()));
 

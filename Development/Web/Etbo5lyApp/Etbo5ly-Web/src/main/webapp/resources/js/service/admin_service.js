@@ -16,8 +16,6 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                         );
             }
             ,
-
-
             getAllRegions: function() {
 
                 return $http.get('/Etbo5ly-Web/rest/region/countries')
@@ -89,7 +87,8 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                                 function(response) {
                                     return response.data;
                                 },
-                                function (errResponse) {
+                                function(errResponse) {
+
 
                                     console.error('Error while fetching meals based on search in service');
                                     return $q.reject(errResponse);
@@ -98,14 +97,15 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
             }
 
             ,
-           getMealsForCheckedCategories: function (searchDTO)
+            getMealsForCheckedCategories: function(searchDTO)
             {
                 return $http.post('/Etbo5ly-Web/rest/search', searchDTO)
                         .then(
-                                function (response) {
+                                function(response) {
+
                                     return response.data;
                                 },
-                                function (errResponse) {
+                                function(errResponse) {
                                     console.error('Error while fetching checked categories in service');
                                     return $q.reject(errResponse);
                                 }

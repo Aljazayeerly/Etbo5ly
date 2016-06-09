@@ -74,6 +74,7 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
             return totalPrice;
         }
 
+
         return{
             setElement: setElement,
             getElement: getElement,
@@ -92,6 +93,7 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
             setTotalPrice: setTotalPrice,
             getTotalPrice: getTotalPrice,
             getCookMeals: function(id) {
+
                 var data = "";
                 var deferred = $q.defer();
                 $http.get("/Etbo5ly-Web/rest/cookMeals?id=" + id)

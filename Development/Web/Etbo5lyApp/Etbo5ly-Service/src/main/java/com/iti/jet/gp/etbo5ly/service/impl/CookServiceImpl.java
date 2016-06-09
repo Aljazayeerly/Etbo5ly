@@ -172,6 +172,7 @@ public class CookServiceImpl implements CookService {
     @Override
     @Transactional
     public CookDTO checkEmail(String email) {
+
         ModelMapper modelMapper = new ModelMapper();
         Cook cook = cookDao.CheckEmail(email);
         if (cook != null) {
@@ -180,6 +181,7 @@ public class CookServiceImpl implements CookService {
             return newCookDTO;
         } else {
             // System.out.println("inside customer  equal null");
+
             return null;
         }
     }
