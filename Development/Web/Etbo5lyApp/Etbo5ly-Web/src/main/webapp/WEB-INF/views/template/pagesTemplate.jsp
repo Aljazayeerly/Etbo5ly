@@ -46,7 +46,7 @@
         <script src="resources/js/controller/order_controller.js" type="text/javascript"></script>
         <script src="resources/js/controller/cookMenuController.js" type="text/javascript"></script>
         <script src="resources/js/controller/CustomerController.js" type="text/javascript"></script>
-
+        <script src="resources/js/controller/CookController.js" type="text/javascript"></script>
         <script src="resources/js/service/admin_service.js" type="text/javascript"></script>
         <script src="resources/js/service/mainService.js" type="text/javascript"></script>
         <script src="resources/js/service/myMapService.js" type="text/javascript"></script>

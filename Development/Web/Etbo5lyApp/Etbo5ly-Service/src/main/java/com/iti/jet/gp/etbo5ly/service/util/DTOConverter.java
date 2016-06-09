@@ -66,4 +66,9 @@ public class DTOConverter {
         return order;
     }
 
+    public static Cook cookDTOTOCook(CookDTO cook){
+        Cook cookDTO=null;
+        cookDTO=modelMapper.map(cook, Cook.class);
+        return cookDTO;
+    }
 }

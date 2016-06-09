@@ -34,25 +34,34 @@ public class CustomerDaoImpl extends GenericDaoImpl<Customer> implements
 	
 
     @Override
-    public boolean signUp(Customer customer) {
+    public Customer signUp(Customer customer) {
         System.out.println("sign up Dao");
         boolean userAdded = false;
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
-        Customer oldCustomer = (Customer) getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Customer.class).add(Restrictions.eq("email", customer.getEmail())).uniqueResult();
-        if (oldCustomer == null) {
-            session.persist(customer);
-            userAdded = true;
-        } else {
-            System.out.println("User Already Exist ");
-            userAdded = false;
-        }
-        return userAdded;
+        //Customer oldCustomer = (Customer) getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Customer.class).add(Restrictions.eq("email", customer.getEmail())).uniqueResult();
+//        if (oldCustomer == null) {
+           session.persist(customer);
+//            userAdded = true;
+//        } else {
+//            System.out.println("User Already Exist ");
+//            userAdded = false;
+//        }
+        return customer;
     }
 
     @Override
     public Customer signIn(String email, String password) {
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
         Customer customer = (Customer) getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Customer.class).add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password))).uniqueResult();
+        return customer;
+    }
+
+    @Override
+    public Customer CheckEmail(String email) {
+       // System.out.println("email is " + email);
+        Session session=getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Customer customer=(Customer) session.createCriteria(Customer.class).add(Restrictions.eq("email", email)).uniqueResult();
+        //Customer customer=(Customer) session.get(Customer.class,email);
         return customer;
     }
 

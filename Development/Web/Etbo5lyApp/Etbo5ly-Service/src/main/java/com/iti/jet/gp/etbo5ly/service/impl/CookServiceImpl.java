@@ -8,7 +8,9 @@ package com.iti.jet.gp.etbo5ly.service.impl;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CookDao;
 import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
+import com.iti.jet.gp.etbo5ly.model.pojo.Customer;
 import com.iti.jet.gp.etbo5ly.service.CookService;
+import com.iti.jet.gp.etbo5ly.service.dto.CustomerDTO;
 import com.iti.jet.gp.etbo5ly.service.util.DTOConverter;
 import java.util.ArrayList;
 import java.util.List;
@@ -141,10 +143,39 @@ public class CookServiceImpl implements CookService {
     @Transactional
     public Cook getCookByLocation(double cLongtitude, double cLatitude) {
         System.out.println("inside Location");
-        System.out.println("long" + cLongtitude+"lat"+ cLatitude);
-        Cook cook=cookDao.getCookByLocation(cLongtitude, cLatitude);
+        System.out.println("long" + cLongtitude + "lat" + cLatitude);
+        Cook cook = cookDao.getCookByLocation(cLongtitude, cLatitude);
         System.out.println("cook " + cook.getName());
         return cook;
+    }
+
+    @Override
+    @Transactional
+    public CookDTO registerCook(CookDTO cook) {
+        System.out.println("inside the cook register service");
+        Cook cookConverter = DTOConverter.cookDTOTOCook(cook);
+        cookConverter = cookDao.registerCook(cookConverter);
+        if (cookConverter != null) {
+            return cook;
+        } else {
+            return null;
+        }
+
+    }
+
+    @Override
+    @Transactional
+    public CookDTO checkEmail(String email) {
+         ModelMapper modelMapper = new ModelMapper();
+        Cook cook = cookDao.CheckEmail(email);
+        if (cook != null) {
+          //  System.out.println("inside customer not equal null");
+            CookDTO newCookDTO = modelMapper.map(cook, CookDTO.class);
+            return newCookDTO;
+        } else {
+           // System.out.println("inside customer  equal null");
+            return null;
+        }
     }
 
 }

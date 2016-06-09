@@ -46,10 +46,17 @@ public class CustomerRestController {
     }
 
     @RequestMapping(value = "/signUp", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Boolean> signUp( @RequestBody CustomerDTO customer) {
-        System.out.println("inside signUp restController");
-        System.out.println("customer jason is " + customer);
-        boolean userAdded = customerService.signUp(customer);
-        return new ResponseEntity<Boolean>(userAdded,HttpStatus.OK);
+    public ResponseEntity<Customer> signUp( @RequestBody CustomerDTO customer) {
+//        System.out.println("inside signUp restController");
+//        System.out.println("customer jason is " + customer);
+        Customer newCustomer = customerService.signUp(customer);
+        return new ResponseEntity<Customer>(newCustomer,HttpStatus.OK);
+    }
+    
+    @RequestMapping(value="/checkEmail", method=RequestMethod.GET ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CustomerDTO> checkEmail(@RequestParam String email){
+        System.out.println("inside checkEmail rest Controller");
+        CustomerDTO customerDTO=customerService.checkEmail(email);
+       return new ResponseEntity<CustomerDTO>(customerDTO,HttpStatus.OK);     
     }
 }

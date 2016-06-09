@@ -19,6 +19,11 @@
     <definition name="register" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/register.jsp" />
     </definition>
+    
+      <definition name="cookRegister" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/joinUs.jsp" />
+    </definition>
+        
         
     <definition name="login" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/login.jsp" />

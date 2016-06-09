@@ -24,7 +24,6 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerDao customerDao;
 
-
     @Override
     @Transactional
     public CustomerDTO signIn(String email, String password) {
@@ -38,15 +37,29 @@ public class CustomerServiceImpl implements CustomerService {
         return customerDTO;
     }
 
+    @Override
+    @Transactional
+    public Customer signUp(CustomerDTO customer) {
+        System.out.println("sign up service ");
+        ModelMapper modelMapper = new ModelMapper();
+        Customer newCustomer = modelMapper.map(customer, Customer.class);
+        Customer customer1 = customerDao.signUp(newCustomer);
+        return customer1;
+    }
 
     @Override
     @Transactional
-    public boolean signUp(CustomerDTO customer) {
-        System.out.println("sign up service ");
-        ModelMapper modelMapper=new ModelMapper();
-        Customer newCustomer=modelMapper.map(customer, Customer.class);
-        boolean userAdded = customerDao.signUp(newCustomer);
-        return userAdded;
+    public CustomerDTO checkEmail(String email) {
+        ModelMapper modelMapper = new ModelMapper();
+        Customer customer = customerDao.CheckEmail(email);
+        if (customer != null) {
+          //  System.out.println("inside customer not equal null");
+            CustomerDTO newCustomerDTO = modelMapper.map(customer, CustomerDTO.class);
+            return newCustomerDTO;
+        } else {
+           // System.out.println("inside customer  equal null");
+            return null;
+        }
     }
 
 }

@@ -6,7 +6,8 @@
 
 App.controller('RegisterController', ['$scope', 'RegisterService', function ($scope, RegisterService) {
 
-        $scope.addedCustomer = false;
+        $scope.addedCustomer = {};
+        $scope.AlreadyCustomer = "";
         var customer = {};
         $scope.allregions = [];
         $scope.regions = [];
@@ -35,13 +36,13 @@ App.controller('RegisterController', ['$scope', 'RegisterService', function ($sc
 //            customer.RoleId=0;
 
                 alert("customersss object is " + JSON.stringify(customer));
-                 RegisterService.registerCustomer(customer).then(function (resolve) {
-                  alert("resolve is " + resolve);
-                  $scope.addedCustomer =resolve;
+                RegisterService.registerCustomer(customer).then(function (resolve) {
+                    //alert("resolve is " + resolve);
+                    $scope.addedCustomer = resolve;
 
                 }, function (reject) {
                     console.log(reject);
-                      alert(reject)
+                   // alert("reject" + reject);
                 });
                 alert(" added Customer is " + JSON.stringify($scope.addedCustomer));
             }
@@ -62,6 +63,20 @@ App.controller('RegisterController', ['$scope', 'RegisterService', function ($sc
 
         $scope.showRegionnSelected = function (regionSelected) {
             $scope.regionSelected = regionSelected;
+        }
+
+        $scope.checkMail = function () {
+            //  alert(" email address is " + $scope.email);
+            $scope.AlreadyCustomer = "";
+            RegisterService.checkEmail($scope.email).then(function (resolve) {
+                if (!jQuery.isEmptyObject(resolve)) {
+                   //  alert(" already a user");
+                    $scope.AlreadyCustomer = "Already a user";
+                }
+            }, function (reject) {
+                console.log(reject);
+            });
+
         }
 
 
