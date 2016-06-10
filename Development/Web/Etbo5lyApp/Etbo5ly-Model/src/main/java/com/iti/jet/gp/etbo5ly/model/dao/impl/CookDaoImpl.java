@@ -3,8 +3,10 @@ package com.iti.jet.gp.etbo5ly.model.dao.impl;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CookDao;
 import com.iti.jet.gp.etbo5ly.model.generic.dao.GenericDaoImpl;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
+import com.iti.jet.gp.etbo5ly.model.pojo.Customer;
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.model.pojo.Region;
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import org.hibernate.Criteria;
@@ -79,9 +81,9 @@ public class CookDaoImpl extends GenericDaoImpl<Cook> implements
             @Override
             public Object doInHibernate(Session sn) throws HibernateException {
                 Cook selectedCook = new Cook();
-               // selectedCook = (Cook) sn.createCriteria(Cook.class).add(Restrictions.and(Restrictions.eq("latitude", latitiude), Restrictions.eq("longitude", longitud))).uniqueResult();
+                // selectedCook = (Cook) sn.createCriteria(Cook.class).add(Restrictions.and(Restrictions.eq("latitude", latitiude), Restrictions.eq("longitude", longitud))).uniqueResult();
                 selectedCook = (Cook) sn.createCriteria(Cook.class).add(Restrictions.eq("latitude", latitiude)).uniqueResult();
-               // System.out.println(selectedCook.getName());
+                // System.out.println(selectedCook.getName());
                 return selectedCook;
 
             }
@@ -104,4 +106,22 @@ public class CookDaoImpl extends GenericDaoImpl<Cook> implements
         });    }
 
   
+    public Cook registerCook(Cook cook) {
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Serializable saved = session.save(cook);
+        if (saved != null) {
+            return cook;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public Cook CheckEmail(String email) {
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Cook cook = (Cook) session.createCriteria(Cook.class).add(Restrictions.eq("email", email)).uniqueResult();
+        //Customer customer=(Customer) session.get(Customer.class,email);
+        return cook;
+    }
+
 }

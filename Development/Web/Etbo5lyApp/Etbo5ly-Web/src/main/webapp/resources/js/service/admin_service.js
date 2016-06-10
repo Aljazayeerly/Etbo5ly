@@ -16,9 +16,9 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                         );
             }
             ,
-            getAllRegions: function () {
 
-                alert("get regions Service");
+            getAllRegions: function() {
+
                 return $http.get('/Etbo5ly-Web/rest/region/countries')
 
                         .then(
@@ -96,18 +96,15 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                         );
             },
             
-            searchForMeal: function (mealName) {
-                alert("serviceee " + mealName);
+    
+            searchForMeal: function(mealName) {
                 return $http.get('/Etbo5ly-Web/rest/meal?mealName=' + mealName)
 
                         .then(
-                                function (response) {
-                                    alert("service response" + response);
+                                function(response) {
                                     return response.data;
                                 },
-                                function (errResponse) {
-                                    alert("service error" + JSON.stringify(errResponse));
-
+                                function(errResponse) {
                                     console.error('Error while fetching meals based on search in service');
                                     return $q.reject(errResponse);
                                 }
@@ -115,16 +112,17 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
             }
 
             ,
-            getMealsForCheckedCategories: function (searchDTO)
+
+            getMealsForCheckedCategories: function(searchDTO)
             {
                 return $http.post('/Etbo5ly-Web/rest/search', searchDTO)
                         .then(
-                                function (response) {
-                                    alert("responsssssse" + response);
-                                    alert("responsssssse dataa" + JSON.stringify(response.data));
+                                function(response) {
+                                    alert("in service");
                                     return response.data;
                                 },
-                                function (errResponse) {
+                                function(errResponse) {
+                                    alert("error");
                                     console.error('Error while fetching checked categories in service');
                                     return $q.reject(errResponse);
                                 }

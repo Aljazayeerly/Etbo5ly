@@ -99,9 +99,7 @@ public class MenuItemsRestController {
         }
     }
     
- 
-    
-    @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
+ @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<List<MenuItemDTO>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
         List<MenuItemDTO> result = null;
             result=menuItemsService.getMenuItemsOfCategories(searchDTO.getSelectedCategories());
@@ -113,7 +111,8 @@ public class MenuItemsRestController {
         }
     }
     
-    
+
+     
      @RequestMapping(value = "/locationMeals", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItemDTO>> getSpecificMealsByLocation(@RequestBody SearchByLocationDTO searchByLocationDTO) {
         
