@@ -234,6 +234,7 @@ CREATE  TABLE IF NOT EXISTS `etbo5ly`.`order` (
   `latitude` DOUBLE NULL ,
   `region_id` INT NOT NULL ,
   `address_details` VARCHAR(45) NULL ,
+  `total_price` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`order_id`) ,
   INDEX `fk_order_user1_idx` (`customer_id` ASC) ,
   INDEX `fk_order_user2_idx` (`cook_id` ASC) ,
