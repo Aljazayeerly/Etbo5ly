@@ -5,10 +5,16 @@
  */
 'use strict';
 //var App = angular.module('myApp', []);
-App.factory('PageService', ['$http', '$q', function ($http, $q) {
+App.factory('PageService', ['$http', '$q', function($http, $q) {
         var cook = {};
         var menu = {};
-
+        var city = null;
+        var region = 0;
+        var addressDetails = null;
+        var cookId = 0;
+        var cookName = null;
+        var order = {};
+        var totalPrice = 0;
         function setElement(data) {
             cook = data;
         }
@@ -21,31 +27,87 @@ App.factory('PageService', ['$http', '$q', function ($http, $q) {
         function getMenu() {
             return menu;
         }
+        function setCity(data) {
+
+            city = data;
+        }
+        function getCity() {
+            return city;
+        }
+        function setRegion(data) {
+            region = data;
+        }
+        function getRegion() {
+            return region;
+        }
+        function setAddressDetails(data) {
+            addressDetails = data;
+        }
+        function getAddressDetails() {
+            return addressDetails;
+        }
+        function getCookId() {
+            return cookId;
+        }
+        function setCookName(data) {
+            cookName = data;
+        }
+        function getCookName() {
+            return cookName;
+        }
+        function setCookId(data) {
+            cookId = data;
+        }
+        function getCookId() {
+            return cookId;
+        }
+        function setOrder(data) {
+            order = data;
+        }
+        function getOrder() {
+            return order;
+        }
+        function setTotalPrice(data) {
+            totalPrice = data;
+        }
+        function getTotalPrice() {
+            return totalPrice;
+        }
+
 
         return{
             setElement: setElement,
             getElement: getElement,
-            getCookMeals: function (id) {
+            setCity: setCity,
+            getCity: getCity,
+            setRegion: setRegion,
+            getRegion: getRegion,
+            setAddressDetails: setAddressDetails,
+            getAddressDetails: getAddressDetails,
+            setCookId: setCookId,
+            getCookId: getCookId,
+            setCookName: setCookName,
+            getCookName: getCookName,
+            setOrder: setOrder,
+            getOrder: getOrder,
+            setTotalPrice: setTotalPrice,
+            getTotalPrice: getTotalPrice,
+            getCookMeals: function(id) {
+
                 var data = "";
                 var deferred = $q.defer();
                 $http.get("/Etbo5ly-Web/rest/cookMeals?id=" + id)
-                        .success(function (response, status, headers, config) {
+                        .success(function(response, status, headers, config) {
                             deferred.resolve(response);
                         })
-                        .error(function (errResp) {
+                        .error(function(errResp) {
                             console.error('Error while fetching near by cooks');
                             deferred.reject({message: "'Error while fetching near by cooks'"});
                         });
                 return deferred.promise;
-            }
-
-            ,
+            },
             setMenu: setMenu,
             getMenu: getMenu
         };
-
-
-
-
     }]);
 

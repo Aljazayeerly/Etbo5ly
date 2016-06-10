@@ -7,6 +7,8 @@
 package com.iti.jet.gp.etbo5ly.service;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.Category;
+import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
+import com.iti.jet.gp.etbo5ly.service.dto.SearchByLocationDTO;
 import java.util.List;
 
 /**
@@ -16,5 +18,4 @@ import java.util.List;
 public interface AdminService {
     public Category addCategory(Category newCategory);
     public List<Category> getAllCategories();
-    
 }

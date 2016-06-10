@@ -10,6 +10,7 @@ import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.service.MenuItemsService;
 import com.iti.jet.gp.etbo5ly.service.dto.CategoryDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.SearchByLocationDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.SearchDTO;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
@@ -98,37 +99,30 @@ public class MenuItemsRestController {
         }
     }
     
-//    @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
-//    public ResponseEntity<List<List<MenuItemDTO>>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
-//        List<MenuItemDTO> specificMeal = null;
-//         List<List<MenuItemDTO>> result = new ArrayList<>();
-//        for (int i = 0; i < searchDTO.getSelectedCategories().size(); i++) {
-//            specificMeal=menuItemsService.getMenuItemsOfCategory(searchDTO.getSelectedCategories().get(i).getCategoryId());
-//           result.add(specificMeal);
-//
-//        }
-// 
-//        if (specificMeal != null) {
-//            return new ResponseEntity<>(result, HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
-//        }
-//    }
-//    
-//    @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
-//    public ResponseEntity<List<MenuItemDTO>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
-//        List<MenuItemDTO> result = null;
-//            result=menuItemsService.getMenuItemsOfCategories(searchDTO.getSelectedCategories());
-// 
-//        if (result != null) {
-//            return new ResponseEntity<>(result, HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
-//        }
-//  }
-//    
+ @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
+    public ResponseEntity<List<MenuItemDTO>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
+        List<MenuItemDTO> result = null;
+            result=menuItemsService.getMenuItemsOfCategories(searchDTO.getSelectedCategories());
+ 
+        if (result != null) {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+        }
+    }
     
-    
+
+     
+     @RequestMapping(value = "/locationMeals", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<MenuItemDTO>> getSpecificMealsByLocation(@RequestBody SearchByLocationDTO searchByLocationDTO) {
+        
+        List<MenuItemDTO> specificMeal = menuItemsService.getMealsByLocation(searchByLocationDTO.getSelectedLocations());
+        if (specificMeal != null) {
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.NOT_FOUND);
+        }
+    }
     
 
 }

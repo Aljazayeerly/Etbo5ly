@@ -32,44 +32,66 @@
 
         <hr>
 
-        <form:form  method="post" commandName="customer">
+        <form:form  method="post" commandName="customer" name="customer">
             <form:errors path="*" element="div" />
             <div class="form-group">
                 <label path="name" id="rLabel"><fmt:message key="name"/></label>
-                <input type="text" class="form-control" id="name" path="name" ng-model="name" required="true">
-                <form:errors cssClass="error" path="name"/>
-            </div>
-            <div class="form-group">
-                <label path="email" id="rLabel"><fmt:message key="email"/></label>
-                <input type="text" class="form-control" id="email" path="email" ng-model="email" required="true">
-                <form:errors cssClass="error" path="email"/>
+                <input type="text" class="form-control" id="name"  name="name" path="name" ng-model="name" required="true" ng-minlength="4" ng-maxlength="15" ng-pattern="/[a-zA-Z]+/">
+                <%--<form:errors cssClass="error" path="name"/>--%>
+                <br>
+                <ng-messages for="customer.name.$error" style="color:maroon" role="alert" md-auto-hide="false">
+                    <ng-message when="minlength"><fmt:message key="userName.minLength"/></ng-message>
+                    <ng-message when="maxlength"><fmt:message key="userName.maxLength"/></ng-message>
+                    <ng-message when="required"><fmt:message key="userName.required"/></ng-message>
+                    <ng-message when="pattern"><fmt:message key="userName.pattern"/></ng-message>
+                </ng-messages>
 
             </div>
             <div class="form-group">
+                <label path="email" id="rLabel"><fmt:message key="email"/></label>
+                <input  class="form-control"  name="email" id="email" path="email" ng-model="email" required="true" type="email" ng-blur="checkMail()">
+                <ng-messages for="customer.email.$error" style="color:maroon" role="alert" md-auto-hide="false">
+                    <ng-message when="email"><fmt:message key="email.valid"/></ng-message>
+                    <ng-message when="required"><fmt:message key="email.required"/></ng-message>
+                </ng-messages>
+<!--                 <div id="emailErrors">{{$scope.AlreadyCustomer}}</div>-->
+                 <div><label ng-bind="AlreadyCustomer" style="color:maroon" role="alert"></label></div>
+            </div>
+            <div class="form-group">
                 <label path="password" id="rLabel"><fmt:message key="password"/></label>
-                <input type="password" class="form-control" id="password" path="password" ng-model="password" required="true">
-                <form:errors cssClass="error" path="password"/>
+                <input type="password" class="form-control" id="password" name="password" path="password" ng-model="password" required="true" ng-minlength="6" ng-maxlength="15">
+                <ng-messages for="customer.password.$error" style="color:maroon" role="alert" md-auto-hide="false">
+                    <ng-message when="email"><fmt:message key="email.valid"/></ng-message>
+                    <ng-message when="required"><fmt:message key="password.required"/></ng-message>
+                    <ng-message when="minlength"><fmt:message key="password.minLength"/></ng-message>
+                    <ng-message when="maxlength"><fmt:message key="password.maxLength"/></ng-message>
+                </ng-messages>
 
             </div>
             <div class="form-group">
                 <label path="phone" id="rLabel"><fmt:message key="phone"/></label>
-                <input type="text" class="form-control" id="phone" path="phone" ng-model="phone" required="true">
-                <form:errors cssClass="error" path="phone"/>
-
+                <input type="text" class="form-control" name="phone" id="phone" path="phone" ng-model="phone" required="true" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+                <ng-messages for="customer.phone.$error" style="color:maroon" role="alert" md-auto-hide="false">
+                    <ng-message when="pattern"><fmt:message key="phone.valid"/></ng-message>
+                    <ng-message when="required"><fmt:message key="phone.required"/></ng-message>
+                </ng-messages>
             </div>
             <div class="form-group">
                 <label path="address"id="rLabel"><fmt:message key="address"/></label>
-                <input type="text" class="form-control" id="address" path="address" ng-model="address" required="true">
-                <form:errors cssClass="error" path="address"/>
-
-
+                <input type="text" class="form-control" id="address" name="address" path="address" ng-model="address" required="true">
+                <ng-messages for="customer.address.$error" style="color:maroon" role="alert" md-auto-hide="false">
+                    <ng-message when="required"><fmt:message key="address.required"/></ng-message>
+                </ng-messages>
             </div>
             <div class="form-group">
                 <label for="singleSelect"><fmt:message key="location"/> </label>
                 <select name="singleSelect" id="singleSelect" ng-model="$scope.regionSelected" ng-change="showRegionnSelected($scope.regionSelected)" required="true">
-                     <option value="">Please Choose your region</option>
+                    <option value="">Please Choose your region</option>
                     <option ng-repeat="region in allregions" value="{{region.regionId}}">{{region.regionName}}</option>
                 </select><br>
+                 <ng-messages for="customer.singleSelect.$error" style="color:maroon" role="alert" md-auto-hide="false">
+                    <ng-message when="required"><fmt:message key="region.required"/></ng-message>
+                </ng-messages>
             </div>
 
             <div class="text-center">

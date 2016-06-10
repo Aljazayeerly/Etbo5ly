@@ -23,7 +23,6 @@ import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 //import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
 
-
 @Repository("menuItemsDaoImpl")
 public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
         MenuItemsDao {
@@ -73,9 +72,6 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
             }
         });
     }
-    
-  
-    
 
     @Override
     public List<MenuItems> getMenuItemsPage(int page) {
@@ -109,10 +105,9 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
             }
         });
     }
-    
-    
-     @Override
-    public List<MenuItems> getMealsOfCateogries(final List<Integer>id) {
+
+    @Override
+    public List<MenuItems> getMealsOfCateogries(final List<Integer> id) {
         return (List<MenuItems>) transactionTemplate.execute(new TransactionCallback<Object>() {
 
             @Override
@@ -135,10 +130,9 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
 //
 //            }
 //        });    }
-
     @Override
     public List<MenuItems> getMealsOfCook(final int cookID) {
- return (List<MenuItems>) transactionTemplate.execute(new TransactionCallback<Object>() {
+        return (List<MenuItems>) transactionTemplate.execute(new TransactionCallback<Object>() {
 
             @Override
             public Object doInTransaction(TransactionStatus ts) {
@@ -146,6 +140,20 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
                 return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class, "item").createAlias("item.cook", "cook").add((Restrictions.eq("cook.id", cookID))));
 
             }
-        });    }
+        });
+    }
 
+    @Override
+    public List<MenuItems> getMealsOfSpecificLocation(final List<String> address) {
+        return (List<MenuItems>) transactionTemplate.execute(new TransactionCallback<Object>() {
+            @Override
+            public Object doInTransaction(TransactionStatus ts) {
+
+                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class, "item").createAlias("item.cook", "cook").add((Restrictions.in("cook.address", address))));
+
+            }
+        });
+    }
+
+   
 }

@@ -6,8 +6,11 @@
 package com.iti.jet.gp.etbo5ly.service.impl;
 
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CategoryDao;
+import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CookDao;
 import com.iti.jet.gp.etbo5ly.model.pojo.Category;
+import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.service.AdminService;
+import com.iti.jet.gp.etbo5ly.service.dto.SearchByLocationDTO;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +25,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Autowired
     CategoryDao categoryDao;
-    
+    @Autowired
+    CookDao cookDao;
+
     @Transactional
     @Override
     public Category addCategory(Category newCategory) {
@@ -31,7 +36,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Category> getAllCategories() {
-        return  categoryDao.getAll();
+        return categoryDao.getAll();
     }
+
+   
 
 }

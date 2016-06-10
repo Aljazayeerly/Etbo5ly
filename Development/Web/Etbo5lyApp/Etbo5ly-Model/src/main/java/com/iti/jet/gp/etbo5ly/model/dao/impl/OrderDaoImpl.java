@@ -29,10 +29,22 @@ public class OrderDaoImpl extends GenericDaoImpl<Order> implements
     @Override
     public List<Order> getAllOrdersById(int id) {
 
-        List<Order> ui = getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Order.class).list();//.add(Restrictions.eq("id", id)).list();
+        List<Order> ui = getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Order.class, "o").createAlias("o.userByCustomerId", "c").add(Restrictions.eq("c.id", id)).list();
         System.out.println("size : " + ui.size());
 
         return ui;
+    }
+
+    @Override
+    public List<Order> getAllCookOrdersById(int id) {
+
+        List<Order> ui = getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Order.class, "o").createAlias("o.userByCookId", "u").add(Restrictions.eq("u.id", id)).list();
+
+        System.out.println("getAllCookOrdersById");
+        System.out.println("id : " + id + " , size : " + ui.size());
+
+        return ui;
+
     }
 
 }

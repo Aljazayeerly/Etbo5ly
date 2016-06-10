@@ -16,7 +16,9 @@ import java.util.Set;
  */
 public class CookDTO {
 
-    
+
+   
+    private int regionId;    
     private Integer id;
     private String name;
     private String email;
@@ -31,6 +33,8 @@ public class CookDTO {
     private double longitude;
     private double latitude;
     private String imageURL;
+
+    private int cookStatusStatusId;
     
     Set<MenuItemDTO> menuItems=new HashSet<>(0);
 
@@ -132,7 +136,7 @@ public class CookDTO {
         this.imageURL = imageURL;
     }
 
-    public  String getResourcesURL() {
+    public String getResourcesURL() {
         return resourcesURL;
     }
 
@@ -144,6 +148,23 @@ public class CookDTO {
         this.menuItems = menuItems;
     }
 
+
+    public int getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(int regionId) {
+        this.regionId = regionId;
+    }
+
+    public int getCookStatusStatusId() {
+        return cookStatusStatusId;
+    }
+
+    public void setCookStatusStatusId(int cookStatusStatusId) {
+        this.cookStatusStatusId = cookStatusStatusId;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -152,5 +173,7 @@ public class CookDTO {
         this.id = id;
     }
 
+
     
+     
 }
