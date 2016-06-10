@@ -32,8 +32,8 @@
 
         <hr>
 
-        <form:form  method="post" commandName="customer" name="customer">
-            <form:errors path="*" element="div" />
+        <form  method="post" commandName="customer" name="customer">
+            <%--<form:errors path="*" element="div" />--%>
             <div class="form-group">
                 <label path="name" id="rLabel"><fmt:message key="name"/></label>
                 <input type="text" class="form-control" id="name"  name="name" path="name" ng-model="name" required="true" ng-minlength="4" ng-maxlength="15" ng-pattern="/[a-zA-Z]+/">
@@ -97,7 +97,7 @@
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" id="rButton" ng-click="registerCustomer(name, password, email, phone, address)"><i class="fa fa-user-md"></i> <fmt:message key="register"/></button>
             </div>
-        </form:form>
+        </form>
     </div>
 </div>
 

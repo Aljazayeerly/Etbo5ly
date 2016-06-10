@@ -59,39 +59,20 @@
 
                 <form>
                     <div class="form-group">
-                        <div class="checkbox">
+                        <div ng-repeat="lo in ctrl.locations" class="checkbox">
                             <label>
-                                <input type="checkbox">Nasr City
+                                <input type="checkbox" ng-model="$scope.checked2" ng-change="ctrl.isSelectedLocation(lo.regionName, $scope.checked2, $index)"> {{lo.regionName}}
                             </label>
                         </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> 6th October
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Maadi
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Sheraton
-                            </label>
-                        </div>
-
                     </div>
 
-                    <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Apply</button>
+                    <button class="btn btn-default btn-sm btn-primary" ng-click="ctrl.getSelectedLocation()"> Apply</button>
 
                 </form>
 
             </div>
         </div>
     </div>
-
-
-
 
     <div class="col-md-6">
         <div>
@@ -176,6 +157,40 @@
                                                                     </div>
                                             {{ctrl.searchMeals.length}}
                                         </div>-->
+
+
+
+
+
+                    <!--de div bta3t location--> 
+                    <div ng-show="showLocationMeals" ng-repeat="address in ctrl.checkedAddress" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+                        <div>
+
+                            <div>
+                                <label style="color: #E18728;font-size: 15px ;" ng-bind="address.nameEn"></label>
+                                <br>
+                                <label style="color: gray;font-size: 13px" ng-bind="address.cookName"></label>
+                                <br>
+                                <div >
+                                    <img src="{{address.resourcesURL}}/{{address.imageUrl}}" style="left:20px; width: 160px">
+
+                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>
+
+                                </div>
+
+                                <div>
+                                    <label style="color: black;  font-size: 10px" ng-bind="address.descriptionEn"></label>
+                                </div>
+                                <label style="color: #E18728;  font-size: 13px" ng-bind="address.price + ' L.E'"></label>
+                            </div>
+                            <div>
+                                <button ng-click="addItem(address.itemId)">Add To Cart</button>
+                            </div>
+
+                        </div>
+                    </div> 
+
+
                 </div>
             </section>
         </div>

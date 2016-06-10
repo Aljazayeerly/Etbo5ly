@@ -151,6 +151,15 @@ public class CookServiceImpl implements CookService {
 
     @Override
     @Transactional
+    public CookDTO getCookDataForProfile(int cookId) {
+       
+        Cook cookData = cookDao.getCookData(cookId);
+        ModelMapper modelMapper = new ModelMapper();
+            CookDTO cookDTO = modelMapper.map(cookData, CookDTO.class);
+         
+        return cookDTO;
+    }
+    
     public void changeCookStatus(Cook cook) {
 
 //        System.out.println("change cook status" + cook.getName() + " " + cook.getId());

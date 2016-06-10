@@ -30,10 +30,13 @@ public interface CookService {
 
     public Cook getCookByLocation(double cLongtitude, double cLatitude);
 
+    public CookDTO getCookDataForProfile(int cookId);
+
     public void changeCookStatus(Cook cook);
 
     public CookDTO registerCook(CookDTO cook);
 
     public CookDTO checkEmail(String email);
+
 
 }

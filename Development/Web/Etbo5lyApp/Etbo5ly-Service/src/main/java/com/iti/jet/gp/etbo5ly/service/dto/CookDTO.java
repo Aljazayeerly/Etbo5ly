@@ -33,6 +33,7 @@ public class CookDTO {
     private double longitude;
     private double latitude;
     private String imageURL;
+
     private int cookStatusStatusId;
     
     Set<MenuItemDTO> menuItems=new HashSet<>(0);

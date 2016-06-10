@@ -113,12 +113,4 @@ public class MenuItemDTO {
         this.categories = categories;
     }
 
-    public int getCookId() {
-        return cookId;
-    }
-
-    public void setCookId(int cookId) {
-        this.cookId = cookId;
-    }
-
 }
