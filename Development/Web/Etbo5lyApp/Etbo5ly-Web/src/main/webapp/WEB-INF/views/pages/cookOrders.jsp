@@ -40,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="i in orders | filter : myFilter">
+                    <tr ng-repeat="i in orders| filter : myFilter">
                         <th>{{ $index + 1}}</th>
                         <th><label ng-model="i.customerName" ng-bind="i.customerName"></label></th>
                         <td><label ng-bind="i.orderTime"></label></td>

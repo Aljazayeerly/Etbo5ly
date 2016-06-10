@@ -17,4 +17,6 @@ public interface CookDao extends GenericDao<Cook> {
 
     public Cook CheckEmail(String email);
 
+    public void changeCookStatus(Cook cook);
+
 }

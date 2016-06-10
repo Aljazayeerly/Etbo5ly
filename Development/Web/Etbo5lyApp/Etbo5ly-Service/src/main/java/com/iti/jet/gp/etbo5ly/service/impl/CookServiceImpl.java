@@ -153,8 +153,8 @@ public class CookServiceImpl implements CookService {
     @Transactional
     public void changeCookStatus(Cook cook) {
 
-        System.out.println("change cook status" + cook.getName() + " " + cook.getId());
-        cookDao.update(cook);
+//        System.out.println("change cook status" + cook.getName() + " " + cook.getId());
+        cookDao.changeCookStatus(cook);
     }
 
     public CookDTO registerCook(CookDTO cook) {

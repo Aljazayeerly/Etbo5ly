@@ -30,16 +30,16 @@ public class Category implements java.io.Serializable {
     @JsonIgnore //aljazayeerly- to be igonred when converting from object to json
     private Set<Catering> caterings = new HashSet<Catering>(0);
     @JsonIgnore //aljazayeerly- to be igonred when converting from object to json
-    private Set<MenuItems> menuItemses = new HashSet<MenuItems>(0);
+    private Set<MenuItems> menuItems = new HashSet<MenuItems>(0);
 
     public Category() {
     }
 
-    public Category(String nameEn, String nameAr, Set<Catering> caterings, Set<MenuItems> menuItemses) {
+    public Category(String nameEn, String nameAr, Set<Catering> caterings, Set<MenuItems> menuItems) {
         this.nameEn = nameEn;
         this.nameAr = nameAr;
         this.caterings = caterings;
-        this.menuItemses = menuItemses;
+        this.menuItems = menuItems;
     }
 
     @Id
@@ -88,12 +88,12 @@ public class Category implements java.io.Serializable {
     @JoinTable(name = "category_has_menu_items", catalog = "etbo5ly", joinColumns = {
         @JoinColumn(name = "category_category_id", nullable = false, updatable = false)}, inverseJoinColumns = {
         @JoinColumn(name = "menu_items_item_id", nullable = false, updatable = false)})
-    public Set<MenuItems> getMenuItemses() {
-        return this.menuItemses;
+    public Set<MenuItems> getMenuItems() {
+        return this.menuItems;
     }
 
-    public void setMenuItemses(Set<MenuItems> menuItemses) {
-        this.menuItemses = menuItemses;
+    public void setMenuItems(Set<MenuItems> menuItems) {
+        this.menuItems = menuItems;
     }
 
 }
