@@ -5,6 +5,7 @@
  */
 package com.iti.jet.gp.etbo5ly.service.dto;
 
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +15,7 @@ import java.util.Set;
  */
 public class OrderDTO {
 
-//    private int orderId;
+    private int orderId;
     private int userByCustomerId;
     private String customerName;
     private int userByCookId;
@@ -30,24 +31,28 @@ public class OrderDTO {
     private Double latitude;
     private String addressDetails;
     private int regionId;
-    private String regionName;
-    private String regionNameAr;
-    private String regionCityName;
-    private String regionCityNameAr;
-    private String regionCityCountryName;
+    private Timestamp orderTime;
+    private Float totalPrice;
+//    private String regionName;
+//    private String regionNameAr;
+//    private String regionCityName;
+//    private String regionCityNameAr;
+//    private String regionCityCountryName;
     private Set<OrderDetailsDTO> orderDetails = new HashSet<OrderDetailsDTO>(0);
-    private Set<OrderStatusDTO> statusHasOrders= new HashSet<OrderStatusDTO>(0);
+    private Set<StatusHasOrderDTO> statusHasOrders = new HashSet<StatusHasOrderDTO>(0);
 
     public OrderDTO() {
     }
 
-//    public int getOrderId() {
-//        return orderId;
-//    }
-//
-//    public void setOrderId(int orderId) {
-//        this.orderId = orderId;
-//    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
     public int getUserByCustomerId() {
         return userByCustomerId;
     }
@@ -168,46 +173,53 @@ public class OrderDTO {
         this.regionId = regionId;
     }
 
-    public String getRegionName() {
-        return regionName;
+    public Timestamp getOrderTime() {
+        return orderTime;
     }
 
-    public void setRegionName(String regionName) {
-        this.regionName = regionName;
+    public void setOrderTime(Timestamp orderTime) {
+        this.orderTime = orderTime;
     }
 
-    public String getRegionNameAr() {
-        return regionNameAr;
-    }
-
-    public void setRegionNameAr(String regionNameAr) {
-        this.regionNameAr = regionNameAr;
-    }
-
-    public String getRegionCityName() {
-        return regionCityName;
-    }
-
-    public void setRegionCityName(String regionCityName) {
-        this.regionCityName = regionCityName;
-    }
-
-    public String getRegionCityNameAr() {
-        return regionCityNameAr;
-    }
-
-    public void setRegionCityNameAr(String regionCityNameAr) {
-        this.regionCityNameAr = regionCityNameAr;
-    }
-
-    public String getRegionCityCountryName() {
-        return regionCityCountryName;
-    }
-
-    public void setRegionCityCountryName(String regioncityCountryName) {
-        this.regionCityCountryName = regioncityCountryName;
-    }
-
+//    public String getRegionName() {
+//        return regionName;
+//    }
+//
+//    public void setRegionName(String regionName) {
+//        this.regionName = regionName;
+//    }
+//
+//    public String getRegionNameAr() {
+//        return regionNameAr;
+//    }
+//
+//    public void setRegionNameAr(String regionNameAr) {
+//        this.regionNameAr = regionNameAr;
+//    }
+//
+//    public String getRegionCityName() {
+//        return regionCityName;
+//    }
+//
+//    public void setRegionCityName(String regionCityName) {
+//        this.regionCityName = regionCityName;
+//    }
+//
+//    public String getRegionCityNameAr() {
+//        return regionCityNameAr;
+//    }
+//
+//    public void setRegionCityNameAr(String regionCityNameAr) {
+//        this.regionCityNameAr = regionCityNameAr;
+//    }
+//
+//    public String getRegionCityCountryName() {
+//        return regionCityCountryName;
+//    }
+//
+//    public void setRegionCityCountryName(String regioncityCountryName) {
+//        this.regionCityCountryName = regioncityCountryName;
+//    }
     public Set<OrderDetailsDTO> getOrderDetails() {
         return orderDetails;
     }
@@ -216,13 +228,20 @@ public class OrderDTO {
         this.orderDetails = orderDetails;
     }
 
-    public Set<OrderStatusDTO> getStatusHasOrders() {
+    public Set<StatusHasOrderDTO> getStatusHasOrders() {
         return statusHasOrders;
     }
 
-    public void setStatusHasOrders(Set<OrderStatusDTO> statusHasOrders) {
+    public void setStatusHasOrders(Set<StatusHasOrderDTO> statusHasOrders) {
         this.statusHasOrders = statusHasOrders;
     }
 
+    public Float getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Float totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 
 }

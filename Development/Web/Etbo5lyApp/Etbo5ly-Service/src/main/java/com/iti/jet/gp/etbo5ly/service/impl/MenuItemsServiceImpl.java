@@ -49,7 +49,7 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 
     @Override
     @Transactional
-    public List<MenuItemDTO> getMenuItemsOfCategories(List<Integer>categoryList) {
+    public List<MenuItemDTO> getMenuItemsOfCategories(List<Integer> categoryList) {
 
         List<MenuItemDTO> itemDTOs = new ArrayList<MenuItemDTO>();
         List<MenuItems> menuItems = menuItemsDao.getMealsOfCateogries(categoryList);
@@ -62,9 +62,7 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 
     }
 
-    
-    
-      @Override
+    @Override
     @Transactional
     public List<MenuItemDTO> getMenuItemsOfCategory(int categoryId) {
 
@@ -78,6 +76,7 @@ public class MenuItemsServiceImpl implements MenuItemsService {
         return itemDTOs;
 
     }
+
     @Override
     @Transactional
     public List<MenuItemDTO> getSpecificCookMeals(int id) {
@@ -90,5 +89,19 @@ public class MenuItemsServiceImpl implements MenuItemsService {
         }
         return itemDTOs;
     }
+
+    @Override
+    @Transactional
+    public List<MenuItemDTO> getMealsByLocation(List<String> locationList) {
+        List<MenuItemDTO> itemDTOs = new ArrayList<MenuItemDTO>();
+        List<MenuItems> menuItems = menuItemsDao.getMealsOfSpecificLocation(locationList);
+        ModelMapper modelMapper = new ModelMapper();
+        for (MenuItems item : menuItems) {
+            MenuItemDTO DTO = modelMapper.map(item, MenuItemDTO.class);
+            itemDTOs.add(DTO);
+        }
+        return itemDTOs;
+    }
+
 
 }

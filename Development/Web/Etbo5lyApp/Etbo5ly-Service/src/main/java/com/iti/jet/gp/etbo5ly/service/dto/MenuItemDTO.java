@@ -16,6 +16,7 @@ import java.util.Set;
 public class MenuItemDTO {
 
     private Integer itemId;
+    private Integer cookId;
     private String cookName;
     private String nameEn;
     private String nameAr;
@@ -24,7 +25,8 @@ public class MenuItemDTO {
     private String descriptionAr;
     private Short itemRate;
     private String imageUrl;
-    private Set<CategoryDTO> categories=new HashSet<CategoryDTO>(0);
+    private Set<CategoryDTO> categories = new HashSet<CategoryDTO>(0);
+
     private static String resourcesURL = ResourceUtil.getMealsImagesURL();
 
     public Integer getItemId() {
@@ -92,7 +94,7 @@ public class MenuItemDTO {
     }
 
     public String getImageUrl() {
-        return  imageUrl;
+        return imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
@@ -110,7 +112,5 @@ public class MenuItemDTO {
     public void setCategories(Set<CategoryDTO> categories) {
         this.categories = categories;
     }
-    
-    
 
 }

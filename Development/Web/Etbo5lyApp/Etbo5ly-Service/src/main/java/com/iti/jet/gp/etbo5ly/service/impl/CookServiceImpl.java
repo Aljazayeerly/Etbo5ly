@@ -151,6 +151,21 @@ public class CookServiceImpl implements CookService {
 
     @Override
     @Transactional
+    public CookDTO getCookDataForProfile(int cookId) {
+       
+        Cook cookData = cookDao.getCookData(cookId);
+        ModelMapper modelMapper = new ModelMapper();
+            CookDTO cookDTO = modelMapper.map(cookData, CookDTO.class);
+         
+        return cookDTO;
+    }
+    
+    public void changeCookStatus(Cook cook) {
+
+        System.out.println("change cook status" + cook.getName() + " " + cook.getId());
+        cookDao.update(cook);
+    }
+
     public CookDTO registerCook(CookDTO cook) {
         System.out.println("inside the cook register service");
         Cook cookConverter = DTOConverter.cookDTOTOCook(cook);
@@ -166,14 +181,16 @@ public class CookServiceImpl implements CookService {
     @Override
     @Transactional
     public CookDTO checkEmail(String email) {
-         ModelMapper modelMapper = new ModelMapper();
+
+        ModelMapper modelMapper = new ModelMapper();
         Cook cook = cookDao.CheckEmail(email);
         if (cook != null) {
-          //  System.out.println("inside customer not equal null");
+            //  System.out.println("inside customer not equal null");
             CookDTO newCookDTO = modelMapper.map(cook, CookDTO.class);
             return newCookDTO;
         } else {
-           // System.out.println("inside customer  equal null");
+            // System.out.println("inside customer  equal null");
+
             return null;
         }
     }

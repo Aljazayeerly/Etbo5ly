@@ -86,6 +86,13 @@ public class CookRestController {
         return new ResponseEntity<CookDTO>(cookDTO, HttpStatus.OK);
     }
     
+           @RequestMapping(value="/cookProfile" , method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CookDTO> getCookByLocation(@RequestParam (value = "id")int id){
+        CookDTO selectedCook=cookService.getCookDataForProfile(id);
+        return new ResponseEntity<CookDTO>(selectedCook,HttpStatus.OK);
+    }
+            
+
      @RequestMapping(value="/checkEmail", method=RequestMethod.GET ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CookDTO> checkEmail(@RequestParam String email){
         System.out.println("inside checkEmail rest Controller");

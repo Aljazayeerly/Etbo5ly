@@ -1,81 +1,180 @@
 
 'use strict';
+App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMedia', 'PageService', function($scope, orderService, $mdDialog, $mdMedia, PageService) {
+        $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+        var self = $scope;
+        $scope.orders = []; //[ {userByCustomerId:0,customerName:"",userByCookId:0,cookName:"",location:"",duration:0,orderDetails:[{menuItemsItemId:0},{menuItemsItemId:0}]},{}];
+        $scope.order = {};
+        $scope.getAllCustomerOrders = function() {
+            orderService.getAllCustomerOrders()
+                    .then(
+                            function(d) {
+                                $scope.orders = d;
+                                $.each($scope.orders, function(index, item)
 
-App.controller('OrderController', function($scope, orderService, $location, $window) {
+                                {
+                                    item.orderTime = new Date(item.orderTime).toUTCString();
+                                })
+                            },
+                            function(errResponse) {
+                                console.error('Error while fetching orders');
+                            }
+                    );
+        };
+        $scope.getAllCustomerOrders();
+        $scope.OrderDetails = function(id)
+        {
 
-    alert("inside");
-    var self = $scope;
-    $scope.orders = []; //[ {userByCustomerId:0,customerName:"",userByCookId:0,cookName:"",location:"",duration:0,orderDetails:[{menuItemsItemId:0},{menuItemsItemId:0}]},{}];
-    // self.orders =  $scope.orders;
-    $scope.order = {};
+            PageService.setOrder($scope.orders[id]);
+            $scope.viewOrderDetails();
+        };
+        $scope.viewOrderDetails = function(ev) {
+
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                controller: CustomerHistoryDialogController,
+                templateUrl: 'customerOrderDialog.htm',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen
+            })
+
+                    .then(function(answer) {
+                        $scope.status = 'You said the information was "' + answer + '".';
+                    }, function() {
+                        $scope.status = 'You cancelled the dialog.';
+                    });
+            $scope.$watch(function() {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function(wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
+            });
+        };
+        $scope.showSelectValue = function(mySelect)
+        {
+            $scope.myOrderBy = mySelect;
+        }
 
 
-    $scope.getAllCustomerOrders = function() {
-        alert("getAllCustomerOrders");
-        orderService.getAllCustomerOrders()
-                .then(
-                        function(d) {
-                            alert("getAllCustomerOrders  : " + d.length);
-                            alert("getAllCustomerOrders  : " + d[0].orderDetails.length);
-                            alert("cutomer" + JSON.stringify(d));
-                            alert("cutomer" + d[0].location);
+        $scope.myFilter = function(item)
+        {
+            if ($scope.myOrderBy == "All")
+                return item;
+            else if ($scope.myOrderBy == "Current Orders")
+            {
+                if (item.statusHasOrders.length <= 3)
+                {
+                    return item;
+                }
+            }
+            else if ($scope.myOrderBy == "Past Orders")
+            {
+                if (item.statusHasOrders.length == 4)
+                {
+                    return item;
+                }
+            }
+        }
+        $scope.changeOrderStatus = function(orderId)
+        {
+            var orderStatus = {};
+            orderStatus.status = "Delivered";
+            orderStatus.statusIdOrder = orderId;
+            PageService.setOrder($scope.orders[orderId]);
+            orderService.changeOrderStatus(orderStatus);
+            $scope.showOrderRatingDialog();
+        }
+        $scope.showOrderRatingDialog = function(ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                controller: "customerOrderRatingDialog",
+                templateUrl: 'customerOrderRatingDialog.htm',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen
+            })
+                    .then(function(answer) {
+                        $scope.status = 'You said the information was "' + answer + '".';
+                    }, function() {
+                        $scope.status = 'You cancelled the dialog.';
+                    });
+            $scope.$watch(function() {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function(wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
+            });
+        };
+    }]);
+function CustomerHistoryDialogController($scope, $mdDialog, PageService) {
 
-
-                            self.orders = d;
-                            alert("quantity :" + self.orders[0].location);
-
-                        },
-                        function(errResponse) {
-                            alert("erros fl controller")
-                            console.error('Error while fetching orders');
-                        }
-                );
+    $scope.order = PageService.getOrder();
+    $scope.hide = function() {
+        $mdDialog.hide();
     };
-
-    $scope.getAllCustomerOrders();
-
-    $scope.setOrderDetails = function(id)
+    $scope.cancel = function() {
+        $mdDialog.cancel();
+    };
+    $scope.answer = function(answer) {
+        alert("answer");
+    };
+}
+App.controller("customerOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'PageService', 'orderService', function($scope, $mdDialog, $mdMedia, PageService, orderService)
     {
-        alert("view set details");
-        // alert("quantity :" + self.orders[0].location);
-
-        orderService.setOrder(self.orders[id - 1]);
-        orderService.getOrder();
-        alert("getting the order" + JSON.stringify(orderService.getOrder()));
-        //  $window.location.reload();
-        $window.location = "customerOrder.htm";
-//        $state.go('^');
-        // $state.go('^',"first",{notify: false});
-        // alert("url is " + $location.path());
-//       $location.path('customerOrder.htm',false);
-
-    }
-
-});
 
 
+        $scope.order = PageService.getOrder();
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+            alert("answer");
+        };
+        $scope.submitOrderRating = function()
+        {
+            orderService.orderRate($scope.order);
+            $scope.hide();
+        }
 
-
-//App.controller('OrderController2', ['$scope', 'orderService', function($scope, orderService) {
-//
-//        alert("inside 2 ");
-//        //var self = this;
-//        //  $scope.orders = []; //[ {userByCustomerId:0,customerName:"",userByCookId:0,cookName:"",location:"",duration:0,orderDetails:[{menuItemsItemId:0},{menuItemsItemId:0}]},{}];
-//        $scope.orderr = {};
-//
-////        $scope.getOrderDetails = function()
-////        {
-////            alert("view get details");
-////            $scope.order = orderService.getOrder();
-////            alert("getting the order " + orderService.getOrder());
-////            alert("location :" + $scope.order); //unzeft
-////
-////
-////        }
-//
-//        $scope.orderr = orderService.getOrder();
-//        alert("location in ctrl :" + JSON.stringify($scope.orderr));
-//
-//        //   $scope.getOrderDetails();
-//    }]);
-    
+        $scope.starRating1 = 4;
+        $scope.starRating2 = 5;
+        $scope.starRating3 = 2;
+        $scope.hoverRating1 = $scope.hoverRating2 = $scope.hoverRating3 = 0;
+        $scope.click1 = function(param) {
+            console.log('Click(' + param + ')');
+        };
+        $scope.mouseHover1 = function(param) {
+            console.log('mouseHover(' + param + ')');
+            $scope.hoverRating1 = param;
+        };
+        $scope.mouseLeave1 = function(param) {
+            console.log('mouseLeave(' + param + ')');
+            $scope.hoverRating1 = param + '*';
+        };
+        $scope.click2 = function(param) {
+            console.log('Click');
+        };
+        $scope.mouseHover2 = function(param) {
+            console.log('mouseHover(' + param + ')');
+            $scope.hoverRating1 = param;
+        };
+        $scope.mouseLeave2 = function(param) {
+            console.log('mouseLeave(' + param + ')');
+            $scope.hoverRating2 = param + '*';
+        };
+        $scope.click3 = function(param) {
+            console.log('Click');
+        };
+        $scope.mouseHover3 = function(param) {
+            console.log('mouseHover(' + param + ')');
+            $scope.hoverRating3 = param;
+        };
+        $scope.mouseLeave3 = function(param) {
+            console.log('mouseLeave(' + param + ')');
+            $scope.hoverRating3 = param + '*';
+        };
+    }]);

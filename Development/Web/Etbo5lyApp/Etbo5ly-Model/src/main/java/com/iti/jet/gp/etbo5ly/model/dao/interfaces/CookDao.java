@@ -13,6 +13,8 @@ public interface CookDao extends GenericDao<Cook> {
 
     public Cook getCookByLocation(double longitude, double latitude);
 
+    public Cook getCookData(int id);
+
     public Cook registerCook(Cook cook);
 
     public Cook CheckEmail(String email);

@@ -6,6 +6,7 @@
 package com.iti.jet.gp.etbo5ly.web;
 
 import com.iti.jet.gp.etbo5ly.service.dto.CookDocumentDTO;
+
 import javax.ws.rs.QueryParam;
 import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -137,6 +138,12 @@ public class TestClass {
     @RequestMapping(value = "/customerOrder.htm")
     public String customerOrder() {
         return "customerOrder";
+    }
+
+    @RequestMapping(value = "/cookKitchen.htm")
+    @QueryParam("id")
+    public String cookKitchen(@RequestParam(value = "id") int id) {
+        return "cookKitchen";
 
     }
 
@@ -144,6 +151,7 @@ public class TestClass {
     public String orderReviewDialog() {
         return "orderReviewDialog";
     }
+
 //    
 //    @RequestMapping(value = "/joinUS.htm")
 //    public String cookRegister(){
@@ -154,9 +162,57 @@ public class TestClass {
         return new ModelAndView("cookRegister", "cook", new CookDocumentDTO()); 
     }
      
-    @RequestMapping(value = "/cookKitchen.htm")
-    @QueryParam("id")
-    public String cookKitchen(@RequestParam(value = "id") int id) {
-        return "cookKitchen";
+//    @RequestMapping(value = "/cookKitchen.htm")
+//    @QueryParam("id")
+//    public String cookKitchen(@RequestParam(value = "id") int id) {
+//        return "cookKitchen";
+//    }
+
+    @RequestMapping(value = "/addressDetailsDialog.htm")
+
+    public String addressDetailsDialog() {
+        return "addressDetailsDialog";
+    }
+
+    @RequestMapping(value = "/customerOrderDialog.htm")
+    public String customerOrderDialog() {
+        return "customerOrderDialog";
+    }
+
+    @RequestMapping(value = "/orderDialog.htm")
+    public String orderDialog() {
+        return "orderDialog";
+    }
+
+    @RequestMapping(value = "/customerOrderRatingDialog.htm")
+    public String customerOrderRatingDialog() {
+        return "customerOrderRatingDialog";
+    }
+
+    @RequestMapping(value = "/cookOrders.htm")
+    public String cookOrders() {
+        return "cookOrders";
+    }
+
+    @RequestMapping(value = "/cookOrderDialog.htm")
+    public String cookOrderDialog() {
+        return "cookOrderDialog";
+    }
+
+    @RequestMapping(value = "/cookOrderRatingDialog.htm")
+    public String cookOrderRatingDialog() {
+        return "cookOrderRatingDialog";
+    }
+
+//    @RequestMapping(value = "/joinUS.htm")
+//    public String cookRegister() {
+//        return "cookRegister";
+//
+//    }
+    
+     @RequestMapping(value = "/cookProfile.htm")
+    public String cookProfile() {
+        return "cookProfile";
+
     }
 }

@@ -20,7 +20,7 @@
         <put-attribute name="body" value="/WEB-INF/views/pages/register.jsp" />
     </definition>
     
-      <definition name="cookRegister" extends="DefaultPageTemplate">
+    <definition name="cookRegister" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/joinUs.jsp" />
     </definition>
         
@@ -37,25 +37,50 @@
         <put-attribute name="body" value="/WEB-INF/views/pages/kitchen.jsp" />
     </definition>
     
+    <definition name="cookProfile" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/cookProfile.jsp" />
+    </definition>
+    
     <definition name="orderReview" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/orderReview.jsp" />
     </definition>
     <definition name="cart" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/cart.jsp" />
     </definition>
-     <definition name="orderReview2" extends="DefaultPageTemplate">
+    <definition name="orderReview2" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/orderReview2.jsp" />
     </definition>
-      <definition name="customerOrders" extends="DefaultPageTemplate">
+    <definition name="customerOrders" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/customerOrders.jsp" />
     </definition>
-      <definition name="customerOrder" extends="DefaultPageTemplate">
+    <definition name="customerOrder" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/customerOrder.jsp" />
+    </definition> 
+    
+    <definition name="orderReviewDialog" template="/WEB-INF/views/pages/orderReviewDialog.jsp">
     </definition>
-      <definition name="orderReviewDialog" extends="DefaultPageTemplate">
-        <put-attribute name="body" value="/WEB-INF/views/pages/orderReviewDialog.jsp" />
+    
+    <definition name="addressDetailsDialog" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/addressDetailsDialog.jsp" />
+    </definition>    
+    <definition name="customerOrderDialog" template="/WEB-INF/views/pages/customerOrderDialog.jsp">
     </definition>
+    <definition name="customerOrderRatingDialog" template="/WEB-INF/views/pages/customerOrderRatingDialog.jsp">
+    </definition>
+
      <definition name="cookKitchen" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/cookKitchen.jsp" />
     </definition>
+
+    <definition name="cookOrderDialog" template="/WEB-INF/views/pages/cookOrderDialog.jsp">
+    </definition>
+    <definition name="cookOrderRatingDialog" template="/WEB-INF/views/pages/cookOrderRatingDialog.jsp">
+    </definition>
+    <definition name="orderDialog" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/orderDialog.jsp" />
+    </definition>
+    <definition name="cookOrders" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/cookOrders.jsp" />
+    </definition>
+
 </tiles-definitions>
