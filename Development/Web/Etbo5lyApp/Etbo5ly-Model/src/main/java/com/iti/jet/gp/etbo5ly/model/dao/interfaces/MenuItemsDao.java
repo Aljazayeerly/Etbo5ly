@@ -7,15 +7,17 @@ import java.util.List;
 
 public interface MenuItemsDao extends GenericDao<MenuItems> {
 
-    List<MenuItems> searchByMealName(String mealName);
+   public List<MenuItems> searchByMealName(String mealName);
 
-    List<MenuItems> getMenuItemsPage(int page);
+   public List<MenuItems> getMenuItemsPage(int page);
 
-    List<MenuItems> getMealsOfCateogries(List<Integer> id);
+   public List<MenuItems> getMealsOfCateogries(List<Integer> id);
 
-    List<MenuItems> getMealsOfCateogry(int id);
+  public  List<MenuItems> getMealsOfCateogry(int id);
 
-    List<MenuItems> getMealsOfCook(int cookID);
+   public List<MenuItems> getMealsOfCook(int cookID);
 //    List<MenuItemDTO> getAllMeals();
-    List<MenuItems> getMealsOfSpecificLocation(List<String> address);
+   public List<MenuItems> getMealsOfSpecificLocation(List<String> address);
+
+  
 }

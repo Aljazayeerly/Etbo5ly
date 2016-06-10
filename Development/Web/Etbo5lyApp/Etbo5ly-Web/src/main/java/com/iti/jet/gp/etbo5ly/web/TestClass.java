@@ -5,6 +5,8 @@
  */
 package com.iti.jet.gp.etbo5ly.web;
 
+import com.iti.jet.gp.etbo5ly.service.dto.CookDocumentDTO;
+
 import javax.ws.rs.QueryParam;
 import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -128,6 +130,22 @@ public class TestClass {
         return "orderReviewDialog";
     }
 
+//    
+//    @RequestMapping(value = "/joinUS.htm")
+//    public String cookRegister(){
+//        return "cookRegister";
+//    }
+    @RequestMapping(value = "/joinUS.htm")
+    public ModelAndView cookRegister(){
+        return new ModelAndView("cookRegister", "cook", new CookDocumentDTO()); 
+    }
+     
+//    @RequestMapping(value = "/cookKitchen.htm")
+//    @QueryParam("id")
+//    public String cookKitchen(@RequestParam(value = "id") int id) {
+//        return "cookKitchen";
+//    }
+
     @RequestMapping(value = "/addressDetailsDialog.htm")
 
     public String addressDetailsDialog() {
@@ -164,10 +182,11 @@ public class TestClass {
         return "cookOrderRatingDialog";
     }
 
-    @RequestMapping(value = "/joinUS.htm")
-    public String cookRegister() {
-        return "cookRegister";
-    }
+//    @RequestMapping(value = "/joinUS.htm")
+//    public String cookRegister() {
+//        return "cookRegister";
+//
+//    }
     
      @RequestMapping(value = "/cookProfile.htm")
     public String cookProfile() {
