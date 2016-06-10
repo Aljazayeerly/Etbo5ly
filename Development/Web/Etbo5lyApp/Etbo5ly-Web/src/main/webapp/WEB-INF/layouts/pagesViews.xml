@@ -55,4 +55,7 @@
       <definition name="orderReviewDialog" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/orderReviewDialog.jsp" />
     </definition>
+     <definition name="cookKitchen" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/cookKitchen.jsp" />
+    </definition>
 </tiles-definitions>

@@ -53,11 +53,11 @@ App.factory('RegisterService', ['$http', '$q', function ($http, $q) {
                         }
                 ).error(function (errResp) {
                     console.error('Error while checking the email');
-                   // deferred.reject({message: "'Error while fetching all regions"});
+                    // deferred.reject({message: "'Error while fetching all regions"});
                 });
                 return deferred.promise;
             },
-            registerCook:function(cook){
+            registerCook: function (cook) {
                 var deferred = $q.defer();
                 alert(" cook is " + JSON.stringify(cook));
                 return $http.post('/Etbo5ly-Web/rest/cook/joinUS', cook)
@@ -71,7 +71,7 @@ App.factory('RegisterService', ['$http', '$q', function ($http, $q) {
                                     return $q.reject(errResponse);
                                 }
                         );
-                
+
             },
             checkCookEmail: function (email) {
                 var deferred = $q.defer();
@@ -82,10 +82,27 @@ App.factory('RegisterService', ['$http', '$q', function ($http, $q) {
                         }
                 ).error(function (errResp) {
                     console.error('Error while checking the email');
-                   // deferred.reject({message: "'Error while fetching all regions"});
+                    // deferred.reject({message: "'Error while fetching all regions"});
                 });
                 return deferred.promise;
             }
+//            uploadFiles: function () {
+//                var request = {
+//                    method: 'POST',
+//                    url: '',
+//                    data: formdata,
+//                    headers: {
+//                        'Content-Type': undefined
+//                    }
+//                }
+//                $http(request)
+//                        .success(function (d) {
+//                            alert(d);
+//                        })
+//                        .error(function () {
+//                        });
+//
+//            }
 
         };
 
