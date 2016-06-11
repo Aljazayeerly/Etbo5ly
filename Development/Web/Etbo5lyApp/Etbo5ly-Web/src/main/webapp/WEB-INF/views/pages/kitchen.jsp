@@ -20,7 +20,7 @@
 
                 <ul ng-repeat="i in ctrl.cooks" class="nav nav-pills nav-stacked category-menu">
                     <li>
-                        <a href="cook.htm" ng-bind="i.name + '&rsquo;' + 's Menu'"></a>
+                        <a  href="" ng-bind="i.name + '&rsquo;' + 's Profile'" ng-click="ctrl.callToSetCookID(cooks.id)"></a>
                     </li>
                 </ul>
             </div>
@@ -112,7 +112,37 @@
                                         de div bta3t checked categories
                     -->                    
 
-                    <div ng-show="showCheckedMeal"   ng-repeat="k in ctrl.checkedItems" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+                    <div ng-show="showCheckedMeal"   ng-repeat="j in ctrl.checkedItems" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+                        <div>
+
+                            <div>
+                                <label style="color: #E18728;font-size: 15px" ng-bind="j.nameEn"></label>
+                                <br>
+                                <label style="color: gray;font-size: 13px" ng-bind="j.cookName"></label>
+                                <br>
+                                <div >
+                                    <img src="{{j.resourcesURL}}/{{j.imageUrl}}" style="left:20px; width: 160px">
+
+                                    <label style="color: gray; font-size: 13px" ng-bind="j.cookId"></label>
+
+                                </div>
+
+                                <div>
+                                    <label style="color: black;  font-size: 10px" ng-bind="j.descriptionEn"></label>
+                                </div>
+                                <label style="color: #E18728;  font-size: 13px" ng-bind="j.price + ' L.E'"></label>
+                            </div>
+                            <div>
+                                <button ng-click="addItem(j.itemId)">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--de div bta3t search--> 
+
+                    
+                    
+                     <div ng-show="showSearchMeals"   ng-repeat="k in ctrl.searchMeals" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
                         <div>
 
                             <div>
@@ -137,28 +167,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <!--de div bta3t search--> 
-
-                    <!--                    <div ng-repeat="m in ctrl.items" style="left: 390px;width: 600px;height: 200px;margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
-                                                                    <div>
-                                                                        <div style="margin-left: 340px;">
-                                                                            <label style="color: #E18728; margin-left: -220px; font-size: 15px" ng-bind="m.nameEn"></label>
-                                                                            <br>
-                                                                            <label style="color: gray; margin-left: -220px; font-size: 13px" ng-bind="m.cookName"></label>
-                                                                            <div>
-                                                                                <label style="color: black; margin-left: -220px; font-size: 10px" ng-bind="m.descriptionEn"></label>
-                                                                            </div>
-                                                                            <label style="color: #E18728; margin-left: -220px; font-size: 13px" ng-bind="m.price + ' L.E'"></label>
-                                                                        </div>
-                                                                        <div style="margin-left: 340px; margin-top: -110px;">
-                                                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/ada-small.jpeg" style="float: left; margin-left: -380px; margin-top: -8px;">
-                                                                        </div>
-                                                                    </div>
-                                            {{ctrl.searchMeals.length}}
-                                        </div>-->
-
-
+                    
+                    
 
 
 

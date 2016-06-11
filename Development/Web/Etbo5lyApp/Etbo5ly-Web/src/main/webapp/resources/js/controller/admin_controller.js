@@ -1,5 +1,5 @@
 'use strict';
-App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDialog', '$mdMedia', 'PageService', function ($scope, MenuService, MainService, $mdDialog, $mdMedia, PageService) {
+App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDialog', '$mdMedia', 'PageService', function ($scope, MenuService, MainService, $mdDialog, $mdMedia, PageService ) {
 
 
         var cookId = 0;
@@ -43,6 +43,12 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
 
         var l = {"selectedLocations": [
             ]};
+//
+//        self.callToSetCookID = function (id)
+//        {
+//            alert("in controller call "+id);
+//            cookService.setID(id);
+//        };
 
 
         self.getList = function () {
@@ -123,14 +129,16 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             $scope.showCheckedMeal = false;
             $scope.showAllMeals = false;
             $scope.showSearchMeals = true;
+            alert(mealName);
             MenuService.searchForMeal(mealName)
                     .then(
                             function (d) {
                                 self.searchMeals = d;
-                                self.check = true;
-//                                alert(JSON.stringify(self.searchMeals));
+//                                self.check = true;
+                                alert(JSON.stringify(self.searchMeals));
                             },
                             function (errResponse) {
+                                alert("errorrrrr in controller");
                                 console.error('Error while fetching search meals in controller');
                             }
                     );

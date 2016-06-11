@@ -102,9 +102,11 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
 
                         .then(
                                 function(response) {
+                                    alert("in service");
                                     return response.data;
                                 },
                                 function(errResponse) {
+                                    alert(" e in s ");
                                     console.error('Error while fetching meals based on search in service');
                                     return $q.reject(errResponse);
                                 }

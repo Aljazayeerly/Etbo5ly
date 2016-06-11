@@ -6,16 +6,16 @@
 
 'use strict';
 
-App.controller('cookProfileController', ['$scope', 'cookProfileService', function ($scope, cookProfileService) {
+App.controller('cookProfileController', ['$scope', 'cookProfileService', function ($scope, cookProfileService,cookService) {
         var self = this;
 
         self.cookData = {};
         self.getCookData = function (id) {
-            alert(id);
+            alert("in cook profile controller "+id);
             cookProfileService.getCookDataForProfile(id)
                     .then(
                             function (d) {
-//                                alert("iddddd " + id);
+                                alert("iddddd " + id);
                                 self.cookData = d;
 //                                alert("name "+JSON.stringify(self.cookData.menuItems[0].categories[0].nameEn));
 //                                alert("image "+self.cookData.resourcesURL);
@@ -26,6 +26,10 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', functio
                                 console.error('Error while fetching ok data in controller');
                             }
                     );
-        }
-        ;
+        };
+        
+//            $scope.cookID = cookService.getID();
+
+        
+        
     }]);

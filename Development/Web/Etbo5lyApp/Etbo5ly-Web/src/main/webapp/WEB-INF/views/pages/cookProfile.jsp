@@ -10,7 +10,7 @@
             <h1>Profile</h1>
         </header>
         <article>
-            <button ng-click="rl.getCookData(3)">click</button>
+            <button ng-click="rl.getCookData($scope.cookID)">click</button>
             <!--<img src="{{self.cookData.resourcesURL}}/{{self.cookData.imageURL}}">-->
             <img  src="http://127.0.0.1:8089/Etbo5ly-Web/resources/images/cooks/nada.jpg">
             <h2>{{rl.cookData.name}}</h2>
