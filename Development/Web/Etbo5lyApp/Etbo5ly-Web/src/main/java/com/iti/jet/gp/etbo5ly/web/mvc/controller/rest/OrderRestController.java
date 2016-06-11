@@ -85,4 +85,14 @@ public class OrderRestController {
         return new ResponseEntity<List<OrderDTO>>(orders, HttpStatus.OK);
 
     }
+
+    @RequestMapping(value = "/rest/nonRatedOrders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<OrderDTO>> getAllNonRatedOrders(@RequestParam(value = "customerId") int customerId) {
+
+        System.out.println("Cook order restful service");
+        List<OrderDTO> orders = orderService.getAllNonRatedOrdersService(customerId);
+
+        return new ResponseEntity<List<OrderDTO>>(orders, HttpStatus.OK);
+
+    }
 }
