@@ -208,53 +208,58 @@
 
 
 
-    <div class="col-md-3 box" style="top:50px" style="margin-left: 10%">
+    <div class="col-md-3 box" style="top:50px;margin-left: 3%;">
         <div class="box-header">
             <h3>Your Cart</h3>
         </div>
-        <table id="cart" class="table table-hover table-condensed" >
-            <thead>    
-                <tr>   
-                    <th style="width:50%">Product</th>
-                    <th style="width:10%">Price</th>
-                    <th style="width:8%">Quantity</th>
-                    <th style="width:22%" class="text-center">Subtotal</th>
-                    <th style="width:10%"></th>
-                </tr>   
-            </thead>        
-            <tbody>   
-                <tr ng-repeat="i in ctrl.addedItems">   
-                    <td data-th="Product">
-                        <!--<div class="row">-->
-                        <div class="col-sm-10">
-                            <label style="color: #E18728; font-size: 15px" ng-bind="i.menuItemsNameEn"></label>
-                        </div>
+        <div  ng-show="emptyCart">
+            <h2>Empty Cart</h2>
+        </div>
+        <div id="cart" ng-show="cartHasItems" ng-hide="true">
+            <table id="cart" class="table table-hover table-condensed" >
+                <thead>    
+                    <tr>   
+                        <th style="width:50%">Product</th>
+                        <th style="width:10%">Price</th>
+                        <th style="width:8%">Quantity</th>
+                        <th style="width:10%">Subtotal</th>
+                        <th style="width:10%"></th>
+                    </tr>   
+                </thead>        
+                <tbody>   
+                    <tr ng-repeat="i in ctrl.addedItems">   
+                        <td data-th="Product">
+                            <!--<div class="row">-->
+                            <div class="col-sm-10">
+                                <label style="color: #E18728; font-size: 15px" ng-bind="i.menuItemsNameEn"></label>
+                            </div>
 
-                    </td>
-                    <td data-th="Price"><label ng-bind="i.menuItemsPrice"></label></td>
-                    <td data-th="Quantity">
-                        <input type="number" min="1" max="30" class="form-control text-center" value="1" value="i.quantity" ng-model="i.quantity">
-                    </td>
-                    <td data-th="Subtotal" class="text-center"><p ng-bind="i.totalPrice"</p></td>
-                    <td class="actions" data-th="">
+                        </td>
+                        <td data-th="Price"><label ng-bind="i.menuItemsPrice"></label></td>
+                        <td data-th="Quantity">
+                            <input type="number" min="1" max="30" class="form-control text-center" value="1" value="i.quantity" ng-model="i.quantity">
+                        </td>
+                        <td data-th="Subtotal"><label ng-bind="i.price"></label></td>
+                        <td class="actions" data-th="">
 
-                        <button class="btn btn-danger btn-sm" ng-click="deleteItem(i.menuItemsItemId)"><i class="fa fa-trash-o"></i></button>								
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr class="visible-xs">
-                    <td class="text-center"><strong><label id="totalPrices" value="ooo"></label></strong></td>
+                            <button class="btn btn-danger btn-sm" ng-click="deleteItem(i.menuItemsItemId)"><i class="fa fa-trash-o"></i></button>								
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="visible-xs">
+                        <td class="text-center"><strong><label id="totalPrices" value="ooo"></label></strong></td>
 
-                </tr>
-                <tr>
-                    <td colspan="2" class="hidden-xs"></td>
-                    <td class="hidden-xs text-center"><strong> <label id="total"></label></strong></td>
-                    <!--<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>-->
-                    <td><button type="submit" class="btn btn-success btn-block"  ng-click="checkOut()" >CheckOut</button></td>
-                </tr>
-            </tfoot>
-        </table>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="hidden-xs"></td>
+                        <td class="hidden-xs text-center"><strong> <label id="total"></label></strong></td>
+                        <!--<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>-->
+                        <td><button type="submit" class="btn btn-success btn-block"  ng-click="checkOut()" >CheckOut</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 
     <!--</div>-->

@@ -155,5 +155,13 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
         });
     }
 
-   
+    @Override
+    public List<MenuItems> getSpecificMealsCookCategory(int cookId, int categoryId) {
+
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Criteria criteria = session.createCriteria(MenuItems.class, "m").createAlias("m.cook", "cook").createAlias("m.categories", "categories");
+        List<MenuItems> menuItems = criteria.add(Restrictions.and(Restrictions.eq("cook.id", cookId), Restrictions.eq("categories.categoryId", categoryId))).list();
+        return menuItems;
+    }
+
 }

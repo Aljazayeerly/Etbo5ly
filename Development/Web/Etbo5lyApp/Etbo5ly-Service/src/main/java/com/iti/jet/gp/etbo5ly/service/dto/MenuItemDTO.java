@@ -113,4 +113,12 @@ public class MenuItemDTO {
         this.categories = categories;
     }
 
+    public Integer getCookId() {
+        return cookId;
+    }
+
+    public void setCookId(Integer cookId) {
+        this.cookId = cookId;
+    }
+
 }

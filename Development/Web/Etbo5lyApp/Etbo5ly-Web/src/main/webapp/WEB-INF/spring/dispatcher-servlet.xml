@@ -13,6 +13,8 @@
     <context:component-scan base-package="spring.mvc.view.controller" />
     <context:component-scan base-package="com.iti.jet.gp.etbo5ly.*" />
     <context:component-scan base-package="com.iti.jet.gp.etbo5ly.web.mvc.controller.rest.*" /> 
+    <context:component-scan base-package="com.iti.jets.gp.etbo5ly.web.mvc.controller.*" /> 
+
 
     <mvc:annotation-driven />
     <mvc:default-servlet-handler />

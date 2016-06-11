@@ -115,6 +115,7 @@ public class OrderServiceImpl implements OrderService {
             orderDetails.setId(new OrderDetailsId(order.getOrderId(), menuItemID));
             orderDetailsDao.update(orderDetails);
         }
+        statusHasOrderDao.create(new StatusHasOrder(new StatusHasOrderId(4, order.getOrderId()), null, null, new Date()));
 
     }
 
