@@ -5,6 +5,8 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
         var self = $scope;
         $scope.orders = []; //[ {userByCustomerId:0,customerName:"",userByCookId:0,cookName:"",location:"",duration:0,orderDetails:[{menuItemsItemId:0},{menuItemsItemId:0}]},{}];
         $scope.order = {};
+        $scope.orderStatus = [];
+        $scope.orderStatus = [{id: 1, statusName: "Ordered"}, {id: 2, statusName: "Preparing"}, {id: 3, statusName: "In Way"}];
         $scope.getAllCustomerOrders = function() {
             orderService.getAllCustomerOrders()
                     .then(
@@ -75,6 +77,10 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
                     return item;
                 }
             }
+        }
+        $scope.filterExpression = function()
+        {
+            alert("item");
         }
         $scope.changeOrderStatus = function(orderId)
         {
