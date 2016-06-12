@@ -7,6 +7,7 @@ package com.iti.jet.gp.etbo5ly.web.mvc.controller.rest;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.User;
 import com.iti.jet.gp.etbo5ly.service.UserService;
+import com.iti.jet.gp.etbo5ly.service.dto.CustomerDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.LoginDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -37,6 +40,13 @@ public class UserRestController {
         } else {
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @RequestMapping(value = "/checkEmail", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<User> checkEmail(@RequestParam String email) {
+      //  System.err.println("inside checkEmail rfjjjjjjjj rest Controller");
+        User user = service.checkEmail(email);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
 }

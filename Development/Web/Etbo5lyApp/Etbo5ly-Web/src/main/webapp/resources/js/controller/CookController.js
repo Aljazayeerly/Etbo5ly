@@ -4,37 +4,18 @@
  * and open the template in the editor.
  */
 
-//
-//App.directive('ngFiles', ['$parse', function ($parse) {
-//
-//        function fn_link(scope, element, attrs) {
-//            var onChange = $parse(attrs.ngFiles);
-//            element.on('change', function (event) {
-//                onChange(scope, {$files: event.target.files});
-//            });
-//        }
-//        ;
-//
-//        return {
-//            link: fn_link
-//        }
-//    }]);
 App.controller('JoinUsController', ['$scope', 'RegisterService', function ($scope, RegisterService) {
-      var cook = {};
+        var cook = {};
         $scope.regionSelected = 0;
         $scope.addedCook = {};
         $scope.AlreadyCook = "";
+        $scope.longitude = 0.0;
+        $scope.latitude = 0.0;
         var date = new Date();
         var json = JSON.stringify(date);
         var dateStr = JSON.parse(json);
         var formdata = new FormData();
-        
-        
-//        $scope.getTheFiles = function ($files) {
-//            angular.forEach($files, function (value, key) {
-//                formdata.append(key, value);
-//            });
-//        };
+
 
         // This function will convert String from input field to time format
         $scope.toDate = function (dStr, format) {
@@ -82,6 +63,7 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', function ($scop
 
         $scope.showRegionnSelected = function (regionSelected) {
             $scope.regionSelected = regionSelected;
+            //   alert("region Selected"+ $scope.regionSelected);
         }
 
         $scope.getAllRegions = function () {
@@ -98,8 +80,8 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', function ($scop
 
         $scope.checkCookMail = function () {
             //  alert(" email address is " + $scope.email);
-            $scope.AlreadyCook = "";
-            RegisterService.checkCookEmail($scope.email).then(function (resolve) {
+            $scope.AlreadyCook = " ";
+            RegisterService.checkEmail($scope.email).then(function (resolve) {
                 if (!jQuery.isEmptyObject(resolve)) {
                     //  alert(" already a user");
                     $scope.AlreadyCustomer = "Already a user";
@@ -109,20 +91,25 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', function ($scop
             });
 
         }
-        
-//        $scope.uploadFiles = function () {
-//
-//                var request = {
-//                    method: 'POST',
-//                    url: '/api/fileupload/',
-//                    data: formdata,
-//                    headers: {
-//                        'Content-Type': undefined
-//                    }
-//                }
-//            }
-//        
-        
+
+        $scope.showPosition = function (position) {
+            $scope.latitude = position.coords.latitude;
+            $scope.longitude = position.coords.longitude;
+            //  alert(" long is " + $scope.longitude +$scope.latitude); 
+        }
+        function location() {
+
+            navigator.geolocation.getCurrentPosition($scope.showPosition);
+        }
+
+        location();
+
+       $scope.goToLogin=function() {
+           // alert("hahahahahaha");
+            window.location.href = "login.htm";
+        }
+
+
 
     }]);
 

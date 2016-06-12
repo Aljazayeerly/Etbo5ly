@@ -46,7 +46,7 @@ App.factory('RegisterService', ['$http', '$q', function ($http, $q) {
             },
             checkEmail: function (email) {
                 var deferred = $q.defer();
-                $http.get('/Etbo5ly-Web/rest/customer/checkEmail?email=' + email).success(
+                $http.get('/Etbo5ly-Web/rest/user/checkEmail?email=' + email).success(
                         function (response, status, headers, config) {
                             deferred.resolve(response);
                             //console.log(" email already exists" + response);

@@ -16,4 +16,5 @@ import com.iti.jet.gp.etbo5ly.service.dto.LoginDTO;
 public interface UserService {
     User loadUserByEmail(String email);
     User loginIn(LoginDTO loginDTO);
+    User checkEmail(String email);
 }

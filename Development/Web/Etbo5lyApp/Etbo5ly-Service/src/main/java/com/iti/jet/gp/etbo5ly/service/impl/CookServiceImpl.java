@@ -10,10 +10,17 @@ import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.model.pojo.Customer;
 import com.iti.jet.gp.etbo5ly.service.CookService;
+import com.iti.jet.gp.etbo5ly.service.dto.CookDocumentDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.CustomerDTO;
 import com.iti.jet.gp.etbo5ly.service.util.DTOConverter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.transaction.Transactional;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.DetachedCriteria;
@@ -152,14 +159,14 @@ public class CookServiceImpl implements CookService {
     @Override
     @Transactional
     public CookDTO getCookDataForProfile(int cookId) {
-       
+
         Cook cookData = cookDao.getCookData(cookId);
         ModelMapper modelMapper = new ModelMapper();
-            CookDTO cookDTO = modelMapper.map(cookData, CookDTO.class);
-         
+        CookDTO cookDTO = modelMapper.map(cookData, CookDTO.class);
+
         return cookDTO;
     }
-    
+
     public void changeCookStatus(Cook cook) {
 
         System.out.println("change cook status" + cook.getName() + " " + cook.getId());
@@ -193,6 +200,52 @@ public class CookServiceImpl implements CookService {
 
             return null;
         }
+    }
+
+    @Override
+    @Transactional
+    public void insertCook(CookDocumentDTO cook) {
+        CookDTO newCook = new CookDTO();
+        DateFormat timeFormat = new SimpleDateFormat("hh:mm");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        System.out.println(dateFormat.format(date)); //2014/08/06 15:59:48
+        newCook.setName(cook.getName());
+        newCook.setEmail(cook.getEmail());
+        newCook.setAddress(cook.getAddress());
+        newCook.setPassword(cook.getPassword());
+        newCook.setPhone(cook.getPhone());
+        newCook.setRegionId(Integer.parseInt(cook.getRegionid()));
+        newCook.setEnabled(Boolean.TRUE);
+        newCook.setCookStatusStatusId(2);
+        newCook.setLongitude(Double.parseDouble(cook.getLongitude()));
+        newCook.setLatitude(Double.parseDouble(cook.getLongitude()));
+        try {
+            newCook.setStartWorkingHours(timeFormat.parse(cook.getStartWorkingHours()));
+            newCook.setEndWorkingHours(timeFormat.parse(cook.getEndWorkingHours()));
+            newCook.setRegisterationDate(dateFormat.parse(dateFormat.format(date)));
+
+        } catch (ParseException ex) {
+            Logger.getLogger(CookServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        System.out.println("cook registered is " + newCook.toString());
+        Cook cook1 = DTOConverter.cookDTOTOCook(newCook);
+        cookDao.insertCook(cook1);
+
+    }
+
+    @Override
+    @Transactional
+    public int getCookId(String email) {
+        int id = cookDao.getCookId(email);
+        return id;
+    }
+
+    @Override
+    public Cook findById(int id) {
+        Cook cook = cookDao.find(id);
+        return cook;
     }
 
 }
