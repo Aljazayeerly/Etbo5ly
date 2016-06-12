@@ -33,11 +33,6 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         $scope.showSearchMeals = false;
         $scope.showLocationMeals = false;
 
-//        self.countries = [];
-//        $scope.selectedCity = null;
-//        $scope.selectedRegion = null;
-//        $scope.cities = [];
-//        var numbers = ['1','2','3'];
         var s = {"selectedCategories": [
             ]};
 
@@ -403,7 +398,6 @@ App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuServ
             $mdDialog.cancel();
         };
         $scope.orderReviewBtn = true;
-//        $scope.createOrderBtn = false;
         $scope.orderReviewDialog = function()
         {
 
@@ -411,7 +405,6 @@ App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuServ
             $scope.showA = false;
             $scope.showB = true;
             $scope.orderReviewBtn = false;
-//            $scope.createOrderBtn = true;
             $scope.totalPrice = PageService.getTotalPrice();
             PageService.setCity($scope.cities[$scope.selectedCity].cityName);
             PageService.setRegion($scope.selectedRegion);
@@ -433,8 +426,15 @@ App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuServ
         };
         self.getAllRegions();
         $scope.onChangeCity = function(itemSelected) {
+            $.each($scope.cities, function(index, item)
+            {
+                if ($scope.selectedCity == item.cityId)
+                {
+                    $scope.regions = $scope.cities[index].regions;
+                    return;
+                }
+            });
 
-            $scope.regions = $scope.cities[$scope.selectedCity - 1].regions;
         }
     }
 ]);

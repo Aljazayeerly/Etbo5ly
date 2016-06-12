@@ -3,7 +3,7 @@
 App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMedia', 'PageService', function($scope, orderService, $mdDialog, $mdMedia, PageService) {
         $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
         var self = $scope;
-        $scope.orders = []; //[ {userByCustomerId:0,customerName:"",userByCookId:0,cookName:"",location:"",duration:0,orderDetails:[{menuItemsItemId:0},{menuItemsItemId:0}]},{}];
+        $scope.orders = []; 
         $scope.order = {};
         $scope.orderStatus = [];
         $scope.orderStatus = [{id: 1, statusName: "Ordered"}, {id: 2, statusName: "Preparing"}, {id: 3, statusName: "In Way"}];
@@ -26,9 +26,20 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
         $scope.getAllCustomerOrders();
         $scope.OrderDetails = function(id)
         {
+            $.each($scope.orders, function(i, order)
 
-            PageService.setOrder($scope.orders[id]);
-            $scope.viewOrderDetails();
+            {
+                alert("loop : " + i);
+                alert("orderId : " + order.orderId);
+                if (order.orderId == id)
+                {
+                    alert("found i  : " + i);
+                    PageService.setOrder($scope.orders[i]);
+                    $scope.viewOrderDetails();
+
+                }
+            });
+
         };
         $scope.viewOrderDetails = function(ev) {
 
@@ -85,11 +96,7 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
         $scope.changeOrderStatus = function(orderId)
         {
             alert(orderId);
-//            var orderStatus = {};
-//            orderStatus.status = "Delivered";
-//            orderStatus.statusIdOrder = orderId;
             PageService.setOrder($scope.orders[orderId]);
-//            orderService.changeOrderStatus(orderStatus);
             $scope.showOrderRatingDialog();
         }
         $scope.showOrderRatingDialog = function(ev) {
@@ -143,12 +150,9 @@ App.controller("customerOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 
         };
         $scope.submitOrderRating = function()
         {
-//            $scope.order. = "Delivered";
             var statusOrder = {};
             statusOrder.statusIdOrder = $scope.order.orderId;
             statusOrder.status = "Delivered";
-
-//            $scope.order.statusHasOrders.push(statusOrder);
             orderService.orderRate($scope.order);
             $scope.getAllCustomerOrders();
             $scope.hide();
