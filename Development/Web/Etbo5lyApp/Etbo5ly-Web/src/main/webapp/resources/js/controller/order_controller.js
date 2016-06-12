@@ -3,11 +3,9 @@
 App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMedia', 'PageService', function($scope, orderService, $mdDialog, $mdMedia, PageService) {
         $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
         var self = $scope;
-        $scope.orders = []; 
+        $scope.orders = [];
         $scope.order = {};
-        $scope.orderStatus = [];
-        $scope.orderStatus = [{id: 1, statusName: "Ordered"}, {id: 2, statusName: "Preparing"}, {id: 3, statusName: "In Way"}];
-        $scope.getAllCustomerOrders = function() {
+         $scope.getAllCustomerOrders = function() {
             orderService.getAllCustomerOrders()
                     .then(
                             function(d) {
