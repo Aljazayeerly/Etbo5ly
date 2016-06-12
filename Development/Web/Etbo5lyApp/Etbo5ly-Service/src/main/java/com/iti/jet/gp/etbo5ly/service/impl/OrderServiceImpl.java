@@ -115,6 +115,7 @@ public class OrderServiceImpl implements OrderService {
             orderDetails.setId(new OrderDetailsId(order.getOrderId(), menuItemID));
             orderDetailsDao.update(orderDetails);
         }
+        statusHasOrderDao.create(new StatusHasOrder(new StatusHasOrderId(4, order.getOrderId()), null, null, new Date()));
 
     }
 
@@ -127,6 +128,17 @@ public class OrderServiceImpl implements OrderService {
         orderDTOs = DTOConverter.orderListToOrderDTOList(orders);
         System.out.println("ALl Cooks Size bta3 al zft : " + orderDTOs.get(0).getOrderDetails().size());
         return orderDTOs;
+    }
+
+    @Transactional
+    @Override
+    public List<OrderDTO> getAllNonRatedOrdersService(int customerId) {
+
+        List<OrderDTO> orderDTOs = new ArrayList<OrderDTO>();
+        List<Order> orders = orderDao.getAllNonRatedOrders(customerId);
+        orderDTOs = DTOConverter.orderListToOrderDTOList(orders);
+        return orderDTOs;
+
     }
 
 }

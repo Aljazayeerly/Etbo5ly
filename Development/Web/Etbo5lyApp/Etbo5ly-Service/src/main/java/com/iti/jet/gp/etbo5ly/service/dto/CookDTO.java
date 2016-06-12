@@ -64,7 +64,7 @@ public class CookDTO {
         this.password = password;
     }
 
-    public Boolean isEnabled() {
+    public Boolean getEnabled() {
         return enabled;
     }
 

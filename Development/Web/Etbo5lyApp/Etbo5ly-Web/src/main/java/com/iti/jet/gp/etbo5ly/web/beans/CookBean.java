@@ -6,6 +6,7 @@
 package com.iti.jet.gp.etbo5ly.web.beans;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
+import com.iti.jet.gp.etbo5ly.model.pojo.CookStatus;
 import com.iti.jet.gp.etbo5ly.service.CookService;
 import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class CookBean {
 
     private Integer id;
     private String name;
-    private Boolean isEnabled;
+    private Boolean enabled;
     private String phone;
 
     private List<CookDTO> cooks = new ArrayList<>();
@@ -67,12 +68,12 @@ public class CookBean {
         this.cookService = cookService;
     }
 
-    public Boolean getIsEnabled() {
-        return isEnabled;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getPhone() {
@@ -87,15 +88,21 @@ public class CookBean {
     public void getAllCooks() {
 
         cooks = cookService.getAllCookDTOs();
-        System.out.println("cooks size  : " + cooks.size());
     }
 
     public void changeCookState(CookDTO cookDTO) {
 
-        System.out.println("change status");
         Cook cook = new Cook();
         cook.setId(cookDTO.getId());
-        cook.setName("fdh");
+        CookStatus cookStatus = new CookStatus();
+        cook.setEnabled(cookDTO.getEnabled());
+        if (cook.getEnabled() == true) {
+            cookStatus.setStatusId(3);
+        } else if (cook.getEnabled() == false) {
+            cookStatus.setStatusId(2);
+        }
+        cook.setCookStatus(cookStatus);
+        cook.setEnabled(cookDTO.getEnabled());
         cookService.changeCookStatus(cook);
     }
 

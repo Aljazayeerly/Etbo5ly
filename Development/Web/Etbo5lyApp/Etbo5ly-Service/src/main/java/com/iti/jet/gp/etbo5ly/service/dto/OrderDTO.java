@@ -33,17 +33,11 @@ public class OrderDTO {
     private int regionId;
     private Timestamp orderTime;
     private Float totalPrice;
-//    private String regionName;
-//    private String regionNameAr;
-//    private String regionCityName;
-//    private String regionCityNameAr;
-//    private String regionCityCountryName;
     private Set<OrderDetailsDTO> orderDetails = new HashSet<OrderDetailsDTO>(0);
     private Set<StatusHasOrderDTO> statusHasOrders = new HashSet<StatusHasOrderDTO>(0);
 
     public OrderDTO() {
     }
-
 
     public int getOrderId() {
         return orderId;

@@ -11,4 +11,6 @@ public interface OrderDao extends GenericDao<Order> {
 
     List<Order> getAllCookOrdersById(int id);
 
+    List<Order> getAllNonRatedOrders(int customerId);
+
 }

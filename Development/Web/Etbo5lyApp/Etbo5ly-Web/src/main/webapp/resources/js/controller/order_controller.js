@@ -78,11 +78,12 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
         }
         $scope.changeOrderStatus = function(orderId)
         {
-            var orderStatus = {};
-            orderStatus.status = "Delivered";
-            orderStatus.statusIdOrder = orderId;
+            alert(orderId);
+//            var orderStatus = {};
+//            orderStatus.status = "Delivered";
+//            orderStatus.statusIdOrder = orderId;
             PageService.setOrder($scope.orders[orderId]);
-            orderService.changeOrderStatus(orderStatus);
+//            orderService.changeOrderStatus(orderStatus);
             $scope.showOrderRatingDialog();
         }
         $scope.showOrderRatingDialog = function(ev) {
@@ -136,7 +137,14 @@ App.controller("customerOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 
         };
         $scope.submitOrderRating = function()
         {
+//            $scope.order. = "Delivered";
+            var statusOrder = {};
+            statusOrder.statusIdOrder = $scope.order.orderId;
+            statusOrder.status = "Delivered";
+
+//            $scope.order.statusHasOrders.push(statusOrder);
             orderService.orderRate($scope.order);
+            $scope.getAllCustomerOrders();
             $scope.hide();
         }
 

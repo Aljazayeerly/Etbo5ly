@@ -3,6 +3,7 @@ package com.iti.jet.gp.etbo5ly.model.dao.impl;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CookDao;
 import com.iti.jet.gp.etbo5ly.model.generic.dao.GenericDaoImpl;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
+import com.iti.jet.gp.etbo5ly.model.pojo.CookStatus;
 import com.iti.jet.gp.etbo5ly.model.pojo.Customer;
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.model.pojo.Region;
@@ -122,6 +123,20 @@ public class CookDaoImpl extends GenericDaoImpl<Cook> implements
         Cook cook = (Cook) session.createCriteria(Cook.class).add(Restrictions.eq("email", email)).uniqueResult();
         //Customer customer=(Customer) session.get(Customer.class,email);
         return cook;
+    }
+
+    @Override
+    public void changeCookStatus(Cook updatedCook) {
+
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Cook cook = (Cook) session.createCriteria(Cook.class).add(Restrictions.eq("id", updatedCook.getId())).uniqueResult();
+        System.out.println("cook name : " + cook.getName());
+        System.out.println("updatedCook.getEnabled() : " + updatedCook.getEnabled());
+        cook.setEnabled(updatedCook.getEnabled());
+        CookStatus cookStatus = (CookStatus) session.createCriteria(CookStatus.class).add(Restrictions.eq("statusId", updatedCook.getCookStatus().getStatusId())).uniqueResult();
+        cook.setCookStatus(cookStatus);
+        session.saveOrUpdate(cook);
+
     }
 
 }

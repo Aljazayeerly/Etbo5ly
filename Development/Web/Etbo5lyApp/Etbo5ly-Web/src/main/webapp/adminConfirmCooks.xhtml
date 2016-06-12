@@ -31,16 +31,16 @@ and open the template in the editor.
                             <h:outputText value="#{cook.id}" style="font-weight: bold"/>
 
                             <h:outputText value="Name:" />
-                            <h:outputText value="#{cook.name}" style="font-weight: bold"/>
+                            <h:outputText id="name" value="#{cook.name}" style="font-weight: bold"/>
 
                             <h:outputText value="Registeration Date: " />
                             <h:outputText value="#{cook.registerationDate}" style="font-weight: bold"/>
 
                             <h:outputText value="Phone: " />
-                            <h:outputText value="#{cook.phone}" style="font-weight: bold"/>
+                            <h:outputText id="phone" value="#{cook.phone}" style="font-weight: bold"/>
 
                             <h:outputText value="Enable " />
-                            <p:selectBooleanCheckbox value="#{cookBean.isEnabled}">
+                            <p:selectBooleanCheckbox id="enabled" value="#{cook.enabled}">
                                 <p:ajax  listener="#{cookBean.changeCookState(cook)}" />
                             </p:selectBooleanCheckbox>
 
