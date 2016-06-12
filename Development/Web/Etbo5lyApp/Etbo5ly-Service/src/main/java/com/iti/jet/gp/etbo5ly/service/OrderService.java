@@ -27,4 +27,6 @@ public interface OrderService {
     void orderRate(OrderDTO orderDTO);
 
     List<OrderDTO> getAllCookOrders(int id);
+
+    List<OrderDTO> getAllNonRatedOrdersService(int customerId);
 }

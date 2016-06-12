@@ -42,7 +42,7 @@
                 <tbody>
                     <tr ng-repeat="i in orders| filter : myFilter">
                         <th>{{ $index + 1}}</th>
-                        <th><label ng-model="i.customerName" ng-bind="i.customerName"></label></th>
+                        <th><label ng-model="i.cookName" ng-bind="i.cookName"></label></th>
                         <td><label ng-bind="i.orderTime"></label></td>
                         <td><label ng-bind="i.type"></label></td>
                         <td><label ng-bind="i.totalPrice"></label></td>
@@ -53,8 +53,8 @@
                             <span ng-show = "i.statusHasOrders.length == 4" class="label label-success">Delivered</span>
                         </td>
 
-                        <td><button ng-show = "i.statusHasOrders.length != 3" type="submit" ng-click="OrderDetails($index)" value="View" class="btn btn-primary btn-sm">View</button>
-                            <button ng-show = "i.statusHasOrders.length == 3" class="btn btn-primary" ng-click="changeOrderStatus($index)">
+                        <td><button ng-show = "i.statusHasOrders.length != 3" type="submit" ng-click="OrderDetails(i.orderId)" value="View" class="btn btn-primary btn-sm">View</button>
+                            <button ng-show = "i.statusHasOrders.length == 3" class="btn btn-primary" ng-click="changeOrderStatus(i.orderId - 1)">
                                 <i class="fa fa-refresh"></i>Change Status
                             </button>
                         </td>

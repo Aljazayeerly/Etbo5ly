@@ -31,6 +31,11 @@ import javax.persistence.Table;
 //    @NamedQuery(name = "MenuItems.findMealByName", query = "SELECT m FROM menu_items WHERE m.name_en = :nameEn"),
 //    })
 
+//@org.hibernate.annotations.NamedQueries({
+//    @org.hibernate.annotations.NamedQuery(name = "getMealsOfCookAndCategory", query = "from MenuItems m and  where u.email like :email"),
+//    @org.hibernate.annotations.NamedQuery(name = "getUserByEmailAndPassword", query = "from User u where u.email like :email and u.password = :password")
+//})
+
 public class MenuItems  implements java.io.Serializable {
 
 

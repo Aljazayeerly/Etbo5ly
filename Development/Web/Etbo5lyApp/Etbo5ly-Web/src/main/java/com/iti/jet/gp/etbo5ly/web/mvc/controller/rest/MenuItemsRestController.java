@@ -48,12 +48,11 @@ public class MenuItemsRestController {
 //            return new ResponseEntity<List<MenuItemDTO>>(meals, HttpStatus.NOT_FOUND);
 //        }
 //    }
-
     @RequestMapping(value = "/meal", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItemDTO>> getSpecificMeal(@RequestParam(value = "mealName") String name) {
 
         List<MenuItemDTO> sprcificMeal = menuItemsService.getSpecificMealDetails(name);
-        System.out.println("lengthhhhhhhhhh"+sprcificMeal.size());
+        System.out.println("lengthhhhhhhhhh" + sprcificMeal.size());
         if (sprcificMeal != null) {
             return new ResponseEntity<List<MenuItemDTO>>(sprcificMeal, HttpStatus.OK);
         } else {
@@ -61,7 +60,6 @@ public class MenuItemsRestController {
         }
     }
 
-    
     @RequestMapping(value = "/page", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItemDTO>> getMealsByPage(@RequestParam(value = "page") int page) {
         List<MenuItemDTO> mealsBatch = menuItemsService.getMealsByPage(page);
@@ -85,11 +83,9 @@ public class MenuItemsRestController {
         }
     }
 
-    
-    
-     @RequestMapping(value = "/cookMeals", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/cookMeals", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItemDTO>> getSpecificCookMeals(@RequestParam(value = "id") int id) {
-        
+
         List<MenuItemDTO> specificMeal = menuItemsService.getSpecificCookMeals(id);
         System.out.println("cooooook idddddddd" + id);
         if (specificMeal != null) {
@@ -98,24 +94,22 @@ public class MenuItemsRestController {
             return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.NOT_FOUND);
         }
     }
-    
- @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes =MediaType.APPLICATION_JSON_VALUE )
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItemDTO>> getMealsOfCheckedCategories(@RequestBody SearchDTO searchDTO) {
         List<MenuItemDTO> result = null;
-            result=menuItemsService.getMenuItemsOfCategories(searchDTO.getSelectedCategories());
- 
+        result = menuItemsService.getMenuItemsOfCategories(searchDTO.getSelectedCategories());
+
         if (result != null) {
             return new ResponseEntity<>(result, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
         }
     }
-    
 
-     
-     @RequestMapping(value = "/locationMeals", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/locationMeals", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<MenuItemDTO>> getSpecificMealsByLocation(@RequestBody SearchByLocationDTO searchByLocationDTO) {
-        
+
         List<MenuItemDTO> specificMeal = menuItemsService.getMealsByLocation(searchByLocationDTO.getSelectedLocations());
         if (specificMeal != null) {
             return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.OK);
@@ -123,6 +117,15 @@ public class MenuItemsRestController {
             return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.NOT_FOUND);
         }
     }
-    
 
+    @RequestMapping(value = "/cookCategoryMeals", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<MenuItemDTO>> getSpecificMealsCookCategory(@RequestParam(value = "cookId") int cookId, @RequestParam(value = "categoryId") int categoryId) {
+
+        List<MenuItemDTO> specificMeals = menuItemsService.getSpecificMealsCookCategoryService(cookId, categoryId);
+        if (specificMeals != null) {
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeals, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<MenuItemDTO>>(specificMeals, HttpStatus.NOT_FOUND);
+        }
+    }
 }

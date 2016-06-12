@@ -10,7 +10,6 @@
 
     <md-dialog  aria-label="Mango (Fruit)"  ng-cloak >
         <form method="post">
-            <!--<h1>Checkout</h1>-->
             <ul class="nav nav-pills nav-justified">
                 <li ng-show="addressLI" id="addressLI" class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
                 </li>
@@ -84,16 +83,6 @@
                                         <!-- /.row -->
                                     </div>
 
-                                    <!--                                <div class="box-footer">
-                                                                        <div class="pull-right">
-                                                                                                                    <button type="submit" class="btn btn-primary">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
-                                                                                                                    </button>
-                                                                            <md-button class="btn btn-primary" ng-click="orderReviewDialog()" style="margin-right:20px;">
-                                                                                 Order Review<i class="fa fa-chevron-right"></i>
-                                                                            </md-button>
-                                                                        </div>
-                                    
-                                                                    </div>-->
                                 </form>
                                 <div class="pull-right">
                                     <!--<button class="btn btn-primary" ng-click="orderReviewDialog()">Continue b2a</button>-->
@@ -147,7 +136,7 @@
                                                                         </td>
                                                                         <td data-th="Price"><label ng-bind="i.menuItemsPrice"></label></td>
 
-                                                                        <td data-th="Subtotal" class="text-center"><p ng-model="i.price"</p></td>
+                                                                        <td data-th="Subtotal" class="text-center"><p ng-bind="i.price"</p></td>
                                                                         <!--//"(i.quantity) * (i.menuItemsPrice)"-->
 
                                                                     </tr>
@@ -155,7 +144,7 @@
                                                                 <tfoot>
                                                                     <tr>
                                                                         <th colspan="4">Total</th>
-                                                                        <td><label ng-model="totalPrice" ></label></td>
+                                                                        <td><label ng-bind="totalPrice" ></label></td>
                                                                     </tr>
                                                                 </tfoot>
                                                             </table>
@@ -181,43 +170,7 @@
                                         <!-- /.box -->
 
                                     </div>
-                                    <!-- /.col-md-9 -->
 
-                                    <!--                                <div class="col-md-3">
-                                    
-                                                                        <div class="box" id="order-summary">
-                                                                            <div class="box-header">
-                                                                                <h3>Order summary</h3>
-                                                                            </div>
-                                                                            <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
-                                    
-                                                                            <div class="table-responsive">
-                                                                                <table class="table">
-                                                                                    <tbody>
-                                                                                        <tr>
-                                                                                            <td>Order subtotal</td>
-                                                                                            <th>$446.00</th>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td>Shipping and handling</td>
-                                                                                            <th>$10.00</th>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td>Tax</td>
-                                                                                            <th>$0.00</th>
-                                                                                        </tr>
-                                                                                        <tr class="total">
-                                                                                            <td>Total</td>
-                                                                                            <th>$456.00</th>
-                                                                                        </tr>
-                                                                                    </tbody>
-                                                                                </table>
-                                                                            </div>
-                                    
-                                                                        </div>
-                                    
-                                                                    </div>-->
-                                    <!-- /.col-md-3 -->
 
                                 </div>
                                 <!-- /.container -->
@@ -229,17 +182,8 @@
                     <md-button  ng-show="orderReviewBtn" class="btn btn-primary" ng-click="orderReviewDialog()" style="margin-right:20px;">
                         Continue to Order Review
                     </md-button>
-                    <md-button  ng-show="createOrderBtn" class="btn btn-primary" ng-click="createOrder()" style="margin-right:20px;">
-                        Order
-                    </md-button>
-                    <!--
-                                    <span flex></span>
-                    
-                                    <md-button class="btn btn-primary" ng-click="answer('useful')" style="margin-right:20px;">
-                                        Coontinue
-                                    </md-button>-->
+
                 </md-dialog-actions>
             </form>
     </md-dialog>
 </div>
-<!--</div>-->
