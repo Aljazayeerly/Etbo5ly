@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.DocumentType;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.DocumentTypeDao;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 @Repository("documentTypeDaoImpl")
 public class DocumentTypeDaoImpl extends GenericDaoImpl<DocumentType> implements
@@ -24,5 +26,12 @@ public class DocumentTypeDaoImpl extends GenericDaoImpl<DocumentType> implements
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+    @Override
+    public DocumentType checkTypeAvailable(String type) {
+        Session session=getHibernateTemplate().getSessionFactory().getCurrentSession();
+        DocumentType document=(DocumentType) session.createCriteria(DocumentType.class).add(Restrictions.eq("type", type)).uniqueResult();
+        return document;
+    }
 
 }

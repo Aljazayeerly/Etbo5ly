@@ -36,7 +36,7 @@ App.controller('RegisterController', ['$scope', 'RegisterService', function ($sc
 //            customer.RoleId=0;
 
 
-                alert("customersss object is " + JSON.stringify(customer));
+               // alert("customersss object is " + JSON.stringify(customer));
                 RegisterService.registerCustomer(customer).then(function (resolve) {
                     //alert("resolve is " + resolve);
                     $scope.addedCustomer = resolve;
@@ -46,7 +46,7 @@ App.controller('RegisterController', ['$scope', 'RegisterService', function ($sc
 
                    // alert("reject" + reject);
                 });
-                alert(" added Customer is " + JSON.stringify($scope.addedCustomer));
+              //  alert(" added Customer is " + JSON.stringify($scope.addedCustomer));
             }
 
         }

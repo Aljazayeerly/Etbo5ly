@@ -33,8 +33,8 @@
 
         <hr>
 
-        <form:form  method="post" commandName="cook"  name="cook" enctype="multipart/form-data" action="/cook/joinus">
-            <%--<form:errors path="*" element="div"/>--%>
+        <form:form  method="post" commandName="cook" name="cook"  action="joinUS.htm">
+            <form:errors path="*" element="div"/>
             <div class="form-group">
                 <label  id="rLabel"><fmt:message key="name"/></label>
                 <form:input type="text" class="form-control" id="name"  name="name" path="name" ng-model="name" required="true" ng-minlength="4" ng-maxlength="15" ng-pattern="/[a-zA-Z]+/"></form:input>
@@ -62,7 +62,7 @@
                 <label  id="rLabel"><fmt:message key="password"/></label>
                 <form:input type="password" class="form-control" id="password" name="password" path="password" ng-model="password" required="true" ng-minlength="6" ng-maxlength="15"></form:input>
                     <ng-messages for="cook.password.$error" style="color:maroon" role="alert" md-auto-hide="false">
-                    <ng-message when="email"><fmt:message key="email.valid"/></ng-message>
+                        <ng-message when="email"><fmt:message key="email.valid"/></ng-message>
                     <ng-message when="required"><fmt:message key="password.required"/></ng-message>
                     <ng-message when="minlength"><fmt:message key="password.minLength"/></ng-message>
                     <ng-message when="maxlength"><fmt:message key="password.maxLength"/></ng-message>
@@ -103,7 +103,14 @@
             </div>
 
             <div class="form-group">
-                <label  for="singleSelect"><fmt:message key="location"/> </label>
+                <form:input type="hidden" class="form-control" id="latitude" name="latitude" path="latitude" value="{{latitude}}"></form:input>
+            </div>
+            <div class="form-group">
+                <form:input type="hidden" class="form-control" id="longitude" name="longitude" path="longitude" value="{{longitude}}"></form:input>
+            </div>
+
+                <div class="form-group">
+                    <label  for="singleSelect"><fmt:message key="location"/> </label>
                 <form:select path="regionid" name="singleSelect" id="singleSelect" ng-model="$scope.regionSelected" ng-change="showRegionnSelected($scope.regionSelected)" required="true">
                     <form:option value="">Please Choose your region</form:option>
                     <form:option ng-repeat="region in allregions" value="{{region.regionId}}">{{region.regionName}}</form:option>
@@ -113,30 +120,30 @@
                 </ng-messages>
             </div>
 
-            <div class="form-group">
-                <label id="rLabel"><fmt:message key="uploadMedicalDocuments"/></label>
-                <form:input type="file" path="document" id="file" class="form-control input-sm"/>
-                <input type="button" ng-click="uploadFiles()" value="Upload" />
-            </div>
-            <div class="form-group">
-                <label id="rLabel"><fmt:message key="description"/></label>
-                <div class="col-md-7">
-                    <form:input type="text" path="description" id="description" class="form-control input-sm"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="singleSelect"><fmt:message key="documentType"/> </label>
-                <form:select path="documentId" name="singleSelects" id="singleSelects" required="true">
-                    <form:option value="">Please Choose document type</form:option>
-                    <form:option value="1">PDF</form:option>
-                    <form:option value="2">Image PNG</form:option>
-                    <form:option value="3">zipped file</form:option>
-                    <form:option value="4">Image JEPG</form:option>
-                </form:select><br>
-                <ng-messages for="cook.singleSelects.$error" style="color:maroon" role="alert" md-auto-hide="false">
-                    <ng-message when="required"><fmt:message key="type.required"/></ng-message>
-                </ng-messages>
-            </div>    
+            <!--            <div class="form-group">
+                            <label id="rLabel"><fm:message key="uploadMedicalDocuments"/></label>
+                            <input type="file" path="document" id="file" class="form-control input-sm"/>
+                            <input type="button" ng-click="uploadFiles()" value="Upload" />
+                        </div>
+                        <div class="form-group">
+                            <label id="rLabel"><fm:message key="description"/></label>
+                            <div class="col-md-7">
+                                <input type="text" path="description" id="description" class="form-control input-sm"/>
+                            </div>
+                        </div>-->
+            <!--            <div class="form-group">
+                            <label for="singleSelect"><fm:message key="documentType"/> </label>
+                            <for:select path="documentId" name="singleSelects" id="singleSelects" required="true">
+                                <for:option value="">Please Choose document type</for:option>
+                                <for:option value="1">PDF</for:option>
+                                <for:option value="2">Image PNG</for:option>
+                                <for:option value="3">zipped file</for:option>
+                                <for:option value="4">Image JEPG</for:option>
+                            </for:select><br>
+                            <ng-messages for="cook.singleSelects.$error" style="color:maroon" role="alert" md-auto-hide="false">
+                                <ng-message when="required"><fm:message key="type.required"/></ng-message>
+                            </ng-messages>
+                        </div>    -->
 
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" id="rButton" ><i class="fa fa-user-md"></i> <fmt:message key="register"/></button>

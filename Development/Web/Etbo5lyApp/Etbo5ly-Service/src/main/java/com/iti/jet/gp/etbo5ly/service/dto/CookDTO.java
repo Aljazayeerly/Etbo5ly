@@ -173,6 +173,11 @@ public class CookDTO {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "CookDTO{" + "regionId=" + regionId + ", id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", enabled=" + enabled + ", registerationDate=" + registerationDate + ", phone=" + phone + ", address=" + address + ", startWorkingHours=" + startWorkingHours + ", endWorkingHours=" + endWorkingHours + ", longitude=" + longitude + ", latitude=" + latitude + ", imageURL=" + imageURL + ", cookStatusStatusId=" + cookStatusStatusId + ", menuItems=" + menuItems + '}';
+    }
+
 
     
      

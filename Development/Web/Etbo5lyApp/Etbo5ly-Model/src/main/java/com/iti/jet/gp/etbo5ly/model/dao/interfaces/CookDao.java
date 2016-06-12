@@ -18,6 +18,10 @@ public interface CookDao extends GenericDao<Cook> {
     public Cook registerCook(Cook cook);
 
     public Cook CheckEmail(String email);
+    
+    public void insertCook(Cook cook);
+    
+    public int getCookId(String email);
 
     public void changeCookStatus(Cook cook);
 
