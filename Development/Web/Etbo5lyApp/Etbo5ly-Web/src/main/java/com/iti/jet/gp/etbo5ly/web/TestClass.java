@@ -15,11 +15,12 @@ import com.iti.jet.gp.etbo5ly.service.dto.CookDocumentDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.DocumentDTO;
 import com.iti.jet.gp.etbo5ly.service.validator.FileValidator;
 import com.iti.jet.gp.etbo5ly.service.wrapper.FileBucket;
+import com.iti.jet.gp.etbo5ly.web.util.LoggedInUserChecker;
 import com.iti.jets.gp.etbo5ly.web.mvc.controller.DocumentController;
 import java.io.IOException;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
 import javax.ws.rs.QueryParam;
 import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +29,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,6 +61,9 @@ public class TestClass {
 
     @Autowired
     FileValidator fileValidator;
+    
+    @Autowired
+    LoggedInUserChecker loggedInUserChecker;
 
     @InitBinder("fileBucket")
     protected void initBinder(WebDataBinder binder) {
@@ -126,7 +130,8 @@ public class TestClass {
     }
 
     @RequestMapping(value = "/home.htm")
-    public String index() {
+    public String index(HttpSession session) {
+        session.setAttribute("user", loggedInUserChecker.getLoggedUser());
         return "home";
     }
 

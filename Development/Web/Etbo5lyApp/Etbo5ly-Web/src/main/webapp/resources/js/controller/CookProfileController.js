@@ -19,7 +19,6 @@ App.config(function($routeProvider, $locationProvider) {
 App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageService', '$location', function($scope, cookProfileService, PageService, $location) {
         var self = this;
         self.cookData = {};
-
         self.review = [];
         $scope.selectedId;
 
@@ -33,7 +32,8 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageSe
             cookProfileService.getCookDataForProfile($scope.selectedId)
                     .then(
                             function(d) {
-//                                alert("iddddd " + $scope.selectedId);
+                                alert("iddddd " + $scope.selectedId);
+                                alert(self.cookData);
                                 self.cookData = d;
 
                             },
@@ -51,12 +51,12 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageSe
             cookProfileService.getAllReviews($scope.selectedId)
                     .then(
                             function(d) {
-//                                alert("iddddd rev " + $scope.selectedId);
+                                alert("iddddd rev " + $scope.selectedId);
                                 self.review = d;
-//                                alert(JSON.stringify(self.review));
+                                alert(JSON.stringify(self.review));
                             },
                             function(errResponse) {
-
+                                alert("error rev  in controller");
                                 console.error('Error while fetching ok data in controller');
                             }
                     );
@@ -120,8 +120,7 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageSe
 
     }]);
 
-
-app.directive('starRating', function() {
+App.directive('starRating', function() {
     return {
         scope: {
             rating: '=',
@@ -190,6 +189,6 @@ app.directive('starRating', function() {
         }
     };
 
-
-
+//    
+//    
 });

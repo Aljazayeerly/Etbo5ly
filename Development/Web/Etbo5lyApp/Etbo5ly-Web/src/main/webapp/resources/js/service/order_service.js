@@ -24,6 +24,7 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
                         );
             },
             getAllCookOrders: function(id) {
+
                 return $http.get('/Etbo5ly-Web/rest/cookOrders?cookId=3')
                         .then(
                                 function(response) {
@@ -40,6 +41,7 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
             },
             changeOrderStatus: function(orderStatus) {
 
+
                 return $http.post('/Etbo5ly-Web/rest/updateOrderStatus', orderStatus)
                         .then(
                                 function() {
@@ -49,6 +51,7 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
 
                                 },
                                 function(errResponse) {
+
                                     console.error('Error while update order status ');
                                     return $q.reject(errResponse);
                                 }
@@ -61,6 +64,7 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
                                 function() {
                                 },
                                 function(errResponse) {
+
 
                                     console.error('Error while update order status ');
                                     return $q.reject(errResponse);

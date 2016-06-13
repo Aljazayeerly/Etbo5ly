@@ -18,6 +18,8 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
             ,
             getAllRegions: function() {
 
+
+
                 return $http.get('/Etbo5ly-Web/rest/region/countries')
 
                         .then(
@@ -119,7 +121,7 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                                     return response.data;
                                 },
                                 function(errResponse) {
-//                                    alert("error");
+
                                     console.error('Error while fetching checked categories in service');
                                     return $q.reject(errResponse);
                                 }
@@ -131,7 +133,7 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                 return $http.post('/Etbo5ly-Web/rest/locationMeals', address)
                         .then(
                                 function(response) {
-
+//                                  
                                     return response.data;
                                 },
                                 function(errResponse) {
@@ -146,16 +148,17 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                 return $http.post('/Etbo5ly-Web/rest/addItem')
                         .then(
                                 function(response) {
-                                    alert("serviec success");
                                     return response.data;
                                 },
                                 function(errResponse) {
-                                    alert("errorrrrrrrrrrrrr 5ara ");
                                     console.error('Error while adding meals in service');
                                     return $q.reject(errResponse);
                                 }
                         );
             }
+
+
+
 
         };
     }]);

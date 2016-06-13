@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+
 App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', function($scope, RegisterService, MenuService) {
 
         var cook = {};
@@ -12,15 +13,12 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
         $scope.addedCook = {};
         $scope.AlreadyCook = "";
         $scope.categories = [];
-
         $scope.longitude = 0.0;
         $scope.latitude = 0.0;
         var date = new Date();
         var json = JSON.stringify(date);
         var dateStr = JSON.parse(json);
         var formdata = new FormData();
-
-
         // This function will convert String from input field to time format
         $scope.toDate = function(dStr, format) {
             var now = new Date();
@@ -32,9 +30,6 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
             } else
                 return "Invalid Format";
         };
-
-
-
         $scope.registerCook = function(name, email, password, phone, address, SworkingHour, EworkingHour) {
             if (name != null && password != null && email != null && address != null && $scope.regionSelected != 0) {
                 cook.name = name;
@@ -47,7 +42,6 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                 cook.startWorkingHours = $scope.toDate(SworkingHour, "h:m");
                 cook.endWorkingHours = $scope.toDate(EworkingHour, "h:m");
                 cook.registerationDate = dateStr;
-
 //                alert(" json object of cook to be send is " + JSON.stringify(cook));
                 RegisterService.registerCook(cook).then(
                         function(resolve) {
@@ -57,48 +51,29 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                         },
                         function(reject) {
                             console.log(reject);
-
                         }
                 );
-
             }
         };
-
-
-
-
         $scope.addItemToMenu = function(name, price, description) {
             alert("name" + name);
             alert("price" + price);
             alert("desc" + description);
-
             meal.name = name;
             meal.price = price;
             meal.description = description;
-
-
             MenuService.addMenuItem(meal).then(
                     function(resolve) {
                         $scope.addedItem = resolve;
-
                     },
                     function(reject) {
                         console.log(reject);
-
                     }
             );
-
         };
-
-
-
-
         $scope.showRegionnSelected = function(regionSelected) {
             $scope.regionSelected = regionSelected;
         };
-        //   alert("region Selected"+ $scope.regionSelected);
-
-
         $scope.getAllRegions = function() {
             RegisterService.getAllRegion().then(function(resolve) {
                 $scope.allregions = resolve;
@@ -106,7 +81,6 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                     function(reject) {
                         console.log(reject);
                     });
-
         };
         $scope.getAllCategories = function() {
 
@@ -120,11 +94,8 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                             }
                     );
         };
-
-
         $scope.getAllRegions();
         $scope.getAllCategories();
-
         $scope.checkCookMail = function() {
             //  alert(" email address is " + $scope.email);
 //            $scope.AlreadyCook = " ";
@@ -138,11 +109,7 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
             }, function(reject) {
                 console.log(reject);
             });
-
         };
-
-
-
         $scope.showPosition = function(position) {
             $scope.latitude = position.coords.latitude;
             $scope.longitude = position.coords.longitude;
@@ -154,18 +121,12 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
         }
 
         location();
-
         $scope.goToLogin = function() {
             // alert("hahahahahaha");
             window.location.href = "login.htm";
-        };
-
-
-
-
+        }
+        ;
     }]);
-
-
 //App.controller('JoinUsController', ['$scope', function($scope) {
 //
 //    }]);
@@ -181,7 +142,6 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
                     .then(
                             function(d) {
                                 $scope.orders = d;
-                                alert(JSON.stringify(d));
                                 $.each($scope.orders, function(index, item)
 
                                 {
@@ -316,7 +276,8 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
             };
             $scope.answer = function(answer) {
 //                alert("answer");
-            };
+            }
+            ;
         }
     }]);
 App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'PageService', 'orderService', function($scope, $mdDialog, $mdMedia, PageService, orderService)
@@ -336,6 +297,7 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
         $scope.cancel = function() {
             $mdDialog.cancel();
         };
+
         $scope.answer = function(answer) {
 //            alert("answer");
         };
@@ -344,6 +306,7 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
             orderService.orderRate($scope.order);
             $scope.hide();
         };
+
         $scope.starRating1 = 4;
         $scope.starRating2 = 5;
         $scope.starRating3 = 2;
@@ -380,5 +343,6 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
         $scope.mouseLeave3 = function(param) {
             console.log('mouseLeave(' + param + ')');
             $scope.hoverRating3 = param + '*';
-        };
+        }
+        ;
     }]);
