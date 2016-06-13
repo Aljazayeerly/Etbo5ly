@@ -204,6 +204,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
             {
                 if ($scope.max < item.statusStatusId)
                 {
+                    alert("here");
                     $scope.max = item.statusStatusId;
                 }
             });
