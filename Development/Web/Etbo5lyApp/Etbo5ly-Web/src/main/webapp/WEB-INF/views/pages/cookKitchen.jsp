@@ -26,7 +26,7 @@ _________________________________________________________ -->
             <h3 class="panel-title"><font color="#f0ad4e"><b>Cooks</b></font></h3>
         </div>
 
-        <div ng-controller="MenuController as ctrl" class="panel-body">
+        <div ng-controller="cookMenuController as ctrl" class="panel-body">
             <ul ng-repeat="i in ctrl.cooks" class="nav nav-pills nav-stacked category-menu">
                 <li>
                     <a href="cook.htm" ng-bind="i.name + '&rsquo;' + 's Menu'"></a>
@@ -40,7 +40,7 @@ _________________________________________________________ -->
         <div class="panel-heading">
             <h3 class="panel-title"><font color="#f0ad4e"><b>Categories</b></font></h3>
         </div>
-        <div ng-controller="MenuController as ctrl" class="panel-body">
+        <div ng-controller="cookMenuController as ctrl" class="panel-body">
 
             <form>
                 <div class="form-group">
@@ -146,7 +146,7 @@ _________________________________________________________ -->
         <h3>Your Cart</h3>
     </div>
 
-    <table id="cart" class="table table-hover table-condensed" ng-controller="MenuController as ctrl">
+    <table id="cart" class="table table-hover table-condensed" ng-controller="cookMenuController as ctrl">
         <thead>    
             <tr>   
                 <th style="width:50%">Product</th>

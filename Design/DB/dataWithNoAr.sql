@@ -104,4 +104,5 @@ INSERT INTO `etbo5ly`.`status_has_order` (`status_status_id`, `order_order_id`, 
 
 INSERT INTO `etbo5ly`.`document_type` (`document_type_id`, `type`) VALUES ('1', 'application/pdf');
 INSERT INTO `etbo5ly`.`document_type` (`document_type_id`, `type`) VALUES ('2', 'image/png');
-INSERT INTO `etbo5ly`.`document_type` (`document_type_id`, `type`) VALUES ('3', 'application/x-zip-compressed');
+INSERT INTO `etbo5ly`.`document_type` (`document_type_id`, `type`) VALUES ('3', 'application/octet-stream');
+INSERT INTO `etbo5ly`.`document_type` (`document_type_id`, `type`) VALUES ('4', 'image/jpeg');

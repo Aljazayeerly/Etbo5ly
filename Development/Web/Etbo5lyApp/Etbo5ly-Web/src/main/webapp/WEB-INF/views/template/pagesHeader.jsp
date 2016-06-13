@@ -11,7 +11,7 @@ Author     : Nada
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!--Fixed Menu Bar-->
-<div class="navbar navbar-inverse navbar-fixed-top" id="myHeader">
+<div class="navbar navbar-inverse navbar-fixed-top" id="pageHeaders">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
