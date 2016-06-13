@@ -48,7 +48,7 @@
                         <td><label ng-bind="i.totalPrice"></label></td>
                         <td>
                             <select class="form-control" ng-model="selectedStatus" >
-                                <option ng-repeat="status in ctrl.orderStatus" value ="{{status.id}}">{{status.statusName}}</option>
+                                <option ng-repeat="st in orderStatus | filter : filterExpression" value ="{{st.id}}">{{st.statusName}}</option>
                             </select>
                             <!--                            <span  ng-show = "i.statusHasOrders.length == 1" class="label label-info">Ordered</span>
                                                         <span ng-show = "i.statusHasOrders.length == 2" class="label label-danger">Being prepared</span>

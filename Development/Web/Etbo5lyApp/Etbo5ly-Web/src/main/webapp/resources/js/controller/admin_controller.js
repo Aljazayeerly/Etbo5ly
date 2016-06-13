@@ -69,6 +69,28 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
+        $scope.IncDecValue = function(itemId)
+        {
+
+
+            $.each(self.addedItems, function(index, item)
+
+            {
+                if (item.menuItemsItemId == itemId)
+                {
+                    var oldPrice = item.price;
+                    item.price = item.menuItemsPrice * item.quantity;
+
+                    $scope.totalPrice = PageService.getTotalPrice();
+                    $scope.totalPrice -= oldPrice;
+                    $scope.totalPrice += item.price;
+
+                    PageService.setTotalPrice($scope.totalPrice);
+                    document.getElementById("total").innerHTML = $scope.totalPrice;
+                }
+            });
+
+        }
 
         self.getCookMeals = function(id) {
 
@@ -167,7 +189,9 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             $scope.cartHasItems = false;
             $scope.emptyCart = true;
             self.addedItems = [];
-            alert("al length : " + self.addedItems.length);
+
+            $scope.emptyCart = false;
+            $scope.cartHasItems = true;
         };
         self.getAllMeals();
         self.getList();
@@ -266,6 +290,11 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     return;
                 }
             })
+            if (self.addedItems.length == 0)
+            {
+                $scope.cartHasItems = false;
+                $scope.emptyCart = true;
+            }
 
 
         };

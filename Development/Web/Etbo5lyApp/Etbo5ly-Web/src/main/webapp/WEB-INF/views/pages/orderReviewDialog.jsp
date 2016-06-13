@@ -28,7 +28,7 @@
                 </md-toolbar>
                 <md-dialog-content>
                     <div>
-                        <div class="col-md-9" id="addressReviewDiv" ng-show="showA" ng-hide="false">
+                        <div class="col-md-9" id="addressReviewDiv" ng-show="showA" ng-hide="false" style="width:100%;height: 200%">
 
                             <div class="box">
                                 <ul class="nav nav-pills nav-justified">

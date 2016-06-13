@@ -125,6 +125,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
 
         $scope.orders = [];
         $scope.order = {};
+        $scope.orderStatus = [{id: 1, statusName: "Ordered"}, {id: 2, statusName: "Preparing"}, {id: 3, statusName: "InWay"}];
         $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
         $scope.getAllCookOrders = function() {
             orderService.getAllCookOrders()
@@ -184,6 +185,12 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
 //        if (!jQuery.isEmptyObject(resolve)) {
 //        //  alert(" already a user");
 //        $scope.AlreadyCustomer = "Already a user";
+        $scope. filterExpression = function(item)
+        {
+            alert("item : " + item);
+//            alert( "item : " + item.length + " x :  "+ x);
+//               if()
+        }
         $scope.myFilter = function(item)
         {
             if ($scope.myOrderBy == "All")
