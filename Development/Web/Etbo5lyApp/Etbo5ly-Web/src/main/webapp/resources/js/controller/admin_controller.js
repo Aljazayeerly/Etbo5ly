@@ -208,8 +208,8 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
 //            alert("al length : " + self.addedItems.length);
 
 
-            $scope.emptyCart = false;
-            $scope.cartHasItems = true;
+            $scope.emptyCart = true;
+            $scope.cartHasItems = false;
         };
         self.getAllMeals();
         self.getList();

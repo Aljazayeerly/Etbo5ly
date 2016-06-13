@@ -181,6 +181,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
                     .then(
                             function(d) {
                                 $scope.orders = d;
+                                alert(JSON.stringify(d));
                                 $.each($scope.orders, function(index, item)
 
                                 {
@@ -226,7 +227,6 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
         {
             $scope.myOrderBy = mySelect;
         };
-
 //        $scope.checkCookMail = function () {
 //        //  alert(" email address is " + $scope.email);
 //        $scope.AlreadyCook = "";
@@ -234,11 +234,22 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
 //        if (!jQuery.isEmptyObject(resolve)) {
 //        //  alert(" already a user");
 //        $scope.AlreadyCustomer = "Already a user";
-        $scope.filterExpression = function(item)
+        $scope.filterExpression = function(orderStatus)
         {
-            alert("item jj: " + item.length);
-            alert("ssjjs : " + item.statusStatusId);
+            alert("item : " + orderStatus.length);
+            alert("status id  " + orderStatus[0].orderStatusStatusId);
+            $scope.max = 0;
+            $.each(orderStatus, function(index, item)
 
+            {
+                if ($scope.max < item.statusStatusId)
+                {
+                    $scope.max = item.statusStatusId;
+                }
+            });
+            alert("max : " + $scope.max);
+//                var maxValueInArray = Math.max.apply(Math, orderStatus.statusStatusId);
+//                        alert("ssjjs : " + item.statusHasOrders.statusStatusId);
         }
 
 
