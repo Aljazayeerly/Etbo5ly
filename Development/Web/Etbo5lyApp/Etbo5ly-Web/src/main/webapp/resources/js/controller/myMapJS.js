@@ -66,17 +66,14 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
                                     marker.addListener('click', function (cook) {
                                         $scope.cook = element;
                                         var cookjson = JSON.parse(JSON.stringify($scope.cook));
-                                        // alert(" element is " + JSON.stringify($scope.cook));
                                         PageService.setElement($scope.cook);
                                         $scope.cookMenu = PageService.getCookMeals($scope.cook.id);
                                         $scope.cookMenu.then(function (resolve) {
-                                          //  alert(resolve);
                                             PageService.setMenu($scope.cookMenu);
                                             $scope.showCookInformation();
 
                                         }, function (reject) {
                                             console.log(reject);
-                                          //  alert(reject)
                                         });
 
 
@@ -91,7 +88,6 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
         }
 
         $scope.initMap = function () {
-//             alert("inside in the function");
             var mapDiv = document.getElementById('map');
             var map = new google.maps.Map(mapDiv, {
                 center: {lat: 44.540, lng: -78.546},
@@ -100,7 +96,6 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition($scope.showPosition);
             } else {
-//                alert("navigator is not on , sorry please enable your location so we can find you");
             }
         }
 
@@ -124,16 +119,13 @@ function DialogController($scope, $mdDialog, PageService) {
     $scope.clickedCook = PageService.getElement();
 
   // $scope.cookMenu= PageService.getCookMeals($scope.clickedCook.id);
-  //  alert("element send is " + JSON.stringify(PageService.getElement()));
 
-   // alert(" id of the cook is " + $scope.clickedCook.id);
    // $scope.menu = PageService.getCookMeals($scope.clickedCook.id);
 
     $scope.menu = PageService.getMenu();
 
     
     $scope.goToCook=function(){
-     //   alert("cooooooooooooooooooooooooooook");
         window.location.href="cookKitchen.htm?id=" +$scope.clickedCook.id;
     };
 }
