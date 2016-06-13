@@ -4,23 +4,21 @@
  * and open the template in the editor.
  */
 
-App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', function ($scope, RegisterService, MenuService) {
+
+App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', function($scope, RegisterService, MenuService) {
 
         var cook = {};
-        var meal={};
+        var meal = {};
         $scope.regionSelected = 0;
         $scope.addedCook = {};
         $scope.AlreadyCook = "";
         $scope.categories = [];
-
         $scope.longitude = 0.0;
         $scope.latitude = 0.0;
         var date = new Date();
         var json = JSON.stringify(date);
         var dateStr = JSON.parse(json);
         var formdata = new FormData();
-
-
         // This function will convert String from input field to time format
         $scope.toDate = function(dStr, format) {
             var now = new Date();
@@ -32,10 +30,7 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
             } else
                 return "Invalid Format";
         };
-
-
-
-        $scope.registerCook = function (name, email, password, phone, address, SworkingHour, EworkingHour) {
+        $scope.registerCook = function(name, email, password, phone, address, SworkingHour, EworkingHour) {
             if (name != null && password != null && email != null && address != null && $scope.regionSelected != 0) {
                 cook.name = name;
                 cook.email = email;
@@ -47,103 +42,75 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                 cook.startWorkingHours = $scope.toDate(SworkingHour, "h:m");
                 cook.endWorkingHours = $scope.toDate(EworkingHour, "h:m");
                 cook.registerationDate = dateStr;
-
 //                alert(" json object of cook to be send is " + JSON.stringify(cook));
                 RegisterService.registerCook(cook).then(
-                        function (resolve) {
+                        function(resolve) {
                             $scope.addedCook = resolve;
 //                            alert(" added cook is " + $scope.addedCook);
 
                         },
-                        function (reject) {
+                        function(reject) {
                             console.log(reject);
-
                         }
                 );
-
             }
         };
-
-
-
-
- $scope.addItemToMenu = function (name, price, description) {
-     alert("name"+name);
-     alert("price"+price);
-     alert("desc"+description);
-     
-                meal.name = name;
-                meal.price = price;
-                meal.description = description;
-                
-
-                MenuService.addMenuItem(meal).then(
-                        function (resolve) {
-                            $scope.addedItem = resolve;
-
-                        },
-                        function (reject) {
-                            console.log(reject);
-
-                        }
-                );
-
-            };
-        
-
-
-
-        $scope.showRegionnSelected = function (regionSelected) {
+        $scope.addItemToMenu = function(name, price, description) {
+            alert("name" + name);
+            alert("price" + price);
+            alert("desc" + description);
+            meal.name = name;
+            meal.price = price;
+            meal.description = description;
+            MenuService.addMenuItem(meal).then(
+                    function(resolve) {
+                        $scope.addedItem = resolve;
+                    },
+                    function(reject) {
+                        console.log(reject);
+                    }
+            );
+        };
+        $scope.showRegionnSelected = function(regionSelected) {
             $scope.regionSelected = regionSelected;
         };
-            //   alert("region Selected"+ $scope.regionSelected);
-        
-
-        $scope.getAllRegions = function () {
-            RegisterService.getAllRegion().then(function (resolve) {
+        $scope.getAllRegions = function() {
+            RegisterService.getAllRegion().then(function(resolve) {
                 $scope.allregions = resolve;
             },
-                    function (reject) {
+                    function(reject) {
                         console.log(reject);
                     });
-
         };
-        $scope.getAllCategories = function () {
+        $scope.getAllCategories = function() {
 
             MenuService.getAllCategories()
                     .then(
-                            function (d) {
+                            function(d) {
                                 $scope.categories = d;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching all categories in controller');
                             }
                     );
         };
-
-
         $scope.getAllRegions();
         $scope.getAllCategories();
-
-        $scope.checkCookMail = function () {
+        $scope.checkCookMail = function() {
             //  alert(" email address is " + $scope.email);
 //            $scope.AlreadyCook = " ";
 //            RegisterService.checkEmail($scope.email).then(function (resolve) {
             $scope.AlreadyCook = "";
-            RegisterService.checkCookEmail($scope.email).then(function (resolve) {
+            RegisterService.checkCookEmail($scope.email).then(function(resolve) {
                 if (!jQuery.isEmptyObject(resolve)) {
                     //  alert(" already a user");
                     $scope.AlreadyCustomer = "Already a user";
                 }
-            }, function (reject) {
+            }, function(reject) {
                 console.log(reject);
             });
-
         };
-        
-    
-
-        $scope.showPosition = function (position) {
+        $scope.showPosition = function(position) {
             $scope.latitude = position.coords.latitude;
             $scope.longitude = position.coords.longitude;
             //  alert(" long is " + $scope.longitude +$scope.latitude); 
@@ -154,52 +121,46 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
         }
 
         location();
-
-       $scope.goToLogin=function() {
-           // alert("hahahahahaha");
+        $scope.goToLogin = function() {
+            // alert("hahahahahaha");
             window.location.href = "login.htm";
-        };
-
-
-
-
+        }
+        ;
     }]);
-
-
 //App.controller('JoinUsController', ['$scope', function($scope) {
 //
 //    }]);
 
-App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$mdMedia', 'PageService', function ($scope, orderService, $mdDialog, $mdMedia, PageService) {
+App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$mdMedia', 'PageService', function($scope, orderService, $mdDialog, $mdMedia, PageService) {
 
         $scope.orders = [];
         $scope.order = {};
         $scope.orderStatus = [{id: 1, statusName: "Ordered"}, {id: 2, statusName: "Preparing"}, {id: 3, statusName: "InWay"}];
         $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
-        $scope.getAllCookOrders = function () {
+        $scope.getAllCookOrders = function() {
             orderService.getAllCookOrders()
                     .then(
-                            function (d) {
+                            function(d) {
                                 $scope.orders = d;
-                                $.each($scope.orders, function (index, item)
+                                $.each($scope.orders, function(index, item)
 
                                 {
                                     item.orderTime = new Date(item.orderTime).toUTCString();
                                 })
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching cook orders');
                             }
                     );
         };
         $scope.getAllCookOrders();
-        $scope.OrderDetails = function (id)
+        $scope.OrderDetails = function(id)
         {
 
             PageService.setOrder($scope.orders[id]);
             $scope.viewOrderDetails();
         };
-        $scope.viewOrderDetails = function (ev) {
+        $scope.viewOrderDetails = function(ev) {
 
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
             $mdDialog.show({
@@ -211,22 +172,21 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
                 fullscreen: useFullScreen
             })
 
-                    .then(function (answer) {
+                    .then(function(answer) {
                         $scope.status = 'You said the information was "' + answer + '".';
-                    }, function () {
+                    }, function() {
                         $scope.status = 'You cancelled the dialog.';
                     });
-            $scope.$watch(function () {
+            $scope.$watch(function() {
                 return $mdMedia('xs') || $mdMedia('sm');
-            }, function (wantsFullScreen) {
+            }, function(wantsFullScreen) {
                 $scope.customFullscreen = (wantsFullScreen === true);
             });
         };
-        $scope.showSelectValue = function (mySelect)
+        $scope.showSelectValue = function(mySelect)
         {
             $scope.myOrderBy = mySelect;
         };
-
 //        $scope.checkCookMail = function () {
 //        //  alert(" email address is " + $scope.email);
 //        $scope.AlreadyCook = "";
@@ -234,13 +194,25 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
 //        if (!jQuery.isEmptyObject(resolve)) {
 //        //  alert(" already a user");
 //        $scope.AlreadyCustomer = "Already a user";
-
-        $scope. filterExpression = function(item)
+        $scope.filterExpression = function(orderStatus)
         {
-            alert("item : " + item);
-//            alert( "item : " + item.length + " x :  "+ x);
-//               if()
-        };
+
+            $scope.max = 0;
+            $.each(orderStatus, function(index, item)
+
+            {
+                if ($scope.max < item.orderStatusStatusId)
+                {
+                    $scope.max = item.orderStatusStatusId;
+                    $scope.selectedStatus = item.status;
+                }
+            });
+//            alert("selected : " + $scope.selectedStatus);
+
+        }
+
+
+
         $scope.myFilter = function(item)
         {
             if ($scope.myOrderBy == "All")
@@ -260,7 +232,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
                 }
             }
         };
-        $scope.changeOrderStatus = function (orderId)
+        $scope.changeOrderStatus = function(orderId)
         {
             var orderStatus = {};
             orderStatus.status = "Delivered";
@@ -271,7 +243,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
             $scope.showOrderRatingDialog();
             $scope.getAllCookOrders();
         }
-        $scope.showOrderRatingDialog = function (ev) {
+        $scope.showOrderRatingDialog = function(ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
             $mdDialog.show({
                 controller: "cookOrderRatingDialog",
@@ -281,32 +253,33 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen
             })
-                    .then(function (answer) {
+                    .then(function(answer) {
                         $scope.status = 'You said the information was "' + answer + '".';
-                    }, function () {
+                    }, function() {
                         $scope.status = 'You cancelled the dialog.';
                     });
-            $scope.$watch(function () {
+            $scope.$watch(function() {
                 return $mdMedia('xs') || $mdMedia('sm');
-            }, function (wantsFullScreen) {
+            }, function(wantsFullScreen) {
                 $scope.customFullscreen = (wantsFullScreen === true);
             });
         };
         function CookHistoryDialogController($scope, $mdDialog, PageService) {
 
             $scope.order = PageService.getOrder();
-            $scope.hide = function () {
+            $scope.hide = function() {
                 $mdDialog.hide();
             };
-            $scope.cancel = function () {
+            $scope.cancel = function() {
                 $mdDialog.cancel();
             };
-            $scope.answer = function (answer) {
+            $scope.answer = function(answer) {
 //                alert("answer");
-            };
+            }
+            ;
         }
     }]);
-App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'PageService', 'orderService', function ($scope, $mdDialog, $mdMedia, PageService, orderService)
+App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'PageService', 'orderService', function($scope, $mdDialog, $mdMedia, PageService, orderService)
     {
 
 
@@ -314,62 +287,61 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
         $scope.rating1 = 5;
         $scope.rating2 = 2;
         $scope.isReadonly = true;
-        $scope.rateFunction = function () {
-//            alert("Rating : " + $scope.rating1);
-//            alert("Rating : " + $scope.rating2);
+        $scope.rateFunction = function() {
+
         };
-        $scope.hide = function () {
+        $scope.hide = function() {
             $mdDialog.hide();
         };
-        $scope.cancel = function () {
+        $scope.cancel = function() {
             $mdDialog.cancel();
         };
-        $scope.answer = function (answer) {
+
+        $scope.answer = function(answer) {
 //            alert("answer");
         };
-        $scope.submitOrderRating = function ()
+        $scope.submitOrderRating = function()
         {
             orderService.orderRate($scope.order);
             $scope.hide();
         };
 
-
-
         $scope.starRating1 = 4;
         $scope.starRating2 = 5;
         $scope.starRating3 = 2;
         $scope.hoverRating1 = $scope.hoverRating2 = $scope.hoverRating3 = 0;
-        $scope.click1 = function (param) {
+        $scope.click1 = function(param) {
             console.log('Click(' + param + ')');
         };
-        $scope.mouseHover1 = function (param) {
+        $scope.mouseHover1 = function(param) {
             console.log('mouseHover(' + param + ')');
             $scope.hoverRating1 = param;
         };
-        $scope.mouseLeave1 = function (param) {
+        $scope.mouseLeave1 = function(param) {
             console.log('mouseLeave(' + param + ')');
             $scope.hoverRating1 = param + '*';
         };
-        $scope.click2 = function (param) {
+        $scope.click2 = function(param) {
             console.log('Click');
         };
-        $scope.mouseHover2 = function (param) {
+        $scope.mouseHover2 = function(param) {
             console.log('mouseHover(' + param + ')');
             $scope.hoverRating1 = param;
         };
-        $scope.mouseLeave2 = function (param) {
+        $scope.mouseLeave2 = function(param) {
             console.log('mouseLeave(' + param + ')');
             $scope.hoverRating2 = param + '*';
         };
-        $scope.click3 = function (param) {
+        $scope.click3 = function(param) {
             console.log('Click');
         };
-        $scope.mouseHover3 = function (param) {
+        $scope.mouseHover3 = function(param) {
             console.log('mouseHover(' + param + ')');
             $scope.hoverRating3 = param;
         };
-        $scope.mouseLeave3 = function (param) {
+        $scope.mouseLeave3 = function(param) {
             console.log('mouseLeave(' + param + ')');
             $scope.hoverRating3 = param + '*';
-        };
+        }
+        ;
     }]);

@@ -15,6 +15,7 @@ public class StatusHasOrderDTO {
 
     private Integer statusIdOrder;
     private String status;
+    private Integer orderStatusStatusId;
 //    private Date time;
 
     public Integer getStatusIdOrder() {
@@ -40,5 +41,13 @@ public class StatusHasOrderDTO {
 //    public void setTime(Date time) {
 //        this.time = time;
 //    }
+    public Integer getOrderStatusStatusId() {
+        return orderStatusStatusId;
+    }
+
+    public void setOrderStatusStatusId(Integer orderStatusStatusId) {
+        this.orderStatusStatusId = orderStatusStatusId;
+    }
+  
 
 }
