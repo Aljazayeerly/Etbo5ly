@@ -1,5 +1,4 @@
 'use strict';
-
 App.factory('orderService', ['$http', '$q', function($http, $q) {
         var order = [];
         function setOrder(givenOrder) {
@@ -18,6 +17,7 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
                                     return response.data;
                                 },
                                 function(errResponse) {
+
                                     console.error('Error while fetching orders');
                                     return $q.reject(errResponse);
                                 }
@@ -27,12 +27,12 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
                 return $http.get('/Etbo5ly-Web/rest/cookOrders?cookId=3')
                         .then(
                                 function(response) {
-                                    alert("service response");
-                                    alert("response: " + response.length);
+//                                    alert("service response");
+//                                    alert("response: " + response.length);
                                     return response.data;
                                 },
                                 function(errResponse) {
-                                    alert("error response");
+//                                    alert("error response");
                                     console.error('Error while fetching orders');
                                     return $q.reject(errResponse);
                                 }
@@ -43,6 +43,10 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
                 return $http.post('/Etbo5ly-Web/rest/updateOrderStatus', orderStatus)
                         .then(
                                 function() {
+//                                    alert("response");
+//                                    alert("response: " + response.length);
+//                                    return response.data;
+
                                 },
                                 function(errResponse) {
                                     console.error('Error while update order status ');
@@ -57,6 +61,7 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
                                 function() {
                                 },
                                 function(errResponse) {
+
                                     console.error('Error while update order status ');
                                     return $q.reject(errResponse);
                                 }

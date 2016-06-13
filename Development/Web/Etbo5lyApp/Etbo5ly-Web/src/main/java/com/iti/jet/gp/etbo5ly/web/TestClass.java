@@ -89,10 +89,7 @@ public class TestClass {
 
     }
 
-//    @RequestMapping(value = "/login", method = RequestMethod.GET)
-//    public ModelAndView login(@RequestParam(value = "error", required = false) String error,
-//            @RequestParam(value = "logout", required = false) String logout) {
-//=======
+
     
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String login(@RequestParam(value = "error", required = false) String error,
@@ -329,6 +326,11 @@ public class TestClass {
 
         System.out.println("documents " + document.toString());
         documentService.insertDocument(document);
+    }
+     @RequestMapping(value = "/addItem.htm")
+    public String addItem() {
+        return "addItem";
+
     }
 
     public int checkTypeAvalability(String type) {

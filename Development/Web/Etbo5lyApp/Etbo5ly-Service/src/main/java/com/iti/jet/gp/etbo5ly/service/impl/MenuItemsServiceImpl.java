@@ -117,4 +117,12 @@ public class MenuItemsServiceImpl implements MenuItemsService {
         return itemDTOs;
     }
 
+    @Override
+    @Transactional
+    public void addMenuItem(MenuItemDTO menuItemDTO) {
+        ModelMapper modelMapper = new ModelMapper();
+        MenuItems item = modelMapper.map(menuItemDTO, MenuItems.class);
+        menuItemsDao.create(item);
+    }
+
 }

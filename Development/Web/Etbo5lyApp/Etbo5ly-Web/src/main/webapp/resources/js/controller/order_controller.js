@@ -90,6 +90,10 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
         }
         $scope.changeOrderStatus = function(orderId)
         {
+//            alert(orderId);
+//            var orderStatus = {};
+//            orderStatus.status = "Delivered";
+//            orderStatus.statusIdOrder = orderId;
             alert(orderId);
             PageService.setOrder($scope.orders[orderId]);
             $scope.showOrderRatingDialog();
@@ -126,7 +130,7 @@ function CustomerHistoryDialogController($scope, $mdDialog, PageService) {
         $mdDialog.cancel();
     };
     $scope.answer = function(answer) {
-        alert("answer");
+//        alert("answer");
     };
 }
 App.controller("customerOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'PageService', 'orderService', function($scope, $mdDialog, $mdMedia, PageService, orderService)
@@ -141,7 +145,7 @@ App.controller("customerOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 
             $mdDialog.cancel();
         };
         $scope.answer = function(answer) {
-            alert("answer");
+//            alert("answer");
         };
         $scope.submitOrderRating = function()
         {

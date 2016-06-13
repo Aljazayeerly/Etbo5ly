@@ -33,8 +33,8 @@ public class CookDocumentDTO {
     @NotNull
     private String password;
    // private Boolean enabled;
-   // private byte[] image;
-   // private Date registerationDate;
+    // private byte[] image;
+    // private Date registerationDate;
     @NotNull
     private String phone;
     @NotNull
@@ -42,17 +42,19 @@ public class CookDocumentDTO {
     private String longitude;
     private String latitude;
   //  private String imageURL;
-   // @NotNull
+    // @NotNull
     private Integer cookStatusId;
     private String startWorkingHours;
     private String endWorkingHours;
     private String documentId;
     //@NotNull
     private String documentType;
-   // private Cook cook;
+    // private Cook cook;
     private String description;
-   // private Byte verfied;
+    // private Byte verfied;
     private byte[] document;
+    
+//    private Set<RoleDTO> roles;
 
     public String getRegionid() {
         return regionid;
@@ -156,7 +158,7 @@ public class CookDocumentDTO {
 
     public void setDocument(byte[] document) {
         this.document = document;
-    }   
+    }
 
     public Integer getId() {
         return Id;
@@ -181,7 +183,7 @@ public class CookDocumentDTO {
     public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
+
+  
     
-   
-   
 }

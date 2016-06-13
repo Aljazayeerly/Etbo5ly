@@ -7,24 +7,22 @@ package com.iti.jet.gp.etbo5ly.web.mvc.controller.rest;
 
 //import com.iti.jet.gp.etbo5ly.service.dto.CategoryDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
-import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.service.MenuItemsService;
-import com.iti.jet.gp.etbo5ly.service.dto.CategoryDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.OrderDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.SearchByLocationDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.SearchDTO;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 /**
  *
@@ -112,9 +110,9 @@ public class MenuItemsRestController {
 
         List<MenuItemDTO> specificMeal = menuItemsService.getMealsByLocation(searchByLocationDTO.getSelectedLocations());
         if (specificMeal != null) {
-            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.OK);
+            return new ResponseEntity<>(specificMeal, HttpStatus.OK);
         } else {
-            return new ResponseEntity<List<MenuItemDTO>>(specificMeal, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(specificMeal, HttpStatus.NOT_FOUND);
         }
     }
 
@@ -123,9 +121,23 @@ public class MenuItemsRestController {
 
         List<MenuItemDTO> specificMeals = menuItemsService.getSpecificMealsCookCategoryService(cookId, categoryId);
         if (specificMeals != null) {
-            return new ResponseEntity<List<MenuItemDTO>>(specificMeals, HttpStatus.OK);
+            return new ResponseEntity<>(specificMeals, HttpStatus.OK);
         } else {
-            return new ResponseEntity<List<MenuItemDTO>>(specificMeals, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(specificMeals, HttpStatus.NOT_FOUND);
         }
     }
+    
+    
+    @RequestMapping(value = "/addItem", method = RequestMethod.POST, headers = "Accept=application/json")
+    public ResponseEntity<Void> addMenuItemService(@RequestBody MenuItemDTO menuItemDTO) {
+
+        System.out.println("adding menu items ,cook name " + menuItemDTO.getCookName());
+        System.out.println("meal name " + menuItemDTO.getNameEn());
+        menuItemsService.addMenuItem(menuItemDTO);
+        HttpHeaders headers = new HttpHeaders();
+        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+
+    }
+    
+    
 }

@@ -5,7 +5,7 @@
  */
 'use strict';
 //var App = angular.module('myApp', []);
-App.factory('PageService', ['$http', '$q', function($http, $q) {
+App.factory('PageService', ['$http', '$q', function ($http, $q) {
         var cook = {};
         var menu = {};
         var city = null;
@@ -15,6 +15,7 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
         var cookName = null;
         var order = {};
         var totalPrice = 0;
+        var id=0;
         function setElement(data) {
             cook = data;
         }
@@ -40,6 +41,14 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
         function getRegion() {
             return region;
         }
+
+        function setId(data) {
+            id = data;
+        }
+        function getId() {
+            return id;
+        }
+
         function setAddressDetails(data) {
             addressDetails = data;
         }
@@ -82,6 +91,8 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
             getCity: getCity,
             setRegion: setRegion,
             getRegion: getRegion,
+            setId: setId,
+            getId: getId,
             setAddressDetails: setAddressDetails,
             getAddressDetails: getAddressDetails,
             setCookId: setCookId,
@@ -92,17 +103,30 @@ App.factory('PageService', ['$http', '$q', function($http, $q) {
             getOrder: getOrder,
             setTotalPrice: setTotalPrice,
             getTotalPrice: getTotalPrice,
-            getCookMeals: function(id) {
+            getCookMeals: function (id) {
 
                 var data = "";
                 var deferred = $q.defer();
                 $http.get("/Etbo5ly-Web/rest/cookMeals?id=" + id)
-                        .success(function(response, status, headers, config) {
+                        .success(function (response, status, headers, config) {
                             deferred.resolve(response);
                         })
-                        .error(function(errResp) {
+                        .error(function (errResp) {
                             console.error('Error while fetching near by cooks');
                             deferred.reject({message: "'Error while fetching near by cooks'"});
+                        });
+                return deferred.promise;
+            },
+            getAllCooks: function () {
+                var deferred = $q.defer();
+
+                return $http.get('/Etbo5ly-Web/rest/cook/page?page=-2')
+                        .success(function (response, status, headers, config) {
+                            deferred.resolve(response);
+                        })
+                        .error(function (errResp) {
+                            console.error('Error while fetching All Cooks');
+                            deferred.reject({message: "'Error while fetching All Cooks'"});
                         });
                 return deferred.promise;
             },

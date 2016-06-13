@@ -4,17 +4,22 @@
  * and open the template in the editor.
  */
 
-App.controller('JoinUsController', ['$scope', 'RegisterService', function($scope, RegisterService) {
+App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', function($scope, RegisterService, MenuService) {
+
         var cook = {};
+        var meal = {};
         $scope.regionSelected = 0;
         $scope.addedCook = {};
         $scope.AlreadyCook = "";
+        $scope.categories = [];
+
         $scope.longitude = 0.0;
         $scope.latitude = 0.0;
         var date = new Date();
         var json = JSON.stringify(date);
         var dateStr = JSON.parse(json);
         var formdata = new FormData();
+
 
         // This function will convert String from input field to time format
         $scope.toDate = function(dStr, format) {
@@ -26,12 +31,11 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', function($scope
                 return now;
             } else
                 return "Invalid Format";
-        }
+        };
 
 
 
         $scope.registerCook = function(name, email, password, phone, address, SworkingHour, EworkingHour) {
-            //  alert("start working hours is " + SworkingHour + "End working hours "+ EworkingHour);
             if (name != null && password != null && email != null && address != null && $scope.regionSelected != 0) {
                 cook.name = name;
                 cook.email = email;
@@ -58,12 +62,42 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', function($scope
                 );
 
             }
-        }
+        };
+
+
+
+
+        $scope.addItemToMenu = function(name, price, description) {
+            alert("name" + name);
+            alert("price" + price);
+            alert("desc" + description);
+
+            meal.name = name;
+            meal.price = price;
+            meal.description = description;
+
+
+            MenuService.addMenuItem(meal).then(
+                    function(resolve) {
+                        $scope.addedItem = resolve;
+
+                    },
+                    function(reject) {
+                        console.log(reject);
+
+                    }
+            );
+
+        };
+
+
+
 
         $scope.showRegionnSelected = function(regionSelected) {
             $scope.regionSelected = regionSelected;
-            //   alert("region Selected"+ $scope.regionSelected);
-        }
+        };
+        //   alert("region Selected"+ $scope.regionSelected);
+
 
         $scope.getAllRegions = function() {
             RegisterService.getAllRegion().then(function(resolve) {
@@ -73,9 +107,23 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', function($scope
                         console.log(reject);
                     });
 
-        }
+        };
+        $scope.getAllCategories = function() {
+
+            MenuService.getAllCategories()
+                    .then(
+                            function(d) {
+                                $scope.categories = d;
+                            },
+                            function(errResponse) {
+                                console.error('Error while fetching all categories in controller');
+                            }
+                    );
+        };
+
 
         $scope.getAllRegions();
+        $scope.getAllCategories();
 
         $scope.checkCookMail = function() {
             //  alert(" email address is " + $scope.email);
@@ -91,14 +139,15 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', function($scope
                 console.log(reject);
             });
 
-        }
+        };
+
 
 
         $scope.showPosition = function(position) {
             $scope.latitude = position.coords.latitude;
             $scope.longitude = position.coords.longitude;
             //  alert(" long is " + $scope.longitude +$scope.latitude); 
-        }
+        };
         function location() {
 
             navigator.geolocation.getCurrentPosition($scope.showPosition);
@@ -109,7 +158,7 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', function($scope
         $scope.goToLogin = function() {
             // alert("hahahahahaha");
             window.location.href = "login.htm";
-        }
+        };
 
 
 
@@ -176,7 +225,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
         $scope.showSelectValue = function(mySelect)
         {
             $scope.myOrderBy = mySelect;
-        }
+        };
 
 //        $scope.checkCookMail = function () {
 //        //  alert(" email address is " + $scope.email);
@@ -191,6 +240,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
             alert("ssjjs : " + item.statusStatusId);
 
         }
+
 
 
         $scope.myFilter = function(item)
@@ -211,7 +261,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
                     return item;
                 }
             }
-        }
+        };
         $scope.changeOrderStatus = function(orderId)
         {
             var orderStatus = {};
@@ -254,7 +304,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
                 $mdDialog.cancel();
             };
             $scope.answer = function(answer) {
-                alert("answer");
+//                alert("answer");
             };
         }
     }]);
@@ -267,8 +317,7 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
         $scope.rating2 = 2;
         $scope.isReadonly = true;
         $scope.rateFunction = function() {
-//            alert("Rating : " + $scope.rating1);
-//            alert("Rating : " + $scope.rating2);
+
         };
         $scope.hide = function() {
             $mdDialog.hide();
@@ -277,16 +326,13 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
             $mdDialog.cancel();
         };
         $scope.answer = function(answer) {
-            alert("answer");
+//            alert("answer");
         };
         $scope.submitOrderRating = function()
         {
             orderService.orderRate($scope.order);
             $scope.hide();
-        }
-
-
-
+        };
         $scope.starRating1 = 4;
         $scope.starRating2 = 5;
         $scope.starRating3 = 2;

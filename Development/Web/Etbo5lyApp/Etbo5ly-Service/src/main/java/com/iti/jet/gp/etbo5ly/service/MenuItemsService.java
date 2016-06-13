@@ -6,7 +6,6 @@
 package com.iti.jet.gp.etbo5ly.service;
 
 import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
-import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import java.util.List;
 
 /**
@@ -29,4 +28,7 @@ public interface MenuItemsService {
     List<MenuItemDTO> getMealsByLocation(List<String> locationList);
 
     List<MenuItemDTO> getSpecificMealsCookCategoryService(int cookId, int categoryId);
+    
+    void addMenuItem(MenuItemDTO menuItemDTO);
+    
 }
