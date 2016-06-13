@@ -9,16 +9,20 @@ import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CookDao;
 import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.model.pojo.Customer;
+import com.iti.jet.gp.etbo5ly.model.pojo.Role;
 import com.iti.jet.gp.etbo5ly.service.CookService;
 import com.iti.jet.gp.etbo5ly.service.dto.CookDocumentDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.CustomerDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.RoleDTO;
 import com.iti.jet.gp.etbo5ly.service.util.DTOConverter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.transaction.Transactional;
@@ -103,7 +107,7 @@ public class CookServiceImpl implements CookService {
             ));
 
             System.out.print("distance value" + distance);
-            if (distance <= 15) {
+            if (distance <= 5) {
                 nearbyCooks.add(allCooks.get(i));
             }
         }
@@ -209,6 +213,11 @@ public class CookServiceImpl implements CookService {
         DateFormat timeFormat = new SimpleDateFormat("hh:mm");
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
+        RoleDTO role =new RoleDTO();
+        Set<RoleDTO> roles=new HashSet<>();
+        role.setRole("COOK");
+        role.setId(1);
+        roles.add(role);
         System.out.println(dateFormat.format(date)); //2014/08/06 15:59:48
         newCook.setName(cook.getName());
         newCook.setEmail(cook.getEmail());
@@ -220,6 +229,8 @@ public class CookServiceImpl implements CookService {
         newCook.setCookStatusStatusId(2);
         newCook.setLongitude(Double.parseDouble(cook.getLongitude()));
         newCook.setLatitude(Double.parseDouble(cook.getLongitude()));
+        newCook.setRoles(roles);
+        
         try {
             newCook.setStartWorkingHours(timeFormat.parse(cook.getStartWorkingHours()));
             newCook.setEndWorkingHours(timeFormat.parse(cook.getEndWorkingHours()));

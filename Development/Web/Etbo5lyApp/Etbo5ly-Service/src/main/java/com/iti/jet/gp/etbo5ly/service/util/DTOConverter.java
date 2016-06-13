@@ -9,10 +9,12 @@ import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.model.pojo.Document;
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.model.pojo.Order;
+import com.iti.jet.gp.etbo5ly.model.pojo.Role;
 import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.DocumentDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.OrderDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.RoleDTO;
 import java.util.ArrayList;
 import java.util.List;
 import org.modelmapper.ModelMapper;
@@ -78,4 +80,11 @@ public class DTOConverter {
         document=modelMapper.map(documentDTO, Document.class);
         return document;
     }
+    public static Role RoleDTOTORole(RoleDTO roleDTO){
+       Role role=null;
+       role=modelMapper.map(roleDTO,Role.class);
+       return role;
+       
+    }
+    
 }

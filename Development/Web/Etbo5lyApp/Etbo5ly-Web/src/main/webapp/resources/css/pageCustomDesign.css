@@ -7,6 +7,10 @@
     color: #333;
 }
 
+#myHeader{
+    background-color: #f0ad4e;
+}
+
 a,
 button {
     -webkit-transition: all 0.2s ease-out;

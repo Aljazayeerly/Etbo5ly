@@ -36,6 +36,8 @@ public class CookDTO {
 
     private int cookStatusStatusId;
     
+    private Set<RoleDTO> roles;
+    
     Set<MenuItemDTO> menuItems=new HashSet<>(0);
 
     private static String resourcesURL = ResourceUtil.getCooksImagesURL();
@@ -178,7 +180,15 @@ public class CookDTO {
         return "CookDTO{" + "regionId=" + regionId + ", id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", enabled=" + enabled + ", registerationDate=" + registerationDate + ", phone=" + phone + ", address=" + address + ", startWorkingHours=" + startWorkingHours + ", endWorkingHours=" + endWorkingHours + ", longitude=" + longitude + ", latitude=" + latitude + ", imageURL=" + imageURL + ", cookStatusStatusId=" + cookStatusStatusId + ", menuItems=" + menuItems + '}';
     }
 
+    public Set<RoleDTO> getRoles() {
+        return roles;
+    }
 
+    public void setRoles(Set<RoleDTO> roles) {
+        this.roles = roles;
+    }
+
+    
     
      
 }

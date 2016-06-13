@@ -4,9 +4,8 @@ INSERT INTO `etbo5ly`.`category` (category_id,`name_en`, `name_ar`) VALUES (2,'S
 INSERT INTO `etbo5ly`.`category` (category_id,`name_en`, `name_ar`) VALUES (3,'Pasta', '„⁄Ã‰« ');
 INSERT INTO `etbo5ly`.`category` (category_id,`name_en`, `name_ar`) VALUES (4,'Soup', '‘Ê—»…');
 
-INSERT INTO `etbo5ly`.`cook_status` (`status_id`, `status`) VALUES ('1', 'New');
+INSERT INTO `etbo5ly`.`cook_status` (`status_id`, `status`) VALUES ('1', 'Working');
 INSERT INTO `etbo5ly`.`cook_status` (`status_id`, `status`) VALUES ('2', 'Pending');
-INSERT INTO `etbo5ly`.`cook_status` (`status_id`, `status`) VALUES ('3', 'Working');
 
 
 INSERT INTO `etbo5ly`.`country` (`country_id`, `country_name`, `country_name_ar`) VALUES ('1', 'Egypt', '');
@@ -52,7 +51,7 @@ INSERT INTO `etbo5ly`.`menu_items` (`item_id`, `name_en`, `name_ar`, `price`, `d
 INSERT INTO `etbo5ly`.`menu_items` (`item_id`, `name_en`, `name_ar`, `price`, `description_en`, `description_ar`, `item_rate`, `cook_id`, `image_URL`) VALUES ('4', 'chicken with Baked Potato', '', '40', 'Perfectly baked chicken and potato with honey mustard sauce for a match made in Heaven taste Ö try it now !!!', '', '3', '5', 'images (4).jpg');
 INSERT INTO `etbo5ly`.`menu_items` (`item_id`, `name_en`, `name_ar`, `price`, `description_en`, `description_ar`, `item_rate`, `cook_id`, `image_URL`) VALUES ('5', 'Rice with Nuts+Grilled Chicken Breast+Caesar ', '', '45', 'Delicious rice with nuts (Raisins+Almonds+Walnuts), grilled chicken breast & Caesar Salad,a complete meal.', '', '4', '6', 'images (5).jpg');
 INSERT INTO `etbo5ly`.`menu_items` (`item_id`, `name_en`, `name_ar`, `price`, `description_en`, `description_ar`, `item_rate`, `cook_id`, `image_URL`) VALUES ('6', 'Red Sauce Pasta & Chicken Panne Salad', '', '30', 'Just like how your MUM or Grandmother would cook it. perfect comforting lunch after a long hard day.', ' ', '5', '2', 'images (6).jpg');
-INSERT INTO `etbo5ly`.`menu_items` (`item_id`, `name_en`, `name_ar`, `price`, `description_en`, `description_ar`, `item_rate`, `cook_id`, `image_URL`) VALUES ('7', 'Lebanese fatta with Pomegranate molasses (Debs ', '', '14', 'A lebaneese specialty that will make u crave it day and night.caramelized onions and chicken in debs roman sauce ', '', '2', '3', 'images (7).jpg');
+INSERT INTO `etbo5ly`.`menu_items` (`item_id`, `name_en`, `name_ar`, `price`, `description_en`, `description_ar`, `item_rate`, `cook_id`, `image_URL`) VALUES ('7', 'Lebanese fatta (Debs ', '', '14', 'A lebaneese specialty that will make u crave it day and night.caramelized onions and chicken in debs roman sauce ', '', '2', '3', 'images (7).jpg');
 INSERT INTO `etbo5ly`.`menu_items` (`item_id`, `name_en`, `name_ar`, `price`, `description_en`, `description_ar`, `item_rate`, `cook_id`, `image_URL`) VALUES ('8', 'Lentils Soup', '', '25', 'Warm yourself up with our rich lentil soup topped with our crispy croutons and a hint of lemon', '', '4', '4', 'images (8).jpg');
 INSERT INTO `etbo5ly`.`menu_items` (`item_id`, `name_en`, `name_ar`, `price`, `description_en`, `description_ar`, `item_rate`, `cook_id`, `image_URL`) VALUES ('9', 'Mushroom Soup', '', '30', 'Tummy warming blend that will keep you wanting more', '', '4', '5', 'images (9).jpg');
 INSERT INTO `etbo5ly`.`menu_items` (`item_id`, `name_en`, `name_ar`, `price`, `description_en`, `description_ar`, `item_rate`, `cook_id`, `image_URL`) VALUES ('10', 'Vegetarian glass noodles', '', '18', 'Perfectly cooked Chinese glass noodles with a mix of bell peppers and exquisite Chinese sauce that makes a party in ', '', '2', '6', 'images (10).jpg');
@@ -103,4 +102,6 @@ INSERT INTO `etbo5ly`.`status_has_order` (`status_status_id`, `order_order_id`, 
 INSERT INTO `etbo5ly`.`status_has_order` (`status_status_id`, `order_order_id`, `time`) VALUES ('3', '1', '2015-04-16 19:30:00');
 INSERT INTO `etbo5ly`.`status_has_order` (`status_status_id`, `order_order_id`, `time`) VALUES ('4', '1', '2015-04-16 20:30:00');
 
-
+INSERT INTO `etbo5ly`.`document_type` (`document_type_id`, `type`) VALUES ('1', 'application/pdf');
+INSERT INTO `etbo5ly`.`document_type` (`document_type_id`, `type`) VALUES ('2', 'image/png');
+INSERT INTO `etbo5ly`.`document_type` (`document_type_id`, `type`) VALUES ('3', 'application/x-zip-compressed');

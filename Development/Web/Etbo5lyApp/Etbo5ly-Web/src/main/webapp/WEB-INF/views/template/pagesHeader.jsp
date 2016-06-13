@@ -11,7 +11,7 @@ Author     : Nada
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!--Fixed Menu Bar-->
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top" id="myHeader">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -31,7 +31,7 @@ Author     : Nada
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><fmt:message key="language"/><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="?lang=en">English</a></li>
-                        <li><a href="?lang=ar">Arabic</a></li>
+                        <li><a href="?lang=ar_EG">Arabic</a></li>
                     </ul>
                 </li>
 

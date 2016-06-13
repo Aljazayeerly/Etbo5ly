@@ -7,6 +7,7 @@ package com.iti.jet.gp.etbo5ly.service.dto;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.Region;
 import java.util.Date;
+import java.util.Set;
 
 /**
  *
@@ -25,8 +26,8 @@ public class CustomerDTO {
     private String phone;
     private String address;
     private String imageURL;
-    private Integer RoleId;
-    private String role;
+    private Set<RoleDTO> roles;
+
     
 
     public Integer getId() {
@@ -108,23 +109,7 @@ public class CustomerDTO {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
-
-    public Integer getRoleId() {
-        return RoleId;
-    }
-
-    public void setRoleId(Integer RoleId) {
-        this.RoleId = RoleId;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
+  
     public int getRegionId() {
         return regionId;
     }
@@ -132,5 +117,14 @@ public class CustomerDTO {
     public void setRegionId(int regionId) {
         this.regionId = regionId;
     }
+
+    public Set<RoleDTO> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RoleDTO> role) {
+        this.roles = role;
+    }
+    
 
 }
