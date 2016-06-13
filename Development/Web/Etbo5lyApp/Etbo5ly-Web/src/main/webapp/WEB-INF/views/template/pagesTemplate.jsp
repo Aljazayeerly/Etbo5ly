@@ -4,11 +4,8 @@
     Author     : Nada
 --%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<<<<<<< HEAD
 
-=======
 <%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
->>>>>>> 0feb862c772302d21c3ec080f5212a361f413255
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
