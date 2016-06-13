@@ -10,7 +10,6 @@ app.service('cookService', function() {
   var cookID = {};
 
   var setID = function(id) {
-      alert("id in cook service "+id);
       cookID=id;
   };
 
@@ -21,6 +20,7 @@ app.service('cookService', function() {
   return {
     setID: setID,
     getID: getID
+    
   };
 
 });

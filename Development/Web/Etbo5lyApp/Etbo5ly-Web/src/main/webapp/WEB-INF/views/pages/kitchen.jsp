@@ -18,9 +18,9 @@
             <!--//ng-controller="MenuController as ctrl"-->
             <div  class="panel-body">
 
-                <ul ng-repeat="i in ctrl.cooks" class="nav nav-pills nav-stacked category-menu">
+                <ul ng-repeat="i in cooks" class="nav nav-pills nav-stacked category-menu">
                     <li>
-                        <a  href="" ng-bind="i.name + '&rsquo;' + 's Profile'" ng-click="ctrl.callToSetCookID(cooks.id)"></a>
+                        <a ng-bind="i.name + '&rsquo;' + 's Profile'" ng-click="callToSetCookID(i.id)"></a>
                     </li>
                 </ul>
             </div>

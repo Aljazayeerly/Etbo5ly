@@ -16,8 +16,7 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                         );
             }
             ,
-
-            getAllRegions: function() {
+            getAllRegions: function () {
 
                 return $http.get('/Etbo5ly-Web/rest/region/countries')
 
@@ -81,8 +80,7 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                                 }
                         );
             },
-            
-              getAllLocations: function () {
+            getAllLocations: function () {
                 return $http.get('/Etbo5ly-Web/rest/region/allRegion')
                         .then(
                                 function (response) {
@@ -95,18 +93,16 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                                 }
                         );
             },
-            
-    
-            searchForMeal: function(mealName) {
+            searchForMeal: function (mealName) {
                 return $http.get('/Etbo5ly-Web/rest/meal?mealName=' + mealName)
 
                         .then(
-                                function(response) {
-                                    alert("in service");
+                                function (response) {
+//                                    alert("in service");
                                     return response.data;
                                 },
-                                function(errResponse) {
-                                    alert(" e in s ");
+                                function (errResponse) {
+//                                    alert(" e in s ");
                                     console.error('Error while fetching meals based on search in service');
                                     return $q.reject(errResponse);
                                 }
@@ -114,17 +110,16 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
             }
 
             ,
-
-            getMealsForCheckedCategories: function(searchDTO)
+            getMealsForCheckedCategories: function (searchDTO)
             {
                 return $http.post('/Etbo5ly-Web/rest/search', searchDTO)
                         .then(
-                                function(response) {
-                                    alert("in service");
+                                function (response) {
+//                                    alert("in service");
                                     return response.data;
                                 },
-                                function(errResponse) {
-                                    alert("error");
+                                function (errResponse) {
+//                                    alert("error");
                                     console.error('Error while fetching checked categories in service');
                                     return $q.reject(errResponse);
                                 }
@@ -137,8 +132,8 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                 return $http.post('/Etbo5ly-Web/rest/locationMeals', address)
                         .then(
                                 function (response) {
-                                    alert("responsssssse" + response);
-                                    alert("responsssssse dataa" + JSON.stringify(response.data));
+//                                    alert("responsssssse" + response);
+//                                    alert("responsssssse dataa" + JSON.stringify(response.data));
                                     return response.data;
                                 },
                                 function (errResponse) {
@@ -148,6 +143,22 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                         );
 
             }
-  
+
+            ,
+            addMenuItem: function () {
+                return $http.post('/Etbo5ly-Web/rest/addItem')
+                        .then(
+                                function (response) {
+                                    alert("serviec success");
+                                    return response.data;
+                                },
+                                function (errResponse) {
+                                    alert("errorrrrrrrrrrrrr 5ara ");
+                                    console.error('Error while adding meals in service');
+                                    return $q.reject(errResponse);
+                                }
+                        );
+            }
+
         };
     }]);

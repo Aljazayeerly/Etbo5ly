@@ -27,11 +27,7 @@
 
 <div class="col-md-6" id="registerbox">
     <div class="box"  ng-controller="JoinUsController">
-        <h1><fmt:message key="newCook"/></h1>
-
-        <p class="text-muted"><fmt:message key="CookIntro"/></p>
-
-        <hr>
+        
 
         <form:form  method="post" commandName="cook"  name="cook" enctype="multipart/form-data" action="/cook/joinus">
             <%--<form:errors path="*" element="div"/>--%>

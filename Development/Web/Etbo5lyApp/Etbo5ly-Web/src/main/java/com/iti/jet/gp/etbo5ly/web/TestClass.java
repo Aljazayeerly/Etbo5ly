@@ -215,4 +215,9 @@ public class TestClass {
         return "cookProfile";
 
     }
+     @RequestMapping(value = "/addItem.htm")
+    public String addItem() {
+        return "addItem";
+
+    }
 }
