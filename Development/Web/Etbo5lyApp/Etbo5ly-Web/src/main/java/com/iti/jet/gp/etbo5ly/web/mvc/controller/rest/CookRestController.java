@@ -8,7 +8,6 @@ package com.iti.jet.gp.etbo5ly.web.mvc.controller.rest;
 import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.service.CookService;
-import com.iti.jet.gp.etbo5ly.service.dto.CustomerDTO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

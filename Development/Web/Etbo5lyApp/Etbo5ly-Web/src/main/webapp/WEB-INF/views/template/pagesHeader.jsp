@@ -24,7 +24,12 @@ Author     : Nada
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="home.htm"><fmt:message key="home"/></a></li>
-                <li><a href="login.htm"><fmt:message key="login"/></a></li>
+                    <c:if test="${sessionScope.user eq null}">
+                    <li><a href="login.htm"><fmt:message key="login"/></a></li>
+                    </c:if>
+                    <c:if test="${sessionScope.user ne null}">
+                    <li><a href="login.htm?error"><fmt:message key="logout"/></a></li>
+                    </c:if>
                 <li><a href="register.htm"><fmt:message key="register"/></a></li>
                 <li><a href="joinUS.htm"><fmt:message key="joinUs"/></a></li>
                 <li class="dropdown">
@@ -42,7 +47,7 @@ Author     : Nada
                     <div class="input-group add-on">
                         <input class="form-control" placeholder="Search"  id="srch-term" type="text" ng-model="mealName">
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit" ng-click="searchForMeal(mealName)">
+                            <button class="btn btn-default" type="submit" ng-click="ctrl.searchForMeal(mealName)">
                                 <i class="glyphicon glyphicon-search"></i></button>
                         </div>
                     </div>

@@ -9,7 +9,7 @@ App.factory('cookMenuService', ['$http', '$q', function ($http, $q) {
 
         return {
             getCookMenu: function (id) {
-               var data = "";
+                var data = "";
                 var deferred = $q.defer();
                 $http.get("/Etbo5ly-Web/rest/cookMeals?id=" + id)
                         .success(function (response, status, headers, config) {
@@ -21,6 +21,7 @@ App.factory('cookMenuService', ['$http', '$q', function ($http, $q) {
                         });
                 return deferred.promise;
             }
-       };
+            
+        };
 
     }]);

@@ -90,5 +90,8 @@
     <definition name="cookOrders" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/cookOrders.jsp" />
     </definition>
+    <definition name="addItem" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/addItem.jsp" />
+    </definition>
 
 </tiles-definitions>
