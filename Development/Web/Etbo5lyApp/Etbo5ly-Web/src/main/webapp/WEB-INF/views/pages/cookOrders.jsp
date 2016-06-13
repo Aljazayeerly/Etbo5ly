@@ -47,7 +47,7 @@
                         <td><label ng-bind="i.type"></label></td>
                         <td><label ng-bind="i.totalPrice"></label></td>
                         <td>
-                            <select class="form-control" ng-model="selectedStatus" ng-selected="filterExpression(i.statusHasOrders)">
+                            <select class="form-control" ng-model="selectedStatus" ng-selected="filterExpression(i.statusHasOrders)" required>
                                 <option ng-repeat="st in orderStatus" value ="{{st.id}}">{{st.statusName}}</option>
                             </select>
                             <!--                            <span  ng-show = "i.statusHasOrders.length == 1" class="label label-info">Ordered</span>
