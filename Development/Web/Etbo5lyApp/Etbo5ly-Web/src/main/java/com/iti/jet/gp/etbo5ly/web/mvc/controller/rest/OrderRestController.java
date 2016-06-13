@@ -51,7 +51,6 @@ public class OrderRestController {
     @RequestMapping(value = "/rest/createOrder", method = RequestMethod.POST, headers = "Accept=application/json")
     public ResponseEntity<Void> createOrderService(@RequestBody OrderDTO orderDTO, UriComponentsBuilder ucBuilder) {
 
-
         User user = loggedInUserChecker.getLoggedUser();
         orderDTO.setUserByCustomerId(user.getId());
         orderService.createOrder(orderDTO);
@@ -80,9 +79,14 @@ public class OrderRestController {
     public ResponseEntity<List<OrderDTO>> getAllCookOrders(@RequestParam(value = "cookId") int id) {
 
         User user = loggedInUserChecker.getLoggedUser();
-
-        List<OrderDTO> orders = orderService.getAllCookOrders(user.getId());
-
+        List<OrderDTO> orders = null;
+        if (user != null) {
+            System.out.println("not nnull");
+            orders = orderService.getAllCookOrders(user.getId());
+        } else {
+            System.out.println("null");
+              orders = orderService.getAllCookOrders(id);
+        }
         return new ResponseEntity<List<OrderDTO>>(orders, HttpStatus.OK);
 
     }
