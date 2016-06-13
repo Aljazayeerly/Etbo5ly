@@ -1,15 +1,21 @@
 package com.iti.jet.gp.etbo5ly.model.dao.impl;
 
-import com.iti.jet.gp.etbo5ly.model.generic.dao.GenericDaoImpl;
-
-import javax.annotation.PostConstruct;
-
-import org.springframework.stereotype.Repository;
-
-import com.iti.jet.gp.etbo5ly.model.pojo.Order;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.OrderDao;
+import com.iti.jet.gp.etbo5ly.model.generic.dao.GenericDaoImpl;
+import com.iti.jet.gp.etbo5ly.model.pojo.Order;
+import com.iti.jet.gp.etbo5ly.model.pojo.StatusHasOrder;
+import com.iti.jet.gp.etbo5ly.model.pojo.StatusHasOrderId;
+import com.iti.jet.gp.etbo5ly.model.pojo.User;
 import java.util.List;
+import javax.annotation.PostConstruct;
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.orm.hibernate4.HibernateCallback;
+import org.springframework.stereotype.Repository;
 
 @Repository("orderDaoImpl")
 public class OrderDaoImpl extends GenericDaoImpl<Order> implements
@@ -45,6 +51,20 @@ public class OrderDaoImpl extends GenericDaoImpl<Order> implements
 
         return ui;
 
+    }
+
+    @Override
+    public List<Order> getAllNonRatedOrders(final int customerId) {
+
+//        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+//        List<StatusHasOrderId> delivered = session.createCriteria(StatusHasOrder.class, "statusOrder").add(Restrictions.eq("statusOrder.id.statusStatusId", 4)).setProjection(Projections.property("id")).list();
+//        System.out.println("size : " + delivered.size());
+//        for (int i = 0; i < delivered.size(); i++) {
+//            System.out.println("heeereeeeeeeeeeeeee " + delivered.get(i).getOrderOrderId());
+//        }
+        List<Order> nonRatedOrders = getHibernateTemplate().getSessionFactory().getCurrentSession().getNamedQuery("getNonRated").setParameter("customerId", customerId).list();
+
+        return nonRatedOrders;
     }
 
 }

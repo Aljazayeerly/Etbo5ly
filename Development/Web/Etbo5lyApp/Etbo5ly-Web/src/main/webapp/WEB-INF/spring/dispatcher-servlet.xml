@@ -20,6 +20,12 @@
     <mvc:default-servlet-handler />
     <mvc:resources mapping="/resources/**" location="/resources/" />
     
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+        <!-- one of the properties available; the maximum file size in bytes -->
+        <property name="maxUploadSize" value="2000000"/>
+    </bean>
+    
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>
@@ -34,10 +40,12 @@
 
     </bean>
     <!--    This will intercept any change in the locale .... it will enable the user to change in the locale-->
+<mvc:interceptors>   
     <bean id="localeChangeInterceptor"
           class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
         <property name="paramName" value="lang" />
     </bean>
+</mvc:interceptors>
     <!--    This will save the locale in the cookie-->
 
     <bean id="localeResolver"
@@ -45,12 +53,12 @@
         <property name="defaultLocale" value="en"/>
     </bean>
     
-    <bean id="handlerMapping"
+<!--    <bean id="handlerMapping"
           class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
         <property name="interceptors">
             <ref bean="localeChangeInterceptor" />
         </property>
-    </bean>
+    </bean>-->
     
     <!--    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="errorMessages"></property>

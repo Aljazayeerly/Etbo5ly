@@ -10,7 +10,6 @@
 
     <md-dialog  aria-label="Mango (Fruit)"  ng-cloak >
         <form method="post">
-            <!--<h1>Checkout</h1>-->
             <ul class="nav nav-pills nav-justified">
                 <li ng-show="addressLI" id="addressLI" class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
                 </li>
@@ -29,7 +28,7 @@
                 </md-toolbar>
                 <md-dialog-content>
                     <div>
-                        <div class="col-md-9" id="addressReviewDiv" ng-show="showA" ng-hide="false">
+                        <div class="col-md-9" id="addressReviewDiv" ng-show="showA" ng-hide="false" style="width:100%;height: 200%">
 
                             <div class="box">
                                 <ul class="nav nav-pills nav-justified">
@@ -84,16 +83,6 @@
                                         <!-- /.row -->
                                     </div>
 
-                                    <!--                                <div class="box-footer">
-                                                                        <div class="pull-right">
-                                                                                                                    <button type="submit" class="btn btn-primary">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
-                                                                                                                    </button>
-                                                                            <md-button class="btn btn-primary" ng-click="orderReviewDialog()" style="margin-right:20px;">
-                                                                                 Order Review<i class="fa fa-chevron-right"></i>
-                                                                            </md-button>
-                                                                        </div>
-                                    
-                                                                    </div>-->
                                 </form>
                                 <div class="pull-right">
                                     <!--<button class="btn btn-primary" ng-click="orderReviewDialog()">Continue b2a</button>-->
@@ -193,17 +182,8 @@
                     <md-button  ng-show="orderReviewBtn" class="btn btn-primary" ng-click="orderReviewDialog()" style="margin-right:20px;">
                         Continue to Order Review
                     </md-button>
-                    <!--                    <md-button> <input type="submit" ng-show="createOrderBtn" value="Order" class="btn btn-primary" ng-click="createOrder()" style="margin-right:20px;"/>
-                                            Order
-                                        </md-button>-->
-                    <!--
-                                    <span flex></span>
-                    
-                                    <md-button class="btn btn-primary" ng-click="answer('useful')" style="margin-right:20px;">
-                                        Coontinue
-                                    </md-button>-->
+
                 </md-dialog-actions>
             </form>
     </md-dialog>
 </div>
-<!--</div>-->

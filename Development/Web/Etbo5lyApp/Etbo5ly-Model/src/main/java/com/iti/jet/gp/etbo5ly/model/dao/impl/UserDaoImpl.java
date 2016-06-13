@@ -8,8 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.User;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.UserDao;
+import com.iti.jet.gp.etbo5ly.model.pojo.Customer;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.HibernateCallback;
 
 @Repository("userDaoImpl")
@@ -49,6 +51,14 @@ UserDao{
                 return sn.getNamedQuery("getUserByEmailAndPassword").setParameter("email", email).setParameter("password", password).uniqueResult();
             }
         });
+    }
+
+    @Override
+    public User checkEmail(String email) {
+         Session session=getHibernateTemplate().getSessionFactory().getCurrentSession();
+        User user=(User) session.createCriteria(User.class).add(Restrictions.eq("email", email)).uniqueResult();
+        //Customer customer=(Customer) session.get(Customer.class,email);
+        return user;
     }
 
 	

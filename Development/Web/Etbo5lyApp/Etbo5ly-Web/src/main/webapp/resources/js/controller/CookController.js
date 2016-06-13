@@ -5,19 +5,24 @@
  */
 
 App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', function ($scope, RegisterService, MenuService) {
+
         var cook = {};
         var meal={};
         $scope.regionSelected = 0;
         $scope.addedCook = {};
         $scope.AlreadyCook = "";
         $scope.categories = [];
+
+        $scope.longitude = 0.0;
+        $scope.latitude = 0.0;
         var date = new Date();
         var json = JSON.stringify(date);
         var dateStr = JSON.parse(json);
         var formdata = new FormData();
 
 
-        $scope.toDate = function (dStr, format) {
+        // This function will convert String from input field to time format
+        $scope.toDate = function(dStr, format) {
             var now = new Date();
             if (format == "h:m") {
                 now.setHours(dStr.substr(0, dStr.indexOf(":")));
@@ -91,6 +96,8 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
         $scope.showRegionnSelected = function (regionSelected) {
             $scope.regionSelected = regionSelected;
         };
+            //   alert("region Selected"+ $scope.regionSelected);
+        
 
         $scope.getAllRegions = function () {
             RegisterService.getAllRegion().then(function (resolve) {
@@ -120,6 +127,8 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
 
         $scope.checkCookMail = function () {
             //  alert(" email address is " + $scope.email);
+//            $scope.AlreadyCook = " ";
+//            RegisterService.checkEmail($scope.email).then(function (resolve) {
             $scope.AlreadyCook = "";
             RegisterService.checkCookEmail($scope.email).then(function (resolve) {
                 if (!jQuery.isEmptyObject(resolve)) {
@@ -131,19 +140,27 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
             });
 
         };
+        
+    
 
-//        $scope.uploadFiles = function () {
-//
-//                var request = {
-//                    method: 'POST',
-//                    url: '/api/fileupload/',
-//                    data: formdata,
-//                    headers: {
-//                        'Content-Type': undefined
-//                    }
-//                }
-//            }
-//        
+        $scope.showPosition = function (position) {
+            $scope.latitude = position.coords.latitude;
+            $scope.longitude = position.coords.longitude;
+            //  alert(" long is " + $scope.longitude +$scope.latitude); 
+        };
+        function location() {
+
+            navigator.geolocation.getCurrentPosition($scope.showPosition);
+        }
+
+        location();
+
+       $scope.goToLogin=function() {
+           // alert("hahahahahaha");
+            window.location.href = "login.htm";
+        };
+
+
 
 
     }]);
@@ -157,6 +174,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
 
         $scope.orders = [];
         $scope.order = {};
+        $scope.orderStatus = [{id: 1, statusName: "Ordered"}, {id: 2, statusName: "Preparing"}, {id: 3, statusName: "InWay"}];
         $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
         $scope.getAllCookOrders = function () {
             orderService.getAllCookOrders()
@@ -207,7 +225,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
         $scope.showSelectValue = function (mySelect)
         {
             $scope.myOrderBy = mySelect;
-        }
+        };
 
 //        $scope.checkCookMail = function () {
 //        //  alert(" email address is " + $scope.email);
@@ -216,7 +234,14 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
 //        if (!jQuery.isEmptyObject(resolve)) {
 //        //  alert(" already a user");
 //        $scope.AlreadyCustomer = "Already a user";
-        $scope.myFilter = function (item)
+
+        $scope. filterExpression = function(item)
+        {
+            alert("item : " + item);
+//            alert( "item : " + item.length + " x :  "+ x);
+//               if()
+        };
+        $scope.myFilter = function(item)
         {
             if ($scope.myOrderBy == "All")
                 return item;
@@ -234,7 +259,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
                     return item;
                 }
             }
-        }
+        };
         $scope.changeOrderStatus = function (orderId)
         {
             var orderStatus = {};
@@ -306,20 +331,8 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
         {
             orderService.orderRate($scope.order);
             $scope.hide();
-        }
+        };
 
-//        $scope.uploadFiles = function () {
-//
-//                var request = {
-//                    method: 'POST',
-//                    url: '/api/fileupload/',
-//                    data: formdata,
-//                    headers: {
-//                        'Content-Type': undefined
-//                    }
-//                }
-//            }
-//        
 
 
         $scope.starRating1 = 4;

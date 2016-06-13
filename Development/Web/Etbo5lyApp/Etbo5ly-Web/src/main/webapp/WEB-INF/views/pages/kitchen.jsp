@@ -237,7 +237,7 @@
                         </td>
                         <td data-th="Price"><label ng-bind="i.menuItemsPrice"></label></td>
                         <td data-th="Quantity">
-                            <input type="number" min="1" max="30" class="form-control text-center" value="1" value="i.quantity" ng-model="i.quantity">
+                            <input type="number" min="1" max="30" class="form-control text-center" ng-click="IncDecValue(i.menuItemsItemId)" value="1" ng-model="i.quantity">
                         </td>
                         <td data-th="Subtotal"><label ng-bind="i.price"></label></td>
                         <td class="actions" data-th="">

@@ -23,6 +23,14 @@
     <definition name="cookRegister" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/joinUs.jsp" />
     </definition>
+    
+    <definition name="registerSuccess" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/RegiserationSuccess.jsp" />
+    </definition>
+    
+     <definition name="add-document" extends="DefaultPageTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/pages/uploadDocuments.jsp" />
+    </definition>
         
         
     <definition name="login" extends="DefaultPageTemplate">
@@ -68,7 +76,7 @@
     <definition name="customerOrderRatingDialog" template="/WEB-INF/views/pages/customerOrderRatingDialog.jsp">
     </definition>
 
-     <definition name="cookKitchen" extends="DefaultPageTemplate">
+    <definition name="cookKitchen" extends="DefaultPageTemplate">
         <put-attribute name="body" value="/WEB-INF/views/pages/cookKitchen.jsp" />
     </definition>
 

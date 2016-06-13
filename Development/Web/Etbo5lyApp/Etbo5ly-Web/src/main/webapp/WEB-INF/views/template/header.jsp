@@ -22,7 +22,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><fmt:message key="language"/><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="?lang=en">English</a></li>
-                        <li><a href="?lang=ar">Arabic</a></li>
+                        <li><a href="?lang=ar_EG">Arabic</a></li>
                     </ul>
                 </li>
 

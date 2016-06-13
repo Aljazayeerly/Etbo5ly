@@ -130,4 +130,15 @@ public class OrderServiceImpl implements OrderService {
         return orderDTOs;
     }
 
+    @Transactional
+    @Override
+    public List<OrderDTO> getAllNonRatedOrdersService(int customerId) {
+
+        List<OrderDTO> orderDTOs = new ArrayList<OrderDTO>();
+        List<Order> orders = orderDao.getAllNonRatedOrders(customerId);
+        orderDTOs = DTOConverter.orderListToOrderDTOList(orders);
+        return orderDTOs;
+
+    }
+
 }

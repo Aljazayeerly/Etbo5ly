@@ -93,20 +93,20 @@ public class CookDaoImpl extends GenericDaoImpl<Cook> implements
 
     @Override
     public Cook getCookData(final int id) {
-     return (Cook) getHibernateTemplate().execute(new HibernateCallback<Object>() {
+        return (Cook) getHibernateTemplate().execute(new HibernateCallback<Object>() {
 
             @Override
             public Object doInHibernate(Session sn) throws HibernateException {
                 Cook selectedCook = new Cook();
-               // selectedCook = (Cook) sn.createCriteria(Cook.class).add(Restrictions.and(Restrictions.eq("latitude", latitiude), Restrictions.eq("longitude", longitud))).uniqueResult();
+                // selectedCook = (Cook) sn.createCriteria(Cook.class).add(Restrictions.and(Restrictions.eq("latitude", latitiude), Restrictions.eq("longitude", longitud))).uniqueResult();
                 selectedCook = (Cook) sn.createCriteria(Cook.class).add(Restrictions.eq("id", id)).uniqueResult();
-               // System.out.println(selectedCook.getName());
+                // System.out.println(selectedCook.getName());
                 return selectedCook;
 
             }
-        });    }
+        });
+    }
 
-  
     public Cook registerCook(Cook cook) {
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
         Serializable saved = session.save(cook);
@@ -126,6 +126,21 @@ public class CookDaoImpl extends GenericDaoImpl<Cook> implements
     }
 
     @Override
+    public void insertCook(Cook cook) {
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        session.persist(cook);
+    }
+
+    @Override
+    public int getCookId(String email) {
+        int id = 0;
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Cook cook = (Cook) session.createCriteria(Cook.class).add(Restrictions.eq("email", email)).uniqueResult();
+        id = cook.getId();
+        return id;
+    }
+    
+    @Override
     public void changeCookStatus(Cook updatedCook) {
 
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
@@ -136,7 +151,6 @@ public class CookDaoImpl extends GenericDaoImpl<Cook> implements
         CookStatus cookStatus = (CookStatus) session.createCriteria(CookStatus.class).add(Restrictions.eq("statusId", updatedCook.getCookStatus().getStatusId())).uniqueResult();
         cook.setCookStatus(cookStatus);
         session.saveOrUpdate(cook);
-
     }
 
 }

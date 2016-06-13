@@ -37,6 +37,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
 //        $scope.selectedRegion = null;
 //        $scope.cities = [];
 //        var numbers = ['1','2','3'];
+
         var s = {"selectedCategories": [
             ]};
 
@@ -83,6 +84,28 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
+        $scope.IncDecValue = function(itemId)
+        {
+
+
+            $.each(self.addedItems, function(index, item)
+
+            {
+                if (item.menuItemsItemId == itemId)
+                {
+                    var oldPrice = item.price;
+                    item.price = item.menuItemsPrice * item.quantity;
+
+                    $scope.totalPrice = PageService.getTotalPrice();
+                    $scope.totalPrice -= oldPrice;
+                    $scope.totalPrice += item.price;
+
+                    PageService.setTotalPrice($scope.totalPrice);
+                    document.getElementById("total").innerHTML = $scope.totalPrice;
+                }
+            });
+
+        }
 
         self.getCookMeals = function (id) {
 
@@ -183,6 +206,10 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             $scope.emptyCart = true;
             self.addedItems = [];
 //            alert("al length : " + self.addedItems.length);
+
+
+            $scope.emptyCart = false;
+            $scope.cartHasItems = true;
         };
         self.getAllMeals();
         self.getList();
@@ -281,6 +308,11 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     return;
                 }
             })
+            if (self.addedItems.length == 0)
+            {
+                $scope.cartHasItems = false;
+                $scope.emptyCart = true;
+            }
 
 
         };
@@ -414,14 +446,14 @@ App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuServ
         };
         $scope.orderReviewBtn = true;
 //        $scope.createOrderBtn = false;
-        $scope.orderReviewDialog = function ()
+   
+        $scope.orderReviewDialog = function()
         {
 
 
             $scope.showA = false;
             $scope.showB = true;
             $scope.orderReviewBtn = false;
-//            $scope.createOrderBtn = true;
             $scope.totalPrice = PageService.getTotalPrice();
             PageService.setCity($scope.cities[$scope.selectedCity].cityName);
             PageService.setRegion($scope.selectedRegion);
@@ -442,10 +474,18 @@ App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuServ
                     );
         };
         self.getAllRegions();
-        $scope.onChangeCity = function (itemSelected) {
+       
+        $scope.onChangeCity = function(itemSelected) {
+            $.each($scope.cities, function(index, item)
+            {
+                if ($scope.selectedCity == item.cityId)
+                {
+                    $scope.regions = $scope.cities[index].regions;
+                    return;
+                }
+            });
 
-            $scope.regions = $scope.cities[$scope.selectedCity - 1].regions;
-        }
+        };
     }
 ]);
 

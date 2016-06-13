@@ -23,50 +23,44 @@ import javax.validation.constraints.NotNull;
  */
 public class CookDocumentDTO {
 
-    private Integer cookId;
-   // @NotNull
-    private Integer regionid;
-   // @NotNull
+    private Integer Id;
+    @NotNull
+    private String regionid;
+    @NotNull
     private String name;
-   // @NotNull
+    @NotNull
     private String email;
-   // @NotNull
+    @NotNull
     private String password;
-    private Boolean enabled;
-    private byte[] image;
-    private Date registerationDate;
-   // @NotNull
+   // private Boolean enabled;
+    // private byte[] image;
+    // private Date registerationDate;
+    @NotNull
     private String phone;
-   // @NotNull
+    @NotNull
     private String address;
-    private Double longitude;
-    private Double latitude;
-    private String imageURL;
-  //  @NotNull
+    private String longitude;
+    private String latitude;
+  //  private String imageURL;
+    // @NotNull
     private Integer cookStatusId;
-    private Date startWorkingHours;
-    private Date endWorkingHours;
-    private Integer documentId;
-   // @NotNull
-    private DocumentType documentType;
-   // private Cook cook;
+    private String startWorkingHours;
+    private String endWorkingHours;
+    private String documentId;
+    //@NotNull
+    private String documentType;
+    // private Cook cook;
     private String description;
-    private Byte verfied;
+    // private Byte verfied;
     private byte[] document;
+    
+//    private Set<RoleDTO> roles;
 
-    public Integer getCookId() {
-        return cookId;
-    }
-
-    public void setCookId(Integer cookId) {
-        this.cookId = cookId;
-    }
-
-    public Integer getRegionid() {
+    public String getRegionid() {
         return regionid;
     }
 
-    public void setRegionid(Integer regionid) {
+    public void setRegionid(String regionid) {
         this.regionid = regionid;
     }
 
@@ -94,30 +88,6 @@ public class CookDocumentDTO {
         this.password = password;
     }
 
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
-
-    public Date getRegisterationDate() {
-        return registerationDate;
-    }
-
-    public void setRegisterationDate(Date registerationDate) {
-        this.registerationDate = registerationDate;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -134,59 +104,43 @@ public class CookDocumentDTO {
         this.address = address;
     }
 
-    public Double getLongitude() {
-        return longitude;
+    public Integer getCookStatusId() {
+        return cookStatusId;
     }
 
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
+    public void setCookStatusId(Integer cookStatusId) {
+        this.cookStatusId = cookStatusId;
     }
 
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
-
-    public Date getStartWorkingHours() {
+    public String getStartWorkingHours() {
         return startWorkingHours;
     }
 
-    public void setStartWorkingHours(Date startWorkingHours) {
+    public void setStartWorkingHours(String startWorkingHours) {
         this.startWorkingHours = startWorkingHours;
     }
 
-    public Date getEndWorkingHours() {
+    public String getEndWorkingHours() {
         return endWorkingHours;
     }
 
-    public void setEndWorkingHours(Date endWorkingHours) {
+    public void setEndWorkingHours(String endWorkingHours) {
         this.endWorkingHours = endWorkingHours;
     }
 
-    public Integer getDocumentId() {
+    public String getDocumentId() {
         return documentId;
     }
 
-    public void setDocumentId(Integer documentId) {
+    public void setDocumentId(String documentId) {
         this.documentId = documentId;
     }
 
-    public DocumentType getDocumentType() {
+    public String getDocumentType() {
         return documentType;
     }
 
-    public void setDocumentType(DocumentType documentType) {
+    public void setDocumentType(String documentType) {
         this.documentType = documentType;
     }
 
@@ -198,14 +152,6 @@ public class CookDocumentDTO {
         this.description = description;
     }
 
-    public Byte getVerfied() {
-        return verfied;
-    }
-
-    public void setVerfied(Byte verfied) {
-        this.verfied = verfied;
-    }
-
     public byte[] getDocument() {
         return document;
     }
@@ -214,14 +160,30 @@ public class CookDocumentDTO {
         this.document = document;
     }
 
-    public Integer getCookStatusId() {
-        return cookStatusId;
+    public Integer getId() {
+        return Id;
     }
 
-    public void setCookStatusId(Integer cookStatusId) {
-        this.cookStatusId = cookStatusId;
+    public void setId(Integer Id) {
+        this.Id = Id;
     }
-    
-    
 
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+  
+    
 }

@@ -6,6 +6,7 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
 //            alert("sett");    
 //            alert("quantity :" + givenOrder.location);
 //            order = givenOrder;s
+           
             order.push(givenOrder);
 //            alert("quantity tany :" + order[0].location);
         }
@@ -58,6 +59,7 @@ App.factory('orderService', ['$http', '$q', function($http, $q) {
 //                                    alert("response");
 //                                    alert("response: " + response.length);
 //                                    return response.data;
+
                                 },
                                 function(errResponse) {
 //                                    alert("error response");
