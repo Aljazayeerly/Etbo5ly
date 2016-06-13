@@ -35,11 +35,11 @@ INSERT INTO `etbo5ly`.`user` (id,`name`, `email`, `password`, `enabled`, `regist
 INSERT INTO `etbo5ly`.`user` (id,`name`, `email`, `password`, `enabled`, `registeration_date`, `phone`, `address`, `longitude`, `latitude`, `region_id`,`image_url`) VALUES ('5','Noha', 'Noha@gmail.com', '12345', '1', '2015-04-16 17:30:00', '01001358909', 'Shiekh Zayed', '30.975534', '30.059376', '7','noha.jpg');
 INSERT INTO `etbo5ly`.`user` (id,`name`, `email`, `password`, `enabled`, `registeration_date`, `phone`, `address`, `longitude`, `latitude`, `region_id`,`image_url`) VALUES ('6','Sana', 'Sana@gmail.com', '12345', '1', '2015-04-16 17:30:00', '01001358909', 'Masr gdeeda', '31.336098', '30.054664', '4','sana.jpg');
 
-INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('2', '10:00:00', '22:00:00', '3');
-INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('3', '09:00:00', '18:00:00', '3');
-INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('4', '11:00:00', '15:00:00', '3');
-INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('5', '08:00:00', '23:00:00', '3');
-INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('6', '00:00:00', '23:59:59', '3');
+INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('2', '10:00:00', '22:00:00', '2');
+INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('3', '09:00:00', '18:00:00', '2');
+INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('4', '11:00:00', '15:00:00', '2');
+INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('5', '08:00:00', '23:00:00', '2');
+INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('6', '00:00:00', '23:59:59', '2');
 
 INSERT INTO `etbo5ly`.`customer` (`id`) VALUES ('1');
 
