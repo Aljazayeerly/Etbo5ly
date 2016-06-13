@@ -196,21 +196,19 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
 //        $scope.AlreadyCustomer = "Already a user";
         $scope.filterExpression = function(orderStatus)
         {
-            alert("item : " + orderStatus.length);
-            alert("status id  " + orderStatus[0].orderStatusStatusId);
+
             $scope.max = 0;
             $.each(orderStatus, function(index, item)
 
             {
-                if ($scope.max < item.statusStatusId)
+                if ($scope.max < item.orderStatusStatusId)
                 {
-                    alert("here");
-                    $scope.max = item.statusStatusId;
+                    $scope.max = item.orderStatusStatusId;
+                    $scope.selectedStatus = item.status;
                 }
             });
-            alert("max : " + $scope.max);
-//                var maxValueInArray = Math.max.apply(Math, orderStatus.statusStatusId);
-//                        alert("ssjjs : " + item.statusHasOrders.statusStatusId);
+//            alert("selected : " + $scope.selectedStatus);
+
         }
 
 
