@@ -91,7 +91,7 @@
                                 <div >
                                     <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="left:20px; width: 160px">
 
-                                    <label style="color: gray; font-size: 13px" ng-bind="i.cookId"></label>
+                                    <!--<input type="hidden" style="color: gray; font-size: 13px" ng-bind="i.cookId"></input>-->
 
                                 </div>
 
@@ -123,7 +123,7 @@
                                 <div >
                                     <img src="{{j.resourcesURL}}/{{j.imageUrl}}" style="left:20px; width: 160px">
 
-                                    <label style="color: gray; font-size: 13px" ng-bind="j.cookId"></label>
+                                    <!--<label style="color: gray; font-size: 13px" ng-bind="j.cookId"></label>-->
 
                                 </div>
 
@@ -153,7 +153,7 @@
                                 <div >
                                     <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="left:20px; width: 160px">
 
-                                    <label style="color: gray; font-size: 13px" ng-bind="k.cookId"></label>
+                                    <!--<label style="color: gray; font-size: 13px" ng-bind="k.cookId"></label>-->
 
                                 </div>
 
