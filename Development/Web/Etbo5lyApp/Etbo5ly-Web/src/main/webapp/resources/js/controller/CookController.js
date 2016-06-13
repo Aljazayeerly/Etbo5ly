@@ -44,11 +44,11 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', function($scope
                 cook.endWorkingHours = $scope.toDate(EworkingHour, "h:m");
                 cook.registerationDate = dateStr;
 
-                alert(" json object of cook to be send is " + JSON.stringify(cook));
+//                alert(" json object of cook to be send is " + JSON.stringify(cook));
                 RegisterService.registerCook(cook).then(
                         function(resolve) {
                             $scope.addedCook = resolve;
-                            alert(" added cook is " + $scope.addedCook);
+//                            alert(" added cook is " + $scope.addedCook);
 
                         },
                         function(reject) {
@@ -92,9 +92,9 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', function($scope
             });
 
         }
-    
 
-        $scope.showPosition = function (position) {
+
+        $scope.showPosition = function(position) {
             $scope.latitude = position.coords.latitude;
             $scope.longitude = position.coords.longitude;
             //  alert(" long is " + $scope.longitude +$scope.latitude); 
@@ -106,8 +106,8 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', function($scope
 
         location();
 
-       $scope.goToLogin=function() {
-           // alert("hahahahahaha");
+        $scope.goToLogin = function() {
+            // alert("hahahahahaha");
             window.location.href = "login.htm";
         }
 
@@ -185,12 +185,14 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
 //        if (!jQuery.isEmptyObject(resolve)) {
 //        //  alert(" already a user");
 //        $scope.AlreadyCustomer = "Already a user";
-        $scope. filterExpression = function(item)
+        $scope.filterExpression = function(item)
         {
-            alert("item : " + item);
-//            alert( "item : " + item.length + " x :  "+ x);
-//               if()
+            alert("item jj: " + item.length);
+            alert("ssjjs : " + item.statusStatusId);
+
         }
+
+
         $scope.myFilter = function(item)
         {
             if ($scope.myOrderBy == "All")
@@ -215,7 +217,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
             var orderStatus = {};
             orderStatus.status = "Delivered";
             orderStatus.statusIdOrder = orderId;
-            alert("OrderID : " + orderId);
+//            alert("OrderID : " + orderId);
             PageService.setOrder($scope.orders[orderId]);
             orderService.changeOrderStatus(orderStatus);
             $scope.showOrderRatingDialog();
@@ -265,8 +267,8 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
         $scope.rating2 = 2;
         $scope.isReadonly = true;
         $scope.rateFunction = function() {
-            alert("Rating : " + $scope.rating1);
-            alert("Rating : " + $scope.rating2);
+//            alert("Rating : " + $scope.rating1);
+//            alert("Rating : " + $scope.rating2);
         };
         $scope.hide = function() {
             $mdDialog.hide();

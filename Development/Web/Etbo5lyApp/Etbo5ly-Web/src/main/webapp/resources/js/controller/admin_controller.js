@@ -306,8 +306,8 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
 
         self.isSelected = function(categorgyId, checked, index) {
 
-            alert("id " + categorgyId);
-            alert("checked " + checked);
+//            alert("id " + categorgyId);
+//            alert("checked " + checked);
             if (checked == true)
             {
                 $scope.checkedCategories.push(categorgyId);
@@ -316,7 +316,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             {
                 $scope.checkedCategories.splice(index, 1);
             }
-            alert(JSON.stringify($scope.checkedCategories));
+//            alert(JSON.stringify($scope.checkedCategories));
             return   $scope.checkedCategories;
         };
 

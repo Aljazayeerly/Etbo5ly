@@ -30,6 +30,7 @@ public class CookBean {
     private String name;
     private Boolean enabled;
     private String phone;
+//    private byte[] document;
 
     private List<CookDTO> cooks = new ArrayList<>();
 
@@ -84,6 +85,13 @@ public class CookBean {
         this.phone = phone;
     }
 
+//    public byte[] getDocument() {
+//        return document;
+//    }
+//
+//    public void setDocument(byte[] document) {
+//        this.document = document;
+//    }
     @PostConstruct
     public void getAllCooks() {
 
@@ -105,5 +113,4 @@ public class CookBean {
         cook.setEnabled(cookDTO.getEnabled());
         cookService.changeCookStatus(cook);
     }
-
 }

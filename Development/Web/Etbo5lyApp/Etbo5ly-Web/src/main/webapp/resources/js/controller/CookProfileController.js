@@ -11,7 +11,7 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', functio
 
         self.cookData = {};
         self.getCookData = function (id) {
-            alert(id);
+//            alert(id);
             cookProfileService.getCookDataForProfile(id)
                     .then(
                             function (d) {
@@ -22,7 +22,7 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', functio
 //                                alert(self.cookData.imageURL);
                             },
                             function (errResponse) {
-                                alert("error in controller");
+//                                alert("error in controller");
                                 console.error('Error while fetching ok data in controller');
                             }
                     );

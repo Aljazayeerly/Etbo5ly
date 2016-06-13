@@ -118,11 +118,9 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                 return $http.post('/Etbo5ly-Web/rest/search', searchDTO)
                         .then(
                                 function(response) {
-                                    alert("in service");
                                     return response.data;
                                 },
                                 function(errResponse) {
-                                    alert("error");
                                     console.error('Error while fetching checked categories in service');
                                     return $q.reject(errResponse);
                                 }
@@ -135,8 +133,6 @@ App.factory('MenuService', ['$http', '$q', function ($http, $q) {
                 return $http.post('/Etbo5ly-Web/rest/locationMeals', address)
                         .then(
                                 function (response) {
-                                    alert("responsssssse" + response);
-                                    alert("responsssssse dataa" + JSON.stringify(response.data));
                                     return response.data;
                                 },
                                 function (errResponse) {
