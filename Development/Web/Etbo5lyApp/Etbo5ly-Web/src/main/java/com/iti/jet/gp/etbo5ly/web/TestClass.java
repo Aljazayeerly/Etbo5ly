@@ -19,7 +19,6 @@ import com.iti.jet.gp.etbo5ly.web.util.LoggedInUserChecker;
 import com.iti.jets.gp.etbo5ly.web.mvc.controller.DocumentController;
 import java.io.IOException;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.ws.rs.QueryParam;
 import jdk.nashorn.internal.ir.annotations.Reference;
@@ -130,8 +129,7 @@ public class TestClass {
     }
 
     @RequestMapping(value = "/home.htm")
-    public String index(HttpSession session) {
-        session.setAttribute("user", loggedInUserChecker.getLoggedUser());
+    public String index() {
         return "home";
     }
 
