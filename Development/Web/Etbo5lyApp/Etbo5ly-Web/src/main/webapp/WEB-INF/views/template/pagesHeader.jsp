@@ -24,7 +24,12 @@ Author     : Nada
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="home.htm"><fmt:message key="home"/></a></li>
-                <li><a href="login.htm"><fmt:message key="login"/></a></li>
+                    <c:if test="${sessionScope.user eq null}">
+                    <li><a href="login.htm"><fmt:message key="login"/></a></li>
+                    </c:if>
+                    <c:if test="${sessionScope.user ne null}">
+                    <li><a href="login.htm?error"><fmt:message key="logout"/></a></li>
+                    </c:if>
                 <li><a href="register.htm"><fmt:message key="register"/></a></li>
                 <li><a href="joinUS.htm"><fmt:message key="joinUs"/></a></li>
                 <li class="dropdown">
