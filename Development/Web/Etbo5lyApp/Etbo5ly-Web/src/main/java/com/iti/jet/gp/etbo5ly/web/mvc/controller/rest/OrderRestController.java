@@ -51,6 +51,7 @@ public class OrderRestController {
     @RequestMapping(value = "/rest/createOrder", method = RequestMethod.POST, headers = "Accept=application/json")
     public ResponseEntity<Void> createOrderService(@RequestBody OrderDTO orderDTO, UriComponentsBuilder ucBuilder) {
 
+
         User user = loggedInUserChecker.getLoggedUser();
         orderDTO.setUserByCustomerId(user.getId());
         orderService.createOrder(orderDTO);

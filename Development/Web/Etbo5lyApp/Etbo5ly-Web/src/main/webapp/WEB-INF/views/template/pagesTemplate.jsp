@@ -31,6 +31,7 @@
         </style>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo" async defer ></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 
         <!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>-->
@@ -55,22 +56,21 @@
         <script src="resources/js/directives/starRatingDirective.js" type="text/javascript"></script>
         <script src="resources/js/controller/myMapJS.js" type="text/javascript"></script>
         <script src="resources/js/controller/order_controller.js" type="text/javascript"></script>
-
         <script src="resources/js/controller/cookMenuController.js" type="text/javascript"></script>
         <script src="resources/js/controller/CookProfileController.js" type="text/javascript"></script>
         <script src="resources/js/controller/CustomerController.js" type="text/javascript"></script>
         <script src="resources/js/controller/CookController.js" type="text/javascript"></script>
         <script src="resources/js/service/admin_service.js" type="text/javascript"></script>
         <script src="resources/js/service/mainService.js" type="text/javascript"></script>
+        <script src="resources/js/service/CookService.js" type="text/javascript"></script>
         <script src="resources/js/service/myMapService.js" type="text/javascript"></script>
         <script src="resources/js/service/pageIntegerationService.js" type="text/javascript"></script>
-
         <script src="resources/js/service/cookMenuService.js" type="text/javascript"></script>
         <script src="resources/js/service/RegisterService.js" type="text/javascript"></script>
         <script src="resources/js/service/order_service.js" type="text/javascript"></script>
         <script src="resources/js/service/profile_service.js" type="text/javascript"></script>
 
-        <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo" async defer ></script>-->
+
 
 
         <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo" async defer ></script>-->

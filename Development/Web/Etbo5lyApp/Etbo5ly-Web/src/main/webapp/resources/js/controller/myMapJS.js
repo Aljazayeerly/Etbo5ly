@@ -91,7 +91,7 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
         }
 
         $scope.initMap = function () {
-             alert("inside in the function");
+//             alert("inside in the function");
             var mapDiv = document.getElementById('map');
             var map = new google.maps.Map(mapDiv, {
                 center: {lat: 44.540, lng: -78.546},
@@ -100,7 +100,7 @@ App.controller('mapController', ['$scope', 'MapService', '$mdDialog', '$mdMedia'
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition($scope.showPosition);
             } else {
-                alert("navigator is not on , sorry please enable your location so we can find you");
+//                alert("navigator is not on , sorry please enable your location so we can find you");
             }
         }
 
