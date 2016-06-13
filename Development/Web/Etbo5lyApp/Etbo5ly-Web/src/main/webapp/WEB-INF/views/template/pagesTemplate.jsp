@@ -28,6 +28,9 @@
         <script src="resources/js/bootstrap.min.js"></script>
         <style>
             body{ margin-top:20px; margin-bottom:20px; background-color:#f0f0f0;}
+            #pageHeaders{
+                background-color: #f0ad4e;
+            }
         </style>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGtRP3guELz_t4zDQavl8ronw8E-QCTIo" async defer ></script>
