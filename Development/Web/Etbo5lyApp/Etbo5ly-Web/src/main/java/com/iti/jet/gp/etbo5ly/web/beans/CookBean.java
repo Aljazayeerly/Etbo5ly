@@ -109,8 +109,10 @@ public class CookBean {
         CookStatus cookStatus = new CookStatus();
         cook.setEnabled(cookDTO.getEnabled());
         if (cook.getEnabled() == true) {
-            cookStatus.setStatusId(3);
+            System.out.println("true");
+            cookStatus.setStatusId(1);
         } else if (cook.getEnabled() == false) {
+            System.out.println("false");
             cookStatus.setStatusId(2);
         }
         cook.setCookStatus(cookStatus);
