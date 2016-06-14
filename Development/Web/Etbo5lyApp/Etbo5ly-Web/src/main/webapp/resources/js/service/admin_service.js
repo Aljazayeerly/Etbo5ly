@@ -128,15 +128,17 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                         );
             }
             ,
-            getMealsByLocation: function(address)
+            getMealsByLocation: function(id)
             {
-                return $http.post('/Etbo5ly-Web/rest/locationMeals', address)
+                return $http.post('/Etbo5ly-Web/rest/locationMeals', id)
                         .then(
                                 function(response) {
-//                                  
+                                    alert("success in service");
                                     return response.data;
+                                    
                                 },
                                 function(errResponse) {
+                                    alert("errorrr in service");
                                     console.error('Error while fetching checked categories in service');
                                     return $q.reject(errResponse);
                                 }
