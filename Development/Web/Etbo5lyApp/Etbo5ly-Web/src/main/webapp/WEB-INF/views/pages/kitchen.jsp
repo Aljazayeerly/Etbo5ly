@@ -61,7 +61,7 @@
                     <div class="form-group">
                         <div ng-repeat="lo in ctrl.locations" class="checkbox">
                             <label>
-                                <input type="checkbox" ng-model="$scope.checked2" ng-change="ctrl.isSelectedLocation(lo.regionName, $scope.checked2, $index)"> {{lo.regionName}}
+                                <input type="checkbox" ng-model="$scope.checked2" ng-change="ctrl.isSelectedLocation(lo.regionId, $scope.checked2, $index)"> {{lo.regionName}}
                             </label>
                         </div>
                     </div>

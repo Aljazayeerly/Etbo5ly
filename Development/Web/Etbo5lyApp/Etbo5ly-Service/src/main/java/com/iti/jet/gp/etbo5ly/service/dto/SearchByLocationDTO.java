@@ -13,13 +13,13 @@ import java.util.List;
  * @author salma
  */
 public class SearchByLocationDTO {
-    List<String> selectedLocations =new ArrayList<String>();
+    List<Integer> selectedLocations =new ArrayList<Integer>();
 
-    public List<String> getSelectedLocations() {
+    public List<Integer> getSelectedLocations() {
         return selectedLocations;
     }
 
-    public void setSelectedLocations(List<String> selectedLocations) {
+    public void setSelectedLocations(List<Integer> selectedLocations) {
         this.selectedLocations = selectedLocations;
     }
 }
