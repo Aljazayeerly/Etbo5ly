@@ -46,7 +46,7 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                         );
             },
             getAllCooks: function() {
-                return $http.get('/Etbo5ly-Web/rest/cook/page?page=-2')
+                return $http.get('/Etbo5ly-Web/rest/cook/page?page=-3')
                         .then(
                                 function(response) {
                                     return response.data;
@@ -133,12 +133,12 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                 return $http.post('/Etbo5ly-Web/rest/locationMeals', id)
                         .then(
                                 function(response) {
-                                    alert("success in service");
+//                                    alert("success in service");
                                     return response.data;
                                     
                                 },
                                 function(errResponse) {
-                                    alert("errorrr in service");
+//                                    alert("errorrr in service");
                                     console.error('Error while fetching checked categories in service');
                                     return $q.reject(errResponse);
                                 }
@@ -150,8 +150,8 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                 return $http.post('/Etbo5ly-Web/rest/addItem',meal)
                         .then(
                                 function(response) {
-                                    alert("dhkdhkjfh");
-                                    alert(JSON.stringify(response.data));
+//                                    alert("dhkdhkjfh");
+//                                    alert(JSON.stringify(response.data));
                                     return response.data;
                                 },
                                 function(errResponse) {

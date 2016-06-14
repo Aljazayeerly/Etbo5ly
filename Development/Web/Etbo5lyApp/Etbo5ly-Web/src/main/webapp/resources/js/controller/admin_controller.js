@@ -74,7 +74,9 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             MenuService.getAllCooks()
                     .then(
                             function (d) {
+                                alert("coooooks");
                                 $scope.cooks = d;
+                                alert(JSON.stringify($scope.cooks.length));
 
                             },
                             function (errResponse) {
