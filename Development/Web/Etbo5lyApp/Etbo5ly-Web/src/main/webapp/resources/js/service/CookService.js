@@ -6,7 +6,7 @@
 
 'use strict';
 
-app.service('cookService', function() {
+App.service('cookService', function() {
   var cookID = {};
 
   var setID = function(id) {

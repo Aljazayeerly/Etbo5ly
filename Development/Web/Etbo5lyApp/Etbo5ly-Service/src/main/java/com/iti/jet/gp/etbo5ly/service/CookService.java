@@ -38,12 +38,13 @@ public interface CookService {
     public CookDTO registerCook(CookDTO cook);
 
     public CookDTO checkEmail(String email);
-    
+
     public void insertCook(CookDocumentDTO cook);
-    
+
     public int getCookId(String email);
-    
+
     public Cook findById(int id);
 
+    public void uploadImage(int id,String imageUrl,byte[] image);
 
 }

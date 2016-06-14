@@ -28,7 +28,7 @@ public interface MenuItemsService {
     List<MenuItemDTO> getMealsByLocation(List<String> locationList);
 
     List<MenuItemDTO> getSpecificMealsCookCategoryService(int cookId, int categoryId);
-    
-    void addMenuItem(MenuItemDTO menuItemDTO);
-    
+
+    public void addMenuItem(MenuItemDTO menuItemDTO);
+
 }

@@ -11,7 +11,7 @@
         </header>
         <article>
             <!--<button ng-click="rl.getCookData($scope.Id)">click</button>-->
-            <img src="{{self.cookData.resourcesURL}}/{{self.cookData.imageURL}}">
+            <img src="{{rl.cookData.resourcesURL}}/{{rl.cookData.imageURL}}">
             <!--<img  src="http://127.0.0.1:8089/Etbo5ly-Web/resources/images/cooks/nada.jpg">-->
             <h2>{{rl.cookData.name}}</h2>
 

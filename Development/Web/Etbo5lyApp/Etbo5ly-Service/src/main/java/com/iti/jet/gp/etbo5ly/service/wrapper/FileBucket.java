@@ -15,6 +15,7 @@ public class FileBucket {
 
     MultipartFile file;
     String description;
+    MultipartFile image;
 
     public MultipartFile getFile() {
         return file;
@@ -31,5 +32,13 @@ public class FileBucket {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public MultipartFile getImage() {
+        return image;
+    }
+
+    public void setImage(MultipartFile image) {
+        this.image = image;
+    }  
 
 }

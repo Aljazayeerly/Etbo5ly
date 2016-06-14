@@ -144,10 +144,12 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
             }
 
             ,
-            addMenuItem: function() {
-                return $http.post('/Etbo5ly-Web/rest/addItem')
+            addMenuItem: function(meal) {
+                return $http.post('/Etbo5ly-Web/rest/addItem',meal)
                         .then(
                                 function(response) {
+                                    alert("dhkdhkjfh");
+                                    alert(JSON.stringify(response.data));
                                     return response.data;
                                 },
                                 function(errResponse) {

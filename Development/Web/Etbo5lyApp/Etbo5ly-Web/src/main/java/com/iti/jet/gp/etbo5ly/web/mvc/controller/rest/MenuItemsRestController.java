@@ -128,16 +128,16 @@ public class MenuItemsRestController {
     }
     
     
-    @RequestMapping(value = "/addItem", method = RequestMethod.POST, headers = "Accept=application/json")
-    public ResponseEntity<Void> addMenuItemService(@RequestBody MenuItemDTO menuItemDTO) {
-
-        System.out.println("adding menu items ,cook name " + menuItemDTO.getCookName());
-        System.out.println("meal name " + menuItemDTO.getNameEn());
-        menuItemsService.addMenuItem(menuItemDTO);
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<>(headers, HttpStatus.CREATED);
-
-    }
+//    @RequestMapping(value = "/addItem", method = RequestMethod.POST, headers = "Accept=application/json")
+//    public ResponseEntity<Void> addMenuItemService(@RequestBody MenuItemDTO menuItem) {
+//
+//        System.out.println("adding menu items ,cook name " + menuItem.getCookName());
+//        System.out.println("meal name " + menuItem.getNameEn());
+//        menuItemsService.addMenuItem(menuItem);
+//        HttpHeaders headers = new HttpHeaders();
+//        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+//
+//    }
     
     
 }

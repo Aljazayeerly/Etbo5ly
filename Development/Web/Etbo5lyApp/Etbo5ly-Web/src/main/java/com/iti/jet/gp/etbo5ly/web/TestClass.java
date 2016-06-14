@@ -8,22 +8,34 @@ package com.iti.jet.gp.etbo5ly.web;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.model.pojo.Document;
 import com.iti.jet.gp.etbo5ly.model.pojo.DocumentType;
+import com.iti.jet.gp.etbo5ly.model.pojo.User;
 import com.iti.jet.gp.etbo5ly.service.CookService;
 import com.iti.jet.gp.etbo5ly.service.DocumentService;
 import com.iti.jet.gp.etbo5ly.service.DocumentTypeService;
+import com.iti.jet.gp.etbo5ly.service.MenuItemsService;
+import com.iti.jet.gp.etbo5ly.service.dto.CategoryDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.CookDocumentDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.DocumentDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
 import com.iti.jet.gp.etbo5ly.service.validator.FileValidator;
 import com.iti.jet.gp.etbo5ly.service.wrapper.FileBucket;
+
 import com.iti.jet.gp.etbo5ly.web.util.LoggedInUserChecker;
 import com.iti.jets.gp.etbo5ly.web.mvc.controller.DocumentController;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.ws.rs.QueryParam;
-import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -31,6 +43,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -39,8 +52,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
+import com.iti.jet.gp.etbo5ly.web.util.LoggedInUserChecker;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -48,7 +63,6 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class TestClass {
-
 
     @Autowired
     CookService cookDocumentService;
@@ -61,9 +75,13 @@ public class TestClass {
 
     @Autowired
     FileValidator fileValidator;
-    
+
     @Autowired
     LoggedInUserChecker loggedInUserChecker;
+
+    @Autowired
+    MenuItemsService menuItemsService;
+    private static final int BUFFER_SIZE = 4096;
 
     @InitBinder("fileBucket")
     protected void initBinder(WebDataBinder binder) {
@@ -93,14 +111,12 @@ public class TestClass {
 
     }
 
-
-    
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String login(@RequestParam(value = "error", required = false) String error,
             @RequestParam(value = "logout", required = false) String logout, Model model) {
 
         if (error != null) {
-            model.addAttribute("error", error+"invalid user name and password");
+            model.addAttribute("error", error + "invalid user name and password");
         }
 
         if (logout != null) {
@@ -130,8 +146,7 @@ public class TestClass {
     }
 
     @RequestMapping(value = "/home.htm")
-    public String index(HttpSession session) {
-        session.setAttribute("user", loggedInUserChecker.getLoggedUser());
+    public String index() {
         return "home";
     }
 
@@ -210,6 +225,14 @@ public class TestClass {
         return model;
     }
 
+    @RequestMapping(value = "/addItem.htm")
+    public ModelAndView addItem() {
+        System.out.println("geeeeeeeeeeeeet");
+        MenuItemDTO meal = new MenuItemDTO();
+        ModelAndView model = new ModelAndView("addItem", "addItem", meal);
+        return model;
+    }
+
 //    @RequestMapping(value = "/cookKitchen.htm")
 //    @QueryParam("id")
 //    public String cookKitchen(@RequestParam(value = "id") int id) {
@@ -285,13 +308,68 @@ public class TestClass {
         }
     }
 
+    @RequestMapping(value = "addItem.htm", method = RequestMethod.POST)
+    public String addMenuItemService(@ModelAttribute("addItem") MenuItemDTO menuItem, ModelMap model, HttpServletRequest request) throws IOException {
+     
+        if(checkTypeAvalability(menuItem.getImages().getContentType())==2 || checkTypeAvalability(menuItem.getImages().getContentType())==4){
+        Set<CategoryDTO> categories = new HashSet<>(0);
+        CategoryDTO categoryDTO = new CategoryDTO();
+        User user = loggedInUserChecker.getLoggedUser();
+        menuItem.setCookId(user.getId());
+        categoryDTO.setCategoryId(Integer.parseInt(menuItem.getChecked()));
+        System.out.println("idddddddd " + menuItem.getChecked());
+        categories.add(categoryDTO);
+
+        menuItem.setCategories(categories);
+        menuItem.setImage(menuItem.getImages().getBytes());
+
+        String type = menuItem.getImages().getContentType();
+        if (type.equals("image/png")) {
+            menuItem.setImageUrl(menuItem.getNameEn() + ".png");
+        } else if (type.equals("image/jpeg")) {
+            menuItem.setImageUrl(menuItem.getNameEn() + ".jpg");
+
+        }
+
+        String filePath = "/resources/images/meals/";
+        // get absolute path of the application
+        ServletContext context = request.getServletContext();
+        String appPath = context.getRealPath("");
+        System.out.println("appPath = " + appPath);
+
+        String saveDirectory = appPath + filePath;
+        if (menuItem.getImages() != null && menuItem.getImages().getSize() > 0) {
+            // String fileName = fileBucket.getImage().getOriginalFilename();
+//            if (!cook.getName().equalsIgnoreCase("")) {
+            if (type.equals("image/jpeg")) {
+                menuItem.getImages().transferTo(new File(saveDirectory + menuItem.getNameEn() + ".jpg"));
+            } else if (type.equals("image/png")) {
+                menuItem.getImages().transferTo(new File(saveDirectory + menuItem.getNameEn() + ".png"));
+
+//                }
+            }
+
+        }
+        menuItemsService.addMenuItem(menuItem);
+
+        return "home";
+        }
+        else{
+            model.addAttribute("menuimage", "Invalid menu item image it should be jpg or png ");
+            return "addItem";
+        }
+            
+
+    }
+
     @RequestMapping(value = {"/add-document.htm"}, method = RequestMethod.POST)
     @QueryParam("id")
-    public String uploadDocument(@ModelAttribute("fileBucket") @Valid FileBucket fileBucket, ModelMap model, BindingResult result, @RequestParam(value = "id") int cookId) throws IOException {
+    public String uploadDocument(@ModelAttribute("fileBucket") @Valid FileBucket fileBucket, ModelMap model, BindingResult result, @RequestParam(value = "id") int cookId, HttpServletRequest request) throws IOException {
 
         int typeId;
+        int imageTypeId;
         if (result.hasErrors()) {
-           // System.out.println("validation errors");
+            // System.out.println("validation errors");
             Cook cook = cookDocumentService.findById(cookId);
             model.addAttribute("cook", cook);
             return "add-document";
@@ -300,6 +378,7 @@ public class TestClass {
             model.addAttribute("cook", cook);
             System.out.println("file content type " + fileBucket.getFile().getContentType());
             typeId = checkTypeAvalability(fileBucket.getFile().getContentType());
+            imageTypeId = checkTypeAvalability(fileBucket.getImage().getContentType());
             if (typeId != 0) {
                 saveDocument(fileBucket, cook, typeId);
                 List<Document> documents = documentService.findAllByUserId(cookId);
@@ -308,6 +387,18 @@ public class TestClass {
 
             } else {
                 model.addAttribute("invalid", " invalid file type it should be pdf or zipped or image/png");
+            }
+            if (imageTypeId != 0) {
+                if (imageTypeId == 2 || imageTypeId == 4) {
+                    uploadCookImage(fileBucket, cook, typeId, request);
+                    model.addAttribute("imageDone", "Image is uploaded successfully");
+
+                } else {
+                    model.addAttribute("notImage", "The file you uploaded is not an image ");
+                }
+
+            } else {
+                model.addAttribute("invalidImage", "invalid Image type ");
             }
 
             return "add-document";
@@ -332,12 +423,12 @@ public class TestClass {
         System.out.println("documents " + document.toString());
         documentService.insertDocument(document);
     }
-     @RequestMapping(value = "/addItem.htm")
-    public String addItem() {
-        return "addItem";
 
-    }
-
+//    @RequestMapping(value = "/addItem.htm")
+//    public String addItem() {
+//        return "addItem";
+//
+//    }
     public int checkTypeAvalability(String type) {
         //  System.out.println("hahahaha lakaksjon");
         int typeId;
@@ -348,6 +439,38 @@ public class TestClass {
             typeId = 0;
         }
         return typeId;
+    }
+
+    private void uploadCookImage(FileBucket fileBucket, Cook cook, int typeId, HttpServletRequest request) throws IOException {
+
+        String type = fileBucket.getImage().getContentType();
+        if (type.equals("image/png")) {
+            cookDocumentService.uploadImage(cook.getId(), cook.getName() + ".png", fileBucket.getImage().getBytes());
+        } else if (type.equals("image/jpeg")) {
+            cookDocumentService.uploadImage(cook.getId(), cook.getName() + ".jpg", fileBucket.getImage().getBytes());
+
+        }
+
+        String filePath = "/resources/images/cooks/";
+        // get absolute path of the application
+        ServletContext context = request.getServletContext();
+        String appPath = context.getRealPath("");
+        System.out.println("appPath = " + appPath);
+
+        String saveDirectory = appPath + filePath;
+        if (fileBucket.getImage() != null && fileBucket.getImage().getSize() > 0) {
+            // String fileName = fileBucket.getImage().getOriginalFilename();
+            if (!cook.getName().equalsIgnoreCase("")) {
+                if (type.equals("image/jpeg")) {
+                    fileBucket.getImage().transferTo(new File(saveDirectory + cook.getName() + ".jpg"));
+                } else if (type.equals("image/png")) {
+                    fileBucket.getImage().transferTo(new File(saveDirectory + cook.getName() + ".png"));
+
+                }
+            }
+
+        }
+
     }
 
 }

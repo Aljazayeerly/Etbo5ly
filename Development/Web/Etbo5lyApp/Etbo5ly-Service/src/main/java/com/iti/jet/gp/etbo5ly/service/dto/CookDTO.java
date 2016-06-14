@@ -33,6 +33,7 @@ public class CookDTO {
     private double longitude;
     private double latitude;
     private String imageURL;
+    private byte[] image;
 
     private int cookStatusStatusId;
     
@@ -186,6 +187,14 @@ public class CookDTO {
 
     public void setRoles(Set<RoleDTO> roles) {
         this.roles = roles;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     
