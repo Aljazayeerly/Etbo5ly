@@ -8,9 +8,9 @@
 <!DOCTYPE html>
 <div class="col-md-9" id="customer-order">
     <div  ng-controller="OrderController2 as ctrl" class="box">
-        <h1>Order #1735</h1>
+        <h1>Order </h1>
 
-        <p class="lead">Order #1735 was placed on <strong>22/06/2013</strong> and is currently <strong>Being prepared</strong>.</p>
+        <p class="lead">The Order was placed on <strong>22/06/2013</strong> and is currently <strong>Being prepared</strong>.</p>
         <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
 
         <hr>

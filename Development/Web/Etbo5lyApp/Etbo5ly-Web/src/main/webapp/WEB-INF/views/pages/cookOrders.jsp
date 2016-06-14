@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 
 <div class="col-md-9" id="cook-orders" style="float: right;">
-    <div ng-controller="OrderCookController as ctrl" class="box">
+    <div ng-controller="OrderCookController as ctrl" class="box" style=" margin-top: 10%;margin-right: 25%;">
         <h1>My orders</h1>
 
         <p class="lead">Your orders on one place.</p>

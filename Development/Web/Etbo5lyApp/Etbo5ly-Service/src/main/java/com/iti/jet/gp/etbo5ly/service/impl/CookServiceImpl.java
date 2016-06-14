@@ -171,6 +171,8 @@ public class CookServiceImpl implements CookService {
         return cookDTO;
     }
 
+    @Override
+    @Transactional
     public void changeCookStatus(Cook cook) {
 
 //        System.out.println("change cook status" + cook.getName() + " " + cook.getId());
@@ -259,7 +261,6 @@ public class CookServiceImpl implements CookService {
         return cook;
     }
 
-
 //    @Override
 //   
 //    public void uploadImage(CookDTO cookDTO) {
@@ -272,7 +273,7 @@ public class CookServiceImpl implements CookService {
     @Override
     @Transactional
     public void uploadImage(int id, String imageUrl, byte[] image) {
-        cookDao.uploadImage(id,imageUrl,image);
+        cookDao.uploadImage(id, imageUrl, image);
     }
 
 }
