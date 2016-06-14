@@ -7,8 +7,9 @@
 
 App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', function($scope, RegisterService, MenuService) {
 
+        var self = this;
         var cook = {};
-        var meal = {};
+        self.menuItem = {};
         $scope.regionSelected = 0;
         $scope.addedCook = {};
         $scope.AlreadyCook = "";
@@ -42,11 +43,9 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                 cook.startWorkingHours = $scope.toDate(SworkingHour, "h:m");
                 cook.endWorkingHours = $scope.toDate(EworkingHour, "h:m");
                 cook.registerationDate = dateStr;
-//                alert(" json object of cook to be send is " + JSON.stringify(cook));
                 RegisterService.registerCook(cook).then(
                         function(resolve) {
                             $scope.addedCook = resolve;
-//                            alert(" added cook is " + $scope.addedCook);
 
                         },
                         function(reject) {
@@ -55,14 +54,14 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                 );
             }
         };
-        $scope.addItemToMenu = function(name, price, description) {
-            alert("name" + name);
-            alert("price" + price);
-            alert("desc" + description);
-            meal.name = name;
-            meal.price = price;
-            meal.description = description;
-            MenuService.addMenuItem(meal).then(
+        $scope.addItemToMenu = function() {
+            
+            
+            self.menuItem.nameEn = name;
+            self.menuItem.price = price;
+            self.menuItem.descriptionEn = description;
+            
+            MenuService.addMenuItem(self.menuIem).then(
                     function(resolve) {
                         $scope.addedItem = resolve;
                     },
@@ -82,6 +81,8 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                         console.log(reject);
                     });
         };
+        
+        
         $scope.getAllCategories = function() {
 
             MenuService.getAllCategories()
@@ -94,16 +95,18 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                             }
                     );
         };
+       
+         $scope.showCategorySelected = function(categorySelected) {
+            $scope.categorySelected = categorySelected;
+        };
         $scope.getAllRegions();
         $scope.getAllCategories();
         $scope.checkCookMail = function() {
-            //  alert(" email address is " + $scope.email);
 //            $scope.AlreadyCook = " ";
 //            RegisterService.checkEmail($scope.email).then(function (resolve) {
             $scope.AlreadyCook = "";
             RegisterService.checkCookEmail($scope.email).then(function(resolve) {
                 if (!jQuery.isEmptyObject(resolve)) {
-                    //  alert(" already a user");
                     $scope.AlreadyCustomer = "Already a user";
                 }
             }, function(reject) {
@@ -113,7 +116,6 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
         $scope.showPosition = function(position) {
             $scope.latitude = position.coords.latitude;
             $scope.longitude = position.coords.longitude;
-            //  alert(" long is " + $scope.longitude +$scope.latitude); 
         };
         function location() {
 
@@ -122,7 +124,6 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
 
         location();
         $scope.goToLogin = function() {
-            // alert("hahahahahaha");
             window.location.href = "login.htm";
         }
         ;
@@ -188,11 +189,9 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
             $scope.myOrderBy = mySelect;
         };
 //        $scope.checkCookMail = function () {
-//        //  alert(" email address is " + $scope.email);
 //        $scope.AlreadyCook = "";
 //                RegisterService.checkCookEmail($scope.email).then(function (resolve) {
 //        if (!jQuery.isEmptyObject(resolve)) {
-//        //  alert(" already a user");
 //        $scope.AlreadyCustomer = "Already a user";
         $scope.filterExpression = function(orderStatus)
         {
@@ -207,7 +206,6 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
                     $scope.selectedStatus = item.status;
                 }
             });
-//            alert("selected : " + $scope.selectedStatus);
 
         }
 
@@ -237,7 +235,6 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
             var orderStatus = {};
             orderStatus.status = "Delivered";
             orderStatus.statusIdOrder = orderId;
-//            alert("OrderID : " + orderId);
             PageService.setOrder($scope.orders[orderId]);
             orderService.changeOrderStatus(orderStatus);
             $scope.showOrderRatingDialog();
@@ -274,7 +271,6 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
                 $mdDialog.cancel();
             };
             $scope.answer = function(answer) {
-//                alert("answer");
             }
             ;
         }
@@ -298,7 +294,6 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
         };
 
         $scope.answer = function(answer) {
-//            alert("answer");
         };
         $scope.submitOrderRating = function()
         {

@@ -90,7 +90,6 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
                             function (d) {
 
                                 self.items = d;
-                                alert(JSON.stringify( self.items));
                             },
                             function (errResponse) {
                                 console.error('Error while fetching all meals in controller');
@@ -103,7 +102,6 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
                             function (d) {
                                
                                 self.cooks = d;
-                                alert("cooks0 " + JSON.stringify(self.cooks));
                             },
                             function (errResponse) {
                                 console.error('Error while fetching cooks in controller');
@@ -347,8 +345,7 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
 
         self.isSelected = function (categorgyId, checked, index) {
 
-            //  alert("id " + categorgyId);
-            //  alert("checked " + checked);
+          
             if (checked == true)
             {
                 $scope.checkedCategories.push(categorgyId);

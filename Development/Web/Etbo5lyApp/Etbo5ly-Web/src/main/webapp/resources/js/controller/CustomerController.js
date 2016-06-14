@@ -37,20 +37,14 @@ App.controller('RegisterController', ['$scope', 'RegisterService', function ($sc
 //            customer.RoleId=0;
 
 
-//                alert("customersss object is " + JSON.stringify(customer));
-                //  alert("customersss object is " + JSON.stringify(customer));
                 RegisterService.registerCustomer(customer).then(function (resolve) {
-                    //alert("resolve is " + resolve);
                     $scope.addedCustomer = resolve;
 
                 }, function (reject) {
                     console.log(reject);
 
-                    // alert("reject" + reject);
                 });
-//                alert(" added Customer is " + JSON.stringify($scope.addedCustomer));
 
-                //  alert(" added Customer is " + JSON.stringify($scope.addedCustomer));
                 window.location.href = "login.htm";
 
             }
@@ -74,11 +68,9 @@ App.controller('RegisterController', ['$scope', 'RegisterService', function ($sc
         };
 
         $scope.checkMail = function () {
-            //  alert(" email address is " + $scope.email);
             $scope.AlreadyCustomer = "";
             RegisterService.checkEmail($scope.email).then(function (resolve) {
                 if (!jQuery.isEmptyObject(resolve)) {
-                    //  alert(" already a user");
                     $scope.AlreadyCustomer = "Already a user";
                 }
             }, function (reject) {

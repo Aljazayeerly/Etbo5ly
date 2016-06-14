@@ -3,6 +3,7 @@
     Created on : Jun 11, 2016, 12:10:15 PM
     Author     : Nada
 --%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,6 +16,9 @@
     <div>
         <p style="color: maroon">${invalid}</p>
         <p style="color:green">${success}</p>
+        <p style="color: maroon">${invalidImage}</p>
+        <p style="color: maroon">${notImage}</p>
+        <p style="color:green">${imageDone}</p>
     </div>
     <br>
     <br>
@@ -65,7 +69,7 @@
                     <div class="form-group col-md-12">
                         <label class="col-md-3 control-lable" for="file">Upload a document</label>
                         <div class="col-md-7">
-                            <form:input type="file" path="file" id="file" class="form-control input-sm"/>
+                            <form:input type="file" path="file" id="file" class="form-control input-sm" required="true"/>
                             <div class="has-error">
                                 <form:errors path="file" class="help-inline"/>
                             </div>
@@ -81,11 +85,22 @@
 
                     </div>
                 </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-3 control-lable" for="file"><fmt:message key="uploadProfile"/></label>
+                        <div class="col-md-7">
+                            <form:input type="file" path="image" id="file" class="form-control input-sm" required="true"/>
+                            <div class="has-error">
+                                <form:errors path="image" class="help-inline"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!--              <div class="row">-->
                 <div class="form-actions  custom-width" >
-                    <input type="submit" value="Upload" class="btn btn-primary btn-sm" >
-                    <input type="button" value="Done" class="btn btn-primary btn-sm" ng-click="goToLogin()">
+                    <input type="submit" value="Upload" class="btn btn-primary btn-sm" style="background-color: #f0ad4e;border-color: #f0ad4e;"/>
+                    <input type="button" value="Done" class="btn btn-primary btn-sm" style="background-color: #f0ad4e;border-color: #f0ad4e;" ng-click="goToLogin()"/>
 
                 </div>
                 <!--</div>-->

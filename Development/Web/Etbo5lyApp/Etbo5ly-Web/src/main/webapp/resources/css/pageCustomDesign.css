@@ -10,6 +10,23 @@
 #pageHeaders{
     background-color: #f0ad4e;
 }
+.left {
+/*    max-width: 100%;*/
+    /*background:red;*/
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -ms-text-overflow:ellipsis;
+    /*float: left;*/
+}
+.right {
+    /*background:yellow;*/
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -ms-text-overflow:ellipsis;
+/*    text-align: right;*/
+}
 
 a,
 button {
@@ -257,4 +274,31 @@ blockquote.pull-right {
 
 }
 
+//antwan
 
+/*md-dialog-content#dialog_1{
+    overflow: auto;
+}
+
+md-dialog form{
+    overflow: auto;
+}
+
+md-dialog{
+    overflow: auto;
+}*/
+/*.dialogdemoBasicUsage #popupContainer {
+  position: relative; }
+.dialogdemoBasicUsage .footer {
+  width: 100%;
+  text-align: center;
+  margin-left: 20px; }
+.dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
+  font-size: 0.8em;
+  margin-top: 50px; }
+.dialogdemoBasicUsage button {
+  width: 200px; }
+.dialogdemoBasicUsage div#status {
+  color: #c60008; }
+.dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
+  margin-bottom: 0; }*/
