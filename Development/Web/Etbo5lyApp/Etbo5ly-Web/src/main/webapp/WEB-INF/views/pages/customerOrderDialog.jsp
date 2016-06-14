@@ -25,7 +25,7 @@
                 <div class="col-md-9" id="customer-order">
                     <div class="box">
 
-                        <p class="lead">The order was placed on <strong><label ng-model="order.orderTime"></label></strong> and is currently <strong>Being prepared</strong>.</p>
+                        <p class="lead">The order was placed on <strong><label ng-bind="order.orderTime"></label></strong> and is currently <strong>Being prepared</strong>.</p>
                         <p class="text-muted">If you have any questions, please feel free to <a href="contact.htm">contact us</a>, our customer service center is working for you 24/7.</p>
 
                         <hr>

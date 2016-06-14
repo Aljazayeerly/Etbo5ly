@@ -1,6 +1,5 @@
 'use strict';
-App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDialog', '$mdMedia', 'PageService', function ($scope, MenuService, MainService, $mdDialog, $mdMedia, PageService) {
-
+App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDialog', '$mdMedia', 'PageService', function($scope, MenuService, MainService, $mdDialog, $mdMedia, PageService) {
 
         var cookId = 0;
         var order = {};
@@ -32,147 +31,122 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         $scope.showAllMeals = true;
         $scope.showSearchMeals = false;
         $scope.showLocationMeals = false;
-//        self.countries = [];
-//        $scope.selectedCity = null;
-//        $scope.selectedRegion = null;
-//        $scope.cities = [];
-//        var numbers = ['1','2','3'];
-
         var s = {"selectedCategories": [
             ]};
-
         var l = {"selectedLocations": [
             ]};
         $scope.selectedId = 0;
-
-        $scope.callToSetCookID = function (id)
+        $scope.callToSetCookID = function(id)
         {
             $scope.selectedId = id;
             PageService.setId($scope.selectedId);
             window.location.href = "cookProfile.htm?id=" + $scope.selectedId;
         };
-
-
-        self.getList = function () {
+        self.getList = function() {
 
             self.addedItems = MainService.list();
         };
-        self.getAllMeals = function () {
+        self.getAllMeals = function() {
 
             MenuService.getAllMeals()
                     .then(
-                            function (d) {
+                            function(d) {
 
                                 self.items = d;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching all meals in controller');
                             }
                     );
         };
-        self.getAllCooks = function () {
+        self.getAllCooks = function() {
             MenuService.getAllCooks()
                     .then(
                             function (d) {
-                                alert("coooooks");
                                 $scope.cooks = d;
-                                alert(JSON.stringify($scope.cooks.length));
+
 
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching cooks in controller');
                             }
                     );
         };
-        $scope.IncDecValue = function (itemId)
+        $scope.IncDecValue = function(itemId)
         {
 
 
-            $.each(self.addedItems, function (index, item)
+            $.each(self.addedItems, function(index, item)
 
             {
                 if (item.menuItemsItemId == itemId)
                 {
                     var oldPrice = item.price;
                     item.price = item.menuItemsPrice * item.quantity;
-
                     $scope.totalPrice = PageService.getTotalPrice();
                     $scope.totalPrice -= oldPrice;
                     $scope.totalPrice += item.price;
-
                     PageService.setTotalPrice($scope.totalPrice);
                     document.getElementById("total").innerHTML = $scope.totalPrice;
                 }
             });
-
         }
 
-        self.getCookMeals = function (id) {
+        self.getCookMeals = function(id) {
 
             MenuService.getCookMeals()
                     .then(
-                            function (d) {
+                            function(d) {
                                 self.cookMeals = d;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching cook meals in controller');
                             }
                     );
         };
-
-
-
-        self.getAllCategories = function () {
+        self.getAllCategories = function() {
 
             MenuService.getAllCategories()
                     .then(
-                            function (d) {
+                            function(d) {
                                 self.categories = d;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching all categories in controller');
                             }
                     );
         };
-
-
-        self.getAllLocations = function () {
+        self.getAllLocations = function() {
             MenuService.getAllLocations()
                     .then(
-                            function (d) {
+                            function(d) {
                                 self.locations = d;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching all locations in controller');
                             }
                     );
         };
-
-
-
-
-        self.searchForMeal = function (mealName) {
+        self.searchForMeal = function(mealName) {
             $scope.showCheckedMeal = false;
             $scope.showAllMeals = false;
             $scope.showSearchMeals = true;
             MenuService.searchForMeal(mealName)
                     .then(
-                            function (d) {
+                            function(d) {
                                 self.searchMeals = d;
 //                                self.check = true;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching search meals in controller');
                             }
                     );
         };
-
-        $scope.createOrder = function () {
-            var cityName = null;
+// dy aly sh9alal 
+        $scope.createOrder = function() {
             var addressDetails = null;
             cookId = PageService.getCookId();
             cookName = PageService.getCookName();
-//            cityName = PageService.getCity();
             var regionID = PageService.getRegion();
             $scope.totalPrice = PageService.getTotalPrice();
             addressDetails = PageService.getAddressDetails();
@@ -191,19 +165,15 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             order.orderDetails = self.addedItems;
             MenuService.createOrderService(order)
                     .then(
-                            function () {
+                            function() {
                             },
-                            function (errResponse) {
+                            function(errResponse) {
 
                                 console.error('Error while creating Order.');
                             }
                     );
             $scope.hide();
-            $scope.cartHasItems = false;
-            $scope.emptyCart = true;
             self.addedItems = [];
-
-
             $scope.cartHasItems = false;
             $scope.emptyCart = true;
         };
@@ -212,18 +182,16 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         self.getAllCooks();
         self.getAllCategories();
         self.getAllLocations();
-
-
-        self.submit = function () {
+        self.submit = function() {
 
             console.log('Saving New Order', self.order);
-            self.createOrder(self.order);
+//            self.createOrder(self.order);
             self.reset();
         };
-        $scope.addItem = function (itemId) {
+        $scope.addItem = function(itemId) {
 
             var found = false;
-            $.each(self.addedItems, function (index, item)
+            $.each(self.addedItems, function(index, item)
 
             {
                 if (item.menuItemsItemId == itemId)
@@ -241,7 +209,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             if (!found)
             {
 
-                $.each(self.items, function (index, item)
+                $.each(self.items, function(index, item)
 
                 {
                     if (item.itemId == itemId)
@@ -274,6 +242,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                         }
                         else
                         {
+                            $scope.showAlert();
                         }
 
 
@@ -288,9 +257,10 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             }
 
         };
-        $scope.deleteItem = function (itemId)
+        $scope.deleteItem = function(itemId)
         {
-            $.each(self.addedItems, function (index, item)
+
+            $.each(self.addedItems, function(index, item)
             {
                 if (item.menuItemsItemId == itemId)
                 {
@@ -305,19 +275,38 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             })
             if (self.addedItems.length == 0)
             {
-                $scope.cartHasItems = false;
+                alert("skksks");
                 $scope.emptyCart = true;
+                alert("pppp");
+                $scope.cartHasItems = false;
+                alert("oooo");
+                alert($scope.emptyCart + " " + $scope.cartHasItems);
             }
 
 
         };
-        $scope.checkOut = function ()
+        $scope.checkOut = function()
         {
-
+            PageService.setCart(self.addedItems);
             $scope.showAdvanced();
         };
+        $scope.showAlert = function(ev) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            // Modal dialogs should fully cover application
+            // to prevent interaction outside of dialog
+            $mdDialog.show(
+                    $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#popupContainer')))
+                    .clickOutsideToClose(true)
+                    .title('Add To Cart')
+                    .textContent('You Can Order From One Cook Only At A Time.')
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('OK!')
+                    .targetEvent(ev)
+                    );
+        };
+        self.isSelected = function(categorgyId, checked, index) {
 
-        self.isSelected = function (categorgyId, checked, index) {
 
             if (checked == true)
             {
@@ -325,113 +314,103 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             }
             else
             {
-                 $scope.checkedCategories=$scope.checkedCategories.splice(index, 1);
-                
+                $scope.checkedCategories = $scope.checkedCategories.splice(index, 1);
             }
             return   $scope.checkedCategories;
         };
-
-
-        self.getSelected = function () {
+        self.getSelected = function() {
             $scope.showCheckedMeal = true;
             $scope.showAllMeals = false;
             $scope.showLocationMeals = false;
-
             s.selectedCategories = $scope.checkedCategories;
             MenuService.getMealsForCheckedCategories(s)
                     .then(
-                            function (d) {
+                            function(d) {
                                 self.checkedItems = d;
-
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching Meals catergory in controller');
                             }
                     );
         };
-
-
-
-        self.isSelectedLocation = function (id, checked2, index) {
+        self.isSelectedLocation = function(id, checked2, index) {
             if (checked2 == true)
             {
                 $scope.checkedLocations.push(id);
             }
             else
             {
-                $scope.checkedLocations= $scope.checkedLocations.splice(index,1);
-
+                $scope.checkedLocations = $scope.checkedLocations.splice(index, 1);
             }
 
             return   $scope.checkedLocations;
         };
-
-
-        self.getSelectedLocation = function () {
+        self.getSelectedLocation = function() {
             $scope.showCheckedMeal = false;
             $scope.showAllMeals = false;
             $scope.showLocationMeals = true;
-
             l.selectedLocations = $scope.checkedLocations;
             MenuService.getMealsByLocation(l)
                     .then(
-                            function (d) {
+                            function(d) {
 
                                 self.checkedAddress = d;
-
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching Meals catergory in controller');
                             }
                     );
         };
-
-        $scope.showAdvanced = function (ev) {
+        $scope.showAdvanced = function(ev) {
 
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
             $mdDialog.show({
-                controller: "DialogController",
+                controller: "DialogControllers",
                 templateUrl: 'orderReviewDialog.htm',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen
             })
-                    .then(function (answer) {
+                    .then(function(answer) {
                         $scope.status = 'You said the information was "' + answer + '".';
-                    }, function () {
+                    }, function() {
                         $scope.status = 'You cancelled the dialog.';
                     });
-            $scope.$watch(function () {
+            $scope.$watch(function() {
                 return $mdMedia('xs') || $mdMedia('sm');
-            }, function (wantsFullScreen) {
+            }, function(wantsFullScreen) {
                 $scope.customFullscreen = (wantsFullScreen === true);
             });
         }
         ;
-    }]);
+    }
+]);
+App.controller('DialogControllers', ['$scope', '$mdDialog', '$mdMedia', 'MenuService', 'PageService', function($scope, $mdDialog, $mdMedia, MenuService, PageService) {
 
-App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuService', 'PageService', function ($scope, $mdDialog, $mdMedia, MenuService, PageService) {
-
+        var self = this;
+        alert("dialog controller");
         self.countries = [];
         $scope.selectedCity = null;
         $scope.selectedRegion = null;
         $scope.addressDetails = null;
         $scope.cities = [];
         $scope.regions = [];
+        $scope.cart = PageService.getCart();
+        alert("cart " + $scope.cart.length);
         $scope.totalPrice = PageService.getTotalPrice();
-        $scope.hide = function () {
+        $scope.hide = function() {
             $mdDialog.hide();
         };
-        $scope.cancel = function () {
+        $scope.cancel = function() {
             $mdDialog.cancel();
         };
         $scope.orderReviewBtn = true;
 //        $scope.createOrderBtn = false;
 
-        $scope.orderReviewDialog = function ()
+        $scope.orderReviewDialog = function()
         {
-
+            alert("orderReviewDialog");
             $scope.showA = false;
             $scope.showB = true;
             $scope.orderReviewBtn = false;
@@ -439,24 +418,23 @@ App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuServ
             PageService.setRegion($scope.selectedRegion);
             PageService.setAddressDetails($scope.addressDetails);
         };
-        self.getAllRegions = function () {
+        self.getAllRegions = function() {
 
             MenuService.getAllRegions()
                     .then(
-                            function (d) {
+                            function(d) {
 
                                 self.countries = d;
                                 $scope.cities = self.countries[0].cities;
                             },
-                            function (errResponse) {
+                            function(errResponse) {
                                 console.error('Error while fetching countries');
                             }
                     );
         };
         self.getAllRegions();
-
-        $scope.onChangeCity = function (itemSelected) {
-            $.each($scope.cities, function (index, item)
+        $scope.onChangeCity = function(itemSelected) {
+            $.each($scope.cities, function(index, item)
             {
                 if ($scope.selectedCity == item.cityId)
                 {
@@ -464,8 +442,56 @@ App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuServ
                     return;
                 }
             });
-
         };
+//        $scope.createOrder = function() {
+//            var order = {};
+//            var cookId = 0;
+//            var cookName = null;
+//            alert("create zft b2a");
+//            alert($scope.cart.length);
+//            var cityName = null;
+//            var addressDetails = null;
+//            cookId = PageService.getCookId();
+//            cookName = PageService.getCookName();
+////            cityName = PageService.getCity();
+//            var regionID = PageService.getRegion();
+//            $scope.totalPrice = PageService.getTotalPrice();
+//            addressDetails = PageService.getAddressDetails();
+//            order.userByCustomerId = 1;
+//            order.customerName = "";
+//            order.userByCookId = cookId;
+//            order.cookName = cookName;
+//            order.location = addressDetails;
+//            order.duration = 90;
+//            order.type = "normal";
+//            order.longitude = 0;
+//            order.latitude = 0;
+//            order.addressDetails = addressDetails;
+//            order.regionId = regionID;
+//            order.totalPrice = $scope.totalPrice;
+//            order.orderDetails = $scope.cart;
+//            alert("hena");
+//            MenuService.createOrderService(order)
+//                    .then(
+//                            function() {
+//                            },
+//                            function(errResponse) {
+//
+//                                console.error('Error while creating Order.');
+//                            }
+//                    );
+//            $scope.hide();
+//            alert("hena 2 ");
+//            $scope.cartHasItems = false;
+//            alert("hena 3");
+//
+//            $scope.emptyCart = true;
+//            alert("hena 4 ");
+//
+//            self.addedItems = [];
+//
+//
+//        };
     }
 ]);
 

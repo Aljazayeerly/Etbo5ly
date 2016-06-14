@@ -170,19 +170,3 @@
     <!-- /.container -->
 </div>
 <!-- /#content -->
-<!--
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-
- Angular Material Library 
-<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.js"></script>
-<script src="resources/js/app.js" type="text/javascript"></script>
-<script src="resources/js/controller/admin_controller.js" type="text/javascript"></script>
-<script src="resources/js/service/admin_service.js" type="text/javascript"></script>
-<script src="resources/js/service/mainService.js" type="text/javascript"></script>
-<script src="resources/js/service/myMapService.js" type="text/javascript"></script>
-<script src="resources/js/service/pageIntegerationService.js" type="text/javascript"></script>-->

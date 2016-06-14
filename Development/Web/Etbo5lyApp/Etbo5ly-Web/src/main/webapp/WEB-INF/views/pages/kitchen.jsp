@@ -5,7 +5,7 @@
 --%>
 
 
-<div ng-controller="MenuController as ctrl">
+<div ng-controller="MenuController as ctrl" >
     <div class="col-md-3" style="width: 20%">
         <!-- *** MENUS AND FILTERS ***
     _________________________________________________________ -->
@@ -15,7 +15,6 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><font color="#f0ad4e"><b>Cooks</b></font></h3>
             </div>
-            <!--//ng-controller="MenuController as ctrl"-->
             <div  class="panel-body">
 
                 <ul ng-repeat="i in cooks" class="nav nav-pills nav-stacked category-menu">
@@ -31,7 +30,6 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><font color="#f0ad4e"><b>Categories</b></font></h3>
             </div>
-            <!--ng-controller="MenuController as ctrl"-->
             <div  class="panel-body">
 
                 <form>
@@ -177,7 +175,7 @@
                                 <div style="height: 130px;width: 130px;" >
                                     <img src="{{address.resourcesURL}}/{{address.imageUrl}}" style="left:20px; width: 100%;height: 100%">
 
-<!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
+                                    <!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
 
                                 </div>
 
@@ -205,10 +203,10 @@
         <div class="box-header">
             <h3 style="color: #f0ad4e">Your Cart</h3>
         </div>
-        <div  ng-show="emptyCart">
+        <div  ng-show="emptyCart" ng-hide="false">
             <h2>Empty Cart</h2>
         </div>
-        <div id="cart" ng-show="cartHasItems" ng-hide="true">
+        <div  ng-show="cartHasItems"ng-hide="true">
             <table id="cart" class="table table-hover table-condensed" >
                 <thead>    
                     <tr>   
@@ -232,7 +230,9 @@
                         <td data-th="Quantity">
                             <input type="number" min="1" max="30" class="form-control text-center" ng-click="IncDecValue(i.menuItemsItemId)" value="1" ng-model="i.quantity">
                         </td>
-                        <td data-th="Subtotal"><label ng-bind="i.price"></label></td>
+                        <td>
+                            <label ng-bind="i.price"></label>
+                        </td>
                         <td class="actions" data-th="">
 
                             <button class="btn btn-danger btn-sm" ng-click="deleteItem(i.menuItemsItemId)"><i class="fa fa-trash-o"></i></button>								
@@ -245,9 +245,8 @@
 
                     </tr>
                     <tr>
-                        <td colspan="2" class="hidden-xs"></td>
+                        <td colspan="2" class="hidden-xs">Total</td>
                         <td class="hidden-xs text-center"><strong> <label id="total"></label></strong></td>
-                        <!--<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>-->
                         <td><button type="submit" class="btn btn-success btn-block"  ng-click="checkOut()" >CheckOut</button></td>
                     </tr>
                 </tfoot>

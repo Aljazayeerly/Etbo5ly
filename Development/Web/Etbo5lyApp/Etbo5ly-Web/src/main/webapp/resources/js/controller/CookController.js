@@ -138,6 +138,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
         $scope.order = {};
         $scope.orderStatus = [{id: 1, statusName: "Ordered"}, {id: 2, statusName: "Preparing"}, {id: 3, statusName: "InWay"}];
         $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+        $scope.selectedStatus = null;
         $scope.getAllCookOrders = function() {
             orderService.getAllCookOrders()
                     .then(
@@ -158,8 +159,19 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
         $scope.OrderDetails = function(id)
         {
 
-            PageService.setOrder($scope.orders[id]);
-            $scope.viewOrderDetails();
+            alert(id);
+            alert($scope.orders.length);
+            $.each($scope.orders, function(index, item)
+
+            {
+                if (item.orderId == id)
+                {
+                    alert("index " + index);
+                    PageService.setOrder($scope.orders[index]);
+                    $scope.viewOrderDetails();
+                }
+            });
+
         };
         $scope.viewOrderDetails = function(ev) {
 
@@ -195,11 +207,12 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
 //        $scope.AlreadyCustomer = "Already a user";
         $scope.filterExpression = function(orderStatus)
         {
-
+            alert("status : " + $scope.selectedStatus);
             $scope.max = 0;
             $.each(orderStatus, function(index, item)
 
             {
+                // alert("itemOrderStatusStatusId " + item.orderStatusStatusId);
                 if ($scope.max < item.orderStatusStatusId)
                 {
                     $scope.max = item.orderStatusStatusId;
@@ -209,7 +222,19 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
 
         }
 
-
+        $scope.changeOrderStatus = function(orderId, st)
+        {
+            var orderStatus = {};
+            alert("st " + st);
+            orderStatus.status = $scope.selectedStatus;
+            orderStatus.statusIdOrder = orderId;
+            orderStatus.orderStatusStatusId = st;
+            alert("OrderID : " + orderId);
+            alert("length : " + $scope.orders.length);
+            PageService.setOrder($scope.orders[orderId]);
+            orderService.changeOrderStatus(orderStatus);
+            $scope.getAllCookOrders();
+        }
 
         $scope.myFilter = function(item)
         {
@@ -230,7 +255,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
                 }
             }
         };
-        $scope.changeOrderStatus = function(orderId)
+        $scope.rateOrder = function(orderId)
         {
             var orderStatus = {};
             orderStatus.status = "Delivered";
@@ -263,7 +288,9 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
         };
         function CookHistoryDialogController($scope, $mdDialog, PageService) {
 
+            alert("cook controller");
             $scope.order = PageService.getOrder();
+            alert("order id " + $scope.order.orderDetails.length);
             $scope.hide = function() {
                 $mdDialog.hide();
             };
@@ -292,7 +319,6 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
         $scope.cancel = function() {
             $mdDialog.cancel();
         };
-
         $scope.answer = function(answer) {
         };
         $scope.submitOrderRating = function()
@@ -300,7 +326,6 @@ App.controller("cookOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 'Pag
             orderService.orderRate($scope.order);
             $scope.hide();
         };
-
         $scope.starRating1 = 4;
         $scope.starRating2 = 5;
         $scope.starRating3 = 2;

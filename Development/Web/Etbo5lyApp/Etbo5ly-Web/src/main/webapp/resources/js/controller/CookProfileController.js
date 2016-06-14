@@ -29,11 +29,10 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageSe
 
             cookProfileService.getCookDataForProfile($scope.selectedId)
                     .then(
-
                             function(d) {
-                                
+
                                 self.cookData = d;
-                                                            },
+                            },
                             function(errResponse) {
                                 console.error('Error while fetching ok data in controller');
                             }
@@ -45,11 +44,10 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageSe
         {
             cookProfileService.getAllReviews($scope.selectedId)
                     .then(
-                            function (d) {
+                            function(d) {
 
                                 self.review = d;
                             },
-
                             function(errResponse) {
                                 console.error('Error while fetching ok data in controller');
                             }
@@ -110,6 +108,7 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageSe
         };
 
 
-    
-     }]);
+
+    }]);
+
 
