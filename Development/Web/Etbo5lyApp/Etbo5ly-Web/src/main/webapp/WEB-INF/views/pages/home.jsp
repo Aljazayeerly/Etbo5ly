@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script
@@ -16,7 +17,7 @@ src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.js"></scri
       href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css"/>
 
 <header class="headbar">
-    
+
 
 
     <div class="fullbg">
@@ -37,25 +38,27 @@ src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.js"></scri
             </div>
 
             <div class="col-md-8 col-md-offset-2 col-xs-12 text-center text-banner">
-<!--    <div class="call" style="    margin-top: -34px;">
-                <p> lang : <a class="lang" href="?lang=en">en</a>|<a class="lang" href="?lang=ar_EG">ar</a></p>
-            </div>-->
+                <!--    <div class="call" style="    margin-top: -34px;">
+                                <p> lang : <a class="lang" href="?lang=en">en</a>|<a class="lang" href="?lang=ar_EG">ar</a></p>
+                            </div>-->
                 <h2><fmt:message key="introducingEtbokhly"/></h2>
                 <p><fmt:message key="introducingStatment"/></p>
 
                 <br>
                 <br>
-                <div class="demo-content buttondemoBasicUsage">
-                    <div ng-controller="AppCtrl">
-                        <section layout="row" layout-phone="column" layout-align="center center" layout-wrap>
-                            <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="neighbouringKitchen.htm">Neighbourhood Kitchens</md-button>
-                            <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="kitchen.htm">Choose Your meal</md-button>
-<!--                            <md-button class="md-accent md-raised md-hue-1" id="buttons">Catering</md-button>-->
-<!--                            <button class="md-raised md-primary">Catering</button>-->
-                            <div class="label"></div>
-                        </section>
+                <sec:authorize access="hasRole('CUSTOMER')">
+                    <div class="demo-content buttondemoBasicUsage">
+                        <div ng-controller="AppCtrl">
+                            <section layout="row" layout-phone="column" layout-align="center center" layout-wrap>
+                                <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="neighbouringKitchen.htm">Neighbourhood Kitchens</md-button>
+                                <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="kitchen.htm">Choose Your meal</md-button>
+                                <!--                            <md-button class="md-accent md-raised md-hue-1" id="buttons">Catering</md-button>-->
+                                <!--                            <button class="md-raised md-primary">Catering</button>-->
+                                <div class="label"></div>
+                            </section>
+                        </div>
                     </div>
-                </div>
+                </sec:authorize>
             </div>
 
         </div>
@@ -63,19 +66,6 @@ src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.js"></scri
     </div>
 
 </header>
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 <div class="container-fluid footer section-container">
 
     <div class="row">
