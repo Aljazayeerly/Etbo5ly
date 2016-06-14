@@ -95,8 +95,8 @@ public class OrderServiceImpl implements OrderService {
 
         StatusHasOrder statusHasOrder = modelMapper.map(statusHasOrderDTO, StatusHasOrder.class);
         java.util.Date date = new java.util.Date();
-
-        statusHasOrderDao.create(new StatusHasOrder(new StatusHasOrderId(4, statusHasOrder.getOrder().getOrderId()), null, null, new Date()));
+        System.out.println("STATUUUS : " + statusHasOrder.getOrderStatus().getStatusId());
+        statusHasOrderDao.create(new StatusHasOrder(new StatusHasOrderId(statusHasOrder.getOrderStatus().getStatusId(), statusHasOrder.getOrder().getOrderId()), null, null, new Date()));
 
     }
 

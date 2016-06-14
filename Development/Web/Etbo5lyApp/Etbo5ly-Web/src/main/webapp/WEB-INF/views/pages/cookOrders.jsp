@@ -33,7 +33,6 @@
                         <th>Order</th>
                         <th>Customer</th>
                         <th>Date</th>
-                        <th>Type</th>
                         <th>Total</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -44,24 +43,22 @@
                         <th>{{ $index + 1}}</th>
                         <th><label ng-model="i.customerName" ng-bind="i.customerName"></label></th>
                         <td><label ng-bind="i.orderTime"></label></td>
-                        <td><label ng-bind="i.type"></label></td>
                         <td><label ng-bind="i.totalPrice"></label></td>
                         <td>
-                            <select class="form-control" ng-model="selectedStatus" ng-selected="filterExpression(i.statusHasOrders)" required>
-                                <option ng-repeat="st in orderStatus" value ="{{st.id}}">{{st.statusName}}</option>
+                            <select ng-show = "i.statusHasOrders.length < 3" class="form-control" ng-model="selectedStatus"  ng-change="changeOrderStatus(i.orderId, selectedStatus)" >
+                                <option ng-repeat="st in orderStatus" value ="{{st.id}}" ng-selected="i.statusHasOrders.length == st.id" ng-disabled="st.id < i.statusHasOrders.length">{{st.statusName}}</option>
                             </select>
-                            <!--                            <span  ng-show = "i.statusHasOrders.length == 1" class="label label-info">Ordered</span>
-                                                        <span ng-show = "i.statusHasOrders.length == 2" class="label label-danger">Being prepared</span>
-                                                        <span ng-show = "i.statusHasOrders.length == 3" class="label label-warning">In Way</span>
-                            
-                                                        <span ng-show = "i.statusHasOrders.length == 4" class="label label-success">Delivered</span>-->
+                            <span ng-show = "i.statusHasOrders.length == 4" class="label label-success">Delivered</span>
+                            <span ng-show = "i.statusHasOrders.length == 3" class="label label-warning">In Way</span>
+
                         </td>
 
                         <td><button type="submit" ng-click="OrderDetails(i.orderId)" value="View" class="btn btn-primary btn-sm">View</button></td>
-                        <td> <button ng-show = "i.statusHasOrders.length == 3" class="btn btn-primary" ng-click="changeOrderStatus(i.orderId)">
-                                <i class="fa fa-refresh"></i>Change Status
-                            </button>
-                        </td>
+                        <!--                        <td> 
+                                                                                <button ng-show = "i.statusHasOrders.length == 3" class="btn btn-primary" ng-click="changeOrderStatus(i.orderId)">
+                                                                                    <i class="fa fa-refresh"></i>Change Status
+                                                                                </button>
+                                                </td>-->
 
 
                     </tr>
