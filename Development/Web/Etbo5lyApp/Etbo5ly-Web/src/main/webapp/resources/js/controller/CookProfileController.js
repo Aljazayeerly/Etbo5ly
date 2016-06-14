@@ -5,7 +5,6 @@
  */
 
 App.config(function($routeProvider, $locationProvider) {
-    // alert("inside the config ");
     $routeProvider.when('cookProfile.htm?id', {
         controller: 'cookProfileController'
     });
@@ -27,7 +26,6 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageSe
 
         }
         self.getCookData = function() {
-//            alert("iddddd2 " + $scope.selectedId);
 
             cookProfileService.getCookDataForProfile($scope.selectedId)
                     .then(
@@ -37,7 +35,6 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageSe
                                 self.cookData = d;
                                                             },
                             function(errResponse) {
-//                                alert("error in controller");
                                 console.error('Error while fetching ok data in controller');
                             }
                     );
@@ -46,7 +43,6 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageSe
 
         self.getReview = function()
         {
-//            alert("iddddd rev " + $scope.selectedId);
             cookProfileService.getAllReviews($scope.selectedId)
                     .then(
                             function (d) {
