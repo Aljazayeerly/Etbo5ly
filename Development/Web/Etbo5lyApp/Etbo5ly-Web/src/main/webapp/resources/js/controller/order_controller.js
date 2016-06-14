@@ -167,7 +167,6 @@ App.controller("customerOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 
 
         $scope.submitOrderRating = function()
         {
-//            alert("submit rating");
             var statusOrder = {};
             statusOrder.statusIdOrder = $scope.order.orderId;
             statusOrder.status = "Delivered";

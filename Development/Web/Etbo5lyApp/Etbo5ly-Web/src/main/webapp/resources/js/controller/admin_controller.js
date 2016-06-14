@@ -62,8 +62,10 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         self.getAllCooks = function() {
             MenuService.getAllCooks()
                     .then(
-                            function(d) {
+                            function (d) {
                                 $scope.cooks = d;
+
+
                             },
                             function(errResponse) {
                                 console.error('Error while fetching cooks in controller');

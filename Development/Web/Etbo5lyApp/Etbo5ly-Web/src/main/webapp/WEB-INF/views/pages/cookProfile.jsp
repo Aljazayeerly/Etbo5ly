@@ -10,20 +10,17 @@
             <h1>Profile</h1>
         </header>
         <article>
-            <!--<button ng-click="rl.getCookData($scope.Id)">click</button>-->
             <img src="{{rl.cookData.resourcesURL}}/{{rl.cookData.imageURL}}">
-            <!--<img  src="http://127.0.0.1:8089/Etbo5ly-Web/resources/images/cooks/nada.jpg">-->
             <h2>{{rl.cookData.name}}</h2>
-
             <div class='area'>
-                <h3>start from:{{rl.cookData.startWorkingHours}}</h3>
-                <h4>to:{{rl.cookData.endWorkingHours}}</h4>
                 <ul>
                     <li>
-                        Cook Rating 
-                        <span class='bar percent-70'></span>
+                        Start from : {{rl.cookData.startWorkingHours}}
                     </li>
-
+                    <li>
+                      To : {{rl.cookData.endWorkingHours}}
+                    </li>
+                    
                 </ul>
                 <h3>Categories:</h3>
                 <ul ng-repeat="m in rl.cookData.menuItems" >
@@ -39,6 +36,7 @@
 
 
 
+        <br><br>
         <br><br>
         <br><br>
         <br><br>
