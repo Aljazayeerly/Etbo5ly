@@ -25,7 +25,7 @@ public interface MenuItemsService {
 
     List<MenuItemDTO> getSpecificCookMeals(int id);
 
-    List<MenuItemDTO> getMealsByLocation(List<String> locationList);
+    List<MenuItemDTO> getMealsByLocation(List<Integer> locationList);
 
     List<MenuItemDTO> getSpecificMealsCookCategoryService(int cookId, int categoryId);
 

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.iti.jet.gp.etbo5ly.model.pojo.MenuItems;
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.MenuItemsDao;
+import com.iti.jet.gp.etbo5ly.model.pojo.Region;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -144,13 +145,13 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
     }
 
     @Override
-    public List<MenuItems> getMealsOfSpecificLocation(final List<String> address) {
+    public List<MenuItems> getMealsOfSpecificLocation(final List<Integer> id) {
         return (List<MenuItems>) transactionTemplate.execute(new TransactionCallback<Object>() {
             @Override
             public Object doInTransaction(TransactionStatus ts) {
 
-                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class, "item").createAlias("item.cook", "cook").add((Restrictions.in("cook.address", address))));
-
+//                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class, "item").createAlias("item.cook", "cook").add((Restrictions.in("cook.Region.regionId", id))));
+                return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(MenuItems.class, "item").createAlias("item.cook", "cook").add((Restrictions.in("cook.region.regionId", id))));
             }
         });
     }

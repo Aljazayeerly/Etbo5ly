@@ -31,22 +31,17 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         $scope.showAllMeals = true;
         $scope.showSearchMeals = false;
         $scope.showLocationMeals = false;
-
         var s = {"selectedCategories": [
             ]};
-
         var l = {"selectedLocations": [
             ]};
         $scope.selectedId = 0;
-
         $scope.callToSetCookID = function(id)
         {
             $scope.selectedId = id;
             PageService.setId($scope.selectedId);
             window.location.href = "cookProfile.htm?id=" + $scope.selectedId;
         };
-
-
         self.getList = function() {
 
             self.addedItems = MainService.list();
@@ -69,7 +64,6 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     .then(
                             function(d) {
                                 $scope.cooks = d;
-
                             },
                             function(errResponse) {
                                 console.error('Error while fetching cooks in controller');
@@ -87,16 +81,13 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                 {
                     var oldPrice = item.price;
                     item.price = item.menuItemsPrice * item.quantity;
-
                     $scope.totalPrice = PageService.getTotalPrice();
                     $scope.totalPrice -= oldPrice;
                     $scope.totalPrice += item.price;
-
                     PageService.setTotalPrice($scope.totalPrice);
                     document.getElementById("total").innerHTML = $scope.totalPrice;
                 }
             });
-
         }
 
         self.getCookMeals = function(id) {
@@ -111,9 +102,6 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
-
-
-
         self.getAllCategories = function() {
 
             MenuService.getAllCategories()
@@ -126,9 +114,6 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
-
-
-
         self.getAllLocations = function() {
             MenuService.getAllLocations()
                     .then(
@@ -140,10 +125,6 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
-
-
-
-
         self.searchForMeal = function(mealName) {
             $scope.showCheckedMeal = false;
             $scope.showAllMeals = false;
@@ -159,8 +140,6 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
         };
-
-
 // dy aly sh9alal 
         $scope.createOrder = function() {
             var addressDetails = null;
@@ -193,21 +172,14 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     );
             $scope.hide();
             self.addedItems = [];
-
             $scope.cartHasItems = false;
-
             $scope.emptyCart = true;
-
-
-
         };
         self.getAllMeals();
         self.getList();
         self.getAllCooks();
         self.getAllCategories();
         self.getAllLocations();
-
-
         self.submit = function() {
 
             console.log('Saving New Order', self.order);
@@ -285,7 +257,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         };
         $scope.deleteItem = function(itemId)
         {
-            alert("delete");
+
             $.each(self.addedItems, function(index, item)
             {
                 if (item.menuItemsItemId == itemId)
@@ -316,7 +288,6 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             PageService.setCart(self.addedItems);
             $scope.showAdvanced();
         };
-
         $scope.showAlert = function(ev) {
             // Appending dialog to document.body to cover sidenav in docs app
             // Modal dialogs should fully cover application
@@ -334,71 +305,60 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         };
         self.isSelected = function(categorgyId, checked, index) {
 
+
             if (checked == true)
             {
                 $scope.checkedCategories.push(categorgyId);
             }
             else
             {
-                $scope.checkedCategories.splice(index, 1);
+                $scope.checkedCategories = $scope.checkedCategories.splice(index, 1);
             }
             return   $scope.checkedCategories;
         };
-
-
         self.getSelected = function() {
             $scope.showCheckedMeal = true;
             $scope.showAllMeals = false;
             $scope.showLocationMeals = false;
-
             s.selectedCategories = $scope.checkedCategories;
             MenuService.getMealsForCheckedCategories(s)
                     .then(
                             function(d) {
                                 self.checkedItems = d;
-
                             },
                             function(errResponse) {
                                 console.error('Error while fetching Meals catergory in controller');
                             }
                     );
         };
-
-
-
-        self.isSelectedLocation = function(address, checked2, index) {
-
+        self.isSelectedLocation = function(id, checked2, index) {
             if (checked2 == true)
             {
-                $scope.checkedLocations.push(address);
+                $scope.checkedLocations.push(id);
             }
             else
             {
-                $scope.checkedLocations.splice(index, 1);
+                $scope.checkedLocations = $scope.checkedLocations.splice(index, 1);
             }
 
             return   $scope.checkedLocations;
         };
-
-
         self.getSelectedLocation = function() {
             $scope.showCheckedMeal = false;
             $scope.showAllMeals = false;
             $scope.showLocationMeals = true;
-
             l.selectedLocations = $scope.checkedLocations;
             MenuService.getMealsByLocation(l)
                     .then(
                             function(d) {
-                                self.checkedAddress = d;
 
+                                self.checkedAddress = d;
                             },
                             function(errResponse) {
                                 console.error('Error while fetching Meals catergory in controller');
                             }
                     );
         };
-
         $scope.showAdvanced = function(ev) {
 
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
@@ -422,8 +382,8 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             });
         }
         ;
-    }]);
-
+    }
+]);
 App.controller('DialogControllers', ['$scope', '$mdDialog', '$mdMedia', 'MenuService', 'PageService', function($scope, $mdDialog, $mdMedia, MenuService, PageService) {
 
         var self = this;
@@ -449,7 +409,6 @@ App.controller('DialogControllers', ['$scope', '$mdDialog', '$mdMedia', 'MenuSer
         $scope.orderReviewDialog = function()
         {
             alert("orderReviewDialog");
-
             $scope.showA = false;
             $scope.showB = true;
             $scope.orderReviewBtn = false;
@@ -472,7 +431,6 @@ App.controller('DialogControllers', ['$scope', '$mdDialog', '$mdMedia', 'MenuSer
                     );
         };
         self.getAllRegions();
-
         $scope.onChangeCity = function(itemSelected) {
             $.each($scope.cities, function(index, item)
             {
@@ -482,9 +440,7 @@ App.controller('DialogControllers', ['$scope', '$mdDialog', '$mdMedia', 'MenuSer
                     return;
                 }
             });
-
         };
-
 //        $scope.createOrder = function() {
 //            var order = {};
 //            var cookId = 0;

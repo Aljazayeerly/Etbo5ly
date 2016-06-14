@@ -92,7 +92,7 @@ public class MenuItemsServiceImpl implements MenuItemsService {
 
     @Override
     @Transactional
-    public List<MenuItemDTO> getMealsByLocation(List<String> locationList) {
+    public List<MenuItemDTO> getMealsByLocation(List<Integer> locationList) {
         List<MenuItemDTO> itemDTOs = new ArrayList<MenuItemDTO>();
         List<MenuItems> menuItems = menuItemsDao.getMealsOfSpecificLocation(locationList);
         ModelMapper modelMapper = new ModelMapper();

@@ -18,7 +18,7 @@ public interface MenuItemsDao extends GenericDao<MenuItems> {
     public List<MenuItems> getMealsOfCook(int cookID);
 //    List<MenuItemDTO> getAllMeals();
 
-    public List<MenuItems> getMealsOfSpecificLocation(List<String> address);
+    public List<MenuItems> getMealsOfSpecificLocation(List<Integer> id);
 
     public List<MenuItems> getSpecificMealsCookCategory(int cookId, int categoryId);
 
