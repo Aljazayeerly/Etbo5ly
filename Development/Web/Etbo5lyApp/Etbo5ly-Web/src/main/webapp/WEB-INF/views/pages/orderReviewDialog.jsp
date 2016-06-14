@@ -42,8 +42,8 @@
                                     <form method="post">
                                         <div class="content">
                                             <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
+                                                <div class="col-sm-2">
+                                                    <div class="form-group" style="margin-top: 10%;margin-left: 5%;">
                                                         <label for="city">City</label>
                                                         <!--<input type="text" class="form-control" id
                                                         ="city" ng-model="city">-->
@@ -57,8 +57,8 @@
                                                 </div>
                                                 <br>
                                                 <br>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
+                                                <div class="col-sm-2">
+                                                    <div class="form-group" style="margin-top: 10%;margin-left: 5%;">
                                                         <label for="region">Region</label>
                                                         <!--<input type="text" class="form-control" id="region" ng-model="region">-->
                                                         <!--                                                    <select ng-model="selectedRegion" ng-options="region.regionId as region.regionName for region in regions"  value="{{option.id}}">
@@ -146,7 +146,7 @@
                                                                     <tfoot>
                                                                         <tr>
                                                                             <th colspan="3">Total</th>
-                                                                            <td><label ng-bind="totalPrice" style="margin-left: 5%;"></label></td>
+                                                                            <td><label ng-bind="totalPrice" style="margin-left: 10%;"></label></td>
                                                                         </tr>
                                                                     </tfoot>
                                                                 </table>
