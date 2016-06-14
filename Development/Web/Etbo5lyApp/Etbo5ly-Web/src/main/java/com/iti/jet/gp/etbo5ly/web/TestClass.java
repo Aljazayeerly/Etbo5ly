@@ -389,9 +389,14 @@ public class TestClass {
 
         String saveDirectory = appPath + filePath;
         if (fileBucket.getImage() != null && fileBucket.getImage().getSize() > 0) {
-            String fileName = fileBucket.getImage().getOriginalFilename();
-            if (!fileName.equalsIgnoreCase("")) {
-                fileBucket.getImage().transferTo(new File(saveDirectory + fileName));
+            // String fileName = fileBucket.getImage().getOriginalFilename();
+            if (!cook.getName().equalsIgnoreCase("")) {
+                if (type.equals("image/jpeg")) {
+                    fileBucket.getImage().transferTo(new File(saveDirectory + cook.getName() + ".jpg"));
+                } else if (type.equals("image/png")) {
+                    fileBucket.getImage().transferTo(new File(saveDirectory + cook.getName() + ".png"));
+
+                }
             }
 
         }
