@@ -90,7 +90,7 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
                             function (d) {
 
                                 self.items = d;
-//                                alert(JSON.stringify( self.items));
+                                alert(JSON.stringify( self.items));
                             },
                             function (errResponse) {
                                 console.error('Error while fetching all meals in controller');
@@ -103,7 +103,7 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
                             function (d) {
                                
                                 self.cooks = d;
-                               // alert("cooks0 " + JSON.stringify(self.cooks));
+                                alert("cooks0 " + JSON.stringify(self.cooks));
                             },
                             function (errResponse) {
                                 console.error('Error while fetching cooks in controller');

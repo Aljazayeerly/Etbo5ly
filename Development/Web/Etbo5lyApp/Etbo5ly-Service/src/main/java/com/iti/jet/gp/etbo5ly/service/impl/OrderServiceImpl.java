@@ -126,7 +126,6 @@ public class OrderServiceImpl implements OrderService {
         List<OrderDTO> orderDTOs = new ArrayList<OrderDTO>();
         List<Order> orders = orderDao.getAllCookOrdersById(id);
         orderDTOs = DTOConverter.orderListToOrderDTOList(orders);
-        System.out.println("ALl Cooks Size bta3 al zft : " + orderDTOs.get(0).getOrderDetails().size());
         return orderDTOs;
     }
 

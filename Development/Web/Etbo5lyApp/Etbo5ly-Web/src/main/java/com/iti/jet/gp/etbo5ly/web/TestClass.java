@@ -137,8 +137,7 @@ public class TestClass {
     }
 
     @RequestMapping(value = "/home.htm")
-    public String index(HttpSession session) {
-        session.setAttribute("user", loggedInUserChecker.getLoggedUser());
+    public String index() {
         return "home";
     }
 

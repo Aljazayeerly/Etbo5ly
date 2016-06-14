@@ -29,16 +29,16 @@ App.factory('cookProfileService', ['$http', '$q', function ($http, $q) {
             },
             
                 getAllReviews: function(id) {
-//                alert("service "+id);
+                alert("service "+id);
                 return $http.get('/Etbo5ly-Web/rest/cookOrders?cookId='+id)
                         .then(
                                 function(response) {
-//                                    alert("service response");
-//                                    alert("response: " + response.length);
+                                    alert("service response");
+                                    alert("response: " + response.length);
                                     return response.data;
                                 },
                                 function(errResponse) {
-//                                    alert("error response");
+                                    alert("error response");
                                     console.error('Error while fetching orders');
                                     return $q.reject(errResponse);
                                 }

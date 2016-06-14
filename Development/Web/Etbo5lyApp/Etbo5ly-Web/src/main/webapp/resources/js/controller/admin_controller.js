@@ -48,7 +48,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         $scope.callToSetCookID = function(id)
         {
             $scope.selectedId = id;
-//            alert("selected "+ $scope.selectedId);
+            alert("selected "+ $scope.selectedId);
             PageService.setId($scope.selectedId);
             window.location.href = "cookProfile.htm?id=" + $scope.selectedId;
         };
@@ -343,9 +343,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             $scope.showAllMeals = false;
             $scope.showLocationMeals = false;
 
-//            alert("get selected");
             s.selectedCategories = $scope.checkedCategories;
-//            alert(JSON.stringify(s.selectedCategories));
             MenuService.getMealsForCheckedCategories(s)
                     .then(
                             function(d) {

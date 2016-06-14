@@ -88,12 +88,9 @@
                                 <br>
                                 <label style="color: gray;font-size: 13px" ng-bind="i.cookName"></label>
                                 <br>
-
                             </div>
                             <div style="height: 130px;width: 130px;">
                                 <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="left:20px; width: 100%;height: 100%;">
-
-                                <!--<label style="color: gray; font-size: 13px" ng-bind="i.cookId"></label>-->
 
                             </div>
                             <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px;">
@@ -121,9 +118,6 @@
                                 <br>
                                 <div style="height: 130px;width: 130px;" >
                                     <img src="{{j.resourcesURL}}/{{j.imageUrl}}" style="left:20px; width: 100%;height: 100%">
-
-<!--                                    <label style="color: gray; font-size: 13px" ng-bind="j.cookId"></label>-->
-
                                 </div>
 
                                 <div>

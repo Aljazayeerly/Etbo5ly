@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ taglib prefix="c" 
            uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!--Fixed Menu Bar-->
 <div class="navbar navbar-inverse navbar-fixed-top" id="myHeader">
     <div class="container">
@@ -18,16 +19,28 @@
             <ul class="nav navbar-nav">
 
                 <li class="active"><a href="home.htm"><fmt:message key="home"/></a></li>
-                    <c:if test="${sessionScope.user eq null}">
+                    <sec:authorize access="!isAuthenticated()">
                     <li><a href="login.htm"><fmt:message key="login"/></a></li>
-                    </c:if>
-                    <c:if test="${sessionScope.user ne null}">
-                    <li><a href="login.htm?error"><fmt:message key="logout"/></a></li>
-                    </c:if>
+                    </sec:authorize>
+                    <sec:authorize access="isAuthenticated()">
+                    <li><a href="login.htm?logout"><fmt:message key="logout"/></a></li>
+                    </sec:authorize>
+
+                <%--<sec:authorize access="!isAuthenticated()">--%>
+                    <li><a href="register.htm"><fmt:message key="register"/></a></li>
+                    <%--</sec:authorize>--%>
+                    <%--<sec:authorize access="!isAuthenticated()">--%>
+
+                    <li><a href="joinUS.htm"><fmt:message key="joinUs"/></a></li>
+                    <%--</sec:authorize>--%>
+                    <sec:authorize access="hasRole('COOK')">
+                    <li><a href="cookOrders.htm"><fmt:message key="myorders"/></a></li>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('CUSTOMER')">
+                    <li><a href="customerOrders.htm"><fmt:message key="myorders"/></a></li>
+                    </sec:authorize>
 
 
-                <li><a href="register.htm"><fmt:message key="register"/></a></li>
-                <li><a href="joinUS.htm"><fmt:message key="joinUs"/></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><fmt:message key="language"/><span class="caret"></span></a>
                     <ul class="dropdown-menu">
