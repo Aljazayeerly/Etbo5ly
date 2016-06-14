@@ -46,7 +46,7 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                         );
             },
             getAllCooks: function() {
-                return $http.get('/Etbo5ly-Web/rest/cook/page?page=-2')
+                return $http.get('/Etbo5ly-Web/rest/cook/page?page=-4')
                         .then(
                                 function(response) {
                                     return response.data;
@@ -148,8 +148,8 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                 return $http.post('/Etbo5ly-Web/rest/addItem',meal)
                         .then(
                                 function(response) {
-                                    alert("dhkdhkjfh");
-                                    alert(JSON.stringify(response.data));
+                                   // alert("dhkdhkjfh");
+                                   // alert(JSON.stringify(response.data));
                                     return response.data;
                                 },
                                 function(errResponse) {

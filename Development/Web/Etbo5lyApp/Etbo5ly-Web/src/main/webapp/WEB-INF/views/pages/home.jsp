@@ -16,7 +16,7 @@ src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.js"></scri
       href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css"/>
 
 <header class="headbar">
-    
+
 
 
     <div class="fullbg">
@@ -37,9 +37,9 @@ src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.js"></scri
             </div>
 
             <div class="col-md-8 col-md-offset-2 col-xs-12 text-center text-banner">
-<!--    <div class="call" style="    margin-top: -34px;">
-                <p> lang : <a class="lang" href="?lang=en">en</a>|<a class="lang" href="?lang=ar_EG">ar</a></p>
-            </div>-->
+                <!--    <div class="call" style="    margin-top: -34px;">
+                                <p> lang : <a class="lang" href="?lang=en">en</a>|<a class="lang" href="?lang=ar_EG">ar</a></p>
+                            </div>-->
                 <h2><fmt:message key="introducingEtbokhly"/></h2>
                 <p><fmt:message key="introducingStatment"/></p>
 
@@ -50,8 +50,9 @@ src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.js"></scri
                         <section layout="row" layout-phone="column" layout-align="center center" layout-wrap>
                             <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="neighbouringKitchen.htm">Neighbourhood Kitchens</md-button>
                             <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="kitchen.htm">Choose Your meal</md-button>
-<!--                            <md-button class="md-accent md-raised md-hue-1" id="buttons">Catering</md-button>-->
-<!--                            <button class="md-raised md-primary">Catering</button>-->
+                            <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="addItem.htm">Add Item</md-button>
+                            <!--                            <md-button class="md-accent md-raised md-hue-1" id="buttons">Catering</md-button>-->
+                            <!--                            <button class="md-raised md-primary">Catering</button>-->
                             <div class="label"></div>
                         </section>
                     </div>
