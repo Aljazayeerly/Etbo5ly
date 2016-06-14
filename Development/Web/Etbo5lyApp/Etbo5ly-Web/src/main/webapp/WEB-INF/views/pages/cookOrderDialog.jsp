@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div style="width:700px ;height: 70px;" >
+<div style="width:300% ;height: 150%; margin-top: 10%; margin-top: 35%;margin-left: 20%;" >
     <md-dialog aria-label="Mango (Fruit)"  ng-cloak>
         <form method="post">
 
@@ -35,7 +35,7 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
+                                            <th>Item</th>
                                             <th>Quantity</th>
                                             <th>Unit price</th>
                                             <th>Sub Total</th>
@@ -53,6 +53,8 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <!--                                            <th colspan="2" class="text-right">Total</th>
+                                                                                        <th><label ng-bind="order.totalPrice"></label></th>-->
                                             <th colspan="5" class="text-right">Total</th>
                                             <th><label ng-bind="order.totalPrice"></label></th>
                                         </tr>

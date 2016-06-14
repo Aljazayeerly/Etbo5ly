@@ -26,7 +26,7 @@
         </div>
 
 
-        <div class="table-responsive">
+        <div class="table-responsive" ng-show="cookOrderHistory" ng-hide="true">
             <table class="table table-hover">
                 <thead>
                     <tr>

@@ -55,12 +55,12 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
             }
         };
         $scope.addItemToMenu = function() {
-            
-            
+
+
             self.menuItem.nameEn = name;
             self.menuItem.price = price;
             self.menuItem.descriptionEn = description;
-            
+
             MenuService.addMenuItem(self.menuIem).then(
                     function(resolve) {
                         $scope.addedItem = resolve;
@@ -81,8 +81,8 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                         console.log(reject);
                     });
         };
-        
-        
+
+
         $scope.getAllCategories = function() {
 
             MenuService.getAllCategories()
@@ -95,8 +95,8 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                             }
                     );
         };
-       
-         $scope.showCategorySelected = function(categorySelected) {
+
+        $scope.showCategorySelected = function(categorySelected) {
             $scope.categorySelected = categorySelected;
         };
         $scope.getAllRegions();
@@ -159,14 +159,14 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
         $scope.OrderDetails = function(id)
         {
 
-            alert(id);
-            alert($scope.orders.length);
+//            alert(id);
+//            alert($scope.orders.length);
             $.each($scope.orders, function(index, item)
 
             {
                 if (item.orderId == id)
                 {
-                    alert("index " + index);
+//                    alert("index " + index);
                     PageService.setOrder($scope.orders[index]);
                     $scope.viewOrderDetails();
                 }
@@ -199,6 +199,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
         $scope.showSelectValue = function(mySelect)
         {
             $scope.myOrderBy = mySelect;
+            $scope.cookOrderHistory = true;
         };
 //        $scope.checkCookMail = function () {
 //        $scope.AlreadyCook = "";
@@ -207,7 +208,7 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
 //        $scope.AlreadyCustomer = "Already a user";
         $scope.filterExpression = function(orderStatus)
         {
-            alert("status : " + $scope.selectedStatus);
+//            alert("status : " + $scope.selectedStatus);
             $scope.max = 0;
             $.each(orderStatus, function(index, item)
 
@@ -225,12 +226,12 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
         $scope.changeOrderStatus = function(orderId, st)
         {
             var orderStatus = {};
-            alert("st " + st);
+//            alert("st " + st);
             orderStatus.status = $scope.selectedStatus;
             orderStatus.statusIdOrder = orderId;
             orderStatus.orderStatusStatusId = st;
-            alert("OrderID : " + orderId);
-            alert("length : " + $scope.orders.length);
+//            alert("OrderID : " + orderId);
+//            alert("length : " + $scope.orders.length);
             PageService.setOrder($scope.orders[orderId]);
             orderService.changeOrderStatus(orderStatus);
             $scope.getAllCookOrders();
@@ -288,9 +289,9 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
         };
         function CookHistoryDialogController($scope, $mdDialog, PageService) {
 
-            alert("cook controller");
+//            alert("cook controller");
             $scope.order = PageService.getOrder();
-            alert("order id " + $scope.order.orderDetails.length);
+//            alert("order id " + $scope.order.orderDetails.length);
             $scope.hide = function() {
                 $mdDialog.hide();
             };
