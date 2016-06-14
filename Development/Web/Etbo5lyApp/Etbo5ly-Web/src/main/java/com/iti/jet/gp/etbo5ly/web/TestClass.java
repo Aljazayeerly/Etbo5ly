@@ -314,55 +314,53 @@ public class TestClass {
 
     @RequestMapping(value = "addItem.htm", method = RequestMethod.POST)
     public String addMenuItemService(@ModelAttribute("addItem") MenuItemDTO menuItem, ModelMap model, HttpServletRequest request) throws IOException {
-     
-        if(checkTypeAvalability(menuItem.getImages().getContentType())==2 || checkTypeAvalability(menuItem.getImages().getContentType())==4){
-        Set<CategoryDTO> categories = new HashSet<>(0);
-        CategoryDTO categoryDTO = new CategoryDTO();
-        User user = loggedInUserChecker.getLoggedUser();
-        menuItem.setCookId(user.getId());
-        categoryDTO.setCategoryId(Integer.parseInt(menuItem.getChecked()));
-        System.out.println("idddddddd " + menuItem.getChecked());
-        categories.add(categoryDTO);
 
-        menuItem.setCategories(categories);
-        menuItem.setImage(menuItem.getImages().getBytes());
+        if (checkTypeAvalability(menuItem.getImages().getContentType()) == 2 || checkTypeAvalability(menuItem.getImages().getContentType()) == 4) {
+            Set<CategoryDTO> categories = new HashSet<>(0);
+            CategoryDTO categoryDTO = new CategoryDTO();
+            User user = loggedInUserChecker.getLoggedUser();
+            menuItem.setCookId(user.getId());
+            categoryDTO.setCategoryId(Integer.parseInt(menuItem.getChecked()));
+            System.out.println("idddddddd " + menuItem.getChecked());
+            categories.add(categoryDTO);
 
-        String type = menuItem.getImages().getContentType();
-        if (type.equals("image/png")) {
-            menuItem.setImageUrl(menuItem.getNameEn() + ".png");
-        } else if (type.equals("image/jpeg")) {
-            menuItem.setImageUrl(menuItem.getNameEn() + ".jpg");
+            menuItem.setCategories(categories);
+            menuItem.setImage(menuItem.getImages().getBytes());
 
-        }
+            String type = menuItem.getImages().getContentType();
+            if (type.equals("image/png")) {
+                menuItem.setImageUrl(menuItem.getNameEn() + ".png");
+            } else if (type.equals("image/jpeg")) {
+                menuItem.setImageUrl(menuItem.getNameEn() + ".jpg");
 
-        String filePath = "/resources/images/meals/";
-        // get absolute path of the application
-        ServletContext context = request.getServletContext();
-        String appPath = context.getRealPath("");
-        System.out.println("appPath = " + appPath);
-
-        String saveDirectory = appPath + filePath;
-        if (menuItem.getImages() != null && menuItem.getImages().getSize() > 0) {
-            // String fileName = fileBucket.getImage().getOriginalFilename();
-//            if (!cook.getName().equalsIgnoreCase("")) {
-            if (type.equals("image/jpeg")) {
-                menuItem.getImages().transferTo(new File(saveDirectory + menuItem.getNameEn() + ".jpg"));
-            } else if (type.equals("image/png")) {
-                menuItem.getImages().transferTo(new File(saveDirectory + menuItem.getNameEn() + ".png"));
-
-//                }
             }
 
-        }
-        menuItemsService.addMenuItem(menuItem);
+            String filePath = "/resources/images/meals/";
+            // get absolute path of the application
+            ServletContext context = request.getServletContext();
+            String appPath = context.getRealPath("");
+            System.out.println("appPath = " + appPath);
 
-        return "home";
-        }
-        else{
+            String saveDirectory = appPath + filePath;
+            if (menuItem.getImages() != null && menuItem.getImages().getSize() > 0) {
+                // String fileName = fileBucket.getImage().getOriginalFilename();
+//            if (!cook.getName().equalsIgnoreCase("")) {
+                if (type.equals("image/jpeg")) {
+                    menuItem.getImages().transferTo(new File(saveDirectory + menuItem.getNameEn() + ".jpg"));
+                } else if (type.equals("image/png")) {
+                    menuItem.getImages().transferTo(new File(saveDirectory + menuItem.getNameEn() + ".png"));
+
+//                }
+                }
+
+            }
+            menuItemsService.addMenuItem(menuItem);
+
+            return "home";
+        } else {
             model.addAttribute("menuimage", "Invalid menu item image it should be jpg or png ");
             return "addItem";
         }
-            
 
     }
 

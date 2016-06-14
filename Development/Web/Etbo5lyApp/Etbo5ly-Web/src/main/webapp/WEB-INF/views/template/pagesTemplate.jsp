@@ -54,6 +54,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.js"></script>
         <script src="resources/js/app.js" type="text/javascript"></script>
         <script src="resources/js/controller/admin_controller.js" type="text/javascript"></script>
+        <script src="resources/js/controller/search_controller.js" type="text/javascript"></script>
         <script src="resources/js/directives/starRatingDirective.js" type="text/javascript"></script>
         <script src="resources/js/controller/myMapJS.js" type="text/javascript"></script>
         <script src="resources/js/controller/order_controller.js" type="text/javascript"></script>

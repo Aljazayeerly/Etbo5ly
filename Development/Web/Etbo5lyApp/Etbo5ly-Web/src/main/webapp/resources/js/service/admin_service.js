@@ -46,7 +46,8 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                         );
             },
             getAllCooks: function() {
-                return $http.get('/Etbo5ly-Web/rest/cook/page?page=-4')
+
+                return $http.get('/Etbo5ly-Web/rest/cook/page?page=-3')
                         .then(
                                 function(response) {
                                     return response.data;
@@ -128,15 +129,17 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                         );
             }
             ,
-            getMealsByLocation: function(address)
+            getMealsByLocation: function(id)
             {
-                return $http.post('/Etbo5ly-Web/rest/locationMeals', address)
+                return $http.post('/Etbo5ly-Web/rest/locationMeals', id)
                         .then(
                                 function(response) {
-//                                  
+//                                    alert("success in service");
                                     return response.data;
+                                    
                                 },
                                 function(errResponse) {
+//                                    alert("errorrr in service");
                                     console.error('Error while fetching checked categories in service');
                                     return $q.reject(errResponse);
                                 }
@@ -148,8 +151,6 @@ App.factory('MenuService', ['$http', '$q', function($http, $q) {
                 return $http.post('/Etbo5ly-Web/rest/addItem',meal)
                         .then(
                                 function(response) {
-                                   // alert("dhkdhkjfh");
-                                   // alert(JSON.stringify(response.data));
                                     return response.data;
                                 },
                                 function(errResponse) {
