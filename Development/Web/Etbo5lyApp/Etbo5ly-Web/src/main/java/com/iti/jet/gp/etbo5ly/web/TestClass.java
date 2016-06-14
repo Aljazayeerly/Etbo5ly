@@ -8,22 +8,24 @@ package com.iti.jet.gp.etbo5ly.web;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.model.pojo.Document;
 import com.iti.jet.gp.etbo5ly.model.pojo.DocumentType;
+import com.iti.jet.gp.etbo5ly.model.pojo.User;
 import com.iti.jet.gp.etbo5ly.service.CookService;
 import com.iti.jet.gp.etbo5ly.service.DocumentService;
 import com.iti.jet.gp.etbo5ly.service.DocumentTypeService;
+import com.iti.jet.gp.etbo5ly.service.MenuItemsService;
+import com.iti.jet.gp.etbo5ly.service.dto.CategoryDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.CookDocumentDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.DocumentDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.MenuItemDTO;
 import com.iti.jet.gp.etbo5ly.service.validator.FileValidator;
 import com.iti.jet.gp.etbo5ly.service.wrapper.FileBucket;
-import com.iti.jet.gp.etbo5ly.web.util.LoggedInUserChecker;
-import com.iti.jets.gp.etbo5ly.web.mvc.controller.DocumentController;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.ws.rs.QueryParam;
-import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,8 +41,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
+import com.iti.jet.gp.etbo5ly.web.util.LoggedInUserChecker;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -48,7 +52,6 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class TestClass {
-
 
     @Autowired
     CookService cookDocumentService;
@@ -61,9 +64,12 @@ public class TestClass {
 
     @Autowired
     FileValidator fileValidator;
-    
+
     @Autowired
     LoggedInUserChecker loggedInUserChecker;
+
+    @Autowired
+    MenuItemsService menuItemsService;
 
     @InitBinder("fileBucket")
     protected void initBinder(WebDataBinder binder) {
@@ -93,14 +99,12 @@ public class TestClass {
 
     }
 
-
-    
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String login(@RequestParam(value = "error", required = false) String error,
             @RequestParam(value = "logout", required = false) String logout, Model model) {
 
         if (error != null) {
-            model.addAttribute("error", error+"invalid user name and password");
+            model.addAttribute("error", error + "invalid user name and password");
         }
 
         if (logout != null) {
@@ -210,6 +214,14 @@ public class TestClass {
         return model;
     }
 
+    @RequestMapping(value = "/addItem.htm")
+    public ModelAndView addItem() {
+        System.out.println("geeeeeeeeeeeeet");
+        MenuItemDTO meal = new MenuItemDTO();
+        ModelAndView model = new ModelAndView("addItem", "addItem", meal);
+        return model;
+    }
+
 //    @RequestMapping(value = "/cookKitchen.htm")
 //    @QueryParam("id")
 //    public String cookKitchen(@RequestParam(value = "id") int id) {
@@ -285,13 +297,30 @@ public class TestClass {
         }
     }
 
+    @RequestMapping(value = "addItem.htm", method = RequestMethod.POST)
+    public String addMenuItemService(@ModelAttribute("addItem") MenuItemDTO menuItem, ModelMap model) {
+        Set<CategoryDTO> categories = new HashSet<>(0);
+        CategoryDTO categoryDTO = new CategoryDTO();
+        User user = loggedInUserChecker.getLoggedUser();
+        menuItem.setCookId(user.getId());
+        categoryDTO.setCategoryId(Integer.parseInt(menuItem.getChecked()));
+        System.out.println("idddddddd "+menuItem.getChecked());
+        categories.add(categoryDTO);
+
+        menuItem.setCategories(categories);
+        menuItemsService.addMenuItem(menuItem);
+        HttpHeaders headers = new HttpHeaders();
+        return "home";
+
+    }
+
     @RequestMapping(value = {"/add-document.htm"}, method = RequestMethod.POST)
     @QueryParam("id")
     public String uploadDocument(@ModelAttribute("fileBucket") @Valid FileBucket fileBucket, ModelMap model, BindingResult result, @RequestParam(value = "id") int cookId) throws IOException {
 
         int typeId;
         if (result.hasErrors()) {
-           // System.out.println("validation errors");
+            // System.out.println("validation errors");
             Cook cook = cookDocumentService.findById(cookId);
             model.addAttribute("cook", cook);
             return "add-document";
@@ -331,11 +360,6 @@ public class TestClass {
 
         System.out.println("documents " + document.toString());
         documentService.insertDocument(document);
-    }
-     @RequestMapping(value = "/addItem.htm")
-    public String addItem() {
-        return "addItem";
-
     }
 
     public int checkTypeAvalability(String type) {

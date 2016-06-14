@@ -24,51 +24,38 @@
 </style>
 
 <div class="col-md-6" id="registerbox">
-    <div class="box"  ng-controller="JoinUsController">
+    <div class="box" ng-controller="JoinUsController" >
 
-
-
-        <form  method="post" commandName="meal"  name="meal" enctype="multipart/form-data" >
-            <%--<form:errors path="*" element="div"/>--%>
+        <form:form  method="post" commandName="addItem" name="meal"  action="addItem.htm">         
             <div class="form-group">
                 <label  id="rLabel">Meal Name</label>
-                <input type="text" class="form-control" id="name"  name="name" path="name" ng-model="name" ></input>
+
+                <form:input type="text" class="form-control" id="nameEn"  name="nameEn" path="nameEn" ng-model="name" ></form:input>
                 <%--<form:errors cssClass="error" path="name"/>--%>
             </div>
             <div class="form-group">
                 <label  id="rLabel">Price</label>
-                <input  class="form-control"  name="price" id="price" path="price" ng-model="price" ></input>
+                <form:input  class="form-control"  name="price" id="price" path="price"  ></form:input>
 
                 </div>
                 <div class="form-group">
                     <label  id="rLabel" >Description</label>
-                <input type="text" class="form-control" id="description" name="description" path="description" ng-model="description" ></input>
+                <form:input  type="text" class="form-control" id="descriptionEn" name="descriptionEn" path="descriptionEn"  ></form:input >
 
                 </div>
+                <div class="form-group">
+                    <label  id="rLabel" >Categories</label>
 
-<!--                <div class="form-group">
-                    <label id="rLabel">Categories</label>
-                <label ng-repeat="category in categories">
-                    <input type="checkbox" checklist-model="meal.categories" checklist-value="category"> {{category}}
-                </label>
-            </div>-->
-
-
-
-
-
-
-                        <!--<div class="form-group">-->
-                            <!--<label id="rLabel"></label>-->
-            <%--<form:input type="file" path="document" id="file" class="form-control input-sm"/>--%>
-<!--            <input type="button" ng-click="uploadFiles()" value="Upload" />
-        </div>-->
-
+                <form:select path="checked" name="singleSelect" id="singleSelect" ng-model=" $scope.categorySelected" ng-change="showCategorySelected($scope.categorySelected)" required="true">
+                    <form:option value="">Please Choose meal's category</form:option>
+                    <form:option ng-repeat="category in categories" value="{{category.categoryId}}">{{category.nameEn}}</form:option>
+                </form:select><br>
+            </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-primary" id="rButton" ng-submit="addItemToMenu(name,price,description)" ><i class="fa fa-user-md"></i> Add Item</button>
+                <button type="submit" class="btn btn-primary" id="rButton"  ><i class="fa fa-user-md"></i> Add Item</button>
             </div>
-        </form>
+        </form:form >
     </div>
 </div>
 

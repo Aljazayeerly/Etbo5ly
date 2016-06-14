@@ -25,6 +25,18 @@ public class MenuItemDTO {
     private String descriptionAr;
     private Short itemRate;
     private String imageUrl;
+    private String  checked ;
+
+    public String getChecked() {
+        return checked;
+    }
+
+    public void setChecked(String checked) {
+        this.checked = checked;
+    }
+    
+
+
     private Set<CategoryDTO> categories = new HashSet<CategoryDTO>(0);
 
     private static String resourcesURL = ResourceUtil.getMealsImagesURL();

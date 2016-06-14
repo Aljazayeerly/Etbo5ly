@@ -7,8 +7,9 @@
 
 App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', function($scope, RegisterService, MenuService) {
 
+        var self = this;
         var cook = {};
-        var meal = {};
+        self.menuItem = {};
         $scope.regionSelected = 0;
         $scope.addedCook = {};
         $scope.AlreadyCook = "";
@@ -55,18 +56,23 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                 );
             }
         };
-        $scope.addItemToMenu = function(name, price, description) {
-            alert("name" + name);
-            alert("price" + price);
-            alert("desc" + description);
-            meal.name = name;
-            meal.price = price;
-            meal.description = description;
-            MenuService.addMenuItem(meal).then(
+        $scope.addItemToMenu = function() {
+            alert("name" + $scope.name);
+            alert("price" + $scope.price);
+            alert("desc" + $scope.description);
+            
+            self.menuItem.nameEn = name;
+            self.menuItem.price = price;
+            self.menuItem.descriptionEn = description;
+            
+//            alert( meal.price);
+            MenuService.addMenuItem(self.menuIem).then(
                     function(resolve) {
                         $scope.addedItem = resolve;
+                        alert("dfa"+JSON.stringify($scope.addedItem));
                     },
                     function(reject) {
+                        alert("error");
                         console.log(reject);
                     }
             );
@@ -82,6 +88,8 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                         console.log(reject);
                     });
         };
+        
+        
         $scope.getAllCategories = function() {
 
             MenuService.getAllCategories()
@@ -93,6 +101,10 @@ App.controller('JoinUsController', ['$scope', 'RegisterService', 'MenuService', 
                                 console.error('Error while fetching all categories in controller');
                             }
                     );
+        };
+       
+         $scope.showCategorySelected = function(categorySelected) {
+            $scope.categorySelected = categorySelected;
         };
         $scope.getAllRegions();
         $scope.getAllCategories();
