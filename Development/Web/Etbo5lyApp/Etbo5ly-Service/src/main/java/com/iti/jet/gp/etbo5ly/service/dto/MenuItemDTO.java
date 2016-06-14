@@ -8,6 +8,7 @@ package com.iti.jet.gp.etbo5ly.service.dto;
 import com.iti.jet.gp.etbo5ly.service.util.ResourceUtil;
 import java.util.HashSet;
 import java.util.Set;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -26,6 +27,8 @@ public class MenuItemDTO {
     private Short itemRate;
     private String imageUrl;
     private String  checked ;
+    private MultipartFile images;
+    private byte[] image;
 
     public String getChecked() {
         return checked;
@@ -132,5 +135,23 @@ public class MenuItemDTO {
     public void setCookId(Integer cookId) {
         this.cookId = cookId;
     }
+
+    public MultipartFile getImages() {
+        return images;
+    }
+
+    public void setImages(MultipartFile images) {
+        this.images = images;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+  
 
 }

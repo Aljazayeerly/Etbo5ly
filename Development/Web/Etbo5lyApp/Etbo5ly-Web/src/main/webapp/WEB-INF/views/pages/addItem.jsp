@@ -26,7 +26,7 @@
 <div class="col-md-6" id="registerbox">
     <div class="box" ng-controller="JoinUsController" >
 
-        <form:form  method="post" commandName="addItem" name="meal"  action="addItem.htm">         
+        <form:form  method="post" modelAttribute="addItem" name="meal" enctype="multipart/form-data"  action="addItem.htm">         
             <div class="form-group">
                 <label  id="rLabel">Meal Name</label>
 
@@ -50,6 +50,12 @@
                     <form:option value="">Please Choose meal's category</form:option>
                     <form:option ng-repeat="category in categories" value="{{category.categoryId}}">{{category.nameEn}}</form:option>
                 </form:select><br>
+            </div>
+            <div class="form-group">
+                <label  id="rLabel" >Upload menu item image</label>
+            <form:input type="file" path="images" required="true"></form:input>
+            <br>
+            <p style="color: maroon">${menuimage}</p>
             </div>
 
             <div class="text-center">
