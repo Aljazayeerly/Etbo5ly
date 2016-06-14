@@ -64,6 +64,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     .then(
                             function (d) {
                                 $scope.cooks = d;
+//                                alert('cooks' + JSON.stringify($scope.cooks));
 
 
                             },

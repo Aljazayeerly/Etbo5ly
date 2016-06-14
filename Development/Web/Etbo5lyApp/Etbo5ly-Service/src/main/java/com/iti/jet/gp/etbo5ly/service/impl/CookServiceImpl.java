@@ -227,7 +227,7 @@ public class CookServiceImpl implements CookService {
         newCook.setPassword(cook.getPassword());
         newCook.setPhone(cook.getPhone());
         newCook.setRegionId(Integer.parseInt(cook.getRegionid()));
-        newCook.setEnabled(Boolean.TRUE);
+        newCook.setEnabled(Boolean.FALSE);
         newCook.setCookStatusStatusId(2);
         newCook.setLongitude(Double.parseDouble(cook.getLongitude()));
         newCook.setLatitude(Double.parseDouble(cook.getLongitude()));

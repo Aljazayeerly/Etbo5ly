@@ -55,7 +55,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.iti.jet.gp.etbo5ly.web.util.LoggedInUserChecker;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
+import org.springframework.context.i18n.LocaleContextHolder;
 
 /**
  *
@@ -166,7 +168,9 @@ public class TestClass {
     }
 
     @RequestMapping(value = "/kitchen.htm")
-    public String showKitchens() {
+    public String showKitchens(ModelMap model,Locale locale) {
+        locale = LocaleContextHolder.getLocale();
+        model.addAttribute("local", locale);
         return "kitchen";
     }
 

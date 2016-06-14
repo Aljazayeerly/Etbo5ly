@@ -27,6 +27,13 @@
 
 <div class="col-md-6" id="registerbox">
     <div class="box"  ng-controller="JoinUsController">
+          <h1><fmt:message key="newAccount"/></h1>
+
+        <p class="lead">Register As cook</p>
+        <p class="text-muted" style="color: #ff0000">Note your current Registertion location will be considered as your kitchen Location  </p>
+
+        <hr>
+
         
 
         <form:form  method="post" commandName="cook" name="cook"  action="joinUS.htm">
