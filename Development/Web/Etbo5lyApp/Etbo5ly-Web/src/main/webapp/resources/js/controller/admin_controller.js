@@ -1,7 +1,6 @@
 'use strict';
 App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDialog', '$mdMedia', 'PageService', function($scope, MenuService, MainService, $mdDialog, $mdMedia, PageService) {
 
-
         var cookId = 0;
         var order = {};
         var self = this;
@@ -32,11 +31,6 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         $scope.showAllMeals = true;
         $scope.showSearchMeals = false;
         $scope.showLocationMeals = false;
-//        self.countries = [];
-//        $scope.selectedCity = null;
-//        $scope.selectedRegion = null;
-//        $scope.cities = [];
-//        var numbers = ['1','2','3'];
 
         var s = {"selectedCategories": [
             ]};
@@ -136,6 +130,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         };
 
 
+
         self.getAllLocations = function() {
             MenuService.getAllLocations()
                     .then(
@@ -169,12 +164,12 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     );
         };
 
+
+// dy aly sh9alal 
         $scope.createOrder = function() {
-            var cityName = null;
             var addressDetails = null;
             cookId = PageService.getCookId();
             cookName = PageService.getCookName();
-//            cityName = PageService.getCity();
             var regionID = PageService.getRegion();
             $scope.totalPrice = PageService.getTotalPrice();
             addressDetails = PageService.getAddressDetails();
@@ -201,14 +196,14 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
             $scope.hide();
-            $scope.cartHasItems = false;
-            $scope.emptyCart = true;
             self.addedItems = [];
-//            alert("al length : " + self.addedItems.length);
-
 
             $scope.cartHasItems = false;
+
             $scope.emptyCart = true;
+
+
+
         };
         self.getAllMeals();
         self.getList();
@@ -220,7 +215,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         self.submit = function() {
 
             console.log('Saving New Order', self.order);
-            self.createOrder(self.order);
+//            self.createOrder(self.order);
             self.reset();
         };
         $scope.addItem = function(itemId) {
@@ -278,6 +273,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                         else
                         {
 //                            alert("Please Order From One Cook at a time");
+                            $scope.showAlert();
                         }
 
 
@@ -294,6 +290,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         };
         $scope.deleteItem = function(itemId)
         {
+            alert("delete");
             $.each(self.addedItems, function(index, item)
             {
                 if (item.menuItemsItemId == itemId)
@@ -309,18 +306,37 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             })
             if (self.addedItems.length == 0)
             {
-                $scope.cartHasItems = false;
+                alert("skksks");
                 $scope.emptyCart = true;
+                alert("pppp");
+                $scope.cartHasItems = false;
+                alert("oooo");
+                alert($scope.emptyCart + " " + $scope.cartHasItems);
             }
 
 
         };
         $scope.checkOut = function()
         {
-
+            PageService.setCart(self.addedItems);
             $scope.showAdvanced();
         };
 
+        $scope.showAlert = function(ev) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            // Modal dialogs should fully cover application
+            // to prevent interaction outside of dialog
+            $mdDialog.show(
+                    $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#popupContainer')))
+                    .clickOutsideToClose(true)
+                    .title('Add To Cart')
+                    .textContent('You Can Order From One Cook Only At A Time.')
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('OK!')
+                    .targetEvent(ev)
+                    );
+        };
         self.isSelected = function(categorgyId, checked, index) {
 
 //            alert("id " + categorgyId);
@@ -407,7 +423,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
 
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
             $mdDialog.show({
-                controller: "DialogController",
+                controller: "DialogControllers",
                 templateUrl: 'orderReviewDialog.htm',
                 parent: angular.element(document.body),
                 targetEvent: ev,
@@ -428,14 +444,18 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         ;
     }]);
 
-App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuService', 'PageService', function($scope, $mdDialog, $mdMedia, MenuService, PageService) {
+App.controller('DialogControllers', ['$scope', '$mdDialog', '$mdMedia', 'MenuService', 'PageService', function($scope, $mdDialog, $mdMedia, MenuService, PageService) {
 
+        var self = this;
+        alert("dialog controller");
         self.countries = [];
         $scope.selectedCity = null;
         $scope.selectedRegion = null;
         $scope.addressDetails = null;
         $scope.cities = [];
         $scope.regions = [];
+        $scope.cart = PageService.getCart();
+        alert("cart " + $scope.cart.length);
         $scope.totalPrice = PageService.getTotalPrice();
         $scope.hide = function() {
             $mdDialog.hide();
@@ -448,6 +468,7 @@ App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuServ
 
         $scope.orderReviewDialog = function()
         {
+            alert("orderReviewDialog");
 
             $scope.showA = false;
             $scope.showB = true;
@@ -483,6 +504,56 @@ App.controller('DialogController', ['$scope', '$mdDialog', '$mdMedia', 'MenuServ
             });
 
         };
+
+//        $scope.createOrder = function() {
+//            var order = {};
+//            var cookId = 0;
+//            var cookName = null;
+//            alert("create zft b2a");
+//            alert($scope.cart.length);
+//            var cityName = null;
+//            var addressDetails = null;
+//            cookId = PageService.getCookId();
+//            cookName = PageService.getCookName();
+////            cityName = PageService.getCity();
+//            var regionID = PageService.getRegion();
+//            $scope.totalPrice = PageService.getTotalPrice();
+//            addressDetails = PageService.getAddressDetails();
+//            order.userByCustomerId = 1;
+//            order.customerName = "";
+//            order.userByCookId = cookId;
+//            order.cookName = cookName;
+//            order.location = addressDetails;
+//            order.duration = 90;
+//            order.type = "normal";
+//            order.longitude = 0;
+//            order.latitude = 0;
+//            order.addressDetails = addressDetails;
+//            order.regionId = regionID;
+//            order.totalPrice = $scope.totalPrice;
+//            order.orderDetails = $scope.cart;
+//            alert("hena");
+//            MenuService.createOrderService(order)
+//                    .then(
+//                            function() {
+//                            },
+//                            function(errResponse) {
+//
+//                                console.error('Error while creating Order.');
+//                            }
+//                    );
+//            $scope.hide();
+//            alert("hena 2 ");
+//            $scope.cartHasItems = false;
+//            alert("hena 3");
+//
+//            $scope.emptyCart = true;
+//            alert("hena 4 ");
+//
+//            self.addedItems = [];
+//
+//
+//        };
     }
 ]);
 

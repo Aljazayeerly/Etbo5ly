@@ -5,7 +5,7 @@
  */
 
 
-App.config(function ($routeProvider, $locationProvider) {
+App.config(function($routeProvider, $locationProvider) {
     // alert("inside the config ");
     $routeProvider.when('cookKitchen.htm?id', {
         controller: 'cookMenuController'
@@ -20,7 +20,7 @@ App.config(function ($routeProvider, $locationProvider) {
     });
 });
 
-App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 'MenuService', 'MainService', '$mdDialog', '$mdMedia', 'PageService', function ($scope, cookMenuService, $location,MenuService, MainService, $mdDialog, $mdMedia, PageService) {
+App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 'MenuService', 'MainService', '$mdDialog', '$mdMedia', 'PageService', function($scope, cookMenuService, $location, MenuService, MainService, $mdDialog, $mdMedia, PageService) {
         $scope.id;
         $scope.cookmenu;
         var cookId = 0;
@@ -53,13 +53,13 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
         $scope.showAllMeals = true;
         $scope.showSearchMeals = false;
         $scope.showLocationMeals = false;
-        
+
         if ($location.search().hasOwnProperty('id')) {
             $scope.id = $location.search()['id'];
             $scope.cookmenu = cookMenuService.getCookMenu($scope.id);
-            $scope.cookmenu.then(function (resolve) {
-                
-            }, function (reject) {
+            $scope.cookmenu.then(function(resolve) {
+
+            }, function(reject) {
                 console.log(reject);
             });
         }
@@ -185,13 +185,14 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
         };
 
         $scope.createOrder = function() {
+            alert("cook Menu COntroller");
             var cityName = null;
             var addressDetails = null;
             cookId = PageService.getCookId();
             cookName = PageService.getCookName();
-            cityName = PageService.getCity();
+//            cityName = PageService.getCity();
             var regionID = PageService.getRegion();
-           // alert("ReggionId : " + regionID);
+            // alert("ReggionId : " + regionID);
             $scope.totalPrice = PageService.getTotalPrice();
             addressDetails = PageService.getAddressDetails();
             order.userByCustomerId = 1;
@@ -337,8 +338,8 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
 
         self.isSelected = function(categorgyId, checked, index) {
 
-          //  alert("id " + categorgyId);
-          //  alert("checked " + checked);
+            //  alert("id " + categorgyId);
+            //  alert("checked " + checked);
             if (checked == true)
             {
                 $scope.checkedCategories.push(categorgyId);
@@ -347,7 +348,7 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
             {
                 $scope.checkedCategories.splice(index, 1);
             }
-          //  alert(JSON.stringify($scope.checkedCategories));
+            //  alert(JSON.stringify($scope.checkedCategories));
             return   $scope.checkedCategories;
         };
 
@@ -357,19 +358,19 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
             $scope.showAllMeals = false;
             $scope.showLocationMeals = false;
 
-          //  alert("get selected");
+            //  alert("get selected");
             s.selectedCategories = $scope.checkedCategories;
-           // alert(JSON.stringify(s.selectedCategories));
+            // alert(JSON.stringify(s.selectedCategories));
             MenuService.getMealsForCheckedCategories(s)
                     .then(
                             function(d) {
-                               // alert("success");
+                                // alert("success");
                                 self.checkedItems = d;
-                              //  alert(JSON.stringify(self.checkedItems));
+                                //  alert(JSON.stringify(self.checkedItems));
 
                             },
                             function(errResponse) {
-                             //   alert("error conroller");
+                                //   alert("error conroller");
                                 console.error('Error while fetching Meals catergory in controller');
                             }
                     );
@@ -400,18 +401,18 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
             $scope.showAllMeals = false;
             $scope.showLocationMeals = true;
 
-           alert("in get selected locations");
+            alert("in get selected locations");
             l.selectedLocations = $scope.checkedLocations;
-           // alert(JSON.stringify(l.selectedLocations));
+            // alert(JSON.stringify(l.selectedLocations));
             MenuService.getMealsByLocation(l)
                     .then(
                             function(d) {
                                 self.checkedAddress = d;
-                               // alert(" data in the checkedAddress " + JSON.stringify(self.checkedAddress));
-                               // alert(self.checkedAddress.length);
+                                // alert(" data in the checkedAddress " + JSON.stringify(self.checkedAddress));
+                                // alert(self.checkedAddress.length);
                             },
                             function(errResponse) {
-                              //  alert("erroooor");
+                                //  alert("erroooor");
                                 console.error('Error while fetching Meals catergory in controller');
                             }
                     );
@@ -466,7 +467,7 @@ App.controller('DialogControllers', ['$scope', '$mdDialog', '$mdMedia', 'MenuSer
             $scope.showB = true;
             $scope.orderReviewBtn = false;
             $scope.totalPrice = PageService.getTotalPrice();
-            PageService.setCity($scope.cities[$scope.selectedCity].cityName);
+//            PageService.setCity($scope.cities[$scope.selectedCity].cityName);
             PageService.setRegion($scope.selectedRegion);
             PageService.setAddressDetails($scope.addressDetails);
         };

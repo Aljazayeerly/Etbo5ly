@@ -106,10 +106,10 @@
                                                 </li>
                                             </ul>
                                             <br><br>
-
+                                            <!---->
                                             <section  ng-controller="MenuController as ctrl"  style="width: 650px; left: 5000px">
 
-                                                <form ng-submit="createOrder()">
+                                                <form>
 
                                                     <div class="content">
                                                         <div class="table-responsive">
@@ -159,7 +159,7 @@
                                                         <div class="pull-right">
                                                             <!--                                <button type="submit" class="btn btn-primary">Place an order<i class="fa fa-chevron-right"></i>
                                                                                             </button>-->
-                                                            <input type="submit" value="Place an Order"ng-click="createOrder()"/>
+                                                            <input type="submit" class="btn btn-primary" value="Place an Order"ng-click="createOrder()"/>
                                                         </div>
                                                     </div>
 
@@ -181,6 +181,9 @@
                 <md-dialog-actions layout="row">
                     <md-button  ng-show="orderReviewBtn" class="btn btn-primary" ng-click="orderReviewDialog()" style="margin-right:20px;">
                         Continue to Order Review
+                    </md-button>
+                    <md-button  ng-show="cancel" class="btn btn-primary" ng-click="cancel()" style="margin-right:20px;">
+                        Cancel
                     </md-button>
 
                 </md-dialog-actions>

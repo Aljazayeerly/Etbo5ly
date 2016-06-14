@@ -5,7 +5,7 @@
 --%>
 
 
-<div ng-controller="MenuController as ctrl">
+<div ng-controller="MenuController as ctrl" >
     <div class="col-md-3" style="width: 20%">
         <!-- *** MENUS AND FILTERS ***
     _________________________________________________________ -->
@@ -15,7 +15,6 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><font color="#f0ad4e"><b>Cooks</b></font></h3>
             </div>
-            <!--//ng-controller="MenuController as ctrl"-->
             <div  class="panel-body">
 
                 <ul ng-repeat="i in cooks" class="nav nav-pills nav-stacked category-menu">
@@ -31,7 +30,6 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><font color="#f0ad4e"><b>Categories</b></font></h3>
             </div>
-            <!--ng-controller="MenuController as ctrl"-->
             <div  class="panel-body">
 
                 <form>
@@ -140,9 +138,9 @@
 
                     <!--de div bta3t search--> 
 
-                    
-                    
-                     <div ng-show="showSearchMeals"   ng-repeat="k in ctrl.searchMeals" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+
+
+                    <div ng-show="showSearchMeals"   ng-repeat="k in ctrl.searchMeals" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
                         <div>
 
                             <div>
@@ -167,8 +165,8 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
 
 
 
@@ -212,10 +210,10 @@
         <div class="box-header">
             <h3>Your Cart</h3>
         </div>
-        <div  ng-show="emptyCart">
+        <div  ng-show="emptyCart" ng-hide="false">
             <h2>Empty Cart</h2>
         </div>
-        <div id="cart" ng-show="cartHasItems" ng-hide="true">
+        <div  ng-show="cartHasItems"ng-hide="true">
             <table id="cart" class="table table-hover table-condensed" >
                 <thead>    
                     <tr>   

@@ -41,7 +41,7 @@ Author     : Nada
                 </li>
 
             </ul>
-            <div ng-controller="MenuController as ctrl"  id="headersearch">
+            <div ng-controller="SearchController as ctrl"  id="headersearch">
                 <form action="" method="" class="navbar-form" role="search">
 
                     <div class="input-group add-on">
