@@ -213,8 +213,8 @@ public class CookServiceImpl implements CookService {
         DateFormat timeFormat = new SimpleDateFormat("hh:mm");
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
-        RoleDTO role =new RoleDTO();
-        Set<RoleDTO> roles=new HashSet<>();
+        RoleDTO role = new RoleDTO();
+        Set<RoleDTO> roles = new HashSet<>();
         role.setRole("COOK");
         role.setId(1);
         roles.add(role);
@@ -230,7 +230,7 @@ public class CookServiceImpl implements CookService {
         newCook.setLongitude(Double.parseDouble(cook.getLongitude()));
         newCook.setLatitude(Double.parseDouble(cook.getLongitude()));
         newCook.setRoles(roles);
-        
+
         try {
             newCook.setStartWorkingHours(timeFormat.parse(cook.getStartWorkingHours()));
             newCook.setEndWorkingHours(timeFormat.parse(cook.getEndWorkingHours()));
@@ -257,6 +257,21 @@ public class CookServiceImpl implements CookService {
     public Cook findById(int id) {
         Cook cook = cookDao.find(id);
         return cook;
+    }
+
+//    @Override
+//   
+//    public void uploadImage(CookDTO cookDTO) {
+//        Cook cook=null;
+//        cook=DTOConverter.cookDTOTOCook(cookDTO);
+//        cookDao.uploadImage(cook);
+//        
+//        
+//    }
+    @Override
+    @Transactional
+    public void uploadImage(int id, String imageUrl, byte[] image) {
+        cookDao.uploadImage(id,imageUrl,image);
     }
 
 }

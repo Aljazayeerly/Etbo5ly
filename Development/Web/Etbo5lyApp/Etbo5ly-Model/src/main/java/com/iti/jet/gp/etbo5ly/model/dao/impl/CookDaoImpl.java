@@ -153,4 +153,23 @@ public class CookDaoImpl extends GenericDaoImpl<Cook> implements
         session.saveOrUpdate(cook);
     }
 
+//    @Override
+//    public void uploadImage(Cook cook) {
+//        Session session=getHibernateTemplate().getSessionFactory().getCurrentSession();
+//        Cook cook1=(Cook) session.createCriteria(Cook.class).add(Restrictions.eq("id", cook.getId())).uniqueResult();
+//        cook1.setImage(cook.getImage());
+//        cook1.setImageURL(cook.getImageURL());
+//        session.saveOrUpdate(cook1);
+//        
+//    }
+
+    @Override
+    public void uploadImage(int id, String imageUrl, byte[] image) {
+         Session session=getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Cook cook=(Cook) session.createCriteria(Cook.class).add(Restrictions.eq("id", id)).uniqueResult();
+        cook.setImage(image);
+        cook.setImageURL(imageUrl);
+        session.saveOrUpdate(cook);
+    }
+
 }

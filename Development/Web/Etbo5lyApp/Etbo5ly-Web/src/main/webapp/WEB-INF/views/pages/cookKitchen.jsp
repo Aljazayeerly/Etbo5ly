@@ -88,14 +88,14 @@
                                 <br>
                                 <label style="color: gray;font-size: 13px" ng-bind="i.cookName"></label>
                                 <br>
-                                <div >
+                                <div class="left" >
                                     <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="left:20px;width:160px">
 
-                                    <label style="color: gray; font-size: 13px" ng-bind="i.cookId"></label>
+<!--                                    <label style="color: gray; font-size: 13px" ng-bind="i.cookId"></label>-->
 
                                 </div>
 
-                                <div>
+                                <div class="right">
                                     <label style="color: black;  font-size: 10px" ng-bind="i.descriptionEn"></label>
                                 </div>
                                 <label style="color: #E18728;  font-size: 13px" ng-bind="i.price + ' L.E'"></label>
@@ -122,7 +122,7 @@
                                 <div >
                                     <img src="{{j.resourcesURL}}/{{j.imageUrl}}" style="left:20px; width: 160px">
 
-                                    <label style="color: gray; font-size: 13px" ng-bind="j.cookId"></label>
+<!--                                    <label style="color: gray; font-size: 13px" ng-bind="j.cookId"></label>-->
 
                                 </div>
 
