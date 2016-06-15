@@ -32,4 +32,12 @@ public class DocumentTypeServiceImpl implements DocumentTypeService {
         return document;
     }
 
+    @Override
+    @Transactional
+    public String getDocumentType(int id) {
+        String document=documentTypeDao.getDocumentType(id);
+        return document;
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

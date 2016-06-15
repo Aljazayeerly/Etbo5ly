@@ -18,10 +18,15 @@
                         Start from : {{rl.cookData.startWorkingHours}}
                     </li>
                     <li>
-                      To : {{rl.cookData.endWorkingHours}}
+                        To : {{rl.cookData.endWorkingHours}}
                     </li>
-                    
+
+                    <li>
+                        Cook Rate : {{rl.cookData.cookRate}}{{"/5"}}
+                    </li>
                 </ul>
+
+
                 <h3>Categories:</h3>
                 <ul ng-repeat="m in rl.cookData.menuItems" >
                     <ul ng-repeat="c in m.categories">
@@ -43,7 +48,7 @@
         <br><br>
         <br><br>
         <br><br>
-       
+
 
 
         <div class="row user-infos cyruxx">
@@ -55,7 +60,6 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
-                                <!--                                <strong>Cyruxx</strong><br>-->
                                 <table class="table table-user-information">
                                     <tbody>
 
@@ -68,7 +72,6 @@
                                         <tr ng-repeat="order in rl.review">
                                             <td ng-bind="order.customerName"></td>
                                             <td ng-bind="order.orderComment"></td>
-                                            <!--<td><span class="rating" data-rating="4" disabled></span></td>-->
                                             <td><div star-rating rating="order.customerRating" read-only="true"></div></td>
                                         </tr>
                                     </tbody>

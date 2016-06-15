@@ -64,7 +64,7 @@
                                                 <td> <label >Cook Rate & Comment</label></td>
                                             </tr>
                                             <tr>
-                                                <td><label >Cook Rate</label></td>
+                                                <td><label ng-bind="order.cookName"> Cook Rate</label></td>
                                                 <td>
                                                     <div class="alert alert-success">
                                                         <span class="label label-info"></span>

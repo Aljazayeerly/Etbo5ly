@@ -51,21 +51,28 @@
                                                                                                                 <select ng-model="opt1" ng-options="obj.num as obj.code for obj in opts">                                                        <option value="">Select City</option>
                                                                                                             </select>-->
                                                         <select ng-change="onChangeCity(itemSelected)" name="selectedCity" id="selectedCity" ng-model="selectedCity">
-                                                            <option ng-repeat="city in cities" value="{{city.cityId}}">{{city.cityName}}</option>
+                                                            <option ng-repeat="city in cities"selected value="{{city.cityId}}">{{city.cityName}}</option>
+
+                                                            <!--<option  selected>Select City</option>-->
+                                                            <!--<option ng-repeat="city in cities" value="{{city.cityId}}">{{city.cityName}}</option>-->
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <br>
+                                                <br>
+                                                <br>
                                                 <div class="col-sm-2">
-                                                    <div class="form-group" style="margin-top: 10%;margin-left: 5%;">
+                                                    <div class="form-group" style="margin-top: 10%;margin-left: -6%;">
                                                         <label for="region">Region</label>
                                                         <!--<input type="text" class="form-control" id="region" ng-model="region">-->
                                                         <!--                                                    <select ng-model="selectedRegion" ng-options="region.regionId as region.regionName for region in regions"  value="{{option.id}}">
                                                                                                                 <option value="">Select Region</option>
                                                                                                             </select>-->
                                                         <select name="selectedRegion" id="selectedRegion" ng-model="selectedRegion">
-                                                            <option ng-repeat="region in regions" value="{{region.regionId}}">{{region.regionName}}</option>
+                                                            <option ng-repeat="region in regions"selected value="{{region.regionId}}">{{region.regionName}}</option>
+<!--                                                            <option selected>Select Region</option>
+                                                            <option ng-repeat="region in regions" value="{{region.regionId}}">{{region.regionName}}</option>-->
                                                         </select>
 
                                                     </div>

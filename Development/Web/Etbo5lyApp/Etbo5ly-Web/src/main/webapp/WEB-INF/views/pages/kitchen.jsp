@@ -17,7 +17,7 @@
             </div>
             <!--//ng-controller="MenuController as ctrl"-->
             <div  class="panel-body" style="overflow-y: scroll;">
-            <!--<div  class="panel-body">-->
+                <!--<div  class="panel-body">-->
 
                 <ul ng-repeat="i in cooks" class="nav nav-pills nav-stacked category-menu">
                     <li>
@@ -182,13 +182,11 @@
                             <div style="height: 130px;width: 130px;" >
                                 <img src="{{address.resourcesURL}}/{{address.imageUrl}}" style="left:20px; width: 100%;height: 100%">
 
-<<<<<<< HEAD
                                 <!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
                             </div>
                         </div>
-=======
                                     <!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
->>>>>>> 53587580947185f1b0bbacecc185ab2e530a24aa
+                        <!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
 
                         <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px; width: 400px;" >
                             <label style="color: black;  font-size: 15px" ng-bind="address.descriptionEn"></label>
@@ -209,14 +207,14 @@
 
 
 
-    <div class="col-md-3 box" style="top:50px;margin-left: 3%;">
+    <div class="col-md-3 box" style="top:50px;margin-left: 3%;" >
         <div class="box-header">
             <h3 style="color: #f0ad4e">Your Cart</h3>
         </div>
-        <div  ng-show="emptyCart" ng-hide="false">
+        <div ng-show="emptyCart" >
             <h2>Empty Cart</h2>
         </div>
-        <div  ng-show="cartHasItems"ng-hide="true">
+        <div  ng-show="cartItems" ng-hide="true">
             <table id="cart" class="table table-hover table-condensed" >
                 <thead>    
                     <tr>   

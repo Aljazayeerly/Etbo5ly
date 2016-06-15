@@ -80,7 +80,7 @@
                     <div class="form-group col-md-12">
                         <label class="col-md-3 control-lable" for="description">Description</label>
                         <div class="col-md-7">
-                            <form:input type="text" path="description" id="description" class="form-control input-sm"/>
+                            <form:input type="text" path="description" id="description" class="form-control input-sm" required="true"/>
                         </div>
 
                     </div>

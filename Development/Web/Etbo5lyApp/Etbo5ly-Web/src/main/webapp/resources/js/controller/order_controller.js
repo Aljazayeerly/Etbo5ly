@@ -6,6 +6,7 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
         $scope.orders = [];
         $scope.order = {};
         $scope.getAllCustomerOrders = function() {
+//            alert("get kolo");
             orderService.getAllCustomerOrders()
                     .then(
                             function(d) {
@@ -92,12 +93,21 @@ App.controller('OrderController', ['$scope', 'orderService', '$mdDialog', '$mdMe
         $scope.changeOrderStatus = function(orderId)
         {
 //            alert(orderId);
-//            var orderStatus = {};
-//            orderStatus.status = "Delivered";
-//            orderStatus.statusIdOrder = orderId;
-//            alert(orderId);
-            PageService.setOrder($scope.orders[orderId]);
-            $scope.showOrderRatingDialog();
+            $.each($scope.orders, function(i, order)
+
+            {
+
+                if (order.orderId == orderId)
+                {
+                    PageService.setOrder($scope.orders[i]);
+                    $scope.showOrderRatingDialog();
+//                    $scope.getAllCustomerOrders();
+                }
+            });
+//            PageService.setOrder($scope.orders[orderId]);
+//            $scope.showOrderRatingDialog();
+//            $scope.getAllCustomerOrders();
+
         }
         $scope.showOrderRatingDialog = function(ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
@@ -139,6 +149,7 @@ App.controller("customerOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 
 
 
         $scope.order = PageService.getOrder();
+        $scope.orders = [];
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -148,22 +159,23 @@ App.controller("customerOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 
         $scope.answer = function(answer) {
 //            alert("answer");
         };
-        $scope.getAllCustomerOrders = function() {
-            orderService.getAllCustomerOrders()
-                    .then(
-                            function(d) {
-                                $scope.orders = d;
-                                $.each($scope.orders, function(index, item)
-
-                                {
-                                    item.orderTime = new Date(item.orderTime).toUTCString();
-                                })
-                            },
-                            function(errResponse) {
-                                console.error('Error while fetching orders');
-                            }
-                    );
-        };
+//        $scope.getAllCustomerOrders = function() {
+//            alert("het all");
+//            orderService.getAllCustomerOrders()
+//                    .then(
+//                            function(d) {
+//                                $scope.orders = d;
+//                                $.each($scope.orders, function(index, item)
+//
+//                                {
+//                                    item.orderTime = new Date(item.orderTime).toUTCString();
+//                                })
+//                            },
+//                            function(errResponse) {
+//                                console.error('Error while fetching orders');
+//                            }
+//                    );
+//        };
 
         $scope.submitOrderRating = function()
         {
@@ -171,8 +183,9 @@ App.controller("customerOrderRatingDialog", ['$scope', '$mdDialog', '$mdMedia', 
             statusOrder.statusIdOrder = $scope.order.orderId;
             statusOrder.status = "Delivered";
             orderService.orderRate($scope.order);
-            $scope.getAllCustomerOrders();
+
             $scope.hide();
+//            $scope.getAllCustomerOrders();
             location.reload();
         }
 
