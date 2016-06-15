@@ -13,31 +13,31 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Etbo5ly</a>
+<!--            <a class="navbar-brand" href="#">Etbo5ly</a>-->
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-
-                <li class="active"><a href="home.htm"><fmt:message key="home"/></a></li>
+                <li><a href="home.htm"><img src="resources/images/EtbokhlyWebLogoDesign_WebLogo.png" style="height:40px;width:80px;"></a></li>
+                <li class="active"><a href="home.htm" style="height:70px;"><fmt:message key="home"/></a></li>
                     <sec:authorize access="!isAuthenticated()">
                     <li><a href="login.htm"><fmt:message key="login"/></a></li>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
-                    <li><a href="login.htm?logout"><fmt:message key="logout"/></a></li>
+                    <li><a href="login.htm?logout" style="height:70px;"><fmt:message key="logout"/></a></li>
                     </sec:authorize>
 
                 <sec:authorize access="!isAuthenticated()">
-                    <li><a href="register.htm"><fmt:message key="register"/></a></li>
+                    <li><a href="register.htm" style="height:70px;"><fmt:message key="register"/></a></li>
                     </sec:authorize>
                     <sec:authorize access="!isAuthenticated()">
 
-                    <li><a href="joinUS.htm"><fmt:message key="joinUs"/></a></li>
+                    <li><a href="joinUS.htm" style="height:70px;"><fmt:message key="joinUs"/></a></li>
                     </sec:authorize>
                     <sec:authorize access="hasRole('COOK')">
-                    <li><a href="cookOrders.htm"><fmt:message key="myorders"/></a></li>
+                    <li><a href="cookOrders.htm"style="height:70px;"><fmt:message key="myorders"/></a></li>
                     </sec:authorize>
                     <sec:authorize access="hasRole('CUSTOMER')">
-                    <li><a href="customerOrders.htm"><fmt:message key="myorders"/></a></li>
+                    <li><a href="customerOrders.htm" style="height:70px;"><fmt:message key="myorders"/></a></li>
                     </sec:authorize>
 
 

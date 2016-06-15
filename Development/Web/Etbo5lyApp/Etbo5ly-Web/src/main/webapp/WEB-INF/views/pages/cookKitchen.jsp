@@ -5,8 +5,8 @@
 --%>
 
 
-<div ng-controller="cookMenuController as ctrl">
-    <div class="col-md-3" style="width: 20%">
+<div ng-controller="cookMenuController as ctrl" style="margin-top: 2%">
+    <div class="col-md-3" style="width: 20%;margin-top:2% ">
         <!-- *** MENUS AND FILTERS ***
     _________________________________________________________ -->
         <div class="panel panel-default sidebar-menu">
@@ -79,151 +79,154 @@
             <section>
                 <div>
 
+                    <div class="row">
+                        <div ng-show="showcookMeals" ng-repeat="i in cookmenu.$$state.value" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px;height: 220px;">
+                            <div class="col-md-6" style="float:left;">
 
-                    <div ng-show="showcookMeals" ng-repeat="i in cookmenu.$$state.value" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px;height: 220px;">
-                        <div>
-
-                            <div>
-                                <label style="color: #E18728;font-size: 15px" ng-bind="i.nameEn"></label>
-                                <br>
-                                <label style="color: gray;font-size: 13px" ng-bind="i.cookName"></label>
-                                <br>
+                                <div>
+                                    <label style="color: #E18728;font-size: 15px" ng-bind="i.nameEn"></label>
+                                    <br>
+                                    <label style="color: gray;font-size: 13px" ng-bind="i.cookName"></label>
+                                    <br>
+                                </div>
+                                <div style="height: 130px;width: 130px;">
+                                    <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="left:20px; width: 100%;height: 100%;">
+                                </div>
                             </div>
-                            <div style="height: 130px;width: 130px;">
-                                <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="left:20px; width: 100%;height: 100%;">
+
+                            <div class="col-md-6">
+                                <div>
+                                    <label style="color: black;  font-size: 15px" ng-bind="i.descriptionEn"></label>
+                                    <label style="color: #E18728;  font-size: 13px" ng-bind="i.price + ' L.E'"></label>
+                                </div>
+                                <div>
+                                    <button  class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color: #f0ad4e;" ng-click="addItem(i.itemId)">Add To Cart</button>
+                                </div>
                             </div>
-                        </div>
-
-
-                        <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px; width: 400px;">
-                            <label style="color: black;  font-size: 10px" ng-bind="i.descriptionEn"></label>
-                            <label style="color: #E18728;  font-size: 13px" ng-bind="i.price + ' L.E'"></label>
-                        </div>
-                        <div style="margin-left: 510px;">
-                            <button  class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color: #f0ad4e;" ng-click="addItem(i.itemId)">Add To Cart</button>
-                        </div>
-
-                    </div> 
-
+                        </div> 
+                    </div>
                     <!--
                                         de div bta3t checked categories
                     -->                    
+                    <div class="row">
+                        <div ng-show="showCheckedMeal"   ng-repeat="j in ctrl.checkedItems" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px;height: 220px">
+                            <div class="col-md-6" style="float:left;">
 
-                    <div ng-show="showCheckedMeal"   ng-repeat="j in ctrl.checkedItems" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px;height: 220px">
-                        <div>
-
-                            <div>
-                                <label style="color: #E18728;font-size: 15px" ng-bind="j.nameEn"></label>
-                                <br>
-                                <label style="color: gray;font-size: 13px" ng-bind="j.cookName"></label>
-                                <br>
+                                <div>
+                                    <label style="color: #E18728;font-size: 15px" ng-bind="j.nameEn"></label>
+                                    <br>
+                                    <label style="color: gray;font-size: 13px" ng-bind="j.cookName"></label>
+                                    <br>
+                                </div>
+                                <div style="height: 130px;width: 130px;">
+                                    <img src="{{j.resourcesURL}}/{{j.imageUrl}}" style="left:20px; width: 100%;height: 100%;">
+                                </div>
                             </div>
-                            <div style="height: 130px;width: 130px;">
-                                <img src="{{j.resourcesURL}}/{{j.imageUrl}}" style="left:20px; width: 100%;height: 100%;">
+                            <div class="col-md-6" style="float:left;">
+                                <div>
+                                    <label style="color: black;  font-size: 15px" ng-bind="j.descriptionEn"></label>
+                                    <label style="color: #E18728;  font-size: 13px" ng-bind="j.price + ' L.E'"></label>
+                                </div>
+                                <div>
+                                    <button  class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color: #f0ad4e;"  ng-click="addItem(j.itemId)">Add To Cart</button>
+                                </div>
                             </div>
                         </div>
-                        <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px; width: 400px;">
-                            <label style="color: black;  font-size: 15px" ng-bind="j.descriptionEn"></label>
-                            <label style="color: #E18728;  font-size: 13px" ng-bind="j.price + ' L.E'"></label>
-                        </div>
-                        <div style="margin-left: 510px;">
-                            <button  class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color: #f0ad4e;"  ng-click="addItem(j.itemId)">Add To Cart</button>
-                        </div>
                     </div>
-<!--                </div>-->
+                    <!--                </div>-->
 
-                <!--de div bta3t search--> 
+                    <!--de div bta3t search--> 
+
+
+                    <!--
+                                        <div ng-show="showSearchMeals"   ng-repeat="k in ctrl.searchMeals" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px;height:220px;">
+                                            <div>
+                    
+                                                <div>
+                                                    <label style="color: #E18728;font-size: 15px" ng-bind="k.nameEn"></label>
+                                                    <br>
+                                                    <label style="color: gray;font-size: 13px" ng-bind="k.cookName"></label>
+                                                    <br>
+                                                </div>
+                                                <div style="height: 130px;width: 130px;">
+                                                    <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="left:20px; width: 100%;height: 100%;">
+                                                </div>
+                                            </div>
+                    
+                                            <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px; width: 400px;">
+                                                <label style="color: black;  font-size: 15px" ng-bind="k.descriptionEn"></label>
+                                                <label style="color: #E18728;  font-size: 13px" ng-bind="k.price + ' L.E'"></label>
+                                            </div>
+                                            <div style="margin-left: 510px;">
+                                                <button  class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color: #f0ad4e;" ng-click="addItem(k.itemId)">Add To Cart</button>
+                                            </div>
+                                        </div>-->
+                    <!--        </div>-->
 
 
 
-                <div ng-show="showSearchMeals"   ng-repeat="k in ctrl.searchMeals" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px;height:220px;">
-                    <div>
-
-                        <div>
-                            <label style="color: #E18728;font-size: 15px" ng-bind="k.nameEn"></label>
-                            <br>
-                            <label style="color: gray;font-size: 13px" ng-bind="k.cookName"></label>
-                            <br>
-                        </div>
-                        <div style="height: 130px;width: 130px;">
-                            <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="left:20px; width: 100%;height: 100%;">
-                        </div>
-                    </div>
-
-                    <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px; width: 400px;">
-                        <label style="color: black;  font-size: 15px" ng-bind="k.descriptionEn"></label>
-                        <label style="color: #E18728;  font-size: 13px" ng-bind="k.price + ' L.E'"></label>
-                    </div>
-                    <div style="margin-left: 510px;">
-                        <button  class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color: #f0ad4e;" ng-click="addItem(k.itemId)">Add To Cart</button>
-                    </div>
                 </div>
-<!--        </div>-->
-
-
-
+            </section>
+        </div>
     </div>
-</section>
-</div>
-</div>
 
 
 
-<div class="col-md-3 box" style="top:50px;margin-left: 3%;">
-    <div class="box-header">
-        <h3 style="color: #f0ad4e">Your Cart</h3>
+    <div class="col-md-3 box" style="top:50px;margin-left: 3%;">
+        <div class="box-header">
+            <h3 style="color: #f0ad4e">Your Cart</h3>
+        </div>
+        <div  ng-show="emptyCart">
+            <h2>Empty Cart</h2>
+        </div>
+        <div id="cart" ng-show="cartHasItems" ng-hide="true">
+            <table id="cart" class="table table-hover table-condensed" >
+                <thead>    
+                    <tr>   
+                        <th style="width:50%">Product</th>
+                        <th style="width:10%">Price</th>
+                        <th style="width:8%">Quantity</th>
+                        <th style="width:10%">Subtotal</th>
+                        <th style="width:10%"></th>
+                    </tr>   
+                </thead>        
+                <tbody>   
+                    <tr ng-repeat="i in ctrl.addedItems">   
+                        <td data-th="Product">
+                            <!--<div class="row">-->
+                            <div class="col-sm-10">
+                                <label style="color: #E18728; font-size: 15px" ng-bind="i.menuItemsNameEn"></label>
+                            </div>
+
+                        </td>
+                        <td data-th="Price"><label ng-bind="i.menuItemsPrice"></label></td>
+                        <td data-th="Quantity">
+                            <input type="number" min="1" max="30" class="form-control text-center" ng-click="IncDecValue(i.menuItemsItemId)" value="1" ng-model="i.quantity">
+                        </td>
+                        <td data-th="Subtotal"><label ng-bind="i.price"></label></td>
+                        <td class="actions" data-th="">
+
+                            <button class="btn btn-danger btn-sm" ng-click="deleteItem(i.menuItemsItemId)"><i class="fa fa-trash-o"></i></button>								
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="visible-xs">
+                        <td class="text-center"><strong><label id="totalPrices" value="ooo"></label></strong></td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="hidden-xs"></td>
+                        <td class="hidden-xs text-center"><strong> <label id="total"></label></strong></td>
+                        <!--<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>-->
+                        <td><button type="submit" class="btn btn-success btn-block"  ng-click="checkOut()" >CheckOut</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
-    <div  ng-show="emptyCart">
-        <h2>Empty Cart</h2>
-    </div>
-    <div id="cart" ng-show="cartHasItems" ng-hide="true">
-        <table id="cart" class="table table-hover table-condensed" >
-            <thead>    
-                <tr>   
-                    <th style="width:50%">Product</th>
-                    <th style="width:10%">Price</th>
-                    <th style="width:8%">Quantity</th>
-                    <th style="width:10%">Subtotal</th>
-                    <th style="width:10%"></th>
-                </tr>   
-            </thead>        
-            <tbody>   
-                <tr ng-repeat="i in ctrl.addedItems">   
-                    <td data-th="Product">
-                        <!--<div class="row">-->
-                        <div class="col-sm-10">
-                            <label style="color: #E18728; font-size: 15px" ng-bind="i.menuItemsNameEn"></label>
-                        </div>
 
-                    </td>
-                    <td data-th="Price"><label ng-bind="i.menuItemsPrice"></label></td>
-                    <td data-th="Quantity">
-                        <input type="number" min="1" max="30" class="form-control text-center" ng-click="IncDecValue(i.menuItemsItemId)" value="1" ng-model="i.quantity">
-                    </td>
-                    <td data-th="Subtotal"><label ng-bind="i.price"></label></td>
-                    <td class="actions" data-th="">
-
-                        <button class="btn btn-danger btn-sm" ng-click="deleteItem(i.menuItemsItemId)"><i class="fa fa-trash-o"></i></button>								
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr class="visible-xs">
-                    <td class="text-center"><strong><label id="totalPrices" value="ooo"></label></strong></td>
-
-                </tr>
-                <tr>
-                    <td colspan="2" class="hidden-xs"></td>
-                    <td class="hidden-xs text-center"><strong> <label id="total"></label></strong></td>
-                    <!--<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>-->
-                    <td><button type="submit" class="btn btn-success btn-block"  ng-click="checkOut()" >CheckOut</button></td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-</div>
-
-<!--</div>-->
+    <!--</div>-->
 
 </div>
 
