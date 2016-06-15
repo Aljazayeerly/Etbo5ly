@@ -52,7 +52,7 @@
                             </td>
 
                             <td><button ng-show = "i.statusHasOrders.length != 3" type="submit" ng-click="OrderDetails(i.orderId)" value="View" class="btn btn-primary btn-sm">View Details</button>
-                                <button ng-show = "i.statusHasOrders.length == 3" class="btn btn-info" ng-click="changeOrderStatus(i.orderId - 1)">
+                                <button ng-show = "i.statusHasOrders.length == 3" class="btn btn-info" ng-click="changeOrderStatus(i.orderId)">
                                     <i class="fa fa-refresh"></i>Rate Order
 <!--=======
                             <td><button ng-show = "i.statusHasOrders.length != 3" type="submit" ng-click="OrderDetails(i.orderId)" value="View" class="btn btn-primary btn-sm">View</button>
