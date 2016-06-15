@@ -77,7 +77,7 @@ public class MenuItemsDaoImpl extends GenericDaoImpl<MenuItems> implements
     @Override
     public List<MenuItems> getMenuItemsPage(int page) {
 
-        final int pageSize = 5;
+        final int pageSize = 20;
         final int max = page * pageSize;
         final int min = max - pageSize;
 
