@@ -36,6 +36,7 @@ public class CookDTO {
     private byte[] image;
 
     private int cookStatusStatusId;
+    private int cookRate;
     
     private Set<RoleDTO> roles;
     
@@ -195,6 +196,14 @@ public class CookDTO {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public int getCookRate() {
+        return cookRate;
+    }
+
+    public void setCookRate(int cookRate) {
+        this.cookRate = cookRate;
     }
 
     

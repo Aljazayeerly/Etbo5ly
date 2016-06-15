@@ -65,11 +65,11 @@ DROP TABLE IF EXISTS `etbo5ly`.`menu_items` ;
 CREATE  TABLE IF NOT EXISTS `etbo5ly`.`menu_items` (
   `item_id` INT(11) NOT NULL AUTO_INCREMENT ,
   `name_en` VARCHAR(45) NOT NULL ,
-  `name_ar` VARCHAR(45) NOT NULL ,
+  `name_ar` VARCHAR(45) ,
   `price` FLOAT NOT NULL ,
   `image` LONGBLOB NULL DEFAULT NULL ,
   `description_en` VARCHAR(200) NOT NULL ,
-  `description_ar` VARCHAR(200) NOT NULL ,
+  `description_ar` VARCHAR(200) ,
   `item_rate` SMALLINT(6) NULL DEFAULT NULL ,
   `cook_id` INT(11) NOT NULL ,
   `image_URL` VARCHAR(25) NULL ,

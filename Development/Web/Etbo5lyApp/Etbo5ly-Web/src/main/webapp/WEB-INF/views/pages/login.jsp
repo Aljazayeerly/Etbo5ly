@@ -21,7 +21,6 @@
     <div class="box">
         <h1><fmt:message key="login"/></h1>
 
-        <p class="lead"><fmt:message key="customer"/></p>
         <hr>
         <c:if test="${not empty error}">
             <div class="error">${error}</div>

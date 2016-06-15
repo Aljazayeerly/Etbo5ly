@@ -21,7 +21,7 @@
             authentication-failure-url="/login.htm?error" 
             username-parameter="email"
             password-parameter="password" />
-        <logout logout-success-url="/login.htm?logout"  />
+        <logout logout-url="/login.htm?logout" logout-success-url="/login.htm" delete-cookies="JSESSIONID" invalidate-session="true"/>
         <!-- enable csrf protection -->
         <!--<csrf/>-->
     </http>
