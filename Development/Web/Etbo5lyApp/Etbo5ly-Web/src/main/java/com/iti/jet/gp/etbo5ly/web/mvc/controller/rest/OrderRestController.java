@@ -61,7 +61,7 @@ public class OrderRestController {
         } else {
             orderDTO.setUserByCustomerId(user.getId());
         }
-
+        orderDTO.setCookRating((short)0);
         orderService.createOrder(orderDTO);
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
