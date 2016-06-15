@@ -26,13 +26,13 @@
                     <li><a href="login.htm?logout"><fmt:message key="logout"/></a></li>
                     </sec:authorize>
 
-                <%--<sec:authorize access="!isAuthenticated()">--%>
+                <sec:authorize access="!isAuthenticated()">
                     <li><a href="register.htm"><fmt:message key="register"/></a></li>
-                    <%--</sec:authorize>--%>
-                    <%--<sec:authorize access="!isAuthenticated()">--%>
+                    </sec:authorize>
+                    <sec:authorize access="!isAuthenticated()">
 
                     <li><a href="joinUS.htm"><fmt:message key="joinUs"/></a></li>
-                    <%--</sec:authorize>--%>
+                    </sec:authorize>
                     <sec:authorize access="hasRole('COOK')">
                     <li><a href="cookOrders.htm"><fmt:message key="myorders"/></a></li>
                     </sec:authorize>
@@ -41,13 +41,13 @@
                     </sec:authorize>
 
 
-                <li class="dropdown">
+<!--                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><fmt:message key="language"/><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="?lang=en">English</a></li>
                         <li><a href="?lang=ar_EG">Arabic</a></li>
                     </ul>
-                </li>
+                </li>-->
 
             </ul>
         </div>
