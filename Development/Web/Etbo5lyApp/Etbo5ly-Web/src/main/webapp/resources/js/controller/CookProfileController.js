@@ -47,6 +47,7 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageSe
                             function(d) {
 
                                 self.review = d;
+                                
                             },
                             function(errResponse) {
                                 console.error('Error while fetching ok data in controller');

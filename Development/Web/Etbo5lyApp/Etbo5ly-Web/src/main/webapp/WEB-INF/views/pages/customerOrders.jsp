@@ -51,9 +51,9 @@
                                 <span ng-show = "i.statusHasOrders.length == 4" class="label label-success">Delivered</span>
                             </td>
 
-                            <td><button ng-show = "i.statusHasOrders.length != 3" type="submit" ng-click="OrderDetails(i.orderId)" value="View" class="btn btn-primary btn-sm">View</button>
-                                <button ng-show = "i.statusHasOrders.length == 3" class="btn btn-primary" ng-click="changeOrderStatus(i.orderId - 1)">
-                                    <i class="fa fa-refresh"></i>Status
+                            <td><button ng-show = "i.statusHasOrders.length != 3" type="submit" ng-click="OrderDetails(i.orderId)" value="View" class="btn btn-primary btn-sm">View Details</button>
+                                <button ng-show = "i.statusHasOrders.length == 3" class="btn btn-info" ng-click="changeOrderStatus(i.orderId - 1)">
+                                    <i class="fa fa-refresh"></i>Rate Order
                                 </button>
                             </td>
 

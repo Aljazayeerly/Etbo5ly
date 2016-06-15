@@ -64,7 +64,6 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     .then(
                             function (d) {
                                 $scope.cooks = d;
-//                                alert('cooks' + JSON.stringify($scope.cooks));
 
 
                             },
@@ -276,12 +275,8 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             })
             if (self.addedItems.length == 0)
             {
-                alert("skksks");
                 $scope.emptyCart = true;
-                alert("pppp");
                 $scope.cartHasItems = false;
-                alert("oooo");
-                alert($scope.emptyCart + " " + $scope.cartHasItems);
             }
 
 
@@ -323,6 +318,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             $scope.showCheckedMeal = true;
             $scope.showAllMeals = false;
             $scope.showLocationMeals = false;
+            
             s.selectedCategories = $scope.checkedCategories;
             MenuService.getMealsForCheckedCategories(s)
                     .then(
@@ -333,6 +329,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                                 console.error('Error while fetching Meals catergory in controller');
                             }
                     );
+        
         };
         self.isSelectedLocation = function(id, checked2, index) {
             if (checked2 == true)
@@ -390,7 +387,6 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
 App.controller('DialogControllers', ['$scope', '$mdDialog', '$mdMedia', 'MenuService', 'PageService', function($scope, $mdDialog, $mdMedia, MenuService, PageService) {
 
         var self = this;
-        alert("dialog controller");
         self.countries = [];
         $scope.selectedCity = null;
         $scope.selectedRegion = null;
@@ -398,7 +394,6 @@ App.controller('DialogControllers', ['$scope', '$mdDialog', '$mdMedia', 'MenuSer
         $scope.cities = [];
         $scope.regions = [];
         $scope.cart = PageService.getCart();
-        alert("cart " + $scope.cart.length);
         $scope.totalPrice = PageService.getTotalPrice();
         $scope.hide = function() {
             $mdDialog.hide();
@@ -411,7 +406,6 @@ App.controller('DialogControllers', ['$scope', '$mdDialog', '$mdMedia', 'MenuSer
 
         $scope.orderReviewDialog = function()
         {
-            alert("orderReviewDialog");
             $scope.showA = false;
             $scope.showB = true;
             $scope.orderReviewBtn = false;

@@ -182,13 +182,10 @@
                             <div style="height: 130px;width: 130px;" >
                                 <img src="{{address.resourcesURL}}/{{address.imageUrl}}" style="left:20px; width: 100%;height: 100%">
 
-<<<<<<< HEAD
                                 <!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
                             </div>
                         </div>
-=======
                                     <!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
->>>>>>> 53587580947185f1b0bbacecc185ab2e530a24aa
 
                         <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px; width: 400px;" >
                             <label style="color: black;  font-size: 15px" ng-bind="address.descriptionEn"></label>

@@ -404,7 +404,7 @@ App.controller('cookMenuController', ['$scope', 'cookMenuService', '$location', 
             $scope.showAllMeals = false;
             $scope.showLocationMeals = true;
 
-            alert("in get selected locations");
+//            alert("in get selected locations");
             l.selectedLocations = $scope.checkedLocations;
             // alert(JSON.stringify(l.selectedLocations));
             MenuService.getMealsByLocation(l)
