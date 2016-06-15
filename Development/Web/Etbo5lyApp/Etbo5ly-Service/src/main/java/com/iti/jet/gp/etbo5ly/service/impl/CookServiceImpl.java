@@ -6,13 +6,16 @@
 package com.iti.jet.gp.etbo5ly.service.impl;
 
 import com.iti.jet.gp.etbo5ly.model.dao.interfaces.CookDao;
+import com.iti.jet.gp.etbo5ly.model.dao.interfaces.DocumentDao;
 import com.iti.jet.gp.etbo5ly.service.dto.CookDTO;
 import com.iti.jet.gp.etbo5ly.model.pojo.Cook;
 import com.iti.jet.gp.etbo5ly.model.pojo.Customer;
+import com.iti.jet.gp.etbo5ly.model.pojo.Document;
 import com.iti.jet.gp.etbo5ly.model.pojo.Role;
 import com.iti.jet.gp.etbo5ly.service.CookService;
 import com.iti.jet.gp.etbo5ly.service.dto.CookDocumentDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.CustomerDTO;
+import com.iti.jet.gp.etbo5ly.service.dto.DocumentDTO;
 import com.iti.jet.gp.etbo5ly.service.dto.RoleDTO;
 import com.iti.jet.gp.etbo5ly.service.util.DTOConverter;
 import java.text.DateFormat;
@@ -50,6 +53,9 @@ public class CookServiceImpl implements CookService {
     CookDao cookDao;
 
     @Autowired
+    DocumentDao documentDao;
+
+    @Autowired
     HibernateTemplate hibernateTemplate;
 
     @Autowired
@@ -69,9 +75,18 @@ public class CookServiceImpl implements CookService {
     public List<CookDTO> getAllCookDTOs() {
         List<CookDTO> cookDTOs = new ArrayList<CookDTO>();
         List<Cook> cooks = cookDao.getAll();
+//        List<Document> documents = documentDao.getAll();
         ModelMapper modelMapper = new ModelMapper();
         for (Cook cook : cooks) {
+//            Set<DocumentDTO> documentDTO = new HashSet<>();
             CookDTO cookDTO = modelMapper.map(cook, CookDTO.class);
+//            for (Document document : documents) {
+//                DocumentDTO doumentDTO = modelMapper.map(document, DocumentDTO.class);
+//                if (doumentDTO.getCookId() == cookDTO.getId()) {
+//                    documentDTO.add(doumentDTO);
+//                } 
+//            }
+//            cookDTO.setDocuments(documentDTO);
             cookDTOs.add(cookDTO);
         }
         return cookDTOs;
@@ -171,6 +186,7 @@ public class CookServiceImpl implements CookService {
         return cookDTO;
     }
 
+
     @Override
     @Transactional
     public void changeCookStatus(Cook cook) {
@@ -179,6 +195,7 @@ public class CookServiceImpl implements CookService {
         cookDao.changeCookStatus(cook);
     }
 
+    @Transactional
     public CookDTO registerCook(CookDTO cook) {
         System.out.println("inside the cook register service");
         Cook cookConverter = DTOConverter.cookDTOTOCook(cook);
@@ -256,6 +273,7 @@ public class CookServiceImpl implements CookService {
     }
 
     @Override
+    @Transactional
     public Cook findById(int id) {
         Cook cook = cookDao.find(id);
         return cook;

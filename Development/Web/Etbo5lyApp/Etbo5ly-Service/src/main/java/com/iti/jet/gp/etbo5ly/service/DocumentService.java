@@ -18,5 +18,7 @@ public interface DocumentService {
     public void insertDocument(DocumentDTO document);
 
     public List<Document> findAllByUserId(int id);
+    
+  //  public getAll
 
 }

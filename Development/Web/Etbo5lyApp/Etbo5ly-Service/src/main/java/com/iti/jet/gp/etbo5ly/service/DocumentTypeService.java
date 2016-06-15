@@ -15,4 +15,6 @@ public interface DocumentTypeService {
 
     public DocumentType checkTypeAvailable(String type);
 
+    public String getDocumentType(int id);
+
 }

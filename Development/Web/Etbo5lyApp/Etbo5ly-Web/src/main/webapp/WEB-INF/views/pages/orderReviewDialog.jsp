@@ -52,6 +52,9 @@
                                                                                                             </select>-->
                                                         <select ng-change="onChangeCity(itemSelected)" name="selectedCity" id="selectedCity" ng-model="selectedCity">
                                                             <option ng-repeat="city in cities"selected value="{{city.cityId}}">{{city.cityName}}</option>
+
+                                                            <!--<option  selected>Select City</option>-->
+                                                            <!--<option ng-repeat="city in cities" value="{{city.cityId}}">{{city.cityName}}</option>-->
                                                         </select>
                                                     </div>
                                                 </div>
@@ -68,6 +71,8 @@
                                                                                                             </select>-->
                                                         <select name="selectedRegion" id="selectedRegion" ng-model="selectedRegion">
                                                             <option ng-repeat="region in regions"selected value="{{region.regionId}}">{{region.regionName}}</option>
+<!--                                                            <option selected>Select Region</option>
+                                                            <option ng-repeat="region in regions" value="{{region.regionId}}">{{region.regionName}}</option>-->
                                                         </select>
 
                                                     </div>

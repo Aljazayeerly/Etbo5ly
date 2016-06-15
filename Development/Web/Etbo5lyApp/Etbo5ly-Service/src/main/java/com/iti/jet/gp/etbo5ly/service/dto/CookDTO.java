@@ -6,8 +6,10 @@
 package com.iti.jet.gp.etbo5ly.service.dto;
 
 import com.iti.jet.gp.etbo5ly.service.util.ResourceUtil;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,9 +18,7 @@ import java.util.Set;
  */
 public class CookDTO {
 
-
-   
-    private int regionId;    
+    private int regionId;
     private Integer id;
     private String name;
     private String email;
@@ -34,13 +34,15 @@ public class CookDTO {
     private double latitude;
     private String imageURL;
     private byte[] image;
+    private List<DocumentDTO> documents=new ArrayList<DocumentDTO>();
 
     private int cookStatusStatusId;
+
     private int cookRate;
     
     private Set<RoleDTO> roles;
-    
-    Set<MenuItemDTO> menuItems=new HashSet<>(0);
+
+    Set<MenuItemDTO> menuItems = new HashSet<>(0);
 
     private static String resourcesURL = ResourceUtil.getCooksImagesURL();
 
@@ -152,7 +154,6 @@ public class CookDTO {
         this.menuItems = menuItems;
     }
 
-
     public int getRegionId() {
         return regionId;
     }
@@ -177,11 +178,6 @@ public class CookDTO {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "CookDTO{" + "regionId=" + regionId + ", id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", enabled=" + enabled + ", registerationDate=" + registerationDate + ", phone=" + phone + ", address=" + address + ", startWorkingHours=" + startWorkingHours + ", endWorkingHours=" + endWorkingHours + ", longitude=" + longitude + ", latitude=" + latitude + ", imageURL=" + imageURL + ", cookStatusStatusId=" + cookStatusStatusId + ", menuItems=" + menuItems + '}';
-    }
-
     public Set<RoleDTO> getRoles() {
         return roles;
     }
@@ -198,6 +194,20 @@ public class CookDTO {
         this.image = image;
     }
 
+    public List<DocumentDTO> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(List<DocumentDTO> documents) {
+        this.documents = documents;
+    }
+
+    @Override
+    public String toString() {
+        return "CookDTO{" + "regionId=" + regionId + ", id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", enabled=" + enabled + ", registerationDate=" + registerationDate + ", phone=" + phone + ", address=" + address + ", startWorkingHours=" + startWorkingHours + ", endWorkingHours=" + endWorkingHours + ", longitude=" + longitude + ", latitude=" + latitude + ", imageURL=" + imageURL + ", image=" + image + ", documents=" + documents + ", cookStatusStatusId=" + cookStatusStatusId + ", roles=" + roles + ", menuItems=" + menuItems + '}';
+    }
+
+
     public int getCookRate() {
         return cookRate;
     }
@@ -206,7 +216,4 @@ public class CookDTO {
         this.cookRate = cookRate;
     }
 
-    
-    
-     
 }
