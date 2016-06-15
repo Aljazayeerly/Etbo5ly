@@ -96,6 +96,10 @@ public class CookBean {
     public void getAllCooks() {
 
         cooks = cookService.getAllCookDTOs();
+        System.out.println("resourcesURL  : " + cooks.get(0).getResourcesURL());
+        for (int i = 0; i < cooks.size(); i++) {
+            System.out.println("getImageURL  : " + cooks.get(0).getImageURL());
+        }
     }
 
     public void changeCookState(CookDTO cookDTO) {
@@ -105,8 +109,10 @@ public class CookBean {
         CookStatus cookStatus = new CookStatus();
         cook.setEnabled(cookDTO.getEnabled());
         if (cook.getEnabled() == true) {
-            cookStatus.setStatusId(3);
+            System.out.println("true");
+            cookStatus.setStatusId(1);
         } else if (cook.getEnabled() == false) {
+            System.out.println("false");
             cookStatus.setStatusId(2);
         }
         cook.setCookStatus(cookStatus);

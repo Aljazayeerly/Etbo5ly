@@ -15,7 +15,9 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><font color="#f0ad4e"><b>Cooks</b></font></h3>
             </div>
-            <div  class="panel-body">
+            <!--//ng-controller="MenuController as ctrl"-->
+            <div  class="panel-body" style="overflow-y: scroll;">
+            <!--<div  class="panel-body">-->
 
                 <ul ng-repeat="i in cooks" class="nav nav-pills nav-stacked category-menu">
                     <li>
@@ -46,6 +48,8 @@
 
             </div>
         </div>
+
+<!--        <h3>${local}</h3>-->
 
         <div class="panel panel-default sidebar-menu">
 
@@ -78,10 +82,11 @@
                 <div >
 
                     <!--de div bta3t kol menu ites--> 
-                    <div ng-show="showAllMeals" ng-repeat="i in ctrl.items" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px;">
+                    <div ng-show="showAllMeals" ng-repeat="i in ctrl.items" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px; height: 220px;">
                         <div>
 
                             <div>
+<!--                                <label style="color: #E18728;font-size: 15px ;" ng-bind="${requestScope.local eq 'en'?i.nameEn:i.nameAr}"></label>-->
                                 <label style="color: #E18728;font-size: 15px ;" ng-bind="i.nameEn"></label>
                                 <br>
                                 <label style="color: gray;font-size: 13px" ng-bind="i.cookName"></label>
@@ -91,13 +96,13 @@
                                 <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="left:20px; width: 100%;height: 100%;">
 
                             </div>
-                            <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px;">
-                                <label style="color: #554230;  font-size: 15px" ng-bind="i.descriptionEn"></label>
-                                <label style="color: #E18728;  font-size: 13px" ng-bind="i.price + ' L.E'"></label>
-                            </div>
-                            <div style="margin-left: 510px;">
-                                <button class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color: #f0ad4e;"ng-click="addItem(i.itemId)">Add To Cart</button>
-                            </div>
+                        </div>
+                        <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px; width: 400px;">
+                            <label style="color: #554230;  font-size: 15px ;width: 400px;" ng-bind="i.descriptionEn"></label>
+                            <label style="color: #E18728;  font-size: 13px" ng-bind="i.price + ' L.E'"></label>
+                        </div>
+                        <div style="margin-left: 510px;">
+                            <button class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color: #f0ad4e;" ng-click="addItem(i.itemId)">Add To Cart</button>
                         </div>
                     </div> 
 
@@ -106,7 +111,7 @@
                                         de div bta3t checked categories
                     -->                    
 
-                    <div ng-show="showCheckedMeal"   ng-repeat="j in ctrl.checkedItems" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+                    <div ng-show="showCheckedMeal"   ng-repeat="j in ctrl.checkedItems" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px; height: 220px">
                         <div>
 
                             <div>
@@ -114,18 +119,18 @@
                                 <br>
                                 <label style="color: gray;font-size: 13px" ng-bind="j.cookName"></label>
                                 <br>
-                                <div style="height: 130px;width: 130px;" >
-                                    <img src="{{j.resourcesURL}}/{{j.imageUrl}}" style="left:20px; width: 100%;height: 100%">
-                                </div>
+                            </div>
+                            <div style="height: 130px;width: 130px;" >
+                                <img src="{{j.resourcesURL}}/{{j.imageUrl}}" style="left:20px; width: 100%;height: 100%">
+                            </div>
+                        </div>
+                        <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px; width: 400px;">
+                            <label style="color: black;  font-size: 15px" ng-bind="j.descriptionEn"></label>
+                            <label style="color: #E18728;  font-size: 13px" ng-bind="j.price + ' L.E'"></label>
 
-                                <div>
-                                    <label style="color: black;  font-size: 10px" ng-bind="j.descriptionEn"></label>
-                                </div>
-                                <label style="color: #E18728;  font-size: 13px" ng-bind="j.price + ' L.E'"></label>
-                            </div>
-                            <div>
-                                <button class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color:#f0ad4e; "ng-click="addItem(j.itemId)">Add To Cart</button>
-                            </div>
+                        </div>
+                        <div style="margin-left: 510px;">
+                            <button class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color:#f0ad4e; "ng-click="addItem(j.itemId)">Add To Cart</button>
                         </div>
                     </div>
 
@@ -133,7 +138,7 @@
 
 
 
-                    <div ng-show="showSearchMeals"   ng-repeat="k in ctrl.searchMeals" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+                    <div ng-show="showSearchMeals"   ng-repeat="k in ctrl.searchMeals" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px;height: 220px">
                         <div>
 
                             <div>
@@ -141,21 +146,22 @@
                                 <br>
                                 <label style="color: gray;font-size: 13px" ng-bind="k.cookName"></label>
                                 <br>
-                                <div style="height: 130px;width: 130px;" >
-                                    <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="left:20px; width: 100%;height: 100%">
-
-                                    <!--<label style="color: gray; font-size: 13px" ng-bind="k.cookId"></label>-->
-
-                                </div>
-
-                                <div>
-                                    <label style="color: black;  font-size: 10px" ng-bind="k.descriptionEn"></label>
-                                </div>
-                                <label style="color: #E18728;  font-size: 13px" ng-bind="k.price + ' L.E'"></label>
                             </div>
-                            <div>
-                                <button class="btn btn-default btn-sm btn-primary"  style="background-color: #f0ad4e;border-color:#f0ad4e;" ng-click="addItem(k.itemId)">Add To Cart</button>
+
+                            <div style="height: 130px;width: 130px;" >
+                                <img src="{{i.resourcesURL}}/{{i.imageUrl}}" style="left:20px; width: 100%;height: 100%">
+                                <!--<label style="color: gray; font-size: 13px" ng-bind="k.cookId"></label>-->
                             </div>
+                        </div>
+
+
+                        <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px; width: 400px;">
+                            <label style="color: black;  font-size: 15px" ng-bind="k.descriptionEn"></label>
+                            <label style="color: #E18728;  font-size: 13px" ng-bind="k.price + ' L.E'"></label>
+
+                        </div>
+                        <div style="margin-left: 510px;">
+                            <button class="btn btn-default btn-sm btn-primary"  style="background-color: #f0ad4e;border-color:#f0ad4e;" ng-click="addItem(k.itemId)">Add To Cart</button>
                         </div>
                     </div>
 
@@ -164,7 +170,7 @@
 
 
                     <!--de div bta3t location--> 
-                    <div ng-show="showLocationMeals" ng-repeat="address in ctrl.checkedAddress" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 55px;position: relative;">
+                    <div ng-show="showLocationMeals" ng-repeat="address in ctrl.checkedAddress" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px;height:220px">
                         <div>
 
                             <div>
@@ -172,22 +178,26 @@
                                 <br>
                                 <label style="color: gray;font-size: 13px" ng-bind="address.cookName"></label>
                                 <br>
-                                <div style="height: 130px;width: 130px;" >
-                                    <img src="{{address.resourcesURL}}/{{address.imageUrl}}" style="left:20px; width: 100%;height: 100%">
+                            </div>
+                            <div style="height: 130px;width: 130px;" >
+                                <img src="{{address.resourcesURL}}/{{address.imageUrl}}" style="left:20px; width: 100%;height: 100%">
 
+<<<<<<< HEAD
+                                <!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
+                            </div>
+                        </div>
+=======
                                     <!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
+>>>>>>> 53587580947185f1b0bbacecc185ab2e530a24aa
 
-                                </div>
+                        <div style="margin-left: 150px;  padding-top: -100px; margin-top: -95px; width: 400px;" >
+                            <label style="color: black;  font-size: 15px" ng-bind="address.descriptionEn"></label>
+                            <label style="color: #E18728;  font-size: 13px" ng-bind="address.price + ' L.E'"></label>
 
-                                <div>
-                                    <label style="color: black;  font-size: 10px" ng-bind="address.descriptionEn"></label>
-                                </div>
-                                <label style="color: #E18728;  font-size: 13px" ng-bind="address.price + ' L.E'"></label>
-                            </div>
-                            <div>
-                                <button class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color:#f0ad4e;" ng-click="addItem(address.itemId)">Add To Cart</button>
-                            </div>
+                        </div>
 
+                        <div style="margin-left: 510px;">
+                            <button class="btn btn-default btn-sm btn-primary" style="background-color: #f0ad4e;border-color:#f0ad4e;" ng-click="addItem(address.itemId)">Add To Cart</button>
                         </div>
                     </div> 
 
