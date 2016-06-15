@@ -139,7 +139,7 @@ public class CookDaoImpl extends GenericDaoImpl<Cook> implements
         id = cook.getId();
         return id;
     }
-    
+
     @Override
     public void changeCookStatus(Cook updatedCook) {
 
@@ -162,14 +162,15 @@ public class CookDaoImpl extends GenericDaoImpl<Cook> implements
 //        session.saveOrUpdate(cook1);
 //        
 //    }
-
     @Override
     public void uploadImage(int id, String imageUrl, byte[] image) {
-         Session session=getHibernateTemplate().getSessionFactory().getCurrentSession();
-        Cook cook=(Cook) session.createCriteria(Cook.class).add(Restrictions.eq("id", id)).uniqueResult();
-        cook.setImage(image);
-        cook.setImageURL(imageUrl);
-        session.saveOrUpdate(cook);
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Cook cook = (Cook) session.createCriteria(Cook.class).add(Restrictions.eq("id", id)).uniqueResult();
+        if (cook.getImage() == null) {
+            cook.setImage(image);
+            cook.setImageURL(imageUrl);
+            session.saveOrUpdate(cook);
+        }
     }
 
 }

@@ -34,4 +34,12 @@ public class DocumentTypeDaoImpl extends GenericDaoImpl<DocumentType> implements
         return document;
     }
 
+    @Override
+    public String getDocumentType(int id) {
+        System.out.println("id is " + id);
+          Session session=getHibernateTemplate().getSessionFactory().getCurrentSession();
+        DocumentType document=(DocumentType) session.createCriteria(DocumentType.class).add(Restrictions.eq("documentTypeId", id)).uniqueResult();
+        return document.getType();
+    }
+
 }
