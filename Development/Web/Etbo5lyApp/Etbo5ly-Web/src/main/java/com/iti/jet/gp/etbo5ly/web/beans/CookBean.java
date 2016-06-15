@@ -98,7 +98,7 @@ public class CookBean {
         cooks = cookService.getAllCookDTOs();
         System.out.println("resourcesURL  : " + cooks.get(0).getResourcesURL());
         for (int i = 0; i < cooks.size(); i++) {
-            System.out.println("getImageURL  : " + cooks.get(0).getImageURL());
+            System.out.println("getImageURL  : " + cooks.get(i).getImageURL());
         }
     }
 

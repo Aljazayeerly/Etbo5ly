@@ -22,13 +22,11 @@ and open the template in the editor.
                 <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
 
                     <p:commandLink>
-                        <p:graphicImage library= "resources/images/cooks/" name="menna.jpg"  style="width:200px;width:500px" /> 
+                        <p:graphicImage library= "images/cooks" name="#{cook.imageURL}"  style="width:100px;width:100px" /> 
                     </p:commandLink>
 
                     <p:outputPanel>
                         <h:panelGrid columns="2" cellpadding="5">
-                            <h:outputText value="ID:" />
-                            <h:outputText value="#{cook.id}" style="font-weight: bold"/>
 
                             <h:outputText value="Name:" />
                             <h:outputText id="name" value="#{cook.name}" style="font-weight: bold"/>

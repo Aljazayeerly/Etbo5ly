@@ -10,7 +10,6 @@
 
     <md-dialog aria-label="Mango (Fruit)"  ng-cloak>
         <form method="post">
-            <h1>Checkout</h1>
 
             <form>
                 <md-toolbar style="background-color: #f0ad4e">
