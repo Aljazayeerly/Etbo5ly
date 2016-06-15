@@ -51,6 +51,7 @@
                                                                                                                 <select ng-model="opt1" ng-options="obj.num as obj.code for obj in opts">                                                        <option value="">Select City</option>
                                                                                                             </select>-->
                                                         <select ng-change="onChangeCity(itemSelected)" name="selectedCity" id="selectedCity" ng-model="selectedCity">
+                                                            <option  selected>Select City</option>
                                                             <option ng-repeat="city in cities" value="{{city.cityId}}">{{city.cityName}}</option>
                                                         </select>
                                                     </div>
@@ -65,6 +66,7 @@
                                                                                                                 <option value="">Select Region</option>
                                                                                                             </select>-->
                                                         <select name="selectedRegion" id="selectedRegion" ng-model="selectedRegion">
+                                                            <option selected>Select Region</option>
                                                             <option ng-repeat="region in regions" value="{{region.regionId}}">{{region.regionName}}</option>
                                                         </select>
 

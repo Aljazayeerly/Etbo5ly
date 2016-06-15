@@ -232,9 +232,19 @@ App.controller('OrderCookController', ['$scope', 'orderService', '$mdDialog', '$
             orderStatus.orderStatusStatusId = st;
 //            alert("OrderID : " + orderId);
 //            alert("length : " + $scope.orders.length);
-            PageService.setOrder($scope.orders[orderId]);
-            orderService.changeOrderStatus(orderStatus);
-            $scope.getAllCookOrders();
+            $.each($scope.orders, function(index, item)
+
+            {
+                if (item.orderId == orderId)
+                {
+                    PageService.setOrder($scope.orders[index]);
+                    orderService.changeOrderStatus(orderStatus);
+                    $scope.getAllCookOrders();
+                }
+            });
+//            PageService.setOrder($scope.orders[orderId]);
+
+
         }
 
         $scope.myFilter = function(item)

@@ -38,6 +38,8 @@ public class CookDTO {
 
     private int cookStatusStatusId;
 
+    private int cookRate;
+    
     private Set<RoleDTO> roles;
 
     Set<MenuItemDTO> menuItems = new HashSet<>(0);
@@ -203,6 +205,15 @@ public class CookDTO {
     @Override
     public String toString() {
         return "CookDTO{" + "regionId=" + regionId + ", id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", enabled=" + enabled + ", registerationDate=" + registerationDate + ", phone=" + phone + ", address=" + address + ", startWorkingHours=" + startWorkingHours + ", endWorkingHours=" + endWorkingHours + ", longitude=" + longitude + ", latitude=" + latitude + ", imageURL=" + imageURL + ", image=" + image + ", documents=" + documents + ", cookStatusStatusId=" + cookStatusStatusId + ", roles=" + roles + ", menuItems=" + menuItems + '}';
+    }
+
+
+    public int getCookRate() {
+        return cookRate;
+    }
+
+    public void setCookRate(int cookRate) {
+        this.cookRate = cookRate;
     }
 
 }

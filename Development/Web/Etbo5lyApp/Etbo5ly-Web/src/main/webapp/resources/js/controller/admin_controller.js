@@ -62,7 +62,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         self.getAllCooks = function() {
             MenuService.getAllCooks()
                     .then(
-                            function (d) {
+                            function(d) {
                                 $scope.cooks = d;
 //                                alert('cooks' + JSON.stringify($scope.cooks));
 
@@ -160,6 +160,8 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             order.type = "normal";
             order.longitude = 0;
             order.latitude = 0;
+            order.cookRating = 0;
+            order.cookComment = "";
             order.addressDetails = addressDetails;
             order.regionId = regionID;
             order.totalPrice = $scope.totalPrice;
@@ -174,9 +176,11 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             }
                     );
             $scope.hide();
-            self.addedItems = [];
-            $scope.cartHasItems = false;
+            location.reload();
+            $scope.cartItems = false;
             $scope.emptyCart = true;
+//            alert($scope.emptyCart + " " + $scope.cartItems);
+
         };
         self.getAllMeals();
         self.getList();
@@ -254,7 +258,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             if (self.addedItems.length == 1)
             {
                 $scope.emptyCart = false;
-                $scope.cartHasItems = true;
+                $scope.cartItems = true;
             }
 
         };
@@ -279,9 +283,9 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                 alert("skksks");
                 $scope.emptyCart = true;
                 alert("pppp");
-                $scope.cartHasItems = false;
+                $scope.cartItems = false;
                 alert("oooo");
-                alert($scope.emptyCart + " " + $scope.cartHasItems);
+                alert($scope.emptyCart + " " + $scope.cartItems);
             }
 
 

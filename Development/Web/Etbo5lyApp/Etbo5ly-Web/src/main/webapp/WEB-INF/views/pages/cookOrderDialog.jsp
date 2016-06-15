@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div style="width:300% ;height: 150%; margin-top: 10%; margin-top: 35%;margin-left: 20%;" >
+<div style="width:300% ;height: 150%; margin-top: 10%; margin-top: 80%;margin-left: 20%;" >
     <md-dialog aria-label="Mango (Fruit)"  ng-cloak>
         <form method="post">
 

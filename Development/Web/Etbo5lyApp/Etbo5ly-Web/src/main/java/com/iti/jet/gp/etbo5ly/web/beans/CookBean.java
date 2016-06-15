@@ -48,7 +48,7 @@ public class CookBean {
 
     @Autowired
     CookService cookService;
-    
+
     @Autowired
     DocumentTypeService documentTypeService;
 
@@ -118,10 +118,13 @@ public class CookBean {
     public void getAllCooks() {
 
         cooks = cookService.getAllCookDTOs();
-        System.out.println("cookss " + cooks.toString());
-        for (CookDTO cook : cooks) {
-            System.out.println("cook docuements is " + cook.getDocuments().toString());
-        }
+
+//        System.out.println("cookss " + cooks.toString());
+//        for (CookDTO cook : cooks) {
+//            System.out.println("cook docuements is " + cook.getDocuments().toString());
+//            System.out.println("resourcesURL  : " + cooks.get(0).getResourcesURL());
+//           
+//        }
     }
 
     public void changeCookState(CookDTO cookDTO) {
@@ -131,8 +134,10 @@ public class CookBean {
         CookStatus cookStatus = new CookStatus();
         cook.setEnabled(cookDTO.getEnabled());
         if (cook.getEnabled() == true) {
-            cookStatus.setStatusId(3);
+            System.out.println("true");
+            cookStatus.setStatusId(1);
         } else if (cook.getEnabled() == false) {
+            System.out.println("false");
             cookStatus.setStatusId(2);
         }
         cook.setCookStatus(cookStatus);
@@ -146,10 +151,10 @@ public class CookBean {
         System.out.println("document id is " + documentDTO.getDocumentId());
         HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance()
                 .getExternalContext().getResponse();
-     String type  = documentTypeService.getDocumentType(documentDTO.getDocumentTypeDocumentTypeId());
+        String type = documentTypeService.getDocumentType(documentDTO.getDocumentTypeDocumentTypeId());
         response.setContentType(type);
         response.setHeader("Content-Disposition", "attachment; filename=" + documentDTO.getDescription());
-        ServletOutputStream ouputStream=response.getOutputStream();
+        ServletOutputStream ouputStream = response.getOutputStream();
         ouputStream.write(documentDTO.getDocument(), 0, documentDTO.getDocument().length);
         ouputStream.flush();
         ouputStream.close();

@@ -37,7 +37,7 @@ public class CookDaoImpl extends GenericDaoImpl<Cook> implements
 
     @Override
     public List<Cook> getCooksPage(int page) {
-        final int pageSize = 2;
+        final int pageSize = 10;
         final int max = page * pageSize;
         final int min = max - pageSize;
 

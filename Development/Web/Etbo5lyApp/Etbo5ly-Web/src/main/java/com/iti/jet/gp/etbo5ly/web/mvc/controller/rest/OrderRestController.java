@@ -40,9 +40,13 @@ public class OrderRestController {
     @RequestMapping(value = "/rest/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<OrderDTO>> getAllOrdersByIdService(@RequestParam(value = "customerId") int id) {
 
+        List<OrderDTO> orders = null;
         User user = loggedInUserChecker.getLoggedUser();
-
-        List<OrderDTO> orders = orderService.getAllOrdersByID(user.getId());
+        if (user == null) {
+            orders = orderService.getAllOrdersByID(id);
+        } else {
+            orders = orderService.getAllOrdersByID(user.getId());
+        }
 
         return new ResponseEntity<List<OrderDTO>>(orders, HttpStatus.OK);
 
@@ -52,7 +56,12 @@ public class OrderRestController {
     public ResponseEntity<Void> createOrderService(@RequestBody OrderDTO orderDTO, UriComponentsBuilder ucBuilder) {
 
         User user = loggedInUserChecker.getLoggedUser();
-        orderDTO.setUserByCustomerId(user.getId());
+        if (user == null) {
+            orderDTO.setUserByCustomerId(orderDTO.getUserByCustomerId());
+        } else {
+            orderDTO.setUserByCustomerId(user.getId());
+        }
+
         orderService.createOrder(orderDTO);
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
@@ -85,7 +94,7 @@ public class OrderRestController {
             orders = orderService.getAllCookOrders(user.getId());
         } else {
             System.out.println("null");
-              orders = orderService.getAllCookOrders(id);
+            orders = orderService.getAllCookOrders(id);
         }
         return new ResponseEntity<List<OrderDTO>>(orders, HttpStatus.OK);
 
@@ -94,8 +103,13 @@ public class OrderRestController {
     @RequestMapping(value = "/rest/nonRatedOrders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<OrderDTO>> getAllNonRatedOrders(@RequestParam(value = "customerId") int customerId) {
 
+        List<OrderDTO> orders = null;
         User user = loggedInUserChecker.getLoggedUser();
-        List<OrderDTO> orders = orderService.getAllNonRatedOrdersService(user.getId());
+        if (user == null) {
+            orders = orderService.getAllNonRatedOrdersService(customerId);
+        } else {
+            orders = orderService.getAllNonRatedOrdersService(user.getId());
+        }
 
         return new ResponseEntity<List<OrderDTO>>(orders, HttpStatus.OK);
 
