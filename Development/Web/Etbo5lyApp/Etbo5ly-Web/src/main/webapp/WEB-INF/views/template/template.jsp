@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Spring MVC - Tiles Integration tutorial</title>
+            <title>Etbo5ly</title>
             <!--            <link rel="stylesheet" href="resources/css/screen.css" 
                               type="text/css" media="screen, projection"></link>
                         <link rel="stylesheet" href="resources/css/print.css" 

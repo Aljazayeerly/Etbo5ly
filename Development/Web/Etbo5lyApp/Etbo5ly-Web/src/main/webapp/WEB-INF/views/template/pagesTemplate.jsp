@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head >
+        <title>Etbo5ly</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="resources/css/pageCustomDesign.css" rel="stylesheet"/>

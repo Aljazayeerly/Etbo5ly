@@ -72,7 +72,7 @@
                                         <tr ng-repeat="order in rl.review">
                                             <td ng-bind="order.customerName"></td>
                                             <td ng-bind="order.orderComment"></td>
-                                            <td><div star-rating rating="order.customerRating" read-only="true"></div></td>
+                                            <td><div star-rating rating="order.cookRating" read-only="true"></div></td>
                                         </tr>
                                     </tbody>
                                 </table>

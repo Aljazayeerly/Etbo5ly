@@ -111,7 +111,7 @@ public class Cook extends User implements java.io.Serializable {
         this.menuItems = menuItemses;
     }
 
-    @Formula("(SELECT FLOOR(avg(o.customer_rating)) from etbo5ly.order o,etbo5ly.cook c  where  o.cook_id= c.id and c.id= id )")
+    @Formula("(SELECT FLOOR(avg(o.cook_rating)) from etbo5ly.order o,etbo5ly.cook c  where  o.cook_id= c.id and c.id= id )")
     public Integer getCookRate() {
         return cookRate;
     }

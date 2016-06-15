@@ -34,7 +34,7 @@ INSERT INTO `etbo5ly`.`user` (id,`name`, `email`, `password`, `enabled`, `regist
 INSERT INTO `etbo5ly`.`user` (id,`name`, `email`, `password`, `enabled`, `registeration_date`, `phone`, `address`, `longitude`, `latitude`, `region_id`,`image_url`) VALUES ('4','Salma', 'Salma@gmail.com', '12345', '1', '2015-04-16 17:30:00', '01001358909', 'Shiekh Zayed', '31.005081', '30.050313', '7','salma.jpg');
 INSERT INTO `etbo5ly`.`user` (id,`name`, `email`, `password`, `enabled`, `registeration_date`, `phone`, `address`, `longitude`, `latitude`, `region_id`,`image_url`) VALUES ('5','Noha', 'Noha@gmail.com', '12345', '1', '2015-04-16 17:30:00', '01001358909', 'Shiekh Zayed', '30.975534', '30.059376', '7','noha.jpg');
 INSERT INTO `etbo5ly`.`user` (id,`name`, `email`, `password`, `enabled`, `registeration_date`, `phone`, `address`, `longitude`, `latitude`, `region_id`,`image_url`) VALUES ('6','Sana', 'Sana@gmail.com', '12345', '1', '2015-04-16 17:30:00', '01001358909', 'Masr gdeeda', '31.336098', '30.054664', '4','sana.jpg');
-INSERT INTO `etbo5ly`.`user` (`id`, `name`, `email`, `password`, `enabled`, `registeration_date`, `phone`, `address`, `longitude`, `latitude`, `region_id`) VALUES ('0', 'admin', 'admin@gmail.com', '12345', '1', '2016-06-14 18:14:14', '01001358909', 'ITI', '31.0213383', '31.0213383', '4');
+INSERT INTO `etbo5ly`.`user` (`id`, `name`, `email`, `password`, `enabled`, `registeration_date`, `phone`, `address`, `longitude`, `latitude`, `region_id`) VALUES ('7', 'admin', 'admin@gmail.com', '12345', '1', '2016-06-14 18:14:14', '01001358909', 'ITI', '31.0213383', '31.0213383', '4');
 
 INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('2', '10:00:00', '22:00:00', '2');
 INSERT INTO `etbo5ly`.`cook` (`id`, `start_working_hours`, `end_working_hours`, `cook_status_id`) VALUES ('3', '09:00:00', '18:00:00', '2');
@@ -86,11 +86,14 @@ INSERT INTO `etbo5ly`.`user_has_role` (`user_id`, `role_id`) VALUES ('3', '1');
 INSERT INTO `etbo5ly`.`user_has_role` (`user_id`, `role_id`) VALUES ('4', '1');
 INSERT INTO `etbo5ly`.`user_has_role` (`user_id`, `role_id`) VALUES ('5', '1');
 INSERT INTO `etbo5ly`.`user_has_role` (`user_id`, `role_id`) VALUES ('6', '1');
-INSERT INTO `etbo5ly`.`user_has_role` (`user_id`, `role_id`) VALUES ('0', '3');
+INSERT INTO `etbo5ly`.`user_has_role` (`user_id`, `role_id`) VALUES ('7', '3');
 
 
 
 INSERT INTO `etbo5ly`.`order` (`order_id`, `location`, `duration`, `type`, `customer_id`, `cook_id`, `longitude`, `latitude`, `region_id`, `address_details`) VALUES ('1', 'ITI', '45', '1', '1', '2', '31.021249', '30.071572', '3', 'Information Technology Institute');
+UPDATE `etbo5ly`.`order` SET `order_time`='2016-04-16 17:30:00' WHERE `order_id`='1';
+UPDATE `etbo5ly`.`order` SET `cook_rating`='4' WHERE `order_id`='1';
+
 
 INSERT INTO `etbo5ly`.`order_details` (`quantity`, `price`, `rating`, `comment`, `order_id`, `menu_item_id`) VALUES ('2', '39', '3', 'good', '1', '1');
 INSERT INTO `etbo5ly`.`order_details` (`quantity`, `price`, `rating`, `comment`, `order_id`, `menu_item_id`) VALUES ('1', '30', '4', 'very good', '1', '6');

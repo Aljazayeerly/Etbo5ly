@@ -20,6 +20,7 @@ import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +33,7 @@ import org.springframework.stereotype.Component;
  * @author menna
  */
 @ManagedBean(name = "cookBean")
-@RequestScoped
+@ViewScoped
 @Component
 public class CookBean {
 
@@ -159,6 +160,12 @@ public class CookBean {
         ouputStream.flush();
         ouputStream.close();
 //         FacesContext.getCurrentInstance().responseComplete();
+
+    }
+
+    public void refreshBtn() {
+
+        cooks = cookService.getAllCookDTOs();
 
     }
 }
