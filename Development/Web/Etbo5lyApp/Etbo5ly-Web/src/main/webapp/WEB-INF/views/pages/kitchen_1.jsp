@@ -82,7 +82,7 @@
                 <div >
                     <!--de div bta3t kol menu ites--> 
                     <div class="row">
-                        <div  ng-show="true" dir-paginate="i in ctrl.items | itemsPerPage: 3" current-page="ctrl.currentPage" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px; height: 220px;">
+                        <div  ng-show="showAllMeals" ng-repeat="i in ctrl.items" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px; height: 220px;">
                             <div class="col-md-6" style="float: left">
 
                                 <div >
@@ -106,16 +106,14 @@
                                 </div>
                             </div>
                         </div> 
-                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="resources/js/pagination/dirPagination.tpl.html"></dir-pagination-controls>
-
                     </div>
 
 
                     <!--
                                         de div bta3t checked categories
                     -->                    
-<!--                    <div clas="row">
-                        <div ng-show="showCheckedMeal"   dir-paginate="j in ctrl.checkedItems| itemsPerPage: 3" current-page="ctrl.currentPage" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px; height: 220px">
+                    <div clas="row">
+                        <div ng-show="showCheckedMeal"   ng-repeat="j in ctrl.checkedItems" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px; height: 220px">
                             <div class="col-md-6" style="float:left">
 
                                 <div>
@@ -139,9 +137,7 @@
                                 </div>
                             </div>
                         </div>
-                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="resources/js/pagination/dirPagination.tpl.html"></dir-pagination-controls>
-
-                    </div>-->
+                    </div>
                     <!--de div bta3t search--> 
                     <!--
                     
@@ -178,7 +174,7 @@
 
 
                     <!--de div bta3t location--> 
-<!--                    <div class="row">
+                    <div class="row">
                         <div ng-show="showLocationMeals" ng-repeat="address in ctrl.checkedAddress" style="margin: 2em 0;border: 3px solid #E18728;border-radius: 10px;background-color: white;padding-left: 40px;height:220px">
                             <div class="col-md-6" style="float:left">
 
@@ -191,11 +187,11 @@
                                 <div style="height: 130px;width: 130px;" >
                                     <img src="{{address.resourcesURL}}/{{address.imageUrl}}" style="left:20px; width: 100%;height: 100%">
 
-                                                                        <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>
+                                    <!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
                                 </div>
                             </div>
-                                                                <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>
-                                                                <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>
+                            <!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
+                            <!--                                    <label style="color: gray; font-size: 13px" ng-bind="address.cookId"></label>-->
                             <div class="col-md-6" style="float:left">
                                 <div>
                                     <label style="color: black;  font-size: 15px" ng-bind="address.descriptionEn"></label>
@@ -208,7 +204,7 @@
                                 </div>
                             </div>
                         </div> 
-                    </div>-->
+                    </div>
 
 
                 </div>
