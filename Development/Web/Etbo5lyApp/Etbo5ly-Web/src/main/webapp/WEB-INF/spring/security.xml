@@ -24,6 +24,17 @@
         <logout logout-url="/login.htm?logout" logout-success-url="/login.htm" delete-cookies="JSESSIONID" invalidate-session="true"/>
         <!-- enable csrf protection -->
         <!--<csrf/>-->
+        <intercept-url pattern="/kitchen.htm" access="hasRole('CUSTOMER')"  />
+        <intercept-url pattern="/neighbouringKitchen.htm" access="hasRole('CUSTOMER')"  />
+        <intercept-url pattern="/cart.htm" access="hasRole('CUSTOMER')"  />
+        <intercept-url pattern="/cooksInformation.htm" access="hasRole('CUSTOMER')"  />
+        <intercept-url pattern="/cookProfile.htm" access="hasRole('CUSTOMER')"  />
+        <intercept-url pattern="/addItem.htm" access="hasRole('COOK')"  />
+        <intercept-url pattern="/cookOrders.htm" access="hasRole('COOK')"  />
+        <intercept-url pattern="/adminConfirmCooks.xhtml" access="hasRole('ADMIN')"  />
+
+
+
     </http>
 
     
