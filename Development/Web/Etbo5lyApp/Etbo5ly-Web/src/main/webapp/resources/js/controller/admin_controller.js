@@ -5,7 +5,9 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         var order = {};
         var self = this;
         self.item = {};
+        self.currentPage = 1;
         self.items = [];
+        self.allItems =[];
         self.checkedItems = [];
         self.checkedAddress = [];
         self.order = {};
@@ -53,6 +55,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             function(d) {
 
                                 self.items = d;
+                                self.allItems =d;
                             },
                             function(errResponse) {
                                 console.error('Error while fetching all meals in controller');
@@ -209,7 +212,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     document.getElementById("total").innerHTML = $scope.totalPrice;
                     found = true;
                 }
-            })
+            });
             if (!found)
             {
 
@@ -330,7 +333,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             MenuService.getMealsForCheckedCategories(s)
                     .then(
                             function(d) {
-                                self.checkedItems = d;
+                                self.items = d;
                             },
                             function(errResponse) {
                                 console.error('Error while fetching Meals catergory in controller');
@@ -359,7 +362,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                     .then(
                             function(d) {
 
-                                self.checkedAddress = d;
+                                self.items = d;
                             },
                             function(errResponse) {
                                 console.error('Error while fetching Meals catergory in controller');
