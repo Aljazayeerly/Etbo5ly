@@ -28,6 +28,17 @@
 
             <style>
                 body{ margin-top:20px; margin-bottom:20px; background-color:#DFDFDF;}
+                header {
+
+                    background:url(bg.jpg) no-repeat 0% 0% / 100% auto;
+                    /*background-image: "resources/bg.jpg";*/
+
+                }
+
+                .fullbg {
+
+                    background-color:rgba(31, 20, 20, 0.8);
+                }
             </style>
             <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'/>
 

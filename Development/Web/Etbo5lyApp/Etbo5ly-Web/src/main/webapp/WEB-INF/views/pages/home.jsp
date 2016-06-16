@@ -36,43 +36,44 @@ src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.js"></scri
                 <!--        </nav>-->
 
             </div>
+            <!--<div class="fullbg">-->
+                <div class="col-md-8 col-md-offset-2 col-xs-12 text-center text-banner">
+                    <!--    <div class="call" style="    margin-top: -34px;">
+                                    <p> lang : <a class="lang" href="?lang=en">en</a>|<a class="lang" href="?lang=ar_EG">ar</a></p>
+                                </div>-->
+                    <h2><fmt:message key="introducingEtbokhly"/></h2>
+                    <p><fmt:message key="introducingStatment"/></p>
 
-            <div class="col-md-8 col-md-offset-2 col-xs-12 text-center text-banner">
-                <!--    <div class="call" style="    margin-top: -34px;">
-                                <p> lang : <a class="lang" href="?lang=en">en</a>|<a class="lang" href="?lang=ar_EG">ar</a></p>
-                            </div>-->
-                <h2><fmt:message key="introducingEtbokhly"/></h2>
-                <p><fmt:message key="introducingStatment"/></p>
-
-                <br>
-                <br>
-                <%--<sec:authorize access="hasRole('CUSTOMER')">--%>
-                <div class="demo-content buttondemoBasicUsage">
+                    <br>
+                    <br>
+                    <%--<sec:authorize access="hasRole('CUSTOMER')">--%>
                     <div class="demo-content buttondemoBasicUsage">
-                        <div ng-controller="AppCtrl">
-                            <section layout="row" layout-phone="column" layout-align="center center" layout-wrap>
-                                <sec:authorize access="hasRole('CUSTOMER')">
-                                    <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="neighbouringKitchen.htm">Neighbourhood Kitchens</md-button>
-                                    <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="kitchen.htm">Choose Your meal</md-button>
+                        <div class="demo-content buttondemoBasicUsage">
+                            <div ng-controller="AppCtrl">
+                                <section layout="row" layout-phone="column" layout-align="center center" layout-wrap>
+                                    <sec:authorize access="hasRole('CUSTOMER')">
+                                        <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="neighbouringKitchen.htm">Neighbourhood Kitchens</md-button>
+                                        <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="kitchen.htm">Choose Your meal</md-button>
+                                        </sec:authorize>
+                                        <sec:authorize access="hasRole('COOK')">
+                                        <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="addItem.htm">Add Item</md-button>
+                                        <!--                            <md-button class="md-accent md-raised md-hue-1" id="buttons">Catering</md-button>-->
+                                        <!--                            <button class="md-raised md-primary">Catering</button>-->
+                                        <div class="label"></div>
                                     </sec:authorize>
-                                    <sec:authorize access="hasRole('COOK')">
-                                    <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="addItem.htm">Add Item</md-button>
-                                    <!--                            <md-button class="md-accent md-raised md-hue-1" id="buttons">Catering</md-button>-->
-                                    <!--                            <button class="md-raised md-primary">Catering</button>-->
-                                    <div class="label"></div>
-                                </sec:authorize>
-                                <sec:authorize access="hasRole('ADMIN')">
-                                    <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="adminConfirmCooks.xhtml">Verify Cooks</md-button>
+                                    <sec:authorize access="hasRole('ADMIN')">
+                                        <md-button class="md-accent md-raised md-hue-1" id="buttons" ng-href="adminConfirmCooks.xhtml">Verify Cooks</md-button>
 
-                                </sec:authorize>
-                            </section>
+                                    </sec:authorize>
+                                </section>
+                            </div>
+                            <%--</sec:authorize>--%>
                         </div>
-                        <%--</sec:authorize>--%>
+
                     </div>
 
                 </div>
-
-            </div>
+            <!--</div>-->
 
             </header>
             <div class="container-fluid footer section-container">
