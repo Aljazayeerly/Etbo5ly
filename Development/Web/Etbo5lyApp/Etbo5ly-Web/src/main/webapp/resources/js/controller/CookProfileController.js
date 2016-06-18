@@ -42,12 +42,11 @@ App.controller('cookProfileController', ['$scope', 'cookProfileService', 'PageSe
 
         self.getReview = function()
         {
-            cookProfileService.getAllReviews($scope.selectedId)
+            cookProfileService.getReviews($scope.selectedId)
                     .then(
                             function(d) {
 
                                 self.review = d;
-                                
                             },
                             function(errResponse) {
                                 console.error('Error while fetching ok data in controller');

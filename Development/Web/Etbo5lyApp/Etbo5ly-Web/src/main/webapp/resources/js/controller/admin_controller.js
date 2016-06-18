@@ -7,7 +7,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
         self.item = {};
         self.currentPage = 1;
         self.items = [];
-        self.allItems =[];
+        self.allItems = [];
         self.checkedItems = [];
         self.checkedAddress = [];
         self.order = {};
@@ -55,7 +55,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                             function(d) {
 
                                 self.items = d;
-                                self.allItems =d;
+                                self.allItems = d;
                             },
                             function(errResponse) {
                                 console.error('Error while fetching all meals in controller');
@@ -284,9 +284,10 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             {
                 $scope.emptyCart = true;
                 $scope.cartHasItems = false;
-
                 $scope.cartItems = false;
-            
+                cookId = 0;
+                location.reload();
+
             }
 
 
@@ -328,7 +329,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
             $scope.showCheckedMeal = true;
             $scope.showAllMeals = false;
             $scope.showLocationMeals = false;
-            
+
             s.selectedCategories = $scope.checkedCategories;
             MenuService.getMealsForCheckedCategories(s)
                     .then(
@@ -339,7 +340,7 @@ App.controller('MenuController', ['$scope', 'MenuService', 'MainService', '$mdDi
                                 console.error('Error while fetching Meals catergory in controller');
                             }
                     );
-        
+
         };
         self.isSelectedLocation = function(id, checked2, index) {
             if (checked2 == true)

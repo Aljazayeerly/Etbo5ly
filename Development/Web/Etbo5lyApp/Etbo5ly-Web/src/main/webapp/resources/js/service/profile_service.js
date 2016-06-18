@@ -5,28 +5,26 @@
  */
 
 
-App.factory('cookProfileService', ['$http', '$q', function ($http, $q) {
+App.factory('cookProfileService', ['$http', '$q', function($http, $q) {
 
         return {
-            
-             getCookDataForProfile: function (id)
+            getCookDataForProfile: function(id)
             {
-                return $http.get('/Etbo5ly-Web/rest/cook/cookProfile?id='+ id)
+                return $http.get('/Etbo5ly-Web/rest/cook/cookProfile?id=' + id)
                         .then(
-                                function (response) {
+                                function(response) {
 
                                     return response.data;
                                 },
-                                function (errResponse) {
+                                function(errResponse) {
                                     console.error('Error while fetching cook data in service');
                                     return $q.reject(errResponse);
                                 }
                         );
 
             },
-            
-                getAllReviews: function(id) {
-                return $http.get('/Etbo5ly-Web/rest/cookOrders?cookId='+id)
+            getAllReviews: function(id) {
+                return $http.get('/Etbo5ly-Web/rest/cookOrders?cookId=' + id)
                         .then(
                                 function(response) {
                                     return response.data;
@@ -36,7 +34,22 @@ App.factory('cookProfileService', ['$http', '$q', function ($http, $q) {
                                     return $q.reject(errResponse);
                                 }
                         );
+            },
+            getReviews: function(id) {
+                var data = "";
+                var deferred = $q.defer();
+                $http.get('/Etbo5ly-Web/rest/cookOrders?cookId=' + id)
+                        .success(function(response, status, headers, config) {
+
+                            deferred.resolve(response);
+                        })
+                        .error(function(errResp) {
+                            console.error('Error while fetching near by cooks');
+                            deferred.reject({message: "'Error while fetching near by cooks'"});
+                        });
+                return deferred.promise;
+
             }
         }
-                }]);
+    }]);
         

@@ -27,7 +27,6 @@
                             <!--                        <h1>Order</h1>-->
 
                             <p class="lead">The order was placed on <strong><label ng-bind="order.orderTime"></label></strong></p>
-                            <p class="text-muted">If you have any questions, please feel free to <a href="contact.htm">contact us</a>, our customer service center is working for you 24/7.</p>
 
                             <hr>
 
